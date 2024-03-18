@@ -3,99 +3,62 @@ import styles from "./finance.module.css"
 
 import "../globals.css"
 import RootLayout from "../layout";
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+
+import axios from "axios";
 
 
-export default function Finance() {
-    console.log("MUTTON", styles.main)
+type JSONData = Record<string, any>;
+
+export async function getServerSideProps(context) {
+    const path = "finance"
+    const language = context.locale
+
+	const getData = async (path: String, language: String) => {
+		var API_ENDPOINT = process.env.API_ENDPOINT
+		var TOKEN = process.env.API_TOKEN
+		const url = "https://" + API_ENDPOINT +  path + "?populate=*&locale=" + language
+		const response = await axios.get(url, {
+			headers: {
+				Authorization: `Bearer ${TOKEN}`
+			}
+		});
+		const result = response.data["data"]["attributes"]
+		return {
+			props: {
+				data : result
+			}
+        };
+	}
+
+   
+    
+	
+    try {
+		return await getData(path, language)
+    } catch (error) {
+		if (language != "en") {
+			// Try again in english
+			return await getData(path, "en")
+		}
+      console.log(error)
+    }
+    
+}
+    
+
+export default function Finance({ data }) {
   return (
     <RootLayout>
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          FINANCE PAGE&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <div>
+		<h1>
+			{data["supertitle"]}
+		</h1>
+		<h2>
+			{data["title"]}
+		</h2>
+	  </div>
     </main>
     </RootLayout>
   );
