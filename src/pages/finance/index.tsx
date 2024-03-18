@@ -1,12 +1,18 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./finance.module.css"
 
-export default function Home() {
+import "../globals.css"
+import RootLayout from "../layout";
+
+
+export default function Finance() {
+    console.log("MUTTON", styles.main)
   return (
+    <RootLayout>
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
+          FINANCE PAGE&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
@@ -91,5 +97,6 @@ export default function Home() {
         </a>
       </div>
     </main>
+    </RootLayout>
   );
 }
