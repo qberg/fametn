@@ -1,0 +1,82 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --yellow: #EEB118;
+    --blue: #4E5BA6;
+    --black: #171717;
+    --gray: #475467;
+    --light: #F9FAFB;
+    --white: #fff;
+    --light-accent: #FDF7E8;
+    --grid-sep: 10px;
+    --radius: 12px;
+
+    --transition: ease-in-out 0.3s;
+}
+
+body {
+    margin: 0;
+    background-color: var(--light);
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+p {
+    color: var(--black);
+}
+
+.smaller {
+    font-size: 0.85em;
+    color: var(--gray);
+}
+
+.small {
+    font-size: 0.9em;
+    color: var(--gray);
+}
+
+
+
+.underlined_link {
+    position: relative;
+    width: fit-content;
+}
+
+.underlined_link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--black);
+    transition: var(--transition);
+}
+
+.underlined_link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: var(--black);
+    transition: var(--transition);
+    transition-delay: 0.3s;
+}
+
+.underlined_link:hover::before{
+    width: 0%;
+}
+
+.underlined_link:hover::after{
+    width: 100%;
+}
