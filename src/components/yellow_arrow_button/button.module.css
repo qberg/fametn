@@ -1,0 +1,17 @@
+.arrow {
+    display: inline-block;
+    transform: translateX(7px) translateY(-1px);
+    transition: var(--transition);
+}
+
+.yellowarrow {
+    background-color: var(--yellow);
+    border-radius: var(--small-radius);
+    padding: 0.2em 1em;
+    padding-right: 1.5em;
+    cursor: pointer;
+}
+
+.yellowarrow:hover .arrow {
+    transform: translateX(10px) translateY(-1px);
+}

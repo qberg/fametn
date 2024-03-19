@@ -72,3 +72,8 @@
   display: inline-flex;
   flex-direction: row;
 }
+
+.section3supertitle {
+  color: var(--gray);
+  font-weight: 400;
+}

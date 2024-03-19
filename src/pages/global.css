@@ -11,6 +11,9 @@
     --light-accent: #FDF7E8;
     --grid-sep: 10px;
     --radius: 12px;
+    --small-radius: 7px;
+
+    --tiny-shadow: 0 4px 8px #10182819, 0 2px 4px #1018280f;
 
     --transition: ease-in-out 0.3s;
 }
@@ -79,4 +82,14 @@ p {
 
 .underlined_link:hover::after{
     width: 100%;
+}
+
+.yellowbutton {
+    background-color: var(--yellow);
+    border-radius: var(--small-radius);
+    padding: 0.2em 1em;
+}
+
+[class*=col-] {
+    margin-bottom: 20px;
 }

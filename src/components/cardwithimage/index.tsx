@@ -3,6 +3,7 @@ import { PropsWithChildren } from "react";
 import Image from 'next/image'
 
 import styles from "./card.module.css"
+import YellowArrowButton from "../yellow_arrow_button";
 
 const CardWithImage = ({title, description, link, image} : JSONData) => {
     
@@ -23,18 +24,29 @@ const CardWithImage = ({title, description, link, image} : JSONData) => {
 
     return (
         <div data-aos="fade-up" className={styles.card}>
-            <div>
-                {/* <Image
-                    width="100%"
+            <div className={styles.cardimage}>
+                <Image
+                    className={styles.innerimg}
+                    fill
                     src="/example.png"
                     loader={imgLoader}
+                    style = {
+                        {
+                            objectFit : "cover"
+                        }
+                    }
                     alt={"card image of " + title}
-                    // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                /> */}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
             </div>
-            <div>
+            <div className="mt-3">
                 <h6>{title}</h6>
                 <p>{description}</p>
+                <div className="d-flex">
+                    <div className="ms-auto">
+                        <YellowArrowButton text="View" link={link} />
+                    </div>
+                </div>
             </div>
         </div>
     )

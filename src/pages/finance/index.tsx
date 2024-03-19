@@ -91,7 +91,7 @@ export default function Finance({ data } : JSONData ) {
 					<h2 data-aos="fade-up">{data["section_2_heading"]}</h2>
 				</Col>
 				<Col md={9}>
-					<Row className="mt-2">
+					<Row className="mt-4">
 						{
 							data["flow_chart"].map((each : JSONData) => {
 								return (<Col key={each["id"]} md={3}>
@@ -121,7 +121,7 @@ export default function Finance({ data } : JSONData ) {
 					</Row>
 				</Col>
 			</Row>
-			<Row className="mt-5">
+			<Row className="mt-3">
 				{data["Schemes"].map((each : JSONData)  => {
 					return (<Col key={each["id"]} md={4}>
 						<CardWithImage  title={each["heading"]} description={each["description"]} image={each["image"]} link={each["link"]}/>
@@ -129,6 +129,16 @@ export default function Finance({ data } : JSONData ) {
 				})}
 			</Row>
 		</Container>
+	</Container>
+	<Container>
+		<Row className="mt-5">
+			<Col lg={5}>
+				<h5 data-aos="fade-up" className={styles.section3supertitle}>{data.section_3_supertitle}</h5>
+				<h3 data-aos="fade-up">
+					{data.section_3_title}
+				</h3>
+			</Col>
+		</Row>
 	</Container>
     </RootLayout>
   );
