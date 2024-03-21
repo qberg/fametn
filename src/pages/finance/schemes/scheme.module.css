@@ -1,0 +1,29 @@
+.bluelink {
+    color: var(--blue);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.graylink {
+    text-decoration: underline;
+}
+
+.leftPaneDesktop {
+    /* background-color: cyan; */
+    width: 300px;
+}
+
+.active {
+    background-color: var(--yellow);
+}
+
+.inactive {
+    background-color: var(--light-gray);
+}
+
+
+.rounded {
+    border-radius: var(--radius);
+    padding: 0.5em 1em;
+    cursor: pointer;
+}

@@ -5,14 +5,21 @@ import RootLayout from "../layout";
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 
 import axios from "axios";
-import {JSONData} from "../../utils/definitions"
+import {CacheHeaders, JSONData} from "../../utils/definitions"
 import { Col, Container, Row } from "react-bootstrap";
 import CardWithImage from "@/components/cardwithimage";
 
 
 export async function getServerSideProps(context : JSONData) {
-    const path = "finance"
+    
+	context.res.setHeader(
+		'Cache-Control',
+		CacheHeaders
+	)
+
+	const path = "finance"
     const language = context.locale
+
 
 	const getData = async (path: String, language: String) => {
 		var API_ENDPOINT = process.env.API_ENDPOINT
@@ -45,7 +52,6 @@ export async function getServerSideProps(context : JSONData) {
     
 
 export default function Finance({ data } : JSONData ) {
-	console.log(data["Schemes"][0])
   return (
     <RootLayout>
     <Container>
@@ -102,7 +108,7 @@ export default function Finance({ data } : JSONData ) {
 											</div>
 											<div className={styles.flowchart_arrow}>
 												<Image
-													src="right_arrow.svg"
+													src="/right_arrow.svg"
 													alt="->"
 													width={15}
 													height={15}

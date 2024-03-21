@@ -9,7 +9,7 @@ const YellowArrowButton = ({text, link} : JSONData) => {
                 {text}
                 <div className={styles.arrow}> 
                     <Image
-                        src="right_arrow.svg"
+                        src="/right_arrow.svg"
                         alt="->"
                         width={10}
                         height={10}

@@ -7,6 +7,7 @@
     --black: #171717;
     --gray: #475467;
     --light: #F9FAFB;
+    --light-gray: #F2F4F7;
     --white: #fff;
     --light-accent: #FDF7E8;
     --grid-sep: 10px;
@@ -92,4 +93,9 @@ p {
 
 [class*=col-] {
     margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--gray);
 }
