@@ -85,6 +85,7 @@ p {
     width: 100%;
 }
 
+<<<<<<< Updated upstream
 .yellowbutton {
     background-color: var(--yellow);
     border-radius: var(--small-radius);
@@ -98,4 +99,132 @@ p {
 a {
     text-decoration: none;
     color: var(--gray);
+}
+.list-none {
+    list-style: none;
+  }
+  
+  #left {
+    float: left;
+    width: 18%;
+    overflow: hidden;
+  }
+  /* #lefts {
+    float: left;
+    width: 23%;
+    overflow: hidden;
+  } */
+  .text-gray-600 {
+    color: #4a5568; /* Set the default color to gray */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .text-gray-600:hover {
+    color: #2d3748; /* Set the hover color to a darker gray */
+  }
+  .drop{
+    padding-left: 2px;
+    margin-right: 10px;
+    border: none;
+    background-color: var(--light);
+  }
+  .menu-line {
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    margin-bottom: 3px;
+  }
+  .buttonmenu{
+    margin-right: '10px';
+     background-color: rgb(241, 183, 38);
+     border: 'none' ;
+     border-radius: '20px';
+
+  }
+  .search{
+    border: none;
+    margin-right: '1px';
+    border-radius: 5px;
+    width:'1px';
+    background-color: var(--light);
+
+  }
+  .bordersearch{
+    border: 0.5px solid rgb(238, 236, 236);
+    border-radius: 20px;
+    width: '1px';
+    padding: 5px 10px; 
+    background-color: var(--light);
+  }
+  .search:focus {
+    outline: none; /* Removes the default focus outline */
+    border-color: rgb(173, 140, 51); /* Optional: sets border color to transparent */
+  }
+
+  .action{
+    margin-left: '100px';
+  }
+  .borderDiv {
+    border: none;
+    width: 90px; /* Border style: 2px width, solid line, black color */ /* Optional: Add padding for content inside the div */
+  }
+  .bordersearch input::placeholder {
+    color: rgb(208, 203, 203);/* Placeholder text color */
+  }
+  .line{
+    size: "100px";
+    color: aliceblue;
+    height: 2px;
+    width:"50%";
+    margin-top: 70px;
+
+    
+  }
+  .bord{
+    border-color: white;
+    border: 2px;
+  }
+ 
+
+
+/* .box{
+    border:1px solid red;
+    width: 400px;
+    height:20px;
+    margin-right: 0.5px;
+    margin-left: 1px;
+    bottom: 0;
+    position: relative;
+
+  
+} */
+.bottom-left {
+
+    left: 0;
+    margin-top: 300px;
+    margin-left: -51.8%;
+}
+.bottom-lefts {
+
+ 
+    margin-top: 300px;
+    margin-left: 17%;
+    position: absolute;
+}
+.separator {
+    margin: 0 3px; /* Add spacing around the separator */
+    color: #5b5959; /* Set color of the separator */
+    margin-top: 350px;
+    margin-left: 19%;
+    position: absolute;
+}
+.bottom-right{
+    margin-top: 300px;
+    margin-left: 75%;
+    position: absolute;
+}
+
+.text-white {
+    color: #fff; /* Set text color to white */
+
 }

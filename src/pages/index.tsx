@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <RootLayout>
     <main>
-        Dummy home page
+    
     </main>
     </RootLayout>
   );
