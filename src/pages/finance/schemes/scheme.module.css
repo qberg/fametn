@@ -11,6 +11,7 @@
 .leftPaneDesktop {
     /* background-color: cyan; */
     width: 300px;
+    margin-right: 2em;
 }
 
 .active {
@@ -25,5 +26,45 @@
 .rounded {
     border-radius: var(--radius);
     padding: 0.5em 1em;
+    margin-bottom: 0.5em;
     cursor: pointer;
+}
+
+.leftcontent {
+    transition: var(--transition);
+}
+
+.expand {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.contract {
+    max-height: 0;
+    overflow-y: hidden;
+    opacity: 0;
+}
+
+.subtext {
+    color: var(--gray);
+    font-weight: 400;
+    width: max-content;
+}
+
+.line {
+    /* position: absolute; */
+    transform: translateY(12px);
+    margin-left: 20px;
+    flex-grow: 1;
+    height: 2px;
+    background-color: var(--light-gray);
+}
+
+.fscheme {
+    width: 100%;
+}
+
+.fschemelineparent {
+    display: flex;
+    position: relative;
 }

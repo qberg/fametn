@@ -6,10 +6,11 @@ import styles from "./scheme.module.css"
 import Separator from "@/components/separator";
 import Image from 'next/image'
 import { CacheHeaders, JSONData } from "@/utils/definitions";
-
+import { getData } from "@/utils/api_calls";
 
 
 import axios from "axios";
+import { useState } from "react";
 
 export async function getServerSideProps(context : JSONData) {
 
@@ -17,49 +18,44 @@ context.res.setHeader(
 'Cache-Control',
 	CacheHeaders
 )
-const {scheme} = context.query;
+const {category, page} = context.query;
 const language = context.locale
 
-const getData = async (url: string, language: String) => {
-	var API_ENDPOINT = process.env.API_ENDPOINT
-	var TOKEN = process.env.API_TOKEN
-	var response = null
-	try {
-		response = await axios.get(url, {
-			headers: {
-				Authorization: `Bearer ${TOKEN}`
-			}
-		});
-	}
-	catch (error) {
-		if (language != "en") {
-			response = await axios.get(url, {
-				headers: {
-					Authorization: `Bearer ${TOKEN}`
-				}
-			});
-		}
-		console.log(error);
-	}
-	
-	return response?.data
-}
+const path = "finance-scheme-categories?populate[finance_schemes][fields][0]=scheme_link&populate[finance_schemes][fields][1]=scheme_name&populate[finance_schemes][fields][2]=scheme_description&populate[finance_schemes][fields][3]=government&populate[finance_schemes][populate][0]=icon&populate[finance_schemes][populate][1]=finance_scheme_implementing_agency"
+
+
 
 // Get all categories and top schemes
-const categoryUrl = "https://" + process.env.API_ENDPOINT + "finance-scheme-categories"
+const categoryUrl = "https://" + process.env.API_ENDPOINT + path
 const categoryData = await getData(categoryUrl, language)
 
+const categoryList = categoryData.data.map((item: JSONData) => ({
+	"text": item.attributes.name, 
+	"link" : item.attributes.name.toLowerCase().replace(" ", "-"),
+	"schemes" : item.attributes.finance_schemes.data
+}))
+// const categoryNameLinkList = categoryData.data.map((item: JSONData) => ())
 
 
+const currentPage = page | 0
+var currentCategory = null
+
+
+
+console.log(category, categoryList)
+if ( category && categoryList.map((item: JSONData) => item.link).includes(category)) {
+	currentCategory = category
+}
 return {
 	props : {
-		categoryData : categoryData
+		categories : categoryList,
+		currentCategory: currentCategory
 	}
 }
 }
 
-export default function Finance({ data } : JSONData ) {
-
+export default function Finance({ currentCategory, categories } : JSONData ) {
+	const [category, setCategory] = useState(currentCategory);
 return (
 	<RootLayout>
 		<Container>
@@ -75,15 +71,45 @@ return (
 				{/* Default display none, block display for large screens */}
 				<div className={`d-none d-lg-block ${styles.leftPaneDesktop}`}>
 					<div>
-						SEARCHBOX PLACEHOLDER
+						SEARCHBOX PLACEHOLDER {currentCategory}
 					</div>
 
-					<Link href ="/finance/schemes">
-						<div className={`${styles.rounded} ${false? styles.inactive : styles.active}`} >
+					<Link onClick={() => setCategory(null)} href ="/finance/schemes">
+						<div className={`${styles.rounded} ${category? styles.inactive : styles.active}`} >
 							All Categories
 						</div>
 					</Link>
+					{categories.map((each: JSONData) => {
+						return (<div key={each.id}>
+							<Link key={each.id} onClick={() => setCategory(each.link)} href={`/finance/schemes?category=${each.link}`}>
+								<div className={`${styles.rounded} ${(category && category == each.link)? styles.active : styles.inactive}`}>
+									{each.text}
+								</div>
+					
+							</Link>
 
+						<div className={`${styles.leftcontent} ${(category && category == each.link)? styles.expand : styles.contract}`}>
+						{each.schemes.map((scheme: JSONData) => {
+							console.log(scheme)
+							return (
+								<Link key={scheme.id} href={`/finance/schemes/${scheme.attributes.scheme_link}`}> 
+									<div>
+										{scheme.attributes.scheme_name}
+									</div>
+								</Link>
+
+							)
+						})}
+						</div></div>
+						)
+					})}
+				</div>
+				<div className={styles.fscheme}>
+					<h2>Schemes</h2>
+					<div className={`d-none d-lg-flex ${styles.fschemelineparent}`}>
+						<h5 className={styles.subtext}>Featured Schemes</h5>
+						<div className={styles.line}></div>
+					</div>
 				</div>
 			</div>
 
