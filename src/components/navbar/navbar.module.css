@@ -1,25 +1,74 @@
 .navbar {
-    background-color: #333;
-    padding: 1rem;
-  }
-  
-  .navbarList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
-  
-  .navbarItem {
-    margin-right: 1rem;
-  }
-  
-  .navbarLink {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navbarLink:hover {
-    text-decoration: underline;
-  }
-  
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between; /* Align items to both ends */
+  background-color: var(--light);
+}
+
+.logo {
+  order: -1; /* Move the logo to the beginning */
+}
+.logos {
+  order: -4; /* Move the logo to the beginning */
+}
+
+.navbarList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbarItem {
+  margin-left: 1rem; /* Add margin to the left of each item */
+  float:right;
+}
+
+.navbarLink {
+  color: #260505;
+  text-decoration: none;
+}
+
+.navbarLink:hover {
+  text-decoration: underline;
+}
+
+.searchBox {
+  /* Add your custom styles for the search button here */
+  background-color: var(--light); /* Example background color */
+  color: #fff; /* Example text color */
+  border: 2px solid black;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchBox:focus {
+  outline: none; /* Removes the default focus outline */
+  border-color: transparent; /* Optional: sets border color to transparent */
+}
+
+.box {
+  width: 10px; /* Adjust width as needed */
+  height: 10px; /* Adjust height as needed */
+  background-color: yellow;
+  border: 2px solid black; /* Add a black border with 2px width */
+}
+
+.menuButton {
+  background-color: rgb(219, 160, 11);
+}
+
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.drop{
+  padding-left: 45px;
+}
