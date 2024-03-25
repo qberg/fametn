@@ -1,9 +1,21 @@
 /** @type {import('next').NextConfig} */
+
+console.log("BEFORE", process.env.NEXT_PUBLIC_IMG_ENDPOINT)
 const nextConfig = {
-    i18n: {
-        locales: ['en', 'ta'],
-        defaultLocale: 'en',
+  i18n: {
+    locales: ['en', 'ta'],
+    defaultLocale: 'en',
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_IMG_ENDPOINT.replace("https://", ""),
+        port: '',
+        pathname: '/uploads/**',
       },
+    ],
+  },
 };
 
 export default nextConfig;

@@ -69,6 +69,15 @@
   display: inline-block;
   font-size: 16px;
 }
+
 .drop{
   padding-left: 45px;
+}
+
+.navbar_wrapper {
+  background-color: var(--almost-white);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 }

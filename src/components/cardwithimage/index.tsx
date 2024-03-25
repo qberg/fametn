@@ -38,10 +38,10 @@ const CardWithImage = ({title, description, link, image} : JSONData) => {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 d-flex flex-grow-1 flex-column">
                     <h6>{title}</h6>
-                    <p>{description}</p>
-                    <div className="d-flex">
+                    <p className="small">{description}</p>
+                    <div className="d-flex mt-auto">
                         <div className="ms-auto">
                             <YellowArrowButton text="View" link={link} />
                         </div>

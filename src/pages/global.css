@@ -8,8 +8,11 @@
     --gray: #475467;
     --light: #F9FAFB;
     --light-gray: #F2F4F7;
+    --almost-white: #FCFCFD;
     --white: #fff;
     --light-accent: #FDF7E8;
+    --red: #C53B55;
+    --blue: #3677DB;
     --grid-sep: 10px;
     --radius: 12px;
     --small-radius: 7px;
@@ -37,15 +40,20 @@ p {
     color: var(--black);
 }
 
+.smallest {
+  font-size: 0.65em;
+}
+
 .smaller {
-    font-size: 0.85em;
+    font-size: 0.8em;
     color: var(--gray);
 }
 
 .small {
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: var(--gray);
 }
+
 
 
 
@@ -85,7 +93,6 @@ p {
     width: 100%;
 }
 
-<<<<<<< Updated upstream
 .yellowbutton {
     background-color: var(--yellow);
     border-radius: var(--small-radius);
@@ -126,7 +133,7 @@ a {
     padding-left: 2px;
     margin-right: 10px;
     border: none;
-    background-color: var(--light);
+    background-color: var(--almost-white);
   }
   .menu-line {
     width: 20px;
@@ -151,10 +158,12 @@ a {
   }
   .bordersearch{
     border: 0.5px solid rgb(238, 236, 236);
-    border-radius: 20px;
+    border-radius: var(--radius);
     width: '1px';
     padding: 5px 10px; 
-    background-color: var(--light);
+    display: flex;
+    width: 100%;
+    /* background-color: var(--light); */
   }
   .search:focus {
     outline: none; /* Removes the default focus outline */
@@ -166,7 +175,9 @@ a {
   }
   .borderDiv {
     border: none;
-    width: 90px; /* Border style: 2px width, solid line, black color */ /* Optional: Add padding for content inside the div */
+    display: flex;
+    /* width: 90px;  */
+    /* Border style: 2px width, solid line, black color */ /* Optional: Add padding for content inside the div */
   }
   .bordersearch input::placeholder {
     color: rgb(208, 203, 203);/* Placeholder text color */
@@ -227,4 +238,13 @@ a {
 .text-white {
     color: #fff; /* Set text color to white */
 
+}
+
+
+.horiz_line {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  /* transform: translateY(12px); */
+  height: 2px;
+  background-color: var(--light-gray);
 }
