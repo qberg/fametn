@@ -9,7 +9,6 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
     const customPath = icon?.data?.attributes?.formats?.small?.url
     const iconPath = customPath ? process.env.NEXT_PUBLIC_IMG_ENDPOINT + customPath : "/default_scheme.webp"
     
-    console.log(link)
     return (
         <div data-aos="fade-up" className={styles.card}>
             <div className="d-flex">

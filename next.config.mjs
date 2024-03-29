@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-console.log("BEFORE", process.env.NEXT_PUBLIC_IMG_ENDPOINT)
 const nextConfig = {
   i18n: {
     locales: ['en', 'ta'],

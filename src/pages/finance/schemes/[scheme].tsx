@@ -26,8 +26,6 @@ export const getServerSideProps = (async (context: JSONData) => {
 	const fullData = await getData(url, language)
 
 	if (fullData.meta.pagination.total != 1) {
-		console.log("NOT FOUND")
-
 		context.res.writeHead(307, { Location: '/not-found' });
 		context.res.end();
 		return {
@@ -53,8 +51,6 @@ export default function Finance({ data, id }: JSONData) {
 	if (id == null) {
 		notFound()
 	}
-
-	console.log(data)
 	return (
 		<RootLayout>
 			<Container>
