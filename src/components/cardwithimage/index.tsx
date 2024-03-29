@@ -43,7 +43,7 @@ const CardWithImage = ({title, description, link, image} : JSONData) => {
                     <p className="small">{description}</p>
                     <div className="d-flex mt-auto">
                         <div className="ms-auto">
-                            <YellowArrowButton text="View" link={link} />
+                            <YellowArrowButton text="View" />
                         </div>
                     </div>
                 </div>

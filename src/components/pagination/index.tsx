@@ -53,7 +53,6 @@ const Pagination = ({ page, totalPages }: JSONData) => {
         <Image
             width={13}
             height={13}
-            
             src="/page_right.svg"
             alt="<"
         />
@@ -72,18 +71,18 @@ const Pagination = ({ page, totalPages }: JSONData) => {
             {(page > 1) ? (<Link href={getPage(page - 1)}>
                 {prevItem}
             </Link>) : (<div style={{ opacity: 0.5, cursor: "not-allowed" }}>{prevItem}</div>)}
-            {displayedPageLinks.map(pageNumber => {
+            {displayedPageLinks.map((pageNumber: number, id: number) => {
                 if (pageNumber != 0) {
                     return (
                     
-                    <Link className={`${styles.pgnumber} ${(pageNumber==page)? styles.active : styles.inactive}`} href={getPage(pageNumber)}>
+                    <Link key={id} className={`${styles.pgnumber} ${(pageNumber==page)? styles.active : styles.inactive}`} href={getPage(pageNumber)}>
                         <div>
                             {pageNumber}
                         </div>
                     </Link>)
                 } else {
                     return (
-                        <div style={{cursor: "not-allowed" }} className={styles.pgnumber}>
+                        <div key={id} style={{cursor: "not-allowed" }} className={styles.pgnumber}>
                             ...
                         </div>
                     )
