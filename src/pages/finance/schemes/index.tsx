@@ -77,12 +77,12 @@ const NoResult = () => {
 	</div>)
 }
 
-const MobileStickyTop = () => {
+const MobileStickyTop = ({max_top, children}: JSONData) => {
 
-	const [refY, setRefY] = useState(218)
+	const [refY, setRefY] = useState(28)
+	const refYasRef = useRef<number>(28);
 	const [scrollPosition, setScrollPosition] = useState(218);
 	const targetRef = useRef(null);
-	const max_top = 70;
 	useEffect(() => {
 
 		const updateScrollPosition = () => {
@@ -91,10 +91,13 @@ const MobileStickyTop = () => {
 
 				try {
 					const parentRect = targetRef.current.offsetParent.getBoundingClientRect();
-					setRefY(Math.max(rect.top - parentRect.top, refY))
-				} catch { }
+					refYasRef.current = Math.max(rect.top - parentRect.top, refYasRef.current)
+					console.log("HEREs d", Math.max(rect.top - parentRect.top, refYasRef.current))
+				} catch { 
+					console.log("ERROR")
+				}
 
-				setScrollPosition(refY - window.pageYOffset)
+				setScrollPosition(refYasRef.current - window.pageYOffset)
 			}
 		};
 		window.addEventListener('scroll', updateScrollPosition);
@@ -105,14 +108,14 @@ const MobileStickyTop = () => {
 
 	const content = (
 		<div>
-			<p>Scroll position: {scrollPosition}</p>
+			{children}
 		</div>
 	)
 
 	return (
 		<>
-			{/* {(scrollPosition <= max_top) && (<div style={{position: "fixed", top: max_top}}>{content}</div>)} */}
-			{/* <div ref={targetRef}>{content}</div> */}
+			{(scrollPosition <= max_top) && (<div style={{position: "fixed", top: max_top, zIndex: 3, width: "100%"}}>{content}</div>)}
+			<div ref={targetRef}>{content}</div>
 		</>
 
 	);
@@ -247,7 +250,9 @@ export default function Finance({ currentCategory, categories, agencyList }: JSO
 						</div>
 
 						<div className="d-block d-lg-none">
-							<MobileStickyTop />
+							<MobileStickyTop max_top={62} >
+								<div className={styles.mobilecategory}>Categories for mobile view</div>
+							</MobileStickyTop>
 						</div>
 
 						<div data-aos="fade-up" className={`d-lg-flex ${styles.fschemelineparent}`}>
