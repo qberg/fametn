@@ -82,7 +82,7 @@ const MobileStickyTop = ({max_top, children}: JSONData) => {
 	const [refY, setRefY] = useState(28)
 	const refYasRef = useRef<number>(28);
 	const [scrollPosition, setScrollPosition] = useState(218);
-	const targetRef = useRef(null);
+	const targetRef = useRef<HTMLInputElement>(null);
 	useEffect(() => {
 
 		const updateScrollPosition = () => {
@@ -90,8 +90,8 @@ const MobileStickyTop = ({max_top, children}: JSONData) => {
 				const rect = targetRef.current.getBoundingClientRect();
 
 				try {
-					const parentRect = targetRef.current.offsetParent.getBoundingClientRect();
-					refYasRef.current = Math.max(rect.top - parentRect.top, refYasRef.current)
+					const parentRect = targetRef.current.offsetParent?.getBoundingClientRect(); 
+					refYasRef.current = Math.max(rect.top - (parentRect?.top || 0), refYasRef.current)
 				} catch { 
 				}
 
