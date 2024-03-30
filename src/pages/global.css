@@ -1,5 +1,5 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 :root {
   --yellow: #EEB118;
@@ -31,15 +31,15 @@ html {
 
 body {
   scroll-behavior: smooth !important;
-  margin: 0;
-  background-color: var(--light);
-  font-family: "Poppins", sans-serif;
+  margin: 0 !important;
+  background-color: var(--light) !important;
+  font-family: "Poppins", sans-serif !important;
   max-width: 100vw !important;
 
 }
 
 h1 {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 h2,
@@ -47,11 +47,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 p {
-  color: var(--black);
+  color: var(--black) !important;
 }
 
 .smallest {
@@ -114,12 +114,12 @@ p {
 }
 
 [class*=col-] {
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
 }
 
 a {
-  text-decoration: none;
-  color: var(--gray);
+  text-decoration: none !important;
+  color: var(--gray) !important;
 }
 
 .list-none {
@@ -232,19 +232,6 @@ a {
   border: 2px;
 }
 
-
-
-/* .box{
-    border:1px solid red;
-    width: 400px;
-    height:20px;
-    margin-right: 0.5px;
-    margin-left: 1px;
-    bottom: 0;
-    position: relative;
-
-  
-} */
 .bottom-left {
 
   left: 0;
@@ -283,3 +270,4 @@ a {
   height: 2px;
   background-color: var(--light-gray);
 }
+
