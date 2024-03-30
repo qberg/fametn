@@ -7,7 +7,7 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import { notFound } from "next/navigation";
 import { getData } from "@/utils/api_calls";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import styles from "./scheme.module.css"
 import Link from "next/link";
 import Separator from "@/components/separator";
@@ -48,7 +48,6 @@ export const getServerSideProps = (async (context: JSONData) => {
 })
 
 
-
 export default function Finance({ data, id }: JSONData) {
 	if (id == null) {
 		notFound()
@@ -67,19 +66,16 @@ export default function Finance({ data, id }: JSONData) {
 					<Separator />
 					<Link className={styles.graylink} href={`/finance/schemes/${data.scheme_link}`}>{data.scheme_name}</Link>
 				</div>
-	
 				<div data-aos="fade-up" className={styles.scheme_banner}>
 					<div data-aos="fade-up" className="d-flex smallest">
 						<div className={styles.black_info}>
 							<div className={styles.red_square}></div>
 							{data.government}
 						</div>
-
 						<div className={styles.black_info}>
 							<div className={styles.blue_square}></div>
 							{data.government}
 						</div>
-
 					</div>
 					<h1 data-aos="fade-up">
 						{data.scheme_name}
@@ -89,10 +85,89 @@ export default function Finance({ data, id }: JSONData) {
 					</p>
 				</div>
 				<div className={styles.scheme_content}>
-					Jos
-				</div>
-			</Container>
+    <div className={styles.mainContent}>
+        <div className={styles.buttonContainer}>
+            <button className={styles.button}>objective</button>
+            <button className={styles.button}>key benefits</button>
+            <button className={styles.button}>Eligibility</button>
+            <button className={styles.button}>How to Apply</button>
+        </div>
+		<div className="container mb offset-md-1">
 
 
+		<div className="row justify-content-between">
+  <div className="col-3" style={{ borderRight: '1px solid #ccc' }}>
+    <div className={styles.textAfterButtons}>
+      {data.benificiaries}
+    </div>
+    <div style={{ marginBottom: '10px' }}>Beneficiaries</div>
+  </div>
+  <div className="col-8">
+    <div className={styles.textAfterButtons}>{data.successfully_applied}</div>
+    <div style={{ marginBottom: '10px' }}>Successfully Applied</div>
+  </div>
+</div>
+
+
+</div>
+<div className={styles.container}>
+<div className={styles.section}>
+{/* <h4 className={styles.key}>KEY BENEFITS</h4> */}
+<div className={styles.key}>
+<img src="/Goal_target.svg" alt="Your Image" />
+<h6>OBJECTIVES</h6>
+</div>
+<div className={styles.bullet}>
+	<ul className={styles.bulletList}>
+		<li>{data.objective}
+		</li></ul>
+</div>
+<div className={styles.key}>
+<img src="/Frame.svg" alt="Your Image" />
+  <h6>KEY BENEFITS</h6>
+
+</div>
+<div className={styles.bullet}>
+    <ul className={styles.bulletList}>
+      {data["key_benifits"].map((benefit: JSONData) => (
+        <li key={benefit.id}>{benefit.heading}</li>
+      ))}
+    </ul>
+	</div>
+	
+  <div className={styles.key}>
+<img src="/Frame 204.svg" alt="Your Image" />
+  <h6>ELIGIBILITY CRITERIA</h6>
+</div>
+<div className={styles.bullet}>
+<ul className={styles.bulletList}>
+  {data["eligibility_criteria"].map((criteria: JSONData) => (
+    <li key={criteria.id}>
+    <div style={{ fontWeight: 500 }}>{criteria.heading}</div>
+      <div className={styles.description}>
+        {criteria.description}
+      </div>
+    </li>
+  ))}
+</ul>
+</div>
+<div className={styles.key}>
+<img src="/Frame 204.svg" alt="Your Image" />
+  <h6>HOW TO APPLY/ OFFICE TO CONTACT</h6>
+</div>
+
+
+
+  </div>
+</div>
+
+		 {/* Add this line */}
+    </div>
+    <div className={styles.sideContent}>
+
+    </div>
+</div>
+
+</Container>
 		</RootLayout>)
 }

@@ -155,6 +155,8 @@
     position: relative;
     min-height: 12em;
     border-radius: var(--radius);
+    display: flex;
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -163,4 +165,141 @@
       margin-left: 1em;
     margin-right: 1em;
     }
+  }
+  .scheme_content {
+    display: flex;
+}
+
+.mainContent {
+    flex: 0 0 70%;
+
+    /* flex-grow: 0; flex-shrink: 0; flex-basis: 60%; */
+}
+
+.sideContent {
+    flex: 0 0 30%;
+    /* flex-grow: 0; flex-shrink: 0; flex-basis: 40%; */
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.button {
+    border: 1px solid black;
+    padding: 8px 15px; /* Adjust padding as needed */
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    font-weight: 600; 
+    width: auto; /* Allow the button to adjust its width based on content */
+}
+.button:hover {
+    background-color: navy; /* Change background color to blue on hover */
+    color: white;
+}
+.textAfterButtons {
+    color: navy; /* Set text color */
+    font-size: 20px; /* Set font size */
+    margin-top: 10px;
+    font-weight: bold; /* Add some margin from the button area */
+}
+.ach_num {
+    color: var(--navy);
+    font-size: 0.7em;
+    font-weight: 10;
+  }
+  
+  .ach_info {
+  
+  }
+  .hero {
+    padding-top: 5em;
+  }
+  
+  .supertitle {
+    text-transform: uppercase;
+    background-color: var(--yellow);
+    width: fit-content;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.4em;
+    padding-bottom: 0.1em;
+    color: var(--white);
+  }
+  
+  .title {
+    text-transform: uppercase;
+    margin-top: 0.75em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    position: relative;
+    /* max-width: 80%; */
+  }
+ .key{
+    height:30px;
+    position: relative;
+    margin-left: 3em;
+    background-color: rgb(249, 248, 248);
+    font-size: 15px;
+    font-weight: 800;
+    color: rgb(47, 47, 119);
+    padding-top: 0.5em; /* Adjust the top margin as needed */
+    margin-bottom: 2em;
+    height: 40px;  
+    content: "";
+    display: flex;
+    align-items: center;
+
+ }
+
+  .key::before {
+    content: ''; /* Create a pseudo-element */
+    position: absolute; /* Position it relative to the parent */
+    top: 0; /* Align it to the top of the parent */
+    left: 0; /* Align it to the left side of the parent */
+    width: 2px; /* Width of the vertical line */
+    height: 100%; /* Height of the vertical line */
+    background-color:  rgb(47, 47, 119); /* Color of the vertical line */
+    margin-left: 0; /* Remove default margin */
+}
+.key img {
+    max-width: 2em;
+    margin-left: 0.7em;
+    padding-bottom: 0.7em; /* Adjust the width of the image */
+  }
+  
+  .key h6 {
+ 
+    margin-left: 0.8em; /* Adjust as needed */
+    
+  }
+ .vl {
+    height:100px;
+    width: 20px;
+    border: 2px solid black;
+  }
+  
+  .bulletList {
+    list-style-image: url('/Vector.svg');
+    margin-bottom: 5em;
+  }
+  .bulletList li {
+    margin-bottom: 3em;
+  }
+  .description {
+    white-space: pre-line;
+    font-size: 200;
+
+  }
+  .bullet{
+    margin-left:3.5em;
+
+    margin-bottom: 5em;
+
   }
