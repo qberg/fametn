@@ -92,9 +92,7 @@ const MobileStickyTop = ({max_top, children}: JSONData) => {
 				try {
 					const parentRect = targetRef.current.offsetParent.getBoundingClientRect();
 					refYasRef.current = Math.max(rect.top - parentRect.top, refYasRef.current)
-					console.log("HEREs d", Math.max(rect.top - parentRect.top, refYasRef.current))
 				} catch { 
-					console.log("ERROR")
 				}
 
 				setScrollPosition(refYasRef.current - window.pageYOffset)
@@ -201,10 +199,10 @@ export default function Finance({ currentCategory, categories, agencyList }: JSO
 								All Categories
 							</div>
 						</Link>
-						{categories.map((each: JSONData) => {
+						{categories.map((each: JSONData, id: number) => {
 							return (
-								<div key={each.id}>
-									<Link key={each.id} onClick={() => setCategory(each.link)} href={`/finance/schemes?category=${each.link}`}>
+								<div key={id}>
+									<Link onClick={() => setCategory(each.link)} href={`/finance/schemes?category=${each.link}`}>
 										<div className={`${styles.rounded} ${(category && category == each.link) ? styles.active_opt : styles.inactive_opt} d-flex`}>
 											<div>
 												{each.text} ({each.schemes.length})
@@ -224,8 +222,8 @@ export default function Finance({ currentCategory, categories, agencyList }: JSO
 									<div className={`${styles.leftcontent} ${(category && category == each.link) ? styles.expand : styles.contract}`}>
 										{each.schemes.map((scheme: JSONData) => {
 											return (
-												<div className={`${styles.side_child} small`}>
-													<Link key={scheme.id} href={`/finance/schemes/${scheme.attributes.scheme_link}`}>
+												<div key={scheme.id} className={`${styles.side_child} small`}>
+													<Link href={`/finance/schemes/${scheme.attributes.scheme_link}`}>
 
 														<div className="d-flex">
 															{scheme.attributes.scheme_name}

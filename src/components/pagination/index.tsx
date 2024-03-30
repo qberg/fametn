@@ -12,9 +12,6 @@ const Pagination = ({ page, totalPages }: JSONData) => {
     const basePath = `${router.basePath}${router.asPath}`
     const queries = router.query;
 
-    console.log(router.basePath, router.pathname, router.query)
-
-
     const buildQuery = (query: JSONData) => {
         const params = new URLSearchParams();
         for (let key in query) {
@@ -33,7 +30,6 @@ const Pagination = ({ page, totalPages }: JSONData) => {
         }
         if (pageNumber > totalPages) return getPage(totalPages)
         newQuery["page"] = pageNumber.toString()
-        console.log(pageNumber)
         return router.pathname + "?" + buildQuery(newQuery)
     }
 
