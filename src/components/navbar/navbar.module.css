@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between; /* Align items to both ends */
   background-color: var(--light);
+  /* max-width: 10vw; */
 }
 
 .logo {
@@ -78,6 +79,6 @@
   background-color: var(--almost-white);
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 99;
 }

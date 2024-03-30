@@ -1,0 +1,137 @@
+.filter_button {
+    border: 1px solid var(--border-gray);
+    border-radius: var(--radius);
+    padding: 0.2em 0.7em;
+    cursor: pointer;
+    display: flex;
+}
+
+.filterbox {
+    position: absolute;
+    right: 0%;
+    width: 300px;
+    background-color: cyan;
+    /* transform: translateX(-100%); */
+    border-radius: var(--radius);
+    margin-top: 1em;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 24px 48px #10182839;
+}
+
+.wrap {
+    position: relative;
+}
+
+.subfiltertitle {
+    padding: 1em;
+    background-color: var(--yellow);
+    font-weight: 600;
+}
+
+.subfiltercontent {
+    padding: 1em;
+    background-color: var(--almost-white);
+}
+
+.sliderparent {
+    position: relative;
+    height: 3em;
+}
+
+.slider {
+    position: absolute;
+    height: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: absolute;
+    width: 100%;
+    outline: none;
+    pointer-events: none;
+    background-color: var(--almost-white);
+    -webkit-appearance: none;
+}
+
+.slider::-moz-range-thumb {
+    opacity: 100%;
+    width: 15px;
+    height: 15px;
+    background: var(--almost-white);
+    border: 1px solid var(--yellow);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: var(--tiny-shadow);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: var(--almost-white);
+    border: 1px solid var(--yellow);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: var(--tiny-shadow);
+}
+
+
+.sliderviewer {
+    background-color: var(--yellow);
+    height: 7px;
+    width: 100%;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 1em;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.bgslider {
+    position: absolute;
+    background-color: var(--light-gray);
+    height: 7px;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+    top: 1em;
+    border-radius: 4px;
+}
+
+.inputtext {
+    border-radius: var(--radius);
+    width: 100%;
+    padding: 0.5em 1em;
+    border: 1px solid var(--border-gray);
+    display: flex;
+}
+
+.inputcore {
+    display: inline;
+    width:  100%;
+    border: none;
+}
+
+
+.value {
+    position: absolute;
+    top: 2em;
+    /* transform: translateX(-25%); */
+}
+
+.depts {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.deptitem {
+    padding: 1em 1em;
+    border-bottom: 1px solid var(--border-gray);
+    display: flex;
+    cursor: pointer;
+}
+
+.deptactive {
+    background-color: #FFFDF6;
+}

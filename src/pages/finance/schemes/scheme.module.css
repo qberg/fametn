@@ -1,11 +1,11 @@
 .bluelink {
     color: var(--blue);
-    text-decoration: underline;
+    text-decoration: underline !important;
     font-weight: 600;
 }
 
 .graylink {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 
 .leftPaneDesktop {
@@ -68,6 +68,12 @@
     margin-left: 20px;
     flex-grow: 1;
     height: 2px;
+    background-color: var(--light-gray);
+}
+
+.minline {
+    height: 2px;
+    width: 100%;
     background-color: var(--light-gray);
 }
 
@@ -140,10 +146,19 @@
     min-width: 8px;
     background-color: var(--blue);
     margin-top: 4px;
+    margin-right: 3px;
 }
 
 .blue_text {
     color: var(--blue);
+
+    height: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit the number of lines */
+    -webkit-box-orient: vertical;
+    white-space: normal;
 }
 
 .scheme_content {
@@ -158,12 +173,55 @@
     display: flex;
 
 }
+ 
+.side_child {
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.side_child:last-child {
+    border-bottom: none;
+}
+
+
+.noreswrap {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.noreswrap > div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mobcat {
+    background-color: rebeccapurple;
+}
+
+.sticktop {
+    position: fixed;
+    top: 64px;
+    left: 0;
+}
+
+.freeflow {
+    position: static;
+}
+
+.mobilecategory {
+    background-color: var(--light);
+}
+
 
 @media only screen and (max-width: 768px) {
     .scheme_content {
-      background-color: lightblue;
       margin-left: 1em;
-    margin-right: 1em;
+      margin-right: 1em;
     }
   }
   .scheme_content {

@@ -68,4 +68,11 @@
 
 .blue_text {
     color: var(--blue);
+    height: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit the number of lines */
+    -webkit-box-orient: vertical;
+    white-space: normal;
 }

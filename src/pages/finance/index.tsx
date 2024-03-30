@@ -99,14 +99,14 @@ export default function Finance({ data } : JSONData ) {
 				<Col md={9}>
 					<Row className="mt-4">
 						{
-							data["flow_chart"].map((each : JSONData) => {
-								return (<Col key={each["id"]} md={3}>
+							data["flow_chart"].map((each : JSONData, id: number) => {
+								return (<Col key={id} md={3}>
 									<div data-aos="fade-up" >
 										<div className={styles.flowchart}>
-											<div className={styles.flowchart_header_text}>
+											<div key={1} className={styles.flowchart_header_text}>
 												<h5 className="underlined_link">{each["heading"]}</h5>
 											</div>
-											<div className={styles.flowchart_arrow}>
+											<div key={2} className={styles.flowchart_arrow}>
 												<Image
 													src="/right_arrow.svg"
 													alt="->"
