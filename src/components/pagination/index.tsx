@@ -64,9 +64,9 @@ const Pagination = ({ page, totalPages }: JSONData) => {
 
     return (
         <div data-aos="fade-up" className={styles.parent}>
-            {(page > 1) ? (<Link href={getPage(page - 1)}>
+            {(page > 1) ? (<Link style={{marginLeft: "auto"}} href={getPage(page - 1)}>
                 {prevItem}
-            </Link>) : (<div style={{ opacity: 0.5, cursor: "not-allowed" }}>{prevItem}</div>)}
+            </Link>) : (<div style={{ opacity: 0.5, cursor: "not-allowed", marginLeft: "auto" }}>{prevItem}</div>)}
             {displayedPageLinks.map((pageNumber: number, id: number) => {
                 if (pageNumber != 0) {
                     return (
@@ -84,9 +84,9 @@ const Pagination = ({ page, totalPages }: JSONData) => {
                     )
                 }
             })}
-            {(page < totalPages) ? (<Link href={getPage(page + 1)}>
+            {(page < totalPages) ? (<Link style={{marginRight: "auto"}} href={getPage(page + 1)}>
                 {nextItem}
-            </Link>) : (<div style={{ opacity: 0.5, cursor: "not-allowed" }}>{nextItem}</div>)}
+            </Link>) : (<div style={{ opacity: 0.5, cursor: "not-allowed", marginRight: "auto" }}>{nextItem}</div>)}
         </div>
     )
 }

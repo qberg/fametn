@@ -77,7 +77,7 @@ const NoResult = () => {
 	</div>)
 }
 
-const MobileStickyTop = ({max_top, children}: JSONData) => {
+const MobileStickyTop = ({ max_top, children }: JSONData) => {
 
 	const [refY, setRefY] = useState(28)
 	const refYasRef = useRef<number>(28);
@@ -90,9 +90,9 @@ const MobileStickyTop = ({max_top, children}: JSONData) => {
 				const rect = targetRef.current.getBoundingClientRect();
 
 				try {
-					const parentRect = targetRef.current.offsetParent?.getBoundingClientRect(); 
+					const parentRect = targetRef.current.offsetParent?.getBoundingClientRect();
 					refYasRef.current = Math.max(rect.top - (parentRect?.top || 0), refYasRef.current)
-				} catch { 
+				} catch {
 				}
 
 				setScrollPosition(refYasRef.current - window.pageYOffset)
@@ -112,7 +112,7 @@ const MobileStickyTop = ({max_top, children}: JSONData) => {
 
 	return (
 		<>
-			{(scrollPosition <= max_top) && (<div style={{position: "fixed", top: max_top, zIndex: 3, width: "100%"}}>{content}</div>)}
+			{(scrollPosition <= max_top) && (<div style={{ position: "fixed", top: max_top, zIndex: 2, width: "100%" }}>{content}</div>)}
 			<div ref={targetRef}>{content}</div>
 		</>
 
@@ -174,7 +174,7 @@ export default function Finance({ currentCategory, categories, agencyList }: JSO
 
 	const totalPages = Math.ceil(totalItems / numItemsPerPage)
 
-	const pagedReqSchemes = requiredSchemes.slice((page - 1) * numItemsPerPage, page * numItemsPerPage )
+	const pagedReqSchemes = requiredSchemes.slice((page - 1) * numItemsPerPage, page * numItemsPerPage)
 
 	return (
 		<RootLayout>
@@ -296,7 +296,7 @@ export default function Finance({ currentCategory, categories, agencyList }: JSO
 						<div className={styles.minline}></div>
 						<Row>
 							<Col lg={12}>
-								<Pagination totalPages={totalPages} page={page} />
+								<center><Pagination totalPages={totalPages} page={page} /></center>
 							</Col>
 						</Row>
 					</div>

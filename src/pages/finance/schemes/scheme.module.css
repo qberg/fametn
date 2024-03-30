@@ -1,11 +1,11 @@
 .bluelink {
     color: var(--blue);
-    text-decoration: underline;
+    text-decoration: underline !important;
     font-weight: 600;
 }
 
 .graylink {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 
 .leftPaneDesktop {
