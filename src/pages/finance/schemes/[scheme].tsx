@@ -12,18 +12,14 @@ import styles from "./scheme.module.css"
 import Link from "next/link";
 import Separator from "@/components/separator";
 
-export const getServerSideProps = (async (context: JSONData) => {
-	context.res.setHeader(
-		'Cache-Control',
-		CacheHeaders
-	);
-
+export const getServerSideProps = async (context: JSONData) => {
+	context.res.setHeader('Cache-Control', CacheHeaders);
 
 	const { scheme } = context.query;
 	const language = context.locale;
 
-	const url = "https://" + process.env.API_ENDPOINT + "finance-schemes?filters[scheme_link][$eq]=" + scheme + "&populate=deep"
-	const fullData = await getData(url, language)
+	const url = "https://" + process.env.API_ENDPOINT + "finance-schemes?filters[scheme_link][$eq]=" + scheme + "&populate=deep";
+	const fullData = await getData(url, language);
 
 	if (fullData.meta.pagination.total != 1) {
 		context.res.writeHead(307, { Location: '/not-found' });
@@ -33,17 +29,17 @@ export const getServerSideProps = (async (context: JSONData) => {
 				data: null,
 				id: null
 			}
-		}
+		};
 	}
-
+	
 	return {
 		props: {
 			data: fullData.data[0].attributes,
 			id: fullData.data[0].id
 		}
-	}
+	};
+};
 
-})
 
 
 export default function Finance({ data, id }: JSONData) {
@@ -81,89 +77,88 @@ export default function Finance({ data, id }: JSONData) {
 					</p>
 				</div>
 				<div className={styles.scheme_content}>
-    <div className={styles.mainContent}>
-        <div className={styles.buttonContainer}>
-            <button className={styles.button}>objective</button>
-            <button className={styles.button}>key benefits</button>
-            <button className={styles.button}>Eligibility</button>
-            <button className={styles.button}>How to Apply</button>
-        </div>
-		<div className="container mb offset-md-1">
 
 
-		<div className="row justify-content-between">
-  <div className="col-3" style={{ borderRight: '1px solid #ccc' }}>
-    <div className={styles.textAfterButtons}>
-      {data.benificiaries}
-    </div>
-    <div style={{ marginBottom: '10px' }}>Beneficiaries</div>
-  </div>
-  <div className="col-8">
-    <div className={styles.textAfterButtons}>{data.successfully_applied}</div>
-    <div style={{ marginBottom: '10px' }}>Successfully Applied</div>
-  </div>
-</div>
+					<div className={styles.mainContent}>
 
+						<div className={`${styles.buttonContainer} d-none d-lg-block`}>
+							<button className={styles.button}>objective</button>
+							<button className={styles.button}>key benefits</button>
+							<button className={styles.button}>Eligibility</button>
+							<button className={styles.button}>How to Apply</button>
+						</div>
 
-</div>
-<div className={styles.container}>
-<div className={styles.section}>
-{/* <h4 className={styles.key}>KEY BENEFITS</h4> */}
-<div className={styles.key}>
-<img src="/Goal_target.svg" alt="Your Image" />
-<h6>OBJECTIVES</h6>
-</div>
-<div className={styles.bullet}>
-	<ul className={styles.bulletList}>
-		<li>{data.objective}
-		</li></ul>
-</div>
-<div className={styles.key}>
-<img src="/Frame.svg" alt="Your Image" />
-  <h6>KEY BENEFITS</h6>
+						<div className={`row ${styles.new}`} style={{ height: '7em' }}>
+							<div className="col-4" style={{ borderRight: '2px solid #ccc', height: '5em' }}>
+								<div className={styles.textAfterButtons}>
+									{data.benificiaries}
+								</div>
+								<div style={{ marginBottom: '3em' }}>Beneficiaries</div>
+							</div>
+							<div className="col-5">
+								<div className={styles.textAfterButtons}>{data.successfully_applied}</div>
+								<div style={{ marginBottom: '10px', fontWeight: '400' }}>Successfully Applied</div>
+							</div>
+						</div>
 
-</div>
-<div className={styles.bullet}>
-    <ul className={styles.bulletList}>
-      {data["key_benifits"].map((benefit: JSONData) => (
-        <li key={benefit.id}>{benefit.heading}</li>
-      ))}
-    </ul>
-	</div>
-	
-  <div className={styles.key}>
-<img src="/Frame 204.svg" alt="Your Image" />
-  <h6>ELIGIBILITY CRITERIA</h6>
-</div>
-<div className={styles.bullet}>
-<ul className={styles.bulletList}>
-  {data["eligibility_criteria"].map((criteria: JSONData) => (
-    <li key={criteria.id}>
-    <div style={{ fontWeight: 500 }}>{criteria.heading}</div>
-      <div className={styles.description}>
-        {criteria.description}
-      </div>
-    </li>
-  ))}
-</ul>
-</div>
-<div className={styles.key}>
-<img src="/Frame 204.svg" alt="Your Image" />
-  <h6>HOW TO APPLY/ OFFICE TO CONTACT</h6>
-</div>
+						<div className={styles.container}>
+							<div className={styles.section}>						
+								<div className={styles.key}>
+									<img src="/Goal_target.svg" alt="Your Image" />
+									<h6>OBJECTIVES</h6>
+								</div>
+								<div className={styles.bullet}>
+									<ul className={styles.bulletList}>
+										<li>{data.objective}
+										</li></ul>
+								</div>
+								<div className={styles.key}>
+									<img src="/key_benefits.svg" alt="Your Image" />
+									<h6>KEY BENEFITS</h6>
 
+								</div>
+								<div className={styles.bullet}>
+									<ul className={styles.bulletList}>
+										{data["key_benifits"].map((benefit: JSONData) => (
+											<li key={benefit.id}>{benefit.heading}</li>
+										))}
+									</ul>
+								</div>
 
-
-  </div>
-</div>
-
-		 {/* Add this line */}
-    </div>
-    <div className={styles.sideContent}>
-
-    </div>
-</div>
-
-</Container>
+								<div className={styles.key}>
+									<img src="/eligibility.svg" alt="Your Image" />
+									<h6>ELIGIBILITY CRITERIA</h6>
+								</div>
+								<div className={styles.bullet}>
+									<ul className={styles.bulletList}>
+										{data["eligibility_criteria"].map((criteria: JSONData) => (
+											<li key={criteria.id}>
+												<div style={{ fontWeight: 500 }}>{criteria.heading}</div>
+												<div className={styles.description}>
+													{criteria.description}
+												</div>
+											</li>
+										))}
+									</ul>
+								</div>
+								<div className={styles.key}>
+									<img src="/how_to_apply.svg" alt="Your Image" />
+									<h6>HOW TO APPLY/ OFFICE TO CONTACT</h6>
+								</div>
+								<div className={styles.bullet}>
+									<ul className={styles.linksty}>
+										<li>
+											<a href={data.how_to_apply_description}>
+												{data.how_to_apply_description}</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className={styles.sideContent}>
+					</div>
+				</div>
+			</Container>
 		</RootLayout>)
 }
