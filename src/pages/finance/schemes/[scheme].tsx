@@ -11,6 +11,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "./scheme.module.css"
 import Link from "next/link";
 import Separator from "@/components/separator";
+import Image from "next/image";
 
 export const getServerSideProps = async (context: JSONData) => {
 	context.res.setHeader('Cache-Control', CacheHeaders);
@@ -31,7 +32,7 @@ export const getServerSideProps = async (context: JSONData) => {
 			}
 		};
 	}
-	
+
 	return {
 		props: {
 			data: fullData.data[0].attributes,
@@ -77,87 +78,125 @@ export default function Finance({ data, id }: JSONData) {
 					</p>
 				</div>
 				<div className={styles.scheme_content}>
-
-
-					<div className={styles.mainContent}>
-
-						<div className={`${styles.buttonContainer} d-none d-lg-block`}>
-							<button className={styles.button}>objective</button>
-							<button className={styles.button}>key benefits</button>
-							<button className={styles.button}>Eligibility</button>
-							<button className={styles.button}>How to Apply</button>
-						</div>
-
-						<div className={`row ${styles.new}`} style={{ height: '7em' }}>
-							<div className="col-4" style={{ borderRight: '2px solid #ccc', height: '5em' }}>
-								<div className={styles.textAfterButtons}>
-									{data.benificiaries}
-								</div>
-								<div style={{ marginBottom: '3em' }}>Beneficiaries</div>
+					<Row>
+						<Col lg={9}>
+							<div data-aos="fade-up" className={`${styles.buttonContainer} d-none d-lg-block mb-3`}>
+								<button className={styles.button}>Objective</button>
+								<button className={styles.button}>Key Benefits</button>
+								<button className={styles.button}>Eligibility</button>
+								<button className={styles.button}>How to Apply</button>
 							</div>
-							<div className="col-5">
-								<div className={styles.textAfterButtons}>{data.successfully_applied}</div>
-								<div style={{ marginBottom: '10px', fontWeight: '400' }}>Successfully Applied</div>
-							</div>
-						</div>
 
-						<div className={styles.container}>
-							<div className={styles.section}>						
-								<div className={styles.key}>
-									<img src="/Goal_target.svg" alt="Your Image" />
-									<h6>OBJECTIVES</h6>
-								</div>
-								<div className={styles.bullet}>
-									<ul className={styles.bulletList}>
-										<li>{data.objective}
-										</li></ul>
-								</div>
-								<div className={styles.key}>
-									<img src="/key_benefits.svg" alt="Your Image" />
-									<h6>KEY BENEFITS</h6>
+							<Row className={styles.new}>
+								<Col className={styles.gray_sep_right} md={5}>
+									<div data-aos="fade-up" className={styles.textAfterButtons}>
+										{data.benificiaries}
+									</div>
+									<div data-aos="fade-up">Beneficiaries</div>
+								</Col>
+								<Col md={5}>
+									<div data-aos="fade-up" className={styles.textAfterButtons}>
+										{data.successfully_applied}
+									</div>
+									<div data-aos="fade-up" >Successfully Applied</div>
+								</Col>
+							</Row>
 
-								</div>
-								<div className={styles.bullet}>
-									<ul className={styles.bulletList}>
-										{data["key_benifits"].map((benefit: JSONData) => (
-											<li key={benefit.id}>{benefit.heading}</li>
-										))}
-									</ul>
-								</div>
 
-								<div className={styles.key}>
-									<img src="/eligibility.svg" alt="Your Image" />
-									<h6>ELIGIBILITY CRITERIA</h6>
-								</div>
-								<div className={styles.bullet}>
-									<ul className={styles.bulletList}>
-										{data["eligibility_criteria"].map((criteria: JSONData) => (
-											<li key={criteria.id}>
-												<div style={{ fontWeight: 500 }}>{criteria.heading}</div>
-												<div className={styles.description}>
-													{criteria.description}
-												</div>
+							<div className={styles.container}>
+								<div className={styles.section}>
+									<div data-aos="fade-up" className={styles.key}>
+										<img src="/Goal_target.svg" alt="Your Image" />
+										<h6>Objectives</h6>
+									</div>
+									<div className={styles.bullet}>
+										<ul className={styles.bulletList}>
+											<li data-aos="fade-up">{data.objective}
+											</li></ul>
+									</div>
+									<div data-aos="fade-up" className={styles.key}>
+										<img src="/key_benefits.svg" alt="Your Image" />
+										<h6>Key Benefits</h6>
+
+									</div>
+									<div className={styles.bullet}>
+										<ul className={styles.bulletList}>
+											{data["key_benifits"].map((benefit: JSONData) => (
+												<li data-aos="fade-up" key={benefit.id}>{benefit.heading}</li>
+											))}
+										</ul>
+									</div>
+
+									<div data-aos="fade-up" className={styles.key}>
+										<img src="/eligibility.svg" alt="Your Image" />
+										<h6>Eligibility Criteria</h6>
+									</div>
+									<div className={styles.bullet}>
+										<ul className={styles.bulletList}>
+											{data["eligibility_criteria"].map((criteria: JSONData) => (
+												<li data-aos="fade-up" key={criteria.id}>
+													<div data-aos="fade-up">{criteria.heading}</div>
+													<div data-aos="fade-up" className={`${styles.description} small`}>
+														{criteria.description}
+													</div>
+												</li>
+											))}
+										</ul>
+									</div>
+									<div data-aos="fade-up" className={styles.key}>
+										<img src="/how_to_apply.svg" alt="Your Image" />
+										<h6>How to Apply/ Office To Contact</h6>
+									</div>
+									<div className={styles.bullet}>
+										<ul className={styles.linksty}>
+											<li data-aos="fade-up">
+												<Link href={data?.cta_link}>
+													{data.how_to_apply_description}
+												</Link>
+												{/* <a href={data.how_to_apply_description}>
+													{data.how_to_apply_description}</a> */}
 											</li>
-										))}
-									</ul>
-								</div>
-								<div className={styles.key}>
-									<img src="/how_to_apply.svg" alt="Your Image" />
-									<h6>HOW TO APPLY/ OFFICE TO CONTACT</h6>
-								</div>
-								<div className={styles.bullet}>
-									<ul className={styles.linksty}>
-										<li>
-											<a href={data.how_to_apply_description}>
-												{data.how_to_apply_description}</a>
-										</li>
-									</ul>
+										</ul>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div className={styles.sideContent}>
-					</div>
+						</Col>
+						<Col lg={3}>
+							<div data-aos="fade-up" className={styles.ctabox}>
+								<div data-aos="fade-up" className={styles.ctahead}>
+									How to Apply / Office to Contact
+								</div>
+								<p data-aos="fade-up" className="small mt-2">
+									{data.how_to_apply_cta_description}
+								</p>
+
+								<div data-aos="fade-up" className={styles.bluebutton}>
+									<div className="ms-auto me-2 my-auto">
+										<Image
+											src="/apply_arrow.svg"
+											alt="->"
+											width={16}
+											height={16}
+										/>
+									</div>
+									<div className="me-auto small my-auto">
+										Apply Now
+									</div>
+								</div>
+
+							</div>
+							<div className="d-flex mt-3 my-auto">
+								<div data-aos="fade-up">
+									<h5 className={styles.mildhead}>Other schemes</h5>
+								</div>
+								<div data-aos="fade-up" className="ms-auto small my-auto">
+									<Link href="/finance/schemes" ><u>See all</u>
+									</Link>
+								</div>
+							</div>
+						</Col>
+					</Row>
+
 				</div>
 			</Container>
 		</RootLayout>)

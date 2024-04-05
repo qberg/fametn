@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const CardWithImage = ({title, description, link, image} : JSONData) => {
     
+    console.log(image)
 
     const imgLoader = ({ src, width, quality }: JSONData) => {
         var key = "medium"
@@ -16,7 +17,7 @@ const CardWithImage = ({title, description, link, image} : JSONData) => {
         else if (width < 1024) key = "medium"
         else key = "large"
        
-        const url = process.env.NEXT_PUBLIC_IMG_ENDPOINT + image.data.attributes.formats[key].url
+        const url = process.env.NEXT_PUBLIC_IMG_ENDPOINT + image.data?.attributes?.formats[key].url
         return url
     }
 
