@@ -12,6 +12,7 @@
   --almost-white: #FCFCFD;
   --white: #fff;
   --light-accent: #FDF7E8;
+  --light-yellow: #F7D88C;
   --red: #C53B55;
   --blue: #3677DB;
   --navy: #15417E;
@@ -36,7 +37,7 @@ body {
   background-color: var(--light) !important;
   font-family: "Poppins", sans-serif !important;
   max-width: 100vw !important;
-
+  overflow-x: hidden;
 }
 
 h1 {

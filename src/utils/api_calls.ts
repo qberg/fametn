@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const getData = async (url: string, language: String) => {
-	var API_ENDPOINT = process.env.API_ENDPOINT
+	console.log(url)
 	var TOKEN = process.env.API_TOKEN
 	var response = null
 	try {
@@ -20,7 +20,7 @@ export const getData = async (url: string, language: String) => {
 				}
 			});
 		}
-		console.log(error);
+		console.log("MAJOR", error);
 	}
 	
 	return response?.data
