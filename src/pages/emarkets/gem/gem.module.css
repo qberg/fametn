@@ -1,0 +1,55 @@
+.bluelink {
+    color: var(--blue);
+    text-decoration: underline !important;
+    font-weight: 600;
+}
+
+.graylink {
+    text-decoration: underline !important;
+}
+
+.herofluid {
+    background-image: url("/gem_bg.webp");
+    background-position: center;
+    /* min-height: 700px; */
+}
+
+.hero {
+    padding-top: 5em;
+}
+
+.supertitle {
+    /* text-transform: uppercase; */
+    background-color: var(--yellow);
+    width: fit-content;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.4em;
+    padding-bottom: 0.1em;
+    color: var(--white);
+}
+
+.title {
+    text-transform: uppercase;
+    margin-top: 0.75em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    position: relative;
+    /* max-width: 80%; */
+}
+
+.title::before {
+    content: "";
+    background-color: var(--yellow);
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.subtitle {
+    margin-top: 0.6em;
+}
