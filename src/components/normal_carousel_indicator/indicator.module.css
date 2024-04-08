@@ -1,0 +1,17 @@
+.indicatorWrap{
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: var(--yellow);
+}
+
+.others {
+    background-color: var(--light-gray);
+}
