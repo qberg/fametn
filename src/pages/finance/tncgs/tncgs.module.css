@@ -1,0 +1,109 @@
+.hero {
+  padding-top: 5em;
+}
+
+.graylink {
+  text-decoration: underline !important;
+}
+.supertitle {
+  text-transform: uppercase;
+  background-color: var(--yellow);
+  width: fit-content;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.4em;
+  padding-bottom: 0.1em;
+  color: var(--white);
+}
+
+.title {
+  text-transform: uppercase;
+  margin-top: 0.75em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  position: relative;
+  /* max-width: 80%; */
+}
+
+.title::before {
+  content: "";
+  background-color: var(--yellow);
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.title h1 {
+  line-height: 1.5;
+}
+
+
+.subtitle {
+  margin-top: 0.6em;
+}
+
+.container {
+  border-radius: 20px;
+  padding: 20px;
+  
+  background-color: white;
+  width: 110%;
+}
+
+.button {
+width:150px;
+
+}
+
+.button:hover {
+  background-color: #ffd700; 
+}
+
+.centereddiv {
+  width: 40em;
+  height: 200px; 
+  margin: 0 auto; 
+ 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.marginBottom {
+  margin-bottom: 20px; 
+}
+.imageContainer {
+  display: flex;
+  align-items: center; 
+  margin-top: 1.8em;
+}
+
+.imageWrapper {
+  margin-right: 10px; 
+}
+.imageText {
+  font-weight: 600;
+}
+
+.imagesWrapper {
+  width: 100%; /* Ensure the container fills its parent */
+  height: 100px; /* Adjust the container height as needed */
+}
+
+.imagesWrapper img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%; /* Set the image width to cover 70% of the container width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.topLeftImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
