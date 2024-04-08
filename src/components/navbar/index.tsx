@@ -8,8 +8,9 @@ import { Container } from 'react-bootstrap';
 import { JSONData } from '@/utils/definitions';
 import SearchBox from '../searchbox';
 import { useRouter } from 'next/router'
+import NextNProgress from 'nextjs-progressbar';
 
-const Navbar = ({ onSearch } : JSONData) => {
+const Navbar = ({ onSearch, pageProps} : JSONData) => {
 
 	const router = useRouter()
 
@@ -56,6 +57,7 @@ const Navbar = ({ onSearch } : JSONData) => {
 				</div>
 			</nav>
 			</Container>
+			<NextNProgress color="var(--yellow)" {...pageProps}/>
 		</div>
 	);
 };
