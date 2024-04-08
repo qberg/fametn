@@ -24,6 +24,10 @@
   /* max-width: 80%; */
 }
 
+.title h1 {
+  margin-bottom: 0;
+}
+
 .title::before {
   content: "";
   background-color: var(--yellow);
