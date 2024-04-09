@@ -10,8 +10,7 @@ import YellowArrowButton from "@/components/yellow_arrow_button";
 import DynamicImage from "@/components/dynamicImage";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import { useState } from "react";
-import "./override.css"
+// import "./override.css"
 
 export async function getServerSideProps(context: JSONData) {
 
@@ -43,7 +42,7 @@ export default function Emarkets({ data }: JSONData) {
     const hero_landscape_srcset = `${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_landscape_data.small.url} 768w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_landscape_data.medium.url} 1024w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_landscape_data.large.url} 1440w`
     const hero_portrait_srcset = `${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_portrait_data.small.url} 768w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_portrait_data.medium.url} 1024w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_portrait_data.large.url} 1440w`
 
-    console.log(data)
+    // console.log(data)
     return (
         <RootLayout>
             <Container fluid className={styles.herofluid}>
@@ -186,14 +185,14 @@ export default function Emarkets({ data }: JSONData) {
                     <Row className="pt-4 pt-md-none">
                         {data.section_3_bullets.map((each: JSONData, key: number) => {
                             return (<Col md={4} key={key} >
-                                <div data-aos="fade-up"  className={`${styles.section3bullets} pt-2 p-md-4 ${(key % 3 != 3 - 1) ? styles.section3bulletborder : ""}`}>
-                                    <div data-aos="fade-up"  className={styles.sec3bulimg}>
+                                <div data-aos="fade-up" className={`${styles.section3bullets} pt-2 p-md-4 ${(key % 3 != 3 - 1) ? styles.section3bulletborder : ""}`}>
+                                    <div data-aos="fade-up" className={styles.sec3bulimg}>
                                         <DynamicImage href={each.image} />
                                     </div>
                                     <div data-aos="fade-up" className="mt-4">
                                         <h5>{each.heading}</h5>
                                     </div>
-                                    <div data-aos="fade-up"  className="small mt-3">
+                                    <div data-aos="fade-up" className="small mt-3">
                                         {each.description}
                                     </div>
                                 </div>
@@ -202,6 +201,7 @@ export default function Emarkets({ data }: JSONData) {
                     </Row>
                     <div className="mt-5 mt-md-none"></div>
                     <Carousel
+                        className={styles.sec3carwrap}
                         autoPlay={true}
                         showStatus={false}
                         showArrows={false}
