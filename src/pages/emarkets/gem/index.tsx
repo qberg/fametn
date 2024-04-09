@@ -281,7 +281,7 @@ export default function Emarkets({ data }: JSONData) {
                     <div className={`my-4 ${styles.horbar}`} ></div>
                     <Row className="pt-4 pb-5">
                         {data.section_5_bullets.map((each: JSONData, key: number) => {
-                            return (<Col md={4}>
+                            return (<Col md={4} key={key}>
                                 <div data-aos="fade-up" className={styles.sec5cardbg}>
                                     <DynamicImage objectFit="cover" href={each.image} />
                                     <div>
