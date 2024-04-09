@@ -37,7 +37,7 @@ body {
   background-color: var(--light) !important;
   font-family: "Poppins", sans-serif !important;
   max-width: 100vw !important;
-
+  overflow-x: hidden;
 }
 
 h1 {

@@ -1,0 +1,250 @@
+.hero {
+  padding-top: 5em;
+}
+
+.graylink {
+  text-decoration: underline !important;
+}
+
+.supertitle {
+  text-transform: uppercase;
+  background-color: var(--yellow);
+  width: fit-content;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.4em;
+  padding-bottom: 0.1em;
+  color: var(--white);
+}
+
+.title {
+  text-transform: uppercase;
+  margin-top: 0.75em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  position: relative;
+  /* max-width: 80%; */
+}
+
+.title::before {
+  content: "";
+  background-color: var(--yellow);
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* This not looking good i guess, */
+/* .title h1 {
+  line-height: 1.5;
+} */
+
+.title h1 {
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0.6em;
+}
+
+.container {
+  border-radius: 20px;
+  padding: 20px;
+
+  backdrop-filter: blur(8px);
+
+  background-color: #ffffffaa;
+  z-index: 2;
+  /* width: 110%; */
+  /* This will create overflow */
+}
+
+.sectiontwo {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+
+.testimonialdescription {
+  min-height: 70px;
+}
+
+.centereddiv {
+  max-width: 40em;
+  margin: 0 auto;
+
+  /* display: flex; */
+  /* justify-content: center;  */
+  /* align-items: center; */
+  /* flex-direction: column; */
+  /* text-align: center; */
+}
+
+.marginBottom {
+  margin-bottom: 20px;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+.imageWrapper {
+  margin-right: 10px;
+}
+
+.imageText {
+  font-weight: 600;
+}
+
+.imagesWrapper img {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* transform: translateX(100%); */
+  width: 768px;
+  /* left: 20vw; */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.topLeftImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* .sectiontwo .control-dots {
+  bottom: 10px !important;
+} */
+
+.testimonialimage {
+  object-fit: cover !important;
+  border-radius: 50%;
+  width: 50px !important;
+}
+
+.oneimage {
+  position: relative;
+  height: 100%;
+}
+
+.sec_3_img_container {
+  width: 100%;
+  height: 200px;
+  /* background-color: rebeccapurple; */
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.section3bullets {
+  background-color: var(--light-yellow);
+  padding: 1em 1.5em;
+  border-radius: var(--radius);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section3grad {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  background-color: var(--light-yellow);
+  border-radius: 50%;
+  z-index: -2;
+  left: -10%;
+  top: -30%;
+  filter: blur(700px);
+  opacity: 0.3;
+}
+
+.section5grad {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  background-color: var(--light-yellow);
+  border-radius: 50%;
+  z-index: -2;
+  right: -10%;
+  top: -30%;
+  filter: blur(700px);
+  opacity: 0.3;
+}
+
+.section3left {
+  position: relative;
+}
+
+.section3left::after {
+  opacity: 0.3;
+  content: "";
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(to bottom, #ffffff00, var(--gray), #ffffff00);
+
+  position: absolute;
+  top: 0;
+  right: -2em;
+}
+
+.sec_4_bullets {
+  border: 1px solid var(--gray);
+  border-radius: var(--radius);
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 100%;
+}
+
+
+.sec_4_sel {
+  background-color: var(--navy);
+  color: white;
+}
+
+
+
+.sec_4_sel .sec_4_small {
+  color: white !important;
+}
+
+.sec_4_small {
+  color: var(--gray);
+  font-size: 0.85em;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .section3left::after {
+    opacity: 0.3;
+    content: "";
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, #ffffff00, var(--gray), #ffffff00);
+    position: absolute;
+    top: calc(100% - 1em);
+    left: 0%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .oneimage {
+    height: 300px;
+    left: 50%;
+    width: auto;
+    transform: translateX(-50%);
+  }
+
+  .imagesWrapper img {
+    transform: translateX(50%) translateY(-20%);
+  }
+}
