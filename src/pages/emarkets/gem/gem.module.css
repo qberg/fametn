@@ -11,6 +11,7 @@
 .herofluid {
     background-image: url("/gem_bg.webp");
     background-position: center;
+    padding: 0;
     /* min-height: 700px; */
 }
 
@@ -143,6 +144,7 @@
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 0;
 }
 
 .horbar {
@@ -201,6 +203,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 300px;
+    padding: 0;
     background-color: var(--yellow);
 }
 
@@ -222,6 +225,7 @@
     /* background-size: cover; */
     background-repeat: no-repeat;
     /* object-position: 0 -50%; */
+    padding: 0;
     min-height: 600px;
 }
 
@@ -242,8 +246,26 @@
     margin-left: 1em;
 }
 
+.section3grad {
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background-color: var(--light-yellow);
+    border-radius: 50%;
+    z-index: -2;
+    right: -4%;
+    top: -50%;
+    filter: blur(700px);
+    opacity: 0.3;
+  }
+
 @media only screen and (max-width: 768px) {
     .section3bulletborder {
         border-right: none;
+    }
+
+    .sec4img {
+        margin-left: auto;
+        margin-right: auto;
     }
 }

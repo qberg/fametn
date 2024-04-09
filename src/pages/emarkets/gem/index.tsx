@@ -74,7 +74,7 @@ export default function Emarkets({ data }: JSONData) {
                         </Col>
                         <Col lg={5} md={7}>
                             <div className="h-100 d-flex">
-                                <div className="my-auto">
+                                <div data-aos="fade-up" className="my-auto">
                                     <p>
                                         {data.description}
                                     </p>
@@ -85,11 +85,11 @@ export default function Emarkets({ data }: JSONData) {
                     </Row>
 
 
-                    <div className="d-none d-md-block w-100 position-relative mt-4 mb-5">
+                    <div data-aos="fade-up" className="d-none d-md-block w-100 position-relative mt-4 mb-5">
                         <img className="w-100" srcSet={hero_landscape_srcset} />
                     </div>
 
-                    <div className="d-block d-md-none w-100 position-relative mt-5 mb-5">
+                    <div data-aos="fade-up" className="d-block d-md-none w-100 position-relative mt-4 mb-5">
                         <img className="w-100" srcSet={hero_portrait_srcset} />
                     </div>
 
@@ -103,10 +103,10 @@ export default function Emarkets({ data }: JSONData) {
                     <Col md={4} lg={5}>
                         <div className="h-100 d-flex">
                             <div className="my-auto">
-                                <h4>
+                                <h4 data-aos="fade-up">
                                     {data.section_2_title}
                                 </h4>
-                                <div className="small mt-3">
+                                <div data-aos="fade-up" className="small mt-3">
                                     {data.section_2_description}
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ export default function Emarkets({ data }: JSONData) {
                     </Col>
                     <Col md={8} lg={7}>
 
-                        <div className="h-100">
+                        <div data-aos="fade-up" className="h-100">
                             <Carousel
                                 autoPlay={true}
                                 showStatus={false}
@@ -126,7 +126,7 @@ export default function Emarkets({ data }: JSONData) {
                                         <div className={styles.dotwrapper}>
                                             <div></div>
                                             <div></div>
-                                            <div></div>
+                                            <div className="d-none d-md-block"></div>
                                         </div>
                                     </div>)
                                 }}
@@ -169,47 +169,51 @@ export default function Emarkets({ data }: JSONData) {
             </Container>
             <Container fluid className={styles.sec3fluid}>
                 <Container>
-                    <div className="mt-4">
+                    <div data-aos="fade-up" className="mt-4">
                         <h4>
                             {data.section_3_title}
                         </h4>
-                        <div className="mt-3 small">
+                        <div data-aos="fade-up" className="mt-3 small">
                             {data.section_3_description}
                         </div>
                     </div>
-                    <div className="d-none d-md-block w-100  pt-4">
+                    <div data-aos="fade-up" className="d-none d-md-block w-100  pt-4">
                         <div className={styles.horbar}></div>
                     </div>
-                    <Row>
+                    <div className="position-relative">
+                        <div className={styles.section3grad}></div>
+                    </div>
+                    <Row className="pt-4 pt-md-none">
                         {data.section_3_bullets.map((each: JSONData, key: number) => {
                             return (<Col md={4} key={key} >
-                                <div className={`${styles.section3bullets} pt-5 p-md-4 ${(key % 3 != 3 - 1) ? styles.section3bulletborder : ""}`}>
-                                    <div className={styles.sec3bulimg}>
+                                <div data-aos="fade-up"  className={`${styles.section3bullets} pt-2 p-md-4 ${(key % 3 != 3 - 1) ? styles.section3bulletborder : ""}`}>
+                                    <div data-aos="fade-up"  className={styles.sec3bulimg}>
                                         <DynamicImage href={each.image} />
                                     </div>
-                                    <div className="mt-4">
+                                    <div data-aos="fade-up" className="mt-4">
                                         <h5>{each.heading}</h5>
                                     </div>
-                                    <div className="small mt-3">
+                                    <div data-aos="fade-up"  className="small mt-3">
                                         {each.description}
                                     </div>
                                 </div>
                             </Col>)
                         })}
                     </Row>
+                    <div className="mt-5 mt-md-none"></div>
                     <Carousel
                         autoPlay={true}
                         showStatus={false}
                         showArrows={false}
                         showThumbs={false}>
                         {data.section_3_carousel.map((each: JSONData, key: number) => {
-                            return (<div className={styles.sec3car} key={key}>
+                            return (<div data-aos="fade-up" className={styles.sec3car} key={key}>
                                 <DynamicImage objectFit="cover" href={each.image} />
-                                <div>
+                                <div data-aos="fade-up">
                                     <h5>
                                         {each.heading}
                                     </h5>
-                                    <div className={styles.sec3small}>
+                                    <div data-aos="fade-up" className={styles.sec3small}>
                                         {each.description}
                                     </div>
                                 </div>
@@ -222,9 +226,9 @@ export default function Emarkets({ data }: JSONData) {
             <Container fluid className={styles.sec4fluid}>
                 <Container>
                     <center>
-                        <div className="pt-5 pb-4 pb-md-none">
+                        <div data-aos="fade-up" className="pt-5 pb-4 pb-md-none">
                             <h3>{data.section_4_title}</h3>
-                            <div className={`small ${styles.sec4sub}`}>
+                            <div data-aos="fade-up" className={`small ${styles.sec4sub}`}>
                                 {data.section_4_description}
                             </div>
                         </div>
@@ -232,18 +236,18 @@ export default function Emarkets({ data }: JSONData) {
                     <Row className="pb-4 ">
                         {data.section_4_bullets.map((each: JSONData, key: number) => {
                             return (<Col md={4} key={key}>
-                                <div className="h-100 mt-1 mt-md-5">
+                                <div data-aos="fade-up" className="h-100 mt-1 mt-md-5">
                                     <Row>
                                         <Col lg={3}>
-                                            <div className={styles.sec4img}>
+                                            <div data-aos="fade-up" className={styles.sec4img}>
                                                 <DynamicImage href={each.image} />
                                             </div>
                                         </Col>
-                                        <Col lg={9}>
-                                            <h6>
+                                        <Col className="text-center text-md-left" lg={9}>
+                                            <h6 data-aos="fade-up" >
                                                 {each.heading}
                                             </h6>
-                                            <div className="small">
+                                            <div data-aos="fade-up" className="small">
                                                 {each.description}
                                             </div>
                                         </Col>
@@ -256,33 +260,33 @@ export default function Emarkets({ data }: JSONData) {
             </Container>
             <Container fluid className={styles.sec5fluid}>
                 <Container>
-                    <div className="mt-5">{data.section_5_subtitle}</div>
+                    <div data-aos="fade-up" className="mt-5 pt-2">{data.section_5_subtitle}</div>
                     <Row>
                         <Col md={9}>
-                            <h4>
+                            <h4 data-aos="fade-up" >
                                 {data.section_5_title}
                             </h4>
-                            <div className="small">
+                            <div data-aos="fade-up" className="small">
                                 {data.section_5_description}
                             </div>
                         </Col>
                         <Col md={3}>
-                            <div className="d-flex flex-column h-100">
-                                <div className="mt-auto ms-md-auto">
-                                    <YellowArrowButton style={{width : "fit-content", padding: "0.5em 1.2em"}} link={data.section_5_link} text={data.section_5_cta} />
+                            <div data-aos="fade-up" className="d-flex flex-column h-100">
+                                <div data-aos="fade-up" className="mt-auto ms-md-auto">
+                                    <YellowArrowButton style={{ width: "fit-content", padding: "0.5em 1.2em" }} link={data.section_5_link} text={data.section_5_cta} />
                                 </div>
                             </div>
                         </Col>
                     </Row>
-                    <div className={styles.horbar} ></div>
-                    <Row className="pt-4 pb-4">
+                    <div className={`my-4 ${styles.horbar}`} ></div>
+                    <Row className="pt-4 pb-5">
                         {data.section_5_bullets.map((each: JSONData, key: number) => {
                             return (<Col md={4}>
-                                <div className={styles.sec5cardbg}>
+                                <div data-aos="fade-up" className={styles.sec5cardbg}>
                                     <DynamicImage objectFit="cover" href={each.image} />
                                     <div>
-                                        <h5>{each.heading}</h5>
-                                        <div className={styles.sec3small}>
+                                        <h5 data-aos="fade-up">{each.heading}</h5>
+                                        <div data-aos="fade-up" className={styles.sec3small}>
                                             {each.description}
                                         </div>
                                     </div>
