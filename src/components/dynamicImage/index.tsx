@@ -2,10 +2,9 @@ import { JSONData } from "@/utils/definitions";
 import Image from "next/image";
 
 const DynamicImage = ({objectFit, objectPosition, href} : JSONData) => {
-    console.log(href)
     const imgLoader = ({ src, width, quality }: JSONData) => {
         var key = "medium"
-        if (width < 400) key = "thumbnail"
+        if (width < 400) key = "small"
         else if (width < 700) key = "small"
         else if (width < 1024) key = "medium"
         else key = "large"

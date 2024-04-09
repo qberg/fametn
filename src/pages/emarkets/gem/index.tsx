@@ -8,6 +8,10 @@ import styles from "./gem.module.css"
 import Image from "next/image";
 import YellowArrowButton from "@/components/yellow_arrow_button";
 import DynamicImage from "@/components/dynamicImage";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import { useState } from "react";
+import "./override.css"
 
 export async function getServerSideProps(context: JSONData) {
 
@@ -33,9 +37,13 @@ export async function getServerSideProps(context: JSONData) {
 }
 
 export default function Emarkets({ data }: JSONData) {
-    console.log(data)
 
-    const height = 100 * (data.hero_image_landscape.data.attributes.height / data.hero_image_landscape.data.attributes.width)
+    const hero_landscape_data = data?.hero_image_landscape?.data?.attributes?.formats
+    const hero_portrait_data = data?.hero_image_portrait?.data?.attributes?.formats
+    const hero_landscape_srcset = `${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_landscape_data.small.url} 768w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_landscape_data.medium.url} 1024w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_landscape_data.large.url} 1440w`
+    const hero_portrait_srcset = `${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_portrait_data.small.url} 768w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_portrait_data.medium.url} 1024w, ${process.env.NEXT_PUBLIC_IMG_ENDPOINT + hero_portrait_data.large.url} 1440w`
+
+    console.log(data)
     return (
         <RootLayout>
             <Container fluid className={styles.herofluid}>
@@ -76,20 +84,13 @@ export default function Emarkets({ data }: JSONData) {
                         </Col>
                     </Row>
 
-                    <div style={{ height: "50vh" }} className="d-none d-lg-block w-100 position-relative mt-5">
-                        <DynamicImage objectPosition="top" objectFit="contain" href={data.hero_image_landscape} />
+
+                    <div className="d-none d-md-block w-100 position-relative mt-4 mb-5">
+                        <img className="w-100" srcSet={hero_landscape_srcset} />
                     </div>
 
-                    <div style={{ height: "30vh" }} className="d-none d-md-block d-lg-none w-100 position-relative mt-2">
-                        <DynamicImage objectPosition="top" objectFit="contain" href={data.hero_image_landscape} />
-                    </div>
-
-                    <div style={{ height: "120vh" }} className="d-none d-sm-block d-md-none w-100 position-relative mt-2">
-                        <DynamicImage objectPosition="top" objectFit="contain" href={data.hero_image_portrait} />
-                    </div>
-
-                    <div style={{ height: "80vh" }} className="d-block d-sm-none w-100 position-relative mt-2">
-                        <DynamicImage objectPosition="top" objectFit="contain" href={data.hero_image_portrait} />
+                    <div className="d-block d-md-none w-100 position-relative mt-5 mb-5">
+                        <img className="w-100" srcSet={hero_portrait_srcset} />
                     </div>
 
 
@@ -99,7 +100,7 @@ export default function Emarkets({ data }: JSONData) {
 
 
                 <Row className="mt-2">
-                    <Col md={5}>
+                    <Col md={4} lg={5}>
                         <div className="h-100 d-flex">
                             <div className="my-auto">
                                 <h4>
@@ -111,29 +112,185 @@ export default function Emarkets({ data }: JSONData) {
                             </div>
                         </div>
                     </Col>
-                    <Col md={7}>
-                        CAROUSEL PLACEHOLDER
+                    <Col md={8} lg={7}>
+
+                        <div className="h-100">
+                            <Carousel
+                                autoPlay={true}
+                                showStatus={false}
+                                renderArrowPrev={(clickHandler: () => void, hasPrev: boolean, label: string) => {
+                                    return (<div className={styles.section2carouselarrowprev}>
+                                        <div style={{ opacity: hasPrev ? "1" : "0.5" }} onClick={clickHandler} className={styles.section2carouselprevarrowactual}>
+                                            <Image alt="left arrow" src="/left_arrow_white.svg" width={8} height={8} />
+                                        </div>
+                                        <div className={styles.dotwrapper}>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                    </div>)
+                                }}
+                                renderArrowNext={(clickHandler: () => void, hasPrev: boolean, label: string) => {
+                                    return (
+                                        <div style={{ opacity: hasPrev ? "1" : "0.5" }} onClick={clickHandler} className={styles.section2carouselnextarrowactual}>
+                                            <Image alt="left arrow" src="/left_arrow_white.svg" width={8} height={8} />
+                                        </div>
+                                    )
+                                }}
+
+                                showIndicators={false}
+
+                                showThumbs={false}
+                                showArrows={true}>
+                                {data.section_2_images.data.map((each: JSONData, key: number) => {
+                                    return (
+                                        <div className={styles.section2carouselwrap} key={key}>
+                                            <div className={styles.section2carousel}>
+                                                <DynamicImage objectFit="cover" href={{ data: each }} />
+                                            </div>
+
+                                            <svg className={styles.flt_svg} xmlns="http://www.w3.org/2000/svg">
+                                                <defs>
+                                                    <filter id="flt_tag">
+                                                        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                                                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="flt_tag" />
+                                                        <feComposite in="SourceGraphic" in2="flt_tag" operator="atop" />
+                                                    </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                    )
+                                })}
+                            </Carousel>
+                        </div>
                     </Col>
                 </Row>
-                <div className="mt-4">
-                    <h4>
-                        {data.section_3_title}
-                    </h4>
-                    <div className="mt-3 small">
-                        {data.section_3_description}
+
+            </Container>
+            <Container fluid className={styles.sec3fluid}>
+                <Container>
+                    <div className="mt-4">
+                        <h4>
+                            {data.section_3_title}
+                        </h4>
+                        <div className="mt-3 small">
+                            {data.section_3_description}
+                        </div>
                     </div>
-                </div>
-                <Row>
-                    <Col md={4}>
-                        Hi
-                    </Col>
-                    <Col md={4}>
-                        Hi
-                    </Col>
-                    <Col md={4}>
-                        Hi
-                    </Col>
-                </Row>
+                    <div className="d-none d-md-block w-100  pt-4">
+                        <div className={styles.horbar}></div>
+                    </div>
+                    <Row>
+                        {data.section_3_bullets.map((each: JSONData, key: number) => {
+                            return (<Col md={4} key={key} >
+                                <div className={`${styles.section3bullets} pt-5 p-md-4 ${(key % 3 != 3 - 1) ? styles.section3bulletborder : ""}`}>
+                                    <div className={styles.sec3bulimg}>
+                                        <DynamicImage href={each.image} />
+                                    </div>
+                                    <div className="mt-4">
+                                        <h5>{each.heading}</h5>
+                                    </div>
+                                    <div className="small mt-3">
+                                        {each.description}
+                                    </div>
+                                </div>
+                            </Col>)
+                        })}
+                    </Row>
+                    <Carousel
+                        autoPlay={true}
+                        showStatus={false}
+                        showArrows={false}
+                        showThumbs={false}>
+                        {data.section_3_carousel.map((each: JSONData, key: number) => {
+                            return (<div className={styles.sec3car} key={key}>
+                                <DynamicImage objectFit="cover" href={each.image} />
+                                <div>
+                                    <h5>
+                                        {each.heading}
+                                    </h5>
+                                    <div className={styles.sec3small}>
+                                        {each.description}
+                                    </div>
+                                </div>
+                            </div>)
+                        })}
+
+                    </Carousel>
+                </Container>
+            </Container>
+            <Container fluid className={styles.sec4fluid}>
+                <Container>
+                    <center>
+                        <div className="pt-5 pb-4 pb-md-none">
+                            <h3>{data.section_4_title}</h3>
+                            <div className={`small ${styles.sec4sub}`}>
+                                {data.section_4_description}
+                            </div>
+                        </div>
+                    </center>
+                    <Row className="pb-4 ">
+                        {data.section_4_bullets.map((each: JSONData, key: number) => {
+                            return (<Col md={4} key={key}>
+                                <div className="h-100 mt-1 mt-md-5">
+                                    <Row>
+                                        <Col lg={3}>
+                                            <div className={styles.sec4img}>
+                                                <DynamicImage href={each.image} />
+                                            </div>
+                                        </Col>
+                                        <Col lg={9}>
+                                            <h6>
+                                                {each.heading}
+                                            </h6>
+                                            <div className="small">
+                                                {each.description}
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Col>)
+                        })}
+                    </Row>
+                </Container>
+            </Container>
+            <Container fluid className={styles.sec5fluid}>
+                <Container>
+                    <div className="mt-5">{data.section_5_subtitle}</div>
+                    <Row>
+                        <Col md={9}>
+                            <h4>
+                                {data.section_5_title}
+                            </h4>
+                            <div className="small">
+                                {data.section_5_description}
+                            </div>
+                        </Col>
+                        <Col md={3}>
+                            <div className="d-flex flex-column h-100">
+                                <div className="mt-auto ms-md-auto">
+                                    <YellowArrowButton style={{width : "fit-content", padding: "0.5em 1.2em"}} link={data.section_5_link} text={data.section_5_cta} />
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                    <div className={styles.horbar} ></div>
+                    <Row className="pt-4 pb-4">
+                        {data.section_5_bullets.map((each: JSONData, key: number) => {
+                            return (<Col md={4}>
+                                <div className={styles.sec5cardbg}>
+                                    <DynamicImage objectFit="cover" href={each.image} />
+                                    <div>
+                                        <h5>{each.heading}</h5>
+                                        <div className={styles.sec3small}>
+                                            {each.description}
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>)
+                        })}
+                    </Row>
+                </Container>
             </Container>
 
         </RootLayout>
