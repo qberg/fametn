@@ -1,0 +1,51 @@
+
+.faq-section {
+    border-radius: 0.625em;
+    border: 1px solid #E5E5E5;
+    margin-bottom: 0.625em;
+    padding: 1.5em;
+    background-color: #ffffff;
+    position: relative;
+    font-weight: 600;
+    
+}
+
+.toggle-button {
+    position: absolute;
+    top: 1em;
+    right: 0.625em;
+    cursor: pointer;
+    padding: 0.3em ;
+    border: 1px solid #E5E5E5;
+    margin-right: 0.5em;
+    border-radius: 3.5px;
+}
+
+.plus-sign,
+.minus-sign {
+    color: black;
+    font-weight: bold;
+}
+
+.question {
+    cursor: pointer;
+   
+}
+
+.answer {
+    margin-top: 2em;
+    font-weight: 400;
+    margin-right: 3.5em;
+    font-size: 0.85em;
+}
+
+
+
+.toggle-button.hovered {
+    background-color: #ccc; 
+}
+
+.toggle-button.clicked {
+    background-color: #EEB118; 
+}
+

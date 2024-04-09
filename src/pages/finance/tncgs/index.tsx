@@ -21,21 +21,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import RenderIndicator from "@/components/normal_carousel_indicator";
 import DynamicImage from "@/components/dynamicImage";
 import { useState } from "react";
-
-
-const FaqSection =  ({question, answer}: JSONData) => {
-	const [opened, setOpened] = useState(false);
-
-	return (<div>
-
-		<div>
-			{question}
-		</div>
-		<div>
-			{answer}
-		</div>
-	</div>)
-}
+import FaqSection from "@/components/faq";
 
 
 export async function getServerSideProps(context: JSONData) {
@@ -112,6 +98,8 @@ export default function TNCGS({ data }: JSONData) {
 
 									const customPath = each.image?.data?.attributes?.formats?.small?.url
 									const iconPath = customPath ? process.env.NEXT_PUBLIC_IMG_ENDPOINT + customPath : "/default_scheme.webp"
+                  console.log("iconPath:", iconPath); 
+                 
 									return (
 										<div className="pb-4" key={key}>
 											<div className={styles.testimonialdescription}>
