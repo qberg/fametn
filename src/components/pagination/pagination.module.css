@@ -35,3 +35,19 @@
 .pageitem {
     white-space: nowrap;
 }
+
+.leftdis {
+    opacity: 0.5;
+    cursor: not-allowed;
+    margin-left: auto;
+}
+
+.nallow {
+    cursor: not-allowed;
+}
+
+.rightdis {
+    opacity: 0.5;
+    cursor: not-allowed;
+    margin-right: auto;
+}

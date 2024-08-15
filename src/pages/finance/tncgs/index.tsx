@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./tncgs.module.css"
 import YellowArrowButton from "@/components/yellow_arrow_button";
 
-import RootLayout from "../../layout";
+import RootLayout from "../../../components/layout/layout";
 
 import Link from "next/link";
 import Separator from "@/components/separator";
@@ -77,7 +77,7 @@ export default function TNCGS({ data }: JSONData) {
 					</div>
 
 					<div className="mt-4">
-						<YellowArrowButton text={data["cta_text"]} link={data["cta_link"]} style={{ width: '7.5em', padding: '10px' }} />
+						<YellowArrowButton text={data["cta_text"]} link={data["cta_link"]} />
 					</div>
 				</Col>
 
@@ -87,7 +87,7 @@ export default function TNCGS({ data }: JSONData) {
 			</Row>
 
 			<div className={styles.sectiontwo}>
-				<Image className="d-none d-lg-block" style={{ position: "absolute" }} src="/grid_tl.svg" alt="top left grid" width={128} height={128} />
+				<Image className="d-none d-lg-block position-absolute"  src="/grid_tl.svg" alt="top left grid" width={128} height={128} />
 				<div className="d-flex flex-column">
 					<center>
 						<div className={styles.centereddiv}>
@@ -98,7 +98,6 @@ export default function TNCGS({ data }: JSONData) {
 
 									const customPath = each.image?.data?.attributes?.formats?.small?.url
 									const iconPath = customPath ? process.env.NEXT_PUBLIC_IMG_ENDPOINT + customPath : "/default_scheme.webp"
-                  console.log("iconPath:", iconPath); 
                  
 									return (
 										<div className="pb-4" key={key}>
@@ -153,7 +152,7 @@ export default function TNCGS({ data }: JSONData) {
 					<div className="ps-none ps-lg-5 ">
 						<div className={styles.section3grad}></div>
 						<div className={styles.sec_3_img_container}>
-							<DynamicImage objectFit="cover" href={data.section_3_image} />
+							<DynamicImage objectFit="cover" src={data.section_3_image} />
 						</div>
 						<div className="my-4">
 							<h5>
@@ -192,11 +191,11 @@ export default function TNCGS({ data }: JSONData) {
 
 			<Row>
 				<Col md={5}>
-					<div style={{ minHeight: "150px" }} className="d-none d-md-block h-100 w-100 position-relative">
-						<DynamicImage objectPosition="left" objectFit="contain" href={data.section_4_image} />
+					<div className={`${styles.min150} d-none d-md-block h-100 w-100 position-relative`}>
+						<DynamicImage objectPosition="left" objectFit="contain" src={data.section_4_image} />
 					</div>
-					<div style={{ minHeight: "300px" }} className="d-block d-md-none h-100 w-100 position-relative">
-						<DynamicImage objectPosition="center" objectFit="contain" href={data.section_4_image} />
+					<div className={`${styles.min300} d-block d-md-none h-100 w-100 position-relative`}>
+						<DynamicImage objectPosition="center" objectFit="contain" src={data.section_4_image} />
 					</div>
 				</Col>
 				<Col md={7}>

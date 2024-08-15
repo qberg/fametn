@@ -1,4 +1,4 @@
-import RootLayout from "../../layout";
+import RootLayout from "../../../components/layout/layout";
 import { Col, Container, Row } from "react-bootstrap";
 import Link from "next/link";
 
@@ -112,8 +112,8 @@ const MobileStickyTop = ({ max_top, children }: JSONData) => {
 
 	return (
 		<>
-			{(scrollPosition <= max_top) && (<div style={{ position: "fixed", top: max_top, zIndex: 2, width: "100%" }}>{content}</div>)}
-			<div ref={targetRef}>{content}</div>
+			{/* {(scrollPosition <= max_top) && (<div arc={{ position: "fixed", top: max_top, zIndex: 2, width: "100%" }}>{content}</div>)}
+			<div ref={targetRef}>{content}</div> */}
 		</>
 
 	);
@@ -195,7 +195,7 @@ export default function Finance({ currentCategory, categories, agencyList }: JSO
 						</div>
 
 						<Link onClick={() => setCategory(null)} href="/finance/schemes">
-							<div style={{ fontWeight: "600" }} className={`${styles.rounded} ${category ? styles.inactive : styles.active}`} >
+							<div className={`${styles.bolder} ${styles.rounded} ${category ? styles.inactive : styles.active}`} >
 								All Categories
 							</div>
 						</Link>

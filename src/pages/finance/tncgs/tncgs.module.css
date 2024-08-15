@@ -6,6 +6,14 @@
   text-decoration: underline !important;
 }
 
+.min150 {
+  min-height: 150px;
+}
+
+.min300 {
+  min-height: 300px;
+}
+
 .supertitle {
   text-transform: uppercase;
   background-color: var(--yellow);

@@ -4,10 +4,7 @@ import Image from 'next/image'
 const Separator = () => {
     return (
         <Image
-            style = {{
-                marginLeft : "10px",
-                marginRight : "10px"
-            }}
+            className='ms-2 me-2'
             src="/separator.svg"
             alt="->"
             width={10}

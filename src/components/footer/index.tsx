@@ -81,7 +81,7 @@ const Footer = () => {
 							<a className="text-gray-600 hover:text-gray-800">Privacy and Policy</a>
 						</Col>
 						<Col lg={6}>
-							<a style={{marginLeft: "ms-auto"}} className="text-gray-600 hover:text-gray-800"> © 2024 All rights reserved</a>
+							<a className="text-gray-600 hover:text-gray-800 ms-auto"> © 2024 All rights reserved</a>
 						</Col>
 					</Row>
 				</Container>

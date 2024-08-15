@@ -3,8 +3,8 @@ import styles from './button.module.css';
 import { JSONData } from '@/utils/definitions';
 import Image from 'next/image'
 
-const YellowArrowButton = ({text, link, style} : JSONData) => {
-    const child = (<div style={style} className={styles.yellowarrow}>
+const YellowArrowButton = ({text, link} : JSONData) => {
+    const child = (<div className={styles.yellowarrow}>
         {text}
         <div className={styles.arrow}> 
             <Image

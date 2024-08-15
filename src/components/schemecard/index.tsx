@@ -8,7 +8,7 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
 
     const customPath = icon?.data?.attributes?.formats?.small?.url
     const iconPath = customPath ? process.env.NEXT_PUBLIC_IMG_ENDPOINT + customPath : "/default_scheme.webp"
-    
+
     return (
         <div data-aos="fade-up" className={styles.card}>
             <div className="d-flex">
@@ -17,13 +17,7 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
                         className={styles.innerimg}
                         height={50}
                         width={50}
-
                         src={iconPath}
-                        style={
-                            {
-                                objectFit: "cover"
-                            }
-                        }
                         alt={"card image of " + title}
                     />
                 </div>
@@ -36,11 +30,11 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
                     {description}
                 </p>
             </div>
-            
+
             <div className="horiz_line"></div>
 
             <Row>
-                <Col style={{marginBottom: "0.1em"}} md={6}>
+                <Col className="mb-1" md={6}>
                     <div className="d-flex">
                         <div className={styles.red_square}>
                         </div>
@@ -49,8 +43,8 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
                         </div>
                     </div>
                 </Col>
-                <Col style={{marginBottom: "0.1em"}}  md={6}>
-                <div className="d-flex">
+                <Col className="mb-1" md={6}>
+                    <div className="d-flex">
                         <div className={styles.blue_square}>
                         </div>
                         <div className={`smallest ${styles.blue_text} ms-1`}>
@@ -63,7 +57,9 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
             <div className="mt-auto small py-2">
                 {/* <center>View Scheme </center> */}
                 <center>
-                <YellowArrowButton link={link} style={{paddingTop: "0.6em", paddingBottom: "0.6em"}} text={"View Scheme"} />
+                    <div className="pt-1 pb-1">
+                        <YellowArrowButton link={link} text={"View Scheme"} />
+                    </div>
                 </center>
             </div>
 

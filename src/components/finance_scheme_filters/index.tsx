@@ -19,23 +19,24 @@ const MultiRangeSlider = ({ min = 0, max = 100, valueMin = 0, valueMax = 0, defa
 
     return (
         <div className={styles.sliderparent}>
-            <input style={{ zIndex: 3 }} className={`${styles.slider}`} onChange={(e) => setMin(e.target.value)} type="range" min={min} max={max} value={valueMin} />
-            <input style={{ zIndex: 3 }} className={`${styles.slider}`} onChange={(e) => setMax(e.target.value)} type="range" min={min} max={max} value={valueMax} />
-            <div style={{
+            <input className={`${styles.slider} z-3`} onChange={(e) => setMin(e.target.value)} type="range" min={min} max={max} value={valueMin} />
+            <input className={`${styles.slider} z-3`} onChange={(e) => setMax(e.target.value)} type="range" min={min} max={max} value={valueMax} />
+            {/* TODO */}
+            {/* <div arc={{
                 left: `${valueMin * 100 / (max - min)}%`,
                 width: `${(valueMax - valueMin) * 100 / (max - min)}%`
             }} className={styles.sliderviewer}></div>
             <div className={styles.bgslider}></div>
-            <div style={{
+            <div arc={{
                 left: `${valueMin * 100 / (max - min)}%`,
             }} className={styles.value}>
                 {valueMin}%
             </div>
-            <div style={{
+            <div arc={{
                 left: `${(valueMax) * 100 / (max - min)}%`,
             }} className={styles.value}>
                 {valueMax}%
-            </div>
+            </div> */}
         </div>
     )
 }
@@ -53,28 +54,29 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min = 0, max = 100, value = 0
 
     return (
         <div className={styles.sliderparent}>
-            <input style={{ zIndex: 3 }} className={`${styles.slider}`} onChange={(e) => onChange(parseFloat(e.target.value))} type="range" min={min} max={max} value={value} />
-            <div style={{
+            <input className={`${styles.slider} z-3`} onChange={(e) => onChange(parseFloat(e.target.value))} type="range" min={min} max={max} value={value} />
+            {/* TODO */}
+            {/* <div arc={{
                 left: 0,
                 width: `${(value - min) * 100 / (max - min)}%`
             }} className={styles.sliderviewer}></div>
             <div className={styles.bgslider}></div>
-            {suffix && (<div style={{
+            {suffix && (<div arc={{
                 left: `${(value - min) * 100 / (max - min)}%`,
             }} className={styles.value}>
                 {value}{suffix}
-            </div>)}
+            </div>)} */}
         </div>
     )
 }
 
 
-const SubFilter = ({ title, subtitle, children, style }: JSONData) => {
+const SubFilter = ({ title, subtitle, children }: JSONData) => {
     return (<div>
         <div className={`small ${styles.subfiltertitle}`}>
             {title}
         </div>
-        <div style={style} className={`small ${styles.subfiltercontent}`}>
+        <div className={`small ${styles.subfiltercontent}`}>
             <div>{subtitle}</div>
             {children}
         </div>
@@ -83,7 +85,7 @@ const SubFilter = ({ title, subtitle, children, style }: JSONData) => {
 
 
 
-export default function FinanceSchemeFilter({ agencies = [], onChange = () => {} }: JSONData) {
+export default function FinanceSchemeFilter({ agencies = [], onChange = () => { } }: JSONData) {
 
     const [isActive, setIsActive] = useState(false);
     const [subsidyRate, setSubsidyRate] = useState([0, 100]);
@@ -176,12 +178,12 @@ export default function FinanceSchemeFilter({ agencies = [], onChange = () => {}
                 </SubFilter>
                 <SubFilter title="Grants">
                     <Row>
-                        <Col style={{ marginBottom: 0, paddingRight: 0 }} sm={7}>
+                        <Col className="mb-0 pe-0" sm={7}>
                             <div className="mt-2">
                                 <RangeSlider value={grant} min={grantMin} max={grantMax} onChange={grantChanged} suffix={null} />
                             </div>
                         </Col>
-                        <Col style={{ marginBottom: 0 }} sm={5}>
+                        <Col className="mb-0" sm={5}>
                             <div className={styles.inputtext}>
                                 <div>₹</div>
                                 <div><input className={styles.inputcore} type="text" onChange={(e) => grantChangedText(e.target.value)} value={grant} />
@@ -191,16 +193,13 @@ export default function FinanceSchemeFilter({ agencies = [], onChange = () => {}
                     </Row>
                 </SubFilter>
 
-                <SubFilter style={{ padding: 0 }} title="Departments">
+                <SubFilter title="Departments">
                     <div className={styles.depts}>
                         {agencies.map((agency: string, i: number) => {
                             return (<div onClick={() => toggleSelection(i)} className={`${agencySelection[i] ? styles.deptactive : styles.deptinactive}  ${styles.deptitem}`} key={i}>
                                 <div className="me-1">{agencySelection[i] ? (
                                     <Image
-                                        style={{
-                                            marginLeft: "10px",
-                                            marginRight: "10px"
-                                        }}
+                                        className="ms-2 me-2"
                                         src="/tick.svg"
                                         alt="->"
                                         width={16}
@@ -208,10 +207,7 @@ export default function FinanceSchemeFilter({ agencies = [], onChange = () => {}
                                     />
                                 ) : (
                                     <Image
-                                        style={{
-                                            marginLeft: "10px",
-                                            marginRight: "10px"
-                                        }}
+                                        className="ms-2 me-2"
                                         src="/notick.svg"
                                         alt="->"
                                         width={16}

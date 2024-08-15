@@ -1,4 +1,4 @@
-import RootLayout from "../../layout";
+import RootLayout from "../../../components/layout/layout";
 import { CacheHeaders, JSONData } from "../../../utils/definitions"
 
 // import SchemeLayout from "../../../components/financeschemelayout";

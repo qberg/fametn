@@ -34,15 +34,15 @@ const Navbar = ({ onSearch, pageProps} : JSONData) => {
 			<Container>
 			<nav className="navbar">
 				<div className={styles.logo}>
-					<img className="d-none d-lg-inline" src="/tn_logo.png" alt="Logo" style={{ marginRight: '12px' }} />
-					<img className="d-none d-lg-inline" src="/Line 1.png" alt="Logo" style={{ marginRight: '12px' }} />
+					<img className="d-none d-lg-inline me-3" src="/tn_logo.png" alt="Logo" />
+					<img className="d-none d-lg-inline me-3" src="/Line 1.png" alt="Logo"  />
 					<img src="/fame_tn_logo.png" alt="Logo" />
 				</div>
-				<div style={{ display: 'flex', alignItems: 'center', marginLeft: '17px' }}>
+				<div className='d-flex align-items-center ms-2'>
 					<div className="d-none d-lg-block">
 						<SearchBox handleSearch={handleSearch} />
 					</div>
-					<img className="d-none d-lg-block" src="/Line 1.png" alt="Logo" style={{ marginRight: '10px', marginLeft: '15px' }} />
+					<img className="d-none d-lg-block ms-2 me-3" src="/Line 1.png" alt="Logo"  />
 					<div className="borderDiv">
 						<LanguageIcon />
 						<select value={lang} onChange={switchLocale} className="drop">
@@ -50,7 +50,7 @@ const Navbar = ({ onSearch, pageProps} : JSONData) => {
 							<option value="ta">TA</option>
 						</select>
 					</div>
-					<img src="/Line 1.png" alt="Logo" style={{ marginLeft: '5px', marginRight: '7px' }} />
+					<img src="/Line 1.png" alt="Logo" className='ms-1 me-1' />
 					<div className="yellowbutton ms-3 d-flex">
 						<div className='me-2'>Menu</div> <MenuIcon />
 					</div>

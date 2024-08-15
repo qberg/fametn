@@ -2,7 +2,6 @@ import axios from "axios";
 
 
 export const getData = async (url: string, language: String) => {
-	console.log(url)
 	var TOKEN = process.env.API_TOKEN
 	var response = null
 	try {

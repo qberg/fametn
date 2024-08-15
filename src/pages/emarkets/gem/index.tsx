@@ -1,5 +1,6 @@
 import Separator from "@/components/separator";
-import RootLayout from "@/pages/layout";
+
+import RootLayout from "@/components/layout/layout";
 import { getData } from "@/utils/api_calls";
 import { CacheHeaders, JSONData } from "@/utils/definitions";
 import Link from "next/link";
@@ -77,7 +78,9 @@ export default function Emarkets({ data }: JSONData) {
                                     <p>
                                         {data.description}
                                     </p>
-                                    <YellowArrowButton style={{ width: "fit-content", paddingTop: "0.3em", paddingBottom: "0.3em" }} text={data.cta_text} link={data.cta_link} />
+                                    <div className="pt-1 pb-1">
+                                        <YellowArrowButton text={data.cta_text} link={data.cta_link} />
+                                    </div>
                                 </div>
                             </div>
                         </Col>
@@ -119,7 +122,9 @@ export default function Emarkets({ data }: JSONData) {
                                 showStatus={false}
                                 renderArrowPrev={(clickHandler: () => void, hasPrev: boolean, label: string) => {
                                     return (<div className={styles.section2carouselarrowprev}>
-                                        <div style={{ opacity: hasPrev ? "1" : "0.5" }} onClick={clickHandler} className={styles.section2carouselprevarrowactual}>
+
+                                        {/* TODO STYLE */}
+                                        <div data-hasprev={hasPrev} onClick={clickHandler} className={styles.section2carouselprevarrowactual}>
                                             <Image alt="left arrow" src="/left_arrow_white.svg" width={8} height={8} />
                                         </div>
                                         <div className={styles.dotwrapper}>
@@ -131,7 +136,7 @@ export default function Emarkets({ data }: JSONData) {
                                 }}
                                 renderArrowNext={(clickHandler: () => void, hasPrev: boolean, label: string) => {
                                     return (
-                                        <div style={{ opacity: hasPrev ? "1" : "0.5" }} onClick={clickHandler} className={styles.section2carouselnextarrowactual}>
+                                        <div data-hasprev={hasPrev} onClick={clickHandler} className={styles.section2carouselnextarrowactual}>
                                             <Image alt="left arrow" src="/left_arrow_white.svg" width={8} height={8} />
                                         </div>
                                     )
@@ -145,7 +150,7 @@ export default function Emarkets({ data }: JSONData) {
                                     return (
                                         <div className={styles.section2carouselwrap} key={key}>
                                             <div className={styles.section2carousel}>
-                                                <DynamicImage objectFit="cover" href={{ data: each }} />
+                                                <DynamicImage objectFit="cover" src={{ data: each }} />
                                             </div>
 
                                             <svg className={styles.flt_svg} xmlns="http://www.w3.org/2000/svg">
@@ -187,7 +192,7 @@ export default function Emarkets({ data }: JSONData) {
                             return (<Col md={4} key={key} >
                                 <div data-aos="fade-up" className={`${styles.section3bullets} pt-2 p-md-4 ${(key % 3 != 3 - 1) ? styles.section3bulletborder : ""}`}>
                                     <div data-aos="fade-up" className={styles.sec3bulimg}>
-                                        <DynamicImage href={each.image} />
+                                        <DynamicImage src={each.image} />
                                     </div>
                                     <div data-aos="fade-up" className="mt-4">
                                         <h5>{each.heading}</h5>
@@ -208,7 +213,7 @@ export default function Emarkets({ data }: JSONData) {
                         showThumbs={false}>
                         {data.section_3_carousel.map((each: JSONData, key: number) => {
                             return (<div data-aos="fade-up" className={styles.sec3car} key={key}>
-                                <DynamicImage objectFit="cover" href={each.image} />
+                                <DynamicImage objectFit="cover" src={each.image} />
                                 <div data-aos="fade-up">
                                     <h5>
                                         {each.heading}
@@ -240,7 +245,7 @@ export default function Emarkets({ data }: JSONData) {
                                     <Row>
                                         <Col lg={3}>
                                             <div data-aos="fade-up" className={styles.sec4img}>
-                                                <DynamicImage href={each.image} />
+                                                <DynamicImage src={each.image} />
                                             </div>
                                         </Col>
                                         <Col className="text-center text-md-left" lg={9}>
@@ -273,7 +278,7 @@ export default function Emarkets({ data }: JSONData) {
                         <Col md={3}>
                             <div data-aos="fade-up" className="d-flex flex-column h-100">
                                 <div data-aos="fade-up" className="mt-auto ms-md-auto">
-                                    <YellowArrowButton style={{ width: "fit-content", padding: "0.5em 1.2em" }} link={data.section_5_link} text={data.section_5_cta} />
+                                    <YellowArrowButton link={data.section_5_link} text={data.section_5_cta} />
                                 </div>
                             </div>
                         </Col>
@@ -283,7 +288,7 @@ export default function Emarkets({ data }: JSONData) {
                         {data.section_5_bullets.map((each: JSONData, key: number) => {
                             return (<Col md={4} key={key}>
                                 <div data-aos="fade-up" className={styles.sec5cardbg}>
-                                    <DynamicImage objectFit="cover" href={each.image} />
+                                    <DynamicImage objectFit="cover" src={each.image} />
                                     <div>
                                         <h5 data-aos="fade-up">{each.heading}</h5>
                                         <div data-aos="fade-up" className={styles.sec3small}>

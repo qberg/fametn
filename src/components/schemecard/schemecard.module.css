@@ -10,6 +10,10 @@
     padding: 1em;
 }
 
+.innerimg {
+    object-fit: "cover";
+}
+
 .img_wrap {
     height: 50px;
     min-width: 50px;

@@ -10,8 +10,7 @@ const SearchBox = ({ handleSearch, placeholder }: JSONData) => {
             <input
                 type="text"
                 placeholder={placeholderText}
-                className="search"
-                style={{ marginRight: '5px' }}
+                className="search me-1"
                 onChange={handleSearch} // Call handleSearch on input change
             />
         </div>)

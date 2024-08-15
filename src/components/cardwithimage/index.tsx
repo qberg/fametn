@@ -5,39 +5,14 @@ import Image from 'next/image'
 import styles from "./card.module.css"
 import YellowArrowButton from "../yellow_arrow_button";
 import Link from "next/link";
+import DynamicImage from "../dynamicImage";
 
 const CardWithImage = ({title, description, link, image} : JSONData) => {
-    
-    console.log(image)
-
-    const imgLoader = ({ src, width, quality }: JSONData) => {
-        var key = "medium"
-        if (width < 400) key = "thumbnail"
-        else if (width < 700) key = "small"
-        else if (width < 1024) key = "medium"
-        else key = "large"
-       
-        const url = process.env.NEXT_PUBLIC_IMG_ENDPOINT + image.data?.attributes?.formats[key].url
-        return url
-    }
-
     return (
         <Link href={link} >
             <div data-aos="fade-up" className={styles.card}>
                 <div className={styles.cardimage}>
-                    <Image
-                        className={styles.innerimg}
-                        fill
-                        src="/example.png"
-                        loader={imgLoader}
-                        style = {
-                            {
-                                objectFit : "cover"
-                            }
-                        }
-                        alt={"card image of " + title}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+                    <DynamicImage src={image} />
                 </div>
                 <div className="mt-3 d-flex flex-grow-1 flex-column">
                     <h6>{title}</h6>

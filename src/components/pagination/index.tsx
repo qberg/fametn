@@ -37,15 +37,14 @@ const Pagination = ({ page, totalPages }: JSONData) => {
         <Image
             width={13}
             height={13}
-            
             src="/page_left.svg"
             alt="<"
         />
-        <div style={{ marginLeft: "10px" }} className="d-none d-md-inline"> Previous</div>
+        <div className="d-none d-md-inline ms-2"> Previous</div>
     </div>)
 
     const nextItem = (<div className={`${styles.pageitem} ${styles.nextpage}`}>
-        <div style={{ marginRight: "10px" }} className="d-none d-md-inline">Next</div>
+        <div className="d-none d-md-inline me-2">Next</div>
         <Image
             width={13}
             height={13}
@@ -64,9 +63,9 @@ const Pagination = ({ page, totalPages }: JSONData) => {
 
     return (
         <div data-aos="fade-up" className={styles.parent}>
-            {(page > 1) ? (<Link style={{marginLeft: "auto"}} href={getPage(page - 1)}>
+            {(page > 1) ? (<Link className="ms-auto" href={getPage(page - 1)}>
                 {prevItem}
-            </Link>) : (<div style={{ opacity: 0.5, cursor: "not-allowed", marginLeft: "auto" }}>{prevItem}</div>)}
+            </Link>) : (<div className={styles.leftdis}>{prevItem}</div>)}
             {displayedPageLinks.map((pageNumber: number, id: number) => {
                 if (pageNumber != 0) {
                     return (
@@ -78,15 +77,15 @@ const Pagination = ({ page, totalPages }: JSONData) => {
                     </Link>)
                 } else {
                     return (
-                        <div key={id} style={{cursor: "not-allowed" }} className={styles.pgnumber}>
+                        <div key={id} className={`${styles.nallow} ${styles.pgnumber}`}>
                             ...
                         </div>
                     )
                 }
             })}
-            {(page < totalPages) ? (<Link style={{marginRight: "auto"}} href={getPage(page + 1)}>
+            {(page < totalPages) ? (<Link className="me-auto" href={getPage(page + 1)}>
                 {nextItem}
-            </Link>) : (<div style={{ opacity: 0.5, cursor: "not-allowed", marginRight: "auto" }}>{nextItem}</div>)}
+            </Link>) : (<div className={styles.rightdis}>{nextItem}</div>)}
         </div>
     )
 }
