@@ -9,10 +9,10 @@ import { CacheHeaders, JSONData } from "@/utils/definitions";
 
   const Section5 = ({ title, items }: JSONData) => {
 return(
-  <Container className={styles.blackbox}>
+  <Container className={styles.blackbox} >
     <div className={styles.containerFluid}>
     {title && (
-            <h2 className='mt-5'>{title}</h2>
+            <h2 className='mt-5 mb-5'>{title}</h2>
    
     )}
     <Row>
@@ -27,14 +27,16 @@ return(
             </div>
             <p className={styles.description}>{item.description}</p>
           <p className={styles.date}>{item.date}</p>
-          <div className="mt-3">
+          <div className='mt-3 d-flex'>
             <a href={item.link} className={styles.link}>{item.link_title}</a>
+            <div className='ms-2 my-auto'>
             <Image
                     src="/right_arrow.svg"
                     alt="->"
                     width={15}
                     height={15}
-                  />
+              />
+              </div>
           </div>
         </Col>
       ))}

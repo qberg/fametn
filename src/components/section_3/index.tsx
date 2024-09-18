@@ -1,6 +1,6 @@
 // components/Section3.js
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Container,Col, Row } from 'react-bootstrap';
 import DynamicImage from '@/components/dynamicImage';
 import Image from 'next/image';
 import styles from './section_3.module.css';
@@ -9,7 +9,9 @@ import { CacheHeaders, JSONData } from "@/utils/definitions";
 
   const Section3 = ({ firstSection3Item, nextTwoSection3Items }: JSONData) => {
     return (
+      <Container>
       <div className={styles.divs}>
+      
         <Row>
           <Col lg={7}>
             <div className={styles.div1}>
@@ -22,7 +24,7 @@ import { CacheHeaders, JSONData } from "@/utils/definitions";
                     <h5>{firstSection3Item.heading}</h5>
                     <small >{firstSection3Item.description}</small>
                     <p className="mt-5">{firstSection3Item.name}</p>
-                    <small>{firstSection3Item.designation}</small>
+                    <p>{firstSection3Item.designation}</p>
                   </div>
                   <div className={styles.link}>
                     <a
@@ -96,6 +98,7 @@ import { CacheHeaders, JSONData } from "@/utils/definitions";
           </Col>
         </Row>
       </div>
+      </Container>
     );
   };
 
