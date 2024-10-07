@@ -14,37 +14,54 @@ export function middleware(request: NextRequest) {
 //     frame-ancestors 'none';
 //     upgrade-insecure-requests;
 // `
+  // const cspHeader = `
+  //   default-src 'none';
+  //   img-src 'self' blob: data:;
+  //   font-src 'self' 'https://fonts.googleapis.com' 'https://fonts.gstatic.com';
+  //   object-src 'none';
+  //   base-uri 'self';
+  //   form-action 'self';
+  //   frame-ancestors 'none';
+  //   upgrade-insecure-requests;
+  // `
+
   const cspHeader = `
-    img-src 'self' blob: data:;
-    font-src 'self' 'https://fonts.googleapis.com' 'https://fonts.gstatic.com';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
+    default-src *;
+    img-src * blob: data:;
+    font-src *;
+    object-src *;
+    base-uri *;
+    form-action *;
+    frame-ancestors *;
     upgrade-insecure-requests;
-  `
+    script-src *;
+    style-src *;
+    connect-src *;
+  `;
+
   // Replace newline characters and spaces
-  const contentSecurityPolicyHeaderValue = cspHeader
-    .replace(/\s{2,}/g, ' ')
-    .trim()
+  // const contentSecurityPolicyHeaderValue = cspHeader
+  //   .replace(/\s{2,}/g, ' ')
+  //   .trim()
  
   const requestHeaders = new Headers(request.headers)
-  requestHeaders.set('x-nonce', nonce)
+  // requestHeaders.set('x-nonce', nonce)
  
-  requestHeaders.set(
-    'Content-Security-Policy',
-    contentSecurityPolicyHeaderValue
-  )
+  // requestHeaders.set(
+  //   'Content-Security-Policy',
+  //   contentSecurityPolicyHeaderValue
+  // )
  
   const response = NextResponse.next({
     request: {
       headers: requestHeaders,
     },
   })
-  response.headers.set(
-    'Content-Security-Policy',
-    contentSecurityPolicyHeaderValue
-  )
+
+  // response.headers.set(
+  //   'Content-Security-Policy',
+  //   contentSecurityPolicyHeaderValue
+  // )
  
   return response
 }

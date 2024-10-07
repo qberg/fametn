@@ -1,0 +1,21 @@
+.arrow {
+    display: inline-block;
+    transform: translateX(7px) translateY(-1px);
+    transition: var(--transition);
+}
+
+.bluearrow {
+    background-color: rgba(208, 217, 229, 1);
+    color: rgba(21, 65, 126, 1);
+    border-radius: var(--small-radius);
+    padding: 0.2em 1em;
+    padding-right: 1.5em;
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.bluearrow:hover .arrow {
+    transform: translateX(10px) translateY(-1px);
+}

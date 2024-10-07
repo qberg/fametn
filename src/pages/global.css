@@ -19,10 +19,12 @@
   --grid-sep: 10px;
   --radius: 12px;
   --small-radius: 7px;
-
+  --english-font: "Poppins", sans-serif;
   --tiny-shadow: 0 4px 8px #10182819, 0 2px 4px #1018280f;
 
   --transition: ease-in-out 0.3s;
+
+    --english-font: "Poppins", sans-serif;
 }
 
 html {
@@ -31,14 +33,24 @@ html {
 
 }
 
+
 body {
-  scroll-behavior: smooth !important;
-  margin: 0 !important;
-  background-color: var(--light) !important;
-  font-family: "Poppins", sans-serif !important;
-  max-width: 100vw !important;
-  overflow-x: hidden;
+    font-family: var(--english-font) !important;
+    margin: 0 !important;
+    background-color: var(--light) !important;
+    font-size: var(--small) !important;
+    width: 100vw;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+
+    /* scroll-snap-align: start;
+    scroll-snap-stop: always; */
+    /* IE and Edge */
+    /* scrollbar-width: none; */
+    /* Firefox */
 }
+
+
 
 h1 {
   font-weight: 700 !important;
