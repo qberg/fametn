@@ -2,8 +2,8 @@ import { GetServerSideProps } from 'next';
 import React from 'react';
 import { getData } from "@/utils/api_calls";
 import { CacheHeaders, JSONData } from "../utils/definitions";
-import TemplateComponent1 from '../components/templatecomponent1';
-import TemplateComponent2 from '../components/templatecomponent2';
+import TemplateComponent1 from '../templates/templatecomponent1';
+import TemplateComponent2 from '../templates/templatecomponent2';
 
 
 const ComponentMap: { [key: string]: React.FC<{ data: JSON }> } = {
