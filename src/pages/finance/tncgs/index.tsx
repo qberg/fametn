@@ -115,7 +115,6 @@ export default function TNCGS({ data }: JSONData) {
 
 											</div>
 											<div className="mt-4">
-
 											</div>
 										</div>)
 								})}

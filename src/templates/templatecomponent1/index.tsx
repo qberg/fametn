@@ -9,7 +9,8 @@ import DynamicImage from "@/components/dynamicImage";
 import BlueArrow from "@/components/bluearrow";
 import Section3 from "@/components/section_3";
 import Section5 from "@/components/section5";
-
+import Link from "next/link";
+import Separator from "@/components/separator";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 
 import React, { useState } from 'react';
@@ -17,7 +18,7 @@ import React, { useState } from 'react';
 export default function TemplateComponent1({ data }: JSONData) {
   const [selectedId, setSelectedId] = useState(data.section_1[0]?.id);
 
-  const selectedItem = data.section_1.find(item => item.id === selectedId);
+  const selectedItem = data.section_1.find((item: { id: any; }) => item.id === selectedId);
   const firstSection3Item = data.section_3[0];
 
   const nextTwoSection3Items = data.section_3.slice(1, 3);
@@ -38,7 +39,14 @@ export default function TemplateComponent1({ data }: JSONData) {
   
   return (
     <RootLayout>
-    <Container>
+      <Container>
+      <div className="mt-5">
+				<Link className={styles.bluelink} href="/">Home</Link>
+				<Separator />
+				<Link className={styles.graylink} href="/finance">Finance</Link>
+				<Separator />
+				<Link className={styles.graylink} href="/finance/delayedpayments">Delayed Payments</Link>
+			</div>
       <div className={styles.imagesWrapper}>
         <Image src="/Ellipse 22.svg" alt="Image Description" width={400} height={400} />
       </div>
@@ -67,7 +75,7 @@ export default function TemplateComponent1({ data }: JSONData) {
       <div className="d-flex flex-column">
         <center>
           <div className={styles.centereddiv}>
-            <h2 className={styles.marginBottom}>{data.partner_title}</h2>
+            <h3 className={styles.marginBottom}>{data.partner_title}</h3>
             </div>
           
         </center>
@@ -79,9 +87,10 @@ export default function TemplateComponent1({ data }: JSONData) {
           </div>
         ))}
       </div>
-      <Row>
-  <Col lg={5} className={styles.imageCol}>
-    <div data-aos="fade-up" className={styles.imgwrap}>
+        <div>
+          <Row>
+            <Col lg={5} className={`${styles.imageCol} d-flex align-items-start`}>
+      <div data-aos="fade-up" className={styles.imgwrap}>
       {selectedItem && (
         <div className={styles.imageItem}>
           <DynamicImage objectFit="contain" src={selectedItem.image} />
@@ -93,12 +102,13 @@ export default function TemplateComponent1({ data }: JSONData) {
   {data.section_1.map((each: JSONData) => (
     <div
       key={each.id}
-      className={`${styles.textItem} ${selectedId === each.id ? styles.active : ''}`}
+      className={`${styles.textItem} ${selectedId === each.id ? styles.active : styles.collapsed}`}
+      
       onClick={() => setSelectedId(each.id)}
     >
-      <h5 className={styles.heading}>
+      <p className={styles.heading}>
         {each.heading}
-      </h5>
+      </p>
       {selectedId === each.id && (
 <>
           <small className={styles.small_des}>{each.description}</small>
@@ -113,7 +123,9 @@ export default function TemplateComponent1({ data }: JSONData) {
   ))}
 </Col>
 
-        </Row>
+          </Row>
+          </div>
+        </Container>
         <Container className="mb-5">
           <div>
             <div className={styles.sec_3_img_container}>
@@ -161,7 +173,7 @@ export default function TemplateComponent1({ data }: JSONData) {
           nextTwoSection3Items={nextTwoSection3Items}
         />
 
-      </Container>
+      
       <Container className={styles.blackbox} fluid>
         <p className={styles.testimonial }>{ data.section4_title1}</p>
       <div className={styles.actcard}>
@@ -201,19 +213,44 @@ export default function TemplateComponent1({ data }: JSONData) {
         <Col lg={6}>
         <div className="mt-5 position-relative">
 				<h2>{data.QA}</h2>
-				<h5 className="mt-2 mb-5">
+				<p className="mt-2 mb-5">
 					{data.QA_title1}
-				</h5>
+				</p>
 					
 			</div>
         </Col>
         <Col className="mt-5" lg={6}>
-            {data.qa_section.map((each, key) => (
+            {data.qa_section.map((each: { question: any; answer: any; }, key: React.Key | null | undefined) => (
                 <FaqSection key={key} question={each.question} answer={each.answer} />
             ))}
         </Col>
         </Row>
-        </Container>
+      </Container>
+      <Container className={styles.newsletter} fluid>
+      <div className={styles.innerWrapper}>
+        <Row>
+            <Col lg={6} className="d-flex justify-content-center">
+              <div className={styles.newsHeading}>
+                <h2>{data.section_6.heading}</h2>
+                <p>{data.section_6.text1}</p>
+            </div>
+          </Col>
+          <Col lg={6} className="d-flex flex-column">
+  <div className={styles.textarrow}>
+                <span className={styles.text_box_content}>Get our newsletter</span>
+                <Image
+                        src="/right_arrow.svg"
+                        alt="->"
+                        width={15}
+                  height={15}
+                  className={styles.arrow}
+                      />
+  </div>
+  <p className="mt-3">{data.section_6.text2}</p>
+</Col>
+        </Row>
+      </div>
+      </Container>
     </RootLayout>
     
   );

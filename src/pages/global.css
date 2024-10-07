@@ -19,7 +19,7 @@
   --grid-sep: 10px;
   --radius: 12px;
   --small-radius: 7px;
-
+  --english-font: "Poppins", sans-serif;
   --tiny-shadow: 0 4px 8px #10182819, 0 2px 4px #1018280f;
 
   --transition: ease-in-out 0.3s;

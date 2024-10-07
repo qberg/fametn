@@ -17,13 +17,13 @@ import React, { useState } from 'react';
 export default function TemplateComponent2({ data }: JSONData) {
   const [activeItemId, setActiveItemId] = useState(null);
 
-  const handleHeadingClick = (id) => {
+  const handleHeadingClick = (id : any) => {
     setActiveItemId(activeItemId === id ? null : id);
   };
 
   const [selectedId, setSelectedId] = useState(data.section_1[0]?.id);
 
-  const selectedItem = data.section_1.find(item => item.id === selectedId);
+  const selectedItem = data.section_1.find((item: { id: any; }) => item.id === selectedId);
   const firstSection3Item = data.section_3[0];
 
   const nextTwoSection3Items = data.section_3.slice(1, 3);
@@ -174,7 +174,7 @@ export default function TemplateComponent2({ data }: JSONData) {
 			</div>
         </Col>
         <Col className="mt-5" lg={6}>
-            {data.qa_section.map((each, key) => (
+            {data.qa_section.map((each: { question: any; answer: any; }, key: React.Key | null | undefined) => (
                 <FaqSection key={key} question={each.question} answer={each.answer} />
             ))}
         </Col>

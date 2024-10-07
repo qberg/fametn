@@ -1,6 +1,4 @@
-.newsItem {
-    margin-bottom: 20px; 
-  }
+
 
   .category {
     color: black;
@@ -22,7 +20,7 @@
   }
   
   .description {
-    margin-bottom: 1em;
+    
     font-size: 20px;
     font-weight: 600;
   }
@@ -30,19 +28,15 @@
     display: flex;
     align-items: center; 
     gap: 10px; 
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
   .date {
     font-size: 16px;
     color: #888;
     
   }
-  .containerFluid{
-     margin-left: auto;
-     margin-right: auto;    
-  }
+
   .blackbox {
-   
      overflow: hidden;
      display: flex;
   }
@@ -50,4 +44,5 @@
     font-weight: bold;
     color: black !important;
     margin-right: 5px;
+    
   }
