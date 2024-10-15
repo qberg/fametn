@@ -1,0 +1,24 @@
+.breadcrumpsContainer {
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.breadcrump {
+    margin-right: 0.5em;
+    display: flex;
+    color: var(--gray);
+}
+
+.breadcrump > a {
+    text-decoration: underline !important;
+}
+
+.breadcrumpsContainer > :first-child {
+    font-weight: 600;
+    color: var(--navy) !important;
+}
+
+.arrow {
+    margin-right: 0.5em;
+}

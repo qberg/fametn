@@ -7,9 +7,12 @@
 .yellowarrow {
     background-color: var(--yellow);
     border-radius: var(--small-radius);
-    padding: 0.2em 1em;
+    padding: 0.5em 1em;
     padding-right: 1.5em;
     cursor: pointer;
+    width: max-content;
+    color: var(--black);
+    font-weight: 400;
 }
 
 .yellowarrow:hover .arrow {

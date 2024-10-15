@@ -36,7 +36,7 @@ export async function getServerSideProps(context: JSONData) {
 
 	const agencyData = await getData(agencyUrl, language)
 	const categoryData = await getData(categoryUrl, language)
-	console.log('categoryData is:', categoryData);
+	// console.log('categoryData is:', categoryData);
 	const categoryList = categoryData.data.map((item: JSONData) => ({
 		"text": item.attributes.name,
 		"link": item.attributes.name.toLowerCase().replace(" ", "-"),

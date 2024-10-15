@@ -1,0 +1,104 @@
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2em;
+    z-index: 2;
+    border-radius: var(--radius);
+    backdrop-filter: blur(5px);
+}
+
+.prop {
+    /* background-color: cyan; */
+    /* min-height: 460px; */
+    width: 100%;
+}
+
+.yellowbg {
+    background-color: var(--yellow);
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 0.5em 1em 0.2em 1em;
+    width: fit-content;
+    margin-bottom: 0.2em;
+    position: relative;
+}
+
+.title::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0.4em;
+    background-color: var(--yellow);
+    top: 0px;
+    left: 0px;
+}
+
+.title {
+    text-transform: uppercase;
+    margin-top: 1em;
+    padding-left: 1.4em;
+}
+
+.subtitle {
+    margin-top: 0.5em;
+}
+
+
+.carousel_holder {
+    min-height: 420px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.blob {
+    position: relative;
+    z-index: -1;
+    height: 10px;
+    width: 100vw;
+}
+
+.blob::after {
+    position: absolute;
+    content: "";
+    background-image: url("/yellow_blob.svg");
+    height: 120vh;
+    width: 120vh;
+    background-size: contain;
+    right: -5vh;
+    top: -42vh;
+    background-repeat: no-repeat;
+}
+
+
+.blobinner {
+    position: absolute;
+    top: -30vh;
+    right: -30vh;
+    height: 100vh;
+    width: 100vh;
+}
+
+.fluid {
+    /* overflow-y: visible;
+    overflow-x: hidden;
+    min-height: 100vh; */
+    /* overflow-x: hidden; */
+}
+
+/* mediaquery for lg screens */
+@media (min-width: 1024px) {
+    .container {
+        margin-right: -100px;
+    }
+}
+
+/* mediaquery for less than lg screens */
+@media (max-width: 1024px) {
+    .carousel_holder {
+        min-height: 300px;
+    }
+}

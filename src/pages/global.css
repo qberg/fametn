@@ -4,6 +4,7 @@
 :root {
   --yellow: #EEB118;
   --blue: #4E5BA6;
+  --lightblue: #D0D9E5;
   --black: #171717;
   --gray: #475467;
   --border-gray: #D0D5DD;
@@ -17,7 +18,7 @@
   --blue: #3677DB;
   --navy: #15417E;
   --grid-sep: 10px;
-  --radius: 12px;
+  --radius: 20px;
   --small-radius: 7px;
   --english-font: "Poppins", sans-serif;
   --tiny-shadow: 0 4px 8px #10182819, 0 2px 4px #1018280f;
@@ -285,3 +286,9 @@ a {
   background-color: var(--light-gray);
 }
 
+/* container max width for screens above 992px */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+}
