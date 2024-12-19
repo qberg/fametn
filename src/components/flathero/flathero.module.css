@@ -145,6 +145,6 @@
     height: 40%;
     opacity: 30%;
     left: 0;
-    top: calc(50% - 30%);
+    top: calc(50% - 20%);
     background-color: var(--white);
 }

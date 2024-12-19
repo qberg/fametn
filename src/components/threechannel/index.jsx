@@ -35,7 +35,7 @@ const ThreeChannel = ({ data }) => {
 
 
     return (
-        <Container className="py-5 my-5">
+        <Container className="py-5 my-4">
             <Row className="d-none d-md-flex">
                 {data.map((each, key) => (
                     <Col data-shono={key == currentHighlight} onMouseLeave={() => nonHover()} onMouseEnter={() => onHover(key)} md={4} key={key} className={styles.channel}>

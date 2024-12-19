@@ -1,0 +1,43 @@
+.bigbg {
+    background-color: var(--yellow);
+}
+
+.label {
+    font-size: 80%;
+    position: relative;
+    width: max-content;
+    margin-bottom: 0.5em;
+}
+
+.label::before {
+    content: "*";
+    position: absolute;
+    color: var(--red);
+    right: -9px;
+    top: -2px;
+    font-size: 120%;
+}
+
+.inputcontainer {
+    display: flex;
+    background-color: var(--light-yellow);
+    padding: 0.5em 1em;
+    font-size: 85%;
+    margin-bottom: 1em;
+    border: 1px solid var(--black);
+    border-radius: calc(var(--radius) / 2);
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+
+.checkbox {
+    background-color: var(--yellow);
+}
+
+.checktext {
+    font-size: 80%;
+}

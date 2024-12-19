@@ -1,0 +1,13 @@
+.title {
+    text-transform: uppercase;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    color: var(--yellow);
+}
+
+.image {
+    min-height: 300px;
+    position: relative;
+}

@@ -1,0 +1,67 @@
+.heading {
+    border-left: 0.2em solid var(--yellow);
+    padding-left: 0.3em;
+}
+
+.smallcard {
+    padding-left: 4em;
+    position: relative;
+}
+
+.smallcard::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 2px;
+    background-color: var(--border-gray);
+    top: calc(50% - 30%);
+    left: 0px;
+}
+
+/* set small card before opacity 0 in screens less than md */
+@media (max-width: 768px) {
+    .smallcard::before {
+        opacity: 0;
+    }
+}
+
+.smallcard::after {
+    content: "";
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    background-image: url("/northstar.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: calc(3em - 24px);
+    top: 0em;
+}
+
+
+.bgmusic {
+    position: relative;
+    /* background-image: url("/yellowdotted.webp"); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* background-color: rebeccapurple; */
+}
+
+.bgmusic::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-image: url("/yellowdotted.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    /* filter: blur(1px); */
+
+}

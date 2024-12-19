@@ -5,13 +5,13 @@
 }
 
 .yellowarrow {
-    background-color: var(--yellow);
+    background-color: var(--black);
     border-radius: var(--small-radius);
     padding: 0.7em 1.2em;
     padding-right: 1.5em;
     cursor: pointer;
     width: max-content;
-    color: var(--black);
+    color: var(--white);
     font-weight: 500;
     font-size: small;
 }
