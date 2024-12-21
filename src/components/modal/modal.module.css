@@ -1,0 +1,17 @@
+.modal {
+    position: fixed;
+    max-width: 70%;
+    width: max-content;
+    background-color: var(--black);
+    color: var(--white);
+    bottom: 2em;
+    left: 50%;
+    border-radius: var(--radius);
+    padding: 0.7em 3em;
+    transform: translateX(-50%);
+    transition: var(--transition);
+}
+
+.modal[data-shono="false"] {
+    opacity: 0;
+}

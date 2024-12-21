@@ -35,7 +35,6 @@ export async function getServerSideProps(context) {
     const data = await getDataFromPath(path, language);
     
     // const news = await getNewsletterData(language);
-    console.log(data.data.attributes)
     return {
 
         props: {

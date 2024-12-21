@@ -28,11 +28,9 @@ const strings = {
 }
 
 export default function Newsletterform({data}){
-    console.log("NOT DATA", data)
     const {locale} = useRouter();
 
     const Socials = ({icon, url}) => {
-        console.log("ICON IS", icon, url)
         return (
             <Link className="me-4" href={url} target="_blank">
                 <Image src={icon} height={20} width={20} /> 
