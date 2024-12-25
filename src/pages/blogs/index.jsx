@@ -7,14 +7,14 @@ import { getBlogList, getTopNBlogs } from "../../utils/blogs";
 import Bluepill from "../../components/bluepill";
 import Topthreecarousel from "../../components/topthreecarousel";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import styles from "./blogs.module.css";
-import DynamicImage from "../../components/dynamicImage";
-import Image from "next/image";
+import { useEffect, useState } from "react";
+
 import Pagination from "../../components/pagination";
-import Link from "next/link";
+
 import Newsletterform from "../../components/newsletterform";
 import BlogCard from "../../components/blogcard";
+import styles from "./blogs.module.css";
+import Image from "next/image";
 
 const strings = {
     "blogs": {
@@ -24,28 +24,42 @@ const strings = {
     "results": {
         "en": "Search results for",
         "ta": "தேடல் முடிவுகள்"
+    },
+    "sort": {
+        "en": "Sort",
+        "ta": "வகை"
     }
 }
 
 const sortWays = {
     "relevant": {
         "column": "",
+        "display": "Relevance",
+        "key": "relevant"
     },
     "dateasc": {
         "column": "date",
-        "ascending": true
+        "ascending": true,
+        "display": "Date ↑",
+        "key": "dateasc"
     },
     "datedesc": {
         "column": "date",
-        "ascending": false
+        "ascending": false,
+        "display": "Date ↓",
+        "key": "datedesc"
     },
     "titleasc": {
         "column": "title",
-        "ascending": true
+        "ascending": true,
+        "display": "Title ↑",
+        "key": "titleasc"
     },
     "titledesc": {
         "column": "title",
-        "ascending": false
+        "ascending": false,
+        "display": "Title ↓",
+        "key": "titledesc"
     }
 }
 
@@ -56,54 +70,47 @@ const formatDate = (date) => {
     return dateObj.toLocaleDateString("en-US", { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
+function BlogSort({ onChange, value }) {
+    const { locale } = useRouter();
 
-// function BlogCard({ data }) {
+    const [open, setOpen] = useState(false);
 
-//     const maxExcerptLength = 140;
-//     const truncatedExcerpt = data.excerpt.length > maxExcerptLength ? data.excerpt.slice(0, maxExcerptLength) + "..." : data.excerpt;
+    const handleClickOutside = (event) => {
+        if (!event.target.closest(`.${styles.sortbutton}`) && !event.target.closest(`.${styles.sortdropdown}`)) {
+            setOpen(false);
+        }
+    };
 
-//     // first tag is the main tag
-//     const mainTag = data.tags[0] && (<div className={styles.maintag}>
-//         {data.tags[0].text}
-//     </div>);
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
-//     // remaining tags
-//     const remainingTags = data.tags.slice(1).map((each, index) => {
-//         return (
-//             <div key={index} className={styles.tag}>
-//                 {each.text}
-//             </div>
-//         )
-//     })
-
-//     return (
-//         <Link href={`/blogs/${data.url}`}>
-//             <div className={styles.blogcard}>
-//                 <div className={styles.blogcardimg}>
-//                     <DynamicImage src={data.image} objectFit="cover" />
-//                 </div>
-//                 <div className="mt-3 small">
-//                     {data.author + " • " + formatDate(data.date)}
-//                 </div>
-//                 <div className={`${styles.titleblock} d-flex mt-1`}>
-//                     <div className="my-0 me-2">
-//                         <h6>
-//                             {data.title}
-//                         </h6>
-//                     </div>
-//                     <div className="ms-auto position-relative me-1">
-//                         <Image src="/arrow_top_right.svg" height={12} width={12} />
-//                     </div>
-//                 </div>
-//                 <div className={`small mb-3 ${styles.paratext}`}>
-//                     {truncatedExcerpt}
-//                 </div>
-//                 <div className="mt-auto mb-0 d-flex flex-wrap smaller">
-//                     {mainTag} {remainingTags}
-//                 </div>
-//             </div>
-//         </Link>)
-// }
+    return (
+        <div className="position-relative">
+            <div onClick={() => setOpen(!open)} className={styles.sortbutton}>
+                <div className="my-auto me-3">
+                    <Image src="/blog_sort.svg" height={16} width={16} />
+                </div>
+                <div className="my-auto">
+                    <span className="d-inline d-lg-none">{strings.sort[locale]}: </span> {value.display}
+                </div>
+            </div>
+            {open && (<div className={styles.sortdropdown}>
+                {Object.keys(sortWays).map((each, index) => {
+                    return (<div className={styles.sortitem} key={index} onClick={() => {
+                        setOpen(false)
+                        onChange(sortWays[each])
+                    }}>
+                        {sortWays[each].display}
+                    </div>)
+                })}
+            </div>)}
+        </div>
+    );
+}
 
 export default function Blogs({ news, page, totalPages, blogList, search, sort, meta, recentBlogs }) {
     const { locale } = useRouter();
@@ -112,6 +119,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
 
     const [searchText, setSearchText] = useState(search);
     const [currentBlogList, setCurrentBlogList] = useState(blogList);
+
 
     const top3carouselData = recentBlogs.map((each) => {
         return {
@@ -128,8 +136,19 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
     }
 
     const handleSearch = () => {
-        window.location.search = `?search=${searchText}&sort=${router.query.sort}`;
-        
+        var queryString = `?search=${searchText}`;
+        if (router.query.sort) {
+            queryString += `&sort=${router.query.sort}`;
+        }
+        window.location.search = queryString;
+    }
+
+    const handleSortChange = (value) => {
+        if (value.key == sort.key) {
+            return;
+        }
+        var queryString = `?search=${searchText}&sort=${value.key}`;
+        window.location.search = queryString;
     }
 
     return (
@@ -137,11 +156,11 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
             <Container>
                 <div className="mt-4">
                     <Row>
-                        <Col md={11}>
+                        <Col lg={10}>
                             <Gigasearch text={searchText} onSearch={onSearch} handleSearch={handleSearch} />
                         </Col>
-                        <Col md={1}>
-                            Filter
+                        <Col lg={2}>
+                            <BlogSort value={sort} onChange={handleSortChange} />
                         </Col>
                     </Row>
                 </div>
@@ -161,11 +180,12 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
 
 
                 <div className="mt-3 mb-4">
-                    <h4>{(search == "") ? strings.blogs[locale] : strings.results[locale] + ` "${search}"`}</h4>
+                    {currentBlogList.length !=0 && (<h4>{(search == "") ? strings.blogs[locale] : strings.results[locale] + ` "${search}"`}</h4>)}
+                    {currentBlogList.length == 0 && (<h4>No results found for "{search}"</h4>)}
                 </div>
                 <Row>
                     {currentBlogList.map((each, index) => {
-                        return (<Col md={4} key={index}>
+                        return (<Col md={6} lg={4} key={index}>
                             <BlogCard data={each} />
                         </Col>)
                     })}
@@ -197,8 +217,8 @@ export async function getServerSideProps(context) {
 
     const currentBlogList = await getBlogList(language, search, sort.column, sort.ascending, page);
     const news = await getNewsletterData(language);
-    return {
 
+    return {
         props: {
             page: currentBlogList.currentPage,
             totalPages: currentBlogList.totalPages,
@@ -208,8 +228,6 @@ export async function getServerSideProps(context) {
             meta: meta?.data?.attributes,
             recentBlogs: recentBlogs,
             news: news
-            // news: news,
-            // data: data.data.attributes
         }
     }
 }

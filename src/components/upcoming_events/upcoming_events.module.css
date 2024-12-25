@@ -1,0 +1,28 @@
+.eventcard {
+    /* min-height: 180px; */
+    background-color: var(--white);
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--tiny-shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    padding: 0.7em;
+}
+
+.eventcard:hover {
+    background-color: var(--light-accent);
+}
+
+.eventcardimg {
+    height: 120px;
+    position: relative;
+    width: 100%;
+}
+
+.nomb {
+    margin-bottom: 0 !important;
+}
+
+.eventcardtitle {
+    color: var(--navy) !important;
+}

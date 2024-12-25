@@ -9,8 +9,12 @@ import YellowFancyContainer from "@/components/yellowfancycontainer";
 import RegistrationForm from "@/components/registrationform";
 
 import styles from "./vendor.module.css"
+import { getUpComingNEvents, parseMetaAndData } from "../../utils/events";
+import UpcomingEvents from "../../components/upcoming_events";
 
-export default function VendorDevelopmentMeets({data}){
+
+
+export default function VendorDevelopmentMeets({data, metaEvents, upcomingEvents}) {
     return (
        <RootLayout>
             <Breadcrumps items={data.breadcrumps}/>
@@ -20,7 +24,7 @@ export default function VendorDevelopmentMeets({data}){
             <YellowFancyContainer>
                 <RegistrationForm data={data.section_4}/>
             </YellowFancyContainer>
-
+            <UpcomingEvents data={upcomingEvents} meta={metaEvents} />
        </RootLayout> 
     )
 }
@@ -34,10 +38,17 @@ export async function getServerSideProps(context) {
     const language = context.locale;
     const data = await getDataFromPath(path, language);
     
-    // const news = await getNewsletterData(language);
+    const {metaEvents, upcomingEvents} = parseMetaAndData(data.data.attributes.events)
+
+
+    // const metaEvents = await getDataFromPath("events-meta", language)
+    // const upcomingEvents = await getUpComingNEvents(language)
+    
     return {
 
         props: {
+            metaEvents: metaEvents,
+            upcomingEvents: upcomingEvents,
             data: data.data.attributes
         }
     }

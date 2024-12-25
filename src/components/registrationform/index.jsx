@@ -3,8 +3,6 @@ import WhiteButton from "@/components/whitebutton";
 
 
 const RegistrationForm = ({ data }) => {
-    console.log(data);
-
     return (
         <div className="py-5">
             <center>

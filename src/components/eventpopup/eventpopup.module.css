@@ -1,0 +1,46 @@
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    backdrop-filter: blur(3em);
+    display: flex;
+}
+
+
+.popup {
+    margin: auto;
+    background-color: var(--white);
+    border-radius: var(--small-radius);
+    padding: 1em;
+    width: 768px;
+    max-width: calc(100% - 2em);
+}
+
+.closebutton {
+    background-color: var(--light-gray);
+    padding: 0.3em 0.7em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eventcardimg {
+    min-height: 140px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: rebeccapurple;
+    border-radius: var(--small-radius);
+    overflow: hidden;
+}
+
+.nomb {
+    margin-bottom: 0 !important;
+}
+
+.eventcardtitle {
+    color: var(--navy) !important;
+}

@@ -147,7 +147,7 @@ export const getBlog = async (language, url) => {
 
 export const getAllBlogsFromStrapi = async (language) => {
   console.log("Getting all blogs from strapi");
-  const maxPageSize = 1;
+  const maxPageSize = 100;
   const path =
     "blogs?sort=date:desc&fields[0]=title&fields[1]=author&fields[2]=date&fields[3]=excerpt&fields[4]=url&populate[0]=image&populate[1]=tags&pagination[pageSize]=" +
     maxPageSize;

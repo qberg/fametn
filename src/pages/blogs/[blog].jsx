@@ -62,7 +62,6 @@ export default function Blog({ recentBlogs, news, title, length, date, author, c
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
     }
 
-    console.log("recent blogs are", recentBlogs);
     return (
         <RootLayout>
             <Container className="px-5">
