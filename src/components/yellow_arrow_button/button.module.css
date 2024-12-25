@@ -19,3 +19,16 @@
 .yellowarrow:hover .arrow {
     transform: translateX(10px) translateY(-1px);
 }
+
+.noarrow:hover .arrow {
+    transform: translateX(10px) translateY(-1px);
+}
+
+.noarrow {
+    cursor: pointer;
+    font-size: small;
+}
+
+.arrow[data-light="true"] img {
+    filter: invert();
+}

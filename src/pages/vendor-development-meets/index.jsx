@@ -11,6 +11,8 @@ import RegistrationForm from "@/components/registrationform";
 import styles from "./vendor.module.css"
 import { getUpComingNEvents, parseMetaAndData } from "../../utils/events";
 import UpcomingEvents from "../../components/upcoming_events";
+import RecentBlogsGrid from "../../components/recentblogsgrid";
+import Testimonials from "../../components/testimonials";
 
 
 
@@ -25,6 +27,8 @@ export default function VendorDevelopmentMeets({data, metaEvents, upcomingEvents
                 <RegistrationForm data={data.section_4}/>
             </YellowFancyContainer>
             <UpcomingEvents data={upcomingEvents} meta={metaEvents} />
+            <RecentBlogsGrid blogs={data.recent_blogs} />
+            <Testimonials data={data.testimonials} />
        </RootLayout> 
     )
 }
@@ -39,8 +43,7 @@ export async function getServerSideProps(context) {
     const data = await getDataFromPath(path, language);
     
     const {metaEvents, upcomingEvents} = parseMetaAndData(data.data.attributes.events)
-
-
+  
     // const metaEvents = await getDataFromPath("events-meta", language)
     // const upcomingEvents = await getUpComingNEvents(language)
     
