@@ -1,10 +1,10 @@
 
 .faq-section {
-    border-radius: 0.625em;
-    border: 1px solid #E5E5E5;
+    border-radius: var(--small-radius);
+    border: 1px solid var(--light-gray);
     margin-bottom: 0.625em;
     padding: 1.5em;
-    background-color: #ffffff;
+    background-color: var(--white);
     position: relative;
     font-weight: 600;
     display: block;
@@ -16,16 +16,19 @@
     top: 1em;
     right: 0.625em;
     cursor: pointer;
-    padding: 0.3em ;
-    border: 1px solid #E5E5E5;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    border: 1px solid var(--border-gray);
     margin-right: 0.5em;
-    border-radius: 3.5px;
+    border-radius: var(--small-radius);
 }
 
 .plus-sign,
 .minus-sign {
     color: black;
     font-weight: bold;
+    margin: auto;
 }
 
 .question {
@@ -34,7 +37,7 @@
 }
 
 .answer {
-    margin-top: 2em;
+    margin-top: 1em;
     font-weight: 400;
     margin-right: 3.5em;
     font-size: 0.85em;
@@ -43,10 +46,10 @@
 
 
 .toggle-button.hovered {
-    background-color: #ccc; 
+    background-color: var(--light-gray); 
 }
 
 .toggle-button.clicked {
-    background-color: #EEB118; 
+    background-color: var(--yellow); 
 }
 

@@ -1,0 +1,31 @@
+.firstTag {
+    background-color: var(--light-yellow);
+    padding: 0.3em 1em;
+    text-wrap: nowrap;
+    border-radius: var(--small-radius);
+    margin-right: 1em;
+    font-size: small;
+}
+
+.restTag {
+    padding: 0.3em 1em;
+    text-wrap: nowrap;
+    border-radius: var(--small-radius);
+    font-size: small;
+}
+
+.thin {
+    font-weight: 400 !important;
+}
+
+.gray {
+    color: var(--gray);
+    font-size: small;
+}
+
+.resourcecard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}

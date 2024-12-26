@@ -108,7 +108,6 @@ export const getAllEventsFromStrapi = async (language) => {
 export const getAllEvents = async (language) => {
   // if cache is empty, get all events and return
   if (allEvents[language].length === 0) {
-    console.log("Cache is empty");
     allEvents[language] = await getAllEventsFromStrapi(language);
     lastUpdated = new Date();
     return allEvents[language];
@@ -119,14 +118,12 @@ export const getAllEvents = async (language) => {
   const staleTime = 1000 * 60 * 2; // 2 mins
   if (now - lastUpdated > staleTime) {
     // cache is stale
-    console.log("Cache is stale");
     allEvents[language] = await getAllEventsFromStrapi(language);
     lastUpdated = now;
     return allEvents[language];
   }
 
   // cache is not stale
-  console.log("Cache is not stale");
   return allEvents[language];
 };
 

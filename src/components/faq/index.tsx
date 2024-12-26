@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { JSONData } from "@/utils/definitions";
 
 import styles from "./faq.module.css";
+import Image from 'next/image';
 
 
 const FaqSection = ({ question, answer }: JSONData) => {
@@ -33,9 +34,9 @@ const FaqSection = ({ question, answer }: JSONData) => {
                 onMouseLeave={handleMouseLeave}
             >
                 {opened ? (
-                    <img src="/minus.svg" alt="Minus Sign" className={styles["minus-sign"]} />
+                    <Image src="/minus.svg" width={12} height={12} alt="Minus Sign" className={styles["minus-sign"]} />
                     ) : (
-                    <img src="/Group 36811.svg" alt="Plus Sign" className={styles["plus-sign"]} />
+                    <Image src="/Group 36811.svg" width={12} height={12} alt="Plus Sign" className={styles["plus-sign"]} />
                 )}
             </div>
             <div className={styles["question"]} onClick={toggleAnswer}>

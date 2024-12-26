@@ -31,7 +31,6 @@ export const getAllResourcesFromStrapi = async (language) => {
 export const getAllResources = async (language) => {
   // if cache is empty, get all resources and return
   if (allResources[language].length === 0) {
-    console.log("Cache is empty");
     allResources[language] = await getAllResourcesFromStrapi(language);
     lastUpdated = new Date();
     return allResources[language];
@@ -42,21 +41,15 @@ export const getAllResources = async (language) => {
   const staleTime = 1000 * 60 * 2; // 2 mins
   if (now - lastUpdated > staleTime) {
     // cache is stale
-    console.log("Cache is stale");
     allResources[language] = await getAllResourcesFromStrapi(language);
     lastUpdated = now;
     return allResources[language];
   }
 
   // cache is not stale
-  console.log("Cache is not stale");
   return allResources[language];
 };
 
-// export const getAllCategories =
-
-// const allRes = await getAllResources("en");
-// console.log(allRes);
 
 export const getAllResourceCategories = async (language) => [
   ...new Set(

@@ -2,6 +2,8 @@
     display: flex;
     margin-top: 1em;
     margin-bottom: 1em;
+    max-width: 100%;
+    flex-wrap: wrap;
 }
 
 .breadcrump {
@@ -17,6 +19,7 @@
 .breadcrumpsContainer > :first-child {
     font-weight: 600;
     color: var(--navy) !important;
+
 }
 
 .arrow {

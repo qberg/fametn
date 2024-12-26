@@ -9,7 +9,6 @@ import RegistrationForm from "@/components/registrationform";
 import HorizCardSection from "@/components/horizcardsection";
 
 export default function Template2({ data }) {
-    // console.log(data);
     return (
         <RootLayout>
             <Breadcrumps items={data.breadcrumps} />

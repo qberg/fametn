@@ -46,7 +46,6 @@ export async function getServerSideProps(context: JSONData) {
 
 }
 export default function TNCGS({ data }: JSONData) {
-	// console.log(data)
 	return (<RootLayout>
 
 		<Container>
@@ -163,7 +162,6 @@ export default function TNCGS({ data }: JSONData) {
 						</div>
 						<Row >
 							{data.section_3_bullets.map((each: JSONData, key: number) => {
-								// console.log(each)
 								return (<Col md={4} key={key}>
 
 									<div className={styles.section3bullets}>

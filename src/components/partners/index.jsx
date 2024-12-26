@@ -1,5 +1,6 @@
 import styles from "./partners.module.css"
 import DynamicImage from "../dynamicImage";
+import Link from "next/link";
 
 const { Container, Row, Col } = require("react-bootstrap")
 
@@ -14,23 +15,46 @@ const PartnersSection = ({ heading, data }) => {
 
             {/* in lg screens we need all together */}
             <div className="d-none d-lg-flex">
-                {data.map((each, key) => (
-                    <div key={key} className={styles.imageContainer}>
+                {data.map((each, key) => {
+
+                    const insiderStuff = (
                         <DynamicImage objectFit="contain" src={each.image} />
-                    </div>
-                ))}
+                    )
+
+                    const fullInsiderStuff = each.url ? (<Link href={each.url}>
+                        {insiderStuff}
+                    </Link>) : insiderStuff;
+
+                    return (
+                        <div key={key} className={styles.imageContainer}>
+                            {fullInsiderStuff}
+                            {/* <DynamicImage objectFit="contain" src={each.image} /> */}
+                        </div>
+                    )
+                })}
             </div>
 
             {/* in mobile, render as row col */}
             <div className="d-lg-none">
                 <Row>
-                    {data.map((each, key) => (
-                        <Col xs={6} key={key} className="d-flex justify-content-center">
-                            <div className={styles.mobileImage}>
-                                <DynamicImage objectFit="contain" src={each.image} />
-                            </div>
-                        </Col>
-                    ))}
+                    {data.map((each, key) => {
+
+                        const insiderStuff = (
+                            <DynamicImage objectFit="contain" src={each.image} />
+                        )
+
+                        const fullInsiderStuff = each.url ? (<Link href={each.url}>
+                            {insiderStuff}
+                        </Link>) : insiderStuff;
+
+                        return (
+                            <Col xs={6} key={key} className="d-flex justify-content-center">
+                                <div className={styles.mobileImage}>
+                                    {fullInsiderStuff}
+                                </div>
+                            </Col>
+                        )
+                    })}
                 </Row>
             </div>
         </Container>

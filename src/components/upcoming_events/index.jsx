@@ -59,8 +59,8 @@ export default function UpcomingEvents({ meta, data }) {
         popupRef.current.showItem(data);
     }
     return (
-        <Container>
-            <div className="py-5">
+        <Container className="my-5">
+            <div className="py-2">
                 {meta.supertitle_2 && (<Bluepill text={meta.supertitle_2} />)}
                 <h2 className="mt-3">
                     {meta.title_2}

@@ -21,7 +21,6 @@ function Testimonial({ data }) {
     const VideoTestimonial = ({videoData}) => {
         const videoUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + videoData.url;
         const videoType = videoData.mime;
-        console.log(videoType);
         return (
             <div className={styles.videocontainer}>
                 <video className={styles.actualVideo} controls>

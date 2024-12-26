@@ -28,7 +28,6 @@ export default function RecentBlogsGrid({ blogs }) {
 
     const { locale } = useRouter();
 
-    console.log(blogOne)
     return (<Container className="my-4">
         <div className="d-flex">
             <div className="my-auto">

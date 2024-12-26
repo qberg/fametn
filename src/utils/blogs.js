@@ -54,9 +54,6 @@ const getFilteredBlogs = (allBlogs, searchWords) => {
     return { ...blog, relevanceScore: score };
   });
 
-  //   scoredBlogs.forEach((blog) => {
-  // 	console.log(blog.title, blog.relevanceScore);
-  //   })
 
   // Filter out blogs with zero score and sort by descending score
   const filteredAndRankedBlogs = scoredBlogs
@@ -146,7 +143,6 @@ export const getBlog = async (language, url) => {
 }
 
 export const getAllBlogsFromStrapi = async (language) => {
-  console.log("Getting all blogs from strapi");
   const maxPageSize = 100;
   const path =
     "blogs?sort=date:desc&fields[0]=title&fields[1]=author&fields[2]=date&fields[3]=excerpt&fields[4]=url&populate[0]=image&populate[1]=tags&pagination[pageSize]=" +
@@ -172,7 +168,6 @@ export const getAllBlogsFromStrapi = async (language) => {
 export const getAllBlogs = async (language) => {
   // if cache is empty, get all blogs and return
   if (allBlogs[language].length === 0) {
-    console.log("Cache is empty");
     allBlogs[language] = await getAllBlogsFromStrapi(language);
     lastUpdated = new Date();
     return allBlogs[language];
@@ -182,15 +177,12 @@ export const getAllBlogs = async (language) => {
   const now = new Date();
   const staleTime = 1000 * 60 * 2; // 2 mins
   if (now - lastUpdated > staleTime) {
-    // cache is stale
-    console.log("Cache is stale");
     allBlogs[language] = await getAllBlogsFromStrapi(language);
     lastUpdated = now;
     return allBlogs[language];
   }
 
   // cache is not stale
-  console.log("Cache is not stale");
   return allBlogs[language];
 };
 
