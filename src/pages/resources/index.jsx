@@ -91,7 +91,7 @@ export default function Resources({ news, meta, allCategories, allResources }) {
                             <div className="mt-4 mb-3">
                                 {allCategories.map((each, index) => {
                                     return (
-                                        <div onClick={() => toggleCategory(each)} key={index} className={`me-3 mb-3 ${styles.category} ${selectedCategories.includes(each) ? styles.selected : ""}`} onClick={() => toggleCategory(each)}>
+                                        <div onClick={() => toggleCategory(each)} key={index} className={`me-3 mb-3 ${styles.category} ${selectedCategories.includes(each) ? styles.selected : ""}`} >
                                             {each}
                                         </div>
                                     )

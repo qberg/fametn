@@ -16,7 +16,7 @@ return(
    
     )}
     <Row>
-      {items.map(item => (
+      {items.map((item: JSONData) => (
         <Col lg={4} key={item.id}>
      
           <div className={styles.cardContent}>

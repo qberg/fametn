@@ -282,7 +282,7 @@ export default function SearchEvents({ locations, search, categories, events, fi
                     </Row>
                     {search != "" && (<div className="mt-2 mb-4">
                         <h2>
-                            {strings.results[locale]} "{search}"
+                            {strings.results[locale]} &quot;{search}&quot;
                         </h2>
                     </div>)}
                     <Row className="mt-4">

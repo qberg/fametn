@@ -1,0 +1,119 @@
+.messagebox {
+    background-color: var(--light-yellow);
+    border: 1px solid var(--yellow);
+    border-radius: var(--radius);
+    padding: 1.5em;
+}
+
+.table {
+    width: 100%;
+}
+
+.table th {
+    background-color: var(--yellow);
+    border: 1px solid var(--black);
+    font-weight: 400;
+    padding: 0.7em;
+    font-size: small;
+}
+
+.table td {
+    font-size: small;
+    border: 1px solid var(--border-gray);
+    padding: 0.7em;
+    opacity: 0.8;
+}
+
+.sortimg img {
+    cursor: pointer;
+    transition: var(--transition);
+    transform: rotate(0deg);
+}
+
+.sortimg {
+    transition: var(--transition);
+}
+
+.sortimg:hover {
+    transform: scale(1.1);
+}
+
+
+.sortimg[data-dsc="true"] img {
+    transform: rotate(180deg);
+    transition: var(--transition);
+}
+
+.outlinebox {
+    border: 1px solid var(--border-gray);
+    border-radius: var(--small-radius);
+    padding: 0.7em 1.5em;
+    display: flex;
+}
+
+.search {
+    background-color: transparent;
+    border: none;
+    min-width: 300px;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.filterbox {
+    position: absolute;
+    min-width: 400px;
+    background-color: var(--white);
+    right: 0;
+    margin-top: 1.5em;
+    border-radius: var(--small-radius);
+    border: 1px solid var(--border-gray);
+    padding: 1em;
+    z-index: 2;
+}
+
+.link {
+    color: var(--blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.filteritem {
+    cursor: pointer;
+}
+
+.datepicker {
+    border: 1px solid var(--border-gray);
+    padding: 0.3em 1em;
+    margin-top: 0.5em;
+    border-radius: var(--small-radius);
+}
+
+.filterbutton{
+    cursor: pointer;
+}
+
+.pagecontainer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: var(--small-radius);
+    padding: 0.7em;
+}
+
+.pagecontainer > div {
+    cursor: pointer;
+}
+
+.pagecontainer > div[data-shono="false"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.mobcard {
+    border: 1px solid var(--border-gray);
+    padding: 0.7em;
+    border-radius: var(--small-radius);
+}

@@ -37,7 +37,7 @@ export default function EmarketsImageGallery({ title, description, images }) {
                             {allImagesForGrid.map((each, index) => {
                                 const isSelected = selected === index;
                                 return (
-                                    <div onClick={() => setSelected(index)} data-selected={isSelected} className={styles.desktopgrid}>
+                                    <div key={index} onClick={() => setSelected(index)} data-selected={isSelected} className={styles.desktopgrid}>
                                         <DynamicImage src={{ data: each }} objectFit="cover" />
                                     </div>
                                 )
@@ -72,7 +72,7 @@ export default function EmarketsImageGallery({ title, description, images }) {
             {allImagesForGrid.map((each, index) => {
                 const isSelected = selected === index;
                 return (
-                    <div onClick={() => setSelected(index)} data-selected={isSelected} className={styles.mobthumb}>
+                    <div key={index} onClick={() => setSelected(index)} data-selected={isSelected} className={styles.mobthumb}>
                         <DynamicImage src={{ data: each }} objectFit="cover" />
                     </div>
                 )

@@ -15,7 +15,6 @@ import FaqComponent from "../../components/faqcomponent";
 import Newsletterform from "../../components/newsletterform";
 
 export default function Emarkets({ news, data }) {
-  console.log(data)
   return (
     <RootLayout>
       <Breadcrumps items={data.breadcrumps} />
@@ -39,18 +38,11 @@ export async function getServerSideProps(context) {
   const path = "emarkets?&populate=deep";
   const language = context.locale;
   const data = await getDataFromPath(path, language);
-
-  // const { metaEvents, upcomingEvents } = parseMetaAndData(data.data.attributes.events)
-
   const news = await getNewsletterData(language);
 
-  // const metaEvents = await getDataFromPath("events-meta", language)
-  // const upcomingEvents = await getUpComingNEvents(language)
   return {
 
     props: {
-      // metaEvents: metaEvents,
-      // upcomingEvents: upcomingEvents,
       news: news,
       data: data.data.attributes
     }

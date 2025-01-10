@@ -43,7 +43,7 @@ export default function BlogCard({ data }) {
                         </h6>
                     </div>
                     <div className="ms-auto position-relative me-1">
-                        <Image src="/arrow_top_right.svg" height={12} width={12} />
+                        <Image alt={`blog card image of ${data.title}`} src="/arrow_top_right.svg" height={12} width={12} />
                     </div>
                 </div>
                 <div className={`small mb-3 ${styles.paratext}`}>

@@ -89,4 +89,6 @@ const EventPopup = forwardRef((props, ref) => {
     );
 });
 
+EventPopup.displayName = 'EventPopup';
+
 export default EventPopup;

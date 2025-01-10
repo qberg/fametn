@@ -181,7 +181,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
 
                 <div className="mt-3 mb-4">
                     {currentBlogList.length !=0 && (<h4>{(search == "") ? strings.blogs[locale] : strings.results[locale] + ` "${search}"`}</h4>)}
-                    {currentBlogList.length == 0 && (<h4>No results found for "{search}"</h4>)}
+                    {currentBlogList.length == 0 && (<h4>No results found for &quot;{search}&quot;</h4>)}
                 </div>
                 <Row>
                     {currentBlogList.map((each, index) => {
