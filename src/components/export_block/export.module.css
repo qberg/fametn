@@ -1,0 +1,33 @@
+.whitebox {
+    min-height: 200px;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 0.8em;
+    /* box-shadow: var(--smudge); */
+}
+
+.yellowbox {
+    background-color: var(--light-yellow);
+    border-radius: calc(var(--radius) * 0.5);
+    padding: 0.8em;
+}
+
+.roletext {
+    font-size: small;
+}
+
+.promoperson {
+    transform: translateY(-1px);
+}
+
+.smalltext {
+    font-size: small;
+}
+
+.morebutton {
+    border-radius: var(--small-radius);
+    border: 1px solid var(--border-gray);
+    width: max-content;
+    padding: 0.7em 1.3em;
+    cursor: pointer;
+}
