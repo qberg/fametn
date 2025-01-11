@@ -1,0 +1,61 @@
+.downloadbutton {
+    display: flex;
+    background-color: var(--light-gray);
+    padding: 0.7em 1.3em;
+    border-radius: var(--small-radius);
+    cursor: pointer;
+}
+
+.img1 {
+    min-height: 240px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.img3 {
+    background-color: rebeccapurple;
+    min-height: calc(480px + 20px);
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.img4 {
+    background-color: rebeccapurple;
+    min-height: calc(360px);
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.img5 {
+    background-color: rebeccapurple;
+    min-height: 120px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.nomb {
+    margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .img1 {
+        min-height: 240px;
+    }
+
+    .img3 {
+        min-height: 240px;
+    }
+
+    .img4 {
+        min-height: 240px;
+    }
+
+    .img5 {
+        min-height: 240px;
+    }
+    
+}

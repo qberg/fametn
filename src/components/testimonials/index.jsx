@@ -67,7 +67,7 @@ export default function Testimonials({ data }) {
 
     const scoringFunction = (testimonial) => {
         if (testimonial.video_testimonial?.data != null) {
-            return 2 + 3;
+            return 2 + 8;
         }
         else {
             return 2 + Math.ceil(0.023 * testimonial.description.length);
