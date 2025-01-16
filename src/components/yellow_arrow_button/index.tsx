@@ -21,8 +21,8 @@ export const JustArrowButton = ({ text, target, link, lightArrow }: JSONData) =>
     return link ? (<Link target={target} href={link}>{child}</Link>) : (<>{child}</>);
 }
 
-const YellowArrowButton = ({ text, target, link }: JSONData) => {
-    const child = (<div className={styles.yellowarrow}>
+const YellowArrowButton = ({ text, target, link, full }: JSONData) => {
+    const child = (<div data-full={full} className={styles.yellowarrow}>
         {text}
         <div className={styles.arrow}>
             <Image

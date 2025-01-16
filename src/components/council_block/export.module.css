@@ -1,5 +1,6 @@
 .whitebox {
-    min-height: 200px;
+    min-height: 300px;
+    border: 1px solid var(--border-gray);
     background-color: var(--white);
     border-radius: var(--radius);
     padding: 0.8em;
@@ -9,15 +10,18 @@
     /* box-shadow: var(--smudge); */
 }
 
-.yellowbox {
-    background-color: var(--light-yellow);
-    border-radius: calc(var(--radius) * 0.5);
-    padding: 0.8em;
+.logocontainer {
+    position: relative;
+    width: 100%;
+    height: 150px;
 }
 
-.roletext {
-    font-size: small;
+.thin {
+    font-weight: 400 !important;
+    font-size: large;
+    margin-bottom: 0;
 }
+
 
 .promoperson {
     transform: translateY(-1px);

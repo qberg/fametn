@@ -16,6 +16,10 @@
     font-size: small;
 }
 
+.yellowarrow[data-full="true"] {
+    width: 100%;
+}
+
 .yellowarrow:hover .arrow {
     transform: translateX(10px) translateY(-1px);
 }

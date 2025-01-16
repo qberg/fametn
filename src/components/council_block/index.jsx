@@ -3,6 +3,7 @@ import styles from './export.module.css'
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import DynamicImage from '../dynamicImage';
 
 const strings = {
     phone: {
@@ -18,19 +19,15 @@ const strings = {
 const Promoter = ({ data }) => {
     const { locale } = useRouter();
     return (<div className={styles.whitebox}>
-        <div className={styles.yellowbox}>
-            <div className='d-flex mb-0'>
-                <div className="my-auto">
-                    <Image className={styles.promoperson} src="/promo_person.svg" height={22} width={22} />
-                </div>
-                <div className="my-auto ms-2">
-                    <h6 className='mb-0'>
-                        {data.name}
-                    </h6>
-                </div>
-            </div>
-            <div className={styles.roletext}>
-                {data.role}
+        <div className={styles.logocontainer}>
+            <DynamicImage src={data.logo} objectFit="contain" objectPosition='center' />
+        </div>
+        <div className='mt-3 mb-2'>
+            <h5 className={styles.thin}>
+                {data.name}
+            </h5>
+            <div className='smaller mt-1'>
+                {data.description}
             </div>
         </div>
         <div className='d-flex mt-auto'>
@@ -39,17 +36,7 @@ const Promoter = ({ data }) => {
             </div>
             <div className="my-auto ms-2">
                 <div className={styles.smalltext}>
-                    {strings.phone[locale]} {data.phone}
-                </div>
-            </div>
-        </div>
-        <div className='d-flex mt-0'>
-            <div className="my-auto">
-                <Image src="/promo_location.svg" height={16} width={16} />
-            </div>
-            <div className="my-auto ms-2">
-                <div className={styles.smalltext}>
-                    {data.location}
+                    {data.phone}
                 </div>
             </div>
         </div>
@@ -63,11 +50,12 @@ const Promoter = ({ data }) => {
                 </div>
             </div>
         </div>
+        
     </div>)
 }
 
 
-export default function ExportBlock({ data, header }) {
+export default function CouncilBlock({ data, header }) {
     const maxItems = 12;
     const [loaded, setLoaded] = useState(maxItems);
 

@@ -1,0 +1,48 @@
+.scheme {
+    min-height: 200px;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 1em;
+}
+
+.innerimg {
+    object-fit: "cover";
+}
+
+.img_wrap {
+    height: 50px;
+    min-width: 50px;
+    /* background-color: cyan; */
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.two_lines {
+    height: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit the number of lines */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    font-weight: 600;
+}
+
+.description {
+    height: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit the number of lines */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    color: var(--gray);
+}
+
+.morebutton {
+    background-color: var(--light-gray);
+    width: max-content;
+    padding: 0.5em 1.2em;
+    border-radius: var(--small-radius);
+    cursor: pointer;
+}
