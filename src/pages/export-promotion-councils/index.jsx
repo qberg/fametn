@@ -18,7 +18,6 @@ import CouncilBlock from "../../components/council_block";
 import YellowSchemes from "../../components/yellow_schemes";
 
 export default function ExportPromotionCouncils({ news, data, councils }) {
-    console.log(data)
     return (<RootLayout>
         <Breadcrumps items={data.breadcrumps} />
         <YellowBlobHero hero={data.hero} hero_imgs={data.heroimg} />

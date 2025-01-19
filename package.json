@@ -25,7 +25,8 @@
     "react": "^18",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "sitemap": "^8.0.0"
   },
   "devDependencies": {
     "@types/node": "22.10.5",
