@@ -7,11 +7,32 @@
 .yellowarrow {
     background-color: var(--yellow);
     border-radius: var(--small-radius);
-    padding: 0.2em 1em;
+    padding: 0.7em 1.2em;
     padding-right: 1.5em;
     cursor: pointer;
+    width: max-content;
+    color: var(--black);
+    font-weight: 500;
+    font-size: small;
+}
+
+.yellowarrow[data-full="true"] {
+    width: 100%;
 }
 
 .yellowarrow:hover .arrow {
     transform: translateX(10px) translateY(-1px);
+}
+
+.noarrow:hover .arrow {
+    transform: translateX(10px) translateY(-1px);
+}
+
+.noarrow {
+    cursor: pointer;
+    font-size: small;
+}
+
+.arrow[data-light="true"] img {
+    filter: invert();
 }

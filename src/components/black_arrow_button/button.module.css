@@ -1,0 +1,21 @@
+.arrow {
+    display: inline-block;
+    transform: translateX(7px) translateY(-1px);
+    transition: var(--transition);
+}
+
+.yellowarrow {
+    background-color: var(--black);
+    border-radius: var(--small-radius);
+    padding: 0.7em 1.2em;
+    padding-right: 1.5em;
+    cursor: pointer;
+    width: max-content;
+    color: var(--white);
+    font-weight: 500;
+    font-size: small;
+}
+
+.yellowarrow:hover .arrow {
+    transform: translateX(10px) translateY(-1px);
+}

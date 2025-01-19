@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
+    "@strapi/blocks-react-renderer": "^1.0.1",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
@@ -24,14 +25,15 @@
     "react": "^18",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "sitemap": "^8.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "22.10.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.1.3",
-    "typescript": "^5"
+    "typescript": "5.7.2"
   }
 }

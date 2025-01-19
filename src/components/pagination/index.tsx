@@ -9,8 +9,7 @@ import Link from "next/link";
 const Pagination = ({ page, totalPages }: JSONData) => {
     const minDisplay = 3;
     const router = useRouter();
-    const basePath = `${router.basePath}${router.asPath}`
-    const queries = router.query;
+
 
     const buildQuery = (query: JSONData) => {
         const params = new URLSearchParams();

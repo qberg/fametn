@@ -45,7 +45,6 @@ export async function getServerSideProps(context: JSONData) {
 			// Try again in english
 			return await getData(path, "en")
 		}
-		console.log(error)
 	}
 
 }

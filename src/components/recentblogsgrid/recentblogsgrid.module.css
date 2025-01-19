@@ -1,0 +1,69 @@
+.newtealand {
+    height: 100%;
+    min-height: 512px;
+    background-color: #006662;
+    border-radius: var(--radius);
+    padding: 1.5em;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+.logodisplay {
+    height: 35px;
+    width: 100%;
+    position: relative;
+    /* background-color: rebeccapurple; */
+}
+
+.headover {
+    font-weight: 400 !important;
+}
+
+
+.newtealand p {
+    color: var(--white) !important;
+    max-width: 512px;
+}
+
+.newtealand a {
+    color: var(--white) !important;
+}
+
+.newpeachland {
+    flex-grow: 1;
+    min-height: 256px;
+    background-color: #FFB39D;
+    border-radius: var(--radius);
+    padding: 1.5em;
+    margin-bottom: 1.7em;
+    display: flex;
+    flex-direction: column;
+}
+
+.newpeachland a {
+    color: var(--black) !important;
+}
+
+
+.newblooland {
+    flex-grow: 1;
+    min-height: 256px;
+    background-color: #100058;
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5em;
+    margin-bottom: 1.7em;
+    display: flex;
+    flex-direction: column;
+}
+
+.newblooland a {
+    color: var(--white) !important;
+}
+
+
+
+.twomb {
+    margin-bottom: 1.7em !important;
+}

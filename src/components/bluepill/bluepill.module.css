@@ -1,0 +1,8 @@
+.bluepill {
+    background-color: var(--navy);
+    color: var(--white);
+    width: max-content;
+    padding: 0.5em 1.2em;
+    border-radius: var(--radius);
+}
+

@@ -4,13 +4,13 @@ import Image from 'next/image'
 import { Col, Row } from "react-bootstrap";
 import YellowArrowButton from "../yellow_arrow_button";
 
-const SchemeCard = ({ title, icon, link, description, government, implementingAgency }: JSONData) => {
+const SchemeCard = ({ title, icon, link, description, government, implementingAgency, mini=false }: JSONData) => {
 
     const customPath = icon?.data?.attributes?.formats?.small?.url
     const iconPath = customPath ? process.env.NEXT_PUBLIC_IMG_ENDPOINT + customPath : "/default_scheme.webp"
 
     return (
-        <div data-aos="fade-up" className={styles.card}>
+        <div data-mini={mini} data-aos="fade-up" className={styles.card}>
             <div className="d-flex">
                 <div className={styles.img_wrap}>
                     <Image
@@ -31,9 +31,9 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
                 </p>
             </div>
 
-            <div className="horiz_line"></div>
+            {!mini && (<div className="horiz_line"></div>)}
 
-            <Row>
+            {!mini && (<Row>
                 <Col className="mb-1" md={6}>
                     <div className="d-flex">
                         <div className={styles.red_square}>
@@ -52,13 +52,13 @@ const SchemeCard = ({ title, icon, link, description, government, implementingAg
                         </div>
                     </div>
                 </Col>
-            </Row>
+            </Row>)}
 
             <div className="mt-auto small py-2">
                 {/* <center>View Scheme </center> */}
                 <center>
-                    <div className="pt-1 pb-1">
-                        <YellowArrowButton link={link} text={"View Scheme"} />
+                    <div className="pt-1 pb-1 w-100">
+                        <YellowArrowButton full={true} link={link} text={"View Scheme"} />
                     </div>
                 </center>
             </div>

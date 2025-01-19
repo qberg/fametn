@@ -1,0 +1,42 @@
+.heading {
+    margin-right: 1em;
+    margin-bottom: 1em;
+    background-color: var(--light-gray);
+    padding: 0.3em 1em;
+    border-radius: var(--small-radius);
+    cursor: pointer;
+}
+
+.selected {
+    background-color: var(--yellow);
+}
+
+.mainImage {
+    min-height: 180px;
+    background-color: rebeccapurple;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.cta {
+    background-color: var(--light-gray);
+    padding: 0.5em 1em;
+    width: max-content;
+    border: 1px solid var(--border-gray);
+    border-radius: var(--small-radius);
+}
+
+.mapcover {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-height: 600px;
+}
+
+.block {
+    position: relative;
+    background-color: rebeccapurple;
+    overflow: hidden;
+    border-radius: var(--radius);
+}

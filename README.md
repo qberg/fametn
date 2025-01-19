@@ -1,6 +1,19 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+    https://fametn.soorkie.com/blogs
+    https://fametn.soorkie.com/branding-and-packaging
+    https://fametn.soorkie.com/emarkets
+    https://fametn.soorkie.com/events
+    https://fametn.soorkie.com/export-promotion-councils
+    https://fametn.soorkie.com/export-promotions
+    https://fametn.soorkie.com/expos-and-exhibitions
+    https://fametn.soorkie.com/finance/schemes **
+    https://fametn.soorkie.com/markets
+    https://fametn.soorkie.com/resources
+    https://fametn.soorkie.com/vendor-development-meets
+
+
 
 First, run the development server:
 

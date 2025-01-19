@@ -1,0 +1,48 @@
+
+
+  .category {
+    color: black;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
+  .title {
+    font-size: 16px;
+    margin: 0; 
+  }
+  .categoryWrapper {
+    background-color: rgba(248, 224, 163, 1); 
+    border-radius: var(--small-radius);
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .description {
+    
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .cardContent {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    margin-bottom: 1em;
+}
+  .date {
+    font-size: 16px;
+    color: #888;
+    
+  }
+
+  .blackbox {
+     overflow: hidden;
+     display: flex;
+  }
+  .link{
+    font-weight: bold;
+    color: black !important;
+    margin-right: 5px;
+    
+  }

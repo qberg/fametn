@@ -1,0 +1,57 @@
+.yellowcontainer {
+    /* background-color: var(--light-accent); */
+    background: linear-gradient(to bottom, var(--light-accent) calc(100% - 240px), var(--yellow) 0);
+}
+
+.filterbutton {
+    padding: 1em;
+    height: 100%;
+    cursor: pointer;
+    border-radius: var(--radius);
+    display: flex;
+    background-color: var(--light-gray);
+}
+
+.eventsfilterpopup {
+    position: absolute;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    margin-top: 1em;
+    width: max-content;
+    right: 0;
+    padding: 1em;
+    box-shadow: var(--smudge);
+    max-width: 100vw;
+    z-index: 3;
+}
+
+.datepicker {
+    border: none;
+    background-color: var(--light-gray);
+    padding: 0.3em 1em;
+    margin-top: 0.5em;
+    border-radius: var(--small-radius);
+}
+
+.formcheck {
+    padding: 0.3em 0em;
+    cursor: pointer;
+    display: flex;
+}
+
+.checkmark {
+    width: 14px;
+    height: 14px;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border-radius: var(--small-radius); */
+    border: 1px solid var(--yellow);
+}
+
+.checkmark[data-shono="true"] {
+    background: radial-gradient(circle, var(--yellow) 50%, transparent 50%);
+}
+
+.nomb {
+    margin-bottom: 0 !important;
+}

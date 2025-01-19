@@ -1,0 +1,119 @@
+.bg {
+    background-color: var(--white);
+    padding: 0.5em;
+    overflow: hidden;
+}
+
+.topthreeshadow {
+    box-shadow: var(--smudge);
+}
+
+.fullbox {
+    position: relative;
+    min-height: 300px;
+    background-color: rebeccapurple;
+    display: flex;
+}
+
+.imgcontainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.imgcontainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+.textbox {
+    color: var(--white);
+    /* background-color: rebeccapurple; */
+    max-width: max-content;
+    padding: 0.2rem 1rem;
+    margin-bottom: 0;
+    text-align: left;
+    opacity: 0.9;
+}
+
+.smollfont {
+    font-size: 80%;
+}
+
+.textholder {
+    z-index: 2;
+    position: relative;
+    margin-top: auto;
+    text-align: left; 
+    margin-bottom: 1em;
+    max-width: 512px;
+}
+
+.arrwrap {
+    /* background-color: rebeccapurple; */
+    width: max-content;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    padding: 1.3em;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.arrwrapright {
+    /* background-color: rebeccapurple; */
+    width: max-content;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 0%;
+    padding: 1.3em;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.cararrow {
+    background-color: var(--yellow);
+    position: relative;
+    width: max-content;
+    padding: 0.3em;
+    border-radius: 50%;
+}
+
+.cararrow[data-shono="false"] {
+    filter: brightness(0.8);
+}
+
+.rightside {
+    transform: rotate(180deg);
+}
+
+.indic {
+    cursor: pointer;
+    display: inline-block;
+    height: 4px;
+    margin: 0.2em;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.indic[data-shono="false"] {
+    background-color: var(--light-gray);
+    width: 1em;
+    
+}
+
+.indic[data-shono="true"] {
+    background-color: var(--yellow);
+    width: 1.66em;
+    /* transition: var(--transition); */
+}
