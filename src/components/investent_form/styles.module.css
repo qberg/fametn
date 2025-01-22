@@ -1,0 +1,55 @@
+.yellowbg {
+    /* min-height: 650px; */
+
+    /* linear gradient to right, yellow is 60% rest black */
+    background: linear-gradient(to right, var(--light-gray) 50%, var(--black) 50%);
+    /* background-color: var(--yellow); */
+    position: relative;
+}
+
+.graybg {
+    background: linear-gradient(to right, var(--light-gray) 50%, var(--black) 50%);
+    position: relative;
+}
+
+
+
+@media (max-width: 768px) {
+    .yellowbg {
+        background: var(--light-gray);
+
+    }
+
+    .graybg {
+        background: var(--light-gray);
+    }
+}
+
+
+
+.formfield {
+    border: 1px solid var(--border-gray);
+    padding: 0.5em 1em;
+    font-size: small;
+    width: 90%;
+    border-radius: var(--small-radius);
+}
+
+.error {
+    font-size: small;
+    color: var(--red);
+}
+
+.formimage {
+    background-color: rebeccapurple;
+    width: 100%;
+    height: 100%;
+    position: relative
+}
+
+.colwrap {
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 300px;
+}

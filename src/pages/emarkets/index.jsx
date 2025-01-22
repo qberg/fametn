@@ -24,7 +24,7 @@ export default function Emarkets({ news, data }) {
       <ThreeChannel data={data.section_3} />
       <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
       <RecentBlogsGrid blogs={data.recent_blogs} />
-      <Testimonials data={data.testimonials} />
+      <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
       <MiniResources data={data.resources} />
       <FaqComponent data={data.faq} />
       <Newsletterform data={news} />

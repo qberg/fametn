@@ -1,0 +1,103 @@
+.bluebg {
+    background-color: var(--navy);
+    min-height: 600px;
+    position: relative;
+}
+
+@media (max-width: 1024px) {
+    .bluebg {
+        min-height: auto;
+    }
+}
+
+.heading {
+    color: var(--yellow);
+    text-transform: uppercase;
+}
+
+.desc {
+    color: var(--white) !important;
+}
+
+.overlay {
+    opacity: 0.7;
+    z-index: 0;
+    /* position: absolute;
+    width: 100%;
+    height: 100%; */
+    /* filter: blur(0px); */
+}
+
+.tall {
+    height: 400px;
+    display: flex;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.tall::-webkit-scrollbar {
+    display: none;
+}
+
+
+.tallcard {
+    flex: 0 0 auto;
+    background-color: white;
+    border-radius: var(--radius);
+    height: 100%;
+    width: 300px;
+    margin-right: 1.4em;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.tallcard img {
+    filter: brightness(0.8);
+}
+
+
+.tallcard h5 {
+    color: var(--white)  !important;
+    font-weight: 400 !important;
+}
+
+.tallcard div {
+    color: var(--white) !important;
+}
+
+.gradbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+
+}
+
+.leftscroll {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--white);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    color: var(--white) !important;
+}
+
+.rightscroll {
+    position: absolute;
+    bottom: 0;
+    right: 0.7em;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--white);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    color: var(--white) !important;
+}

@@ -61,7 +61,7 @@ function Testimonial({ data }) {
     )
 }
 
-export default function Testimonials({ data }) {
+export default function Testimonials({ data, title, subtitle }) {
 
     const { locale } = useRouter()
 
@@ -105,10 +105,10 @@ export default function Testimonials({ data }) {
             <div className="my-5">
                 <center>
                     <div className={styles.boxed}>
-                        {strings.testimonials[locale]}
+                        {title || strings.testimonials[locale]}
                     </div>
                     <h2 className="mt-3">
-                        {strings.words[locale]}
+                        {subtitle || strings.words[locale]}
                     </h2>
                 </center>
                 <Row className="mt-4">

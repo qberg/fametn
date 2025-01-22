@@ -27,7 +27,7 @@ export default function ExportPromotionCouncils({ news, data, councils }) {
         <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
         <YellowSchemes data={data.finance_schemes} header={data.section_4} cta={data.section_4_cta} />
         <RecentBlogsGrid blogs={data.blogs} />
-        <Testimonials data={data.testimonials} />
+        <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
         <MiniResources data={data.resources} />
         <FaqComponent data={data.faq} />
         <Newsletterform data={news} />

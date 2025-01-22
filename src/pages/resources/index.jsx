@@ -9,55 +9,47 @@ import { useState } from "react";
 import DynamicImage from "../../components/dynamicImage";
 import Image from "next/image";
 import Newsletterform from "../../components/newsletterform";
+import ResourcesImageCard from "../../components/resourceimagecard";
 
-function ImageCard({ data }) {
-    const attachementUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + data?.attachment?.data?.attributes?.url;
+// function ImageCard({ data }) {
+//     const attachementUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + data?.attachment?.data?.attributes?.url;
 
-    const startDownload = () => {
-        window.open(attachementUrl, "_blank");
-    }
+//     const startDownload = () => {
+//         window.open(attachementUrl, "_blank");
+//     }
 
-    return (
-        <div onClick={startDownload} className={styles.imagecard}>
-            <DynamicImage src={data.image} objectFit="cover" />
-            <div className={styles.imagecardtext}>
-                <div className="d-flex">
-                    <div className="ms-auto">
-                        <div className={styles.downloadbutton}>
-                            <div className="position-relative m-auto">
-                                <Image src={"/resources_download_button.svg"} height={22} width={22} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-auto">
-                    <h4 className={styles.whitetext}>
-                        {data.title}
-                    </h4>
-                    <p className={`small ${styles.whitetext}`}>
-                        {data.description}
-                    </p>
-                    <div>
-                        <div className={styles.yellowcircle}>
-                            <div className="position-relative m-auto">
-                                <Image src={"/resources_arrow_right.svg"} height={15} width={15} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <img src={data.image} />
-            <div className={styles.imagecardtext}>
-                <h4>
-                    {data.title}
-                </h4>
-                <p>
-                    {data.description}
-                </p>
-            </div> */}
-        </div>
-    )
-}
+//     return (
+//         <div onClick={startDownload} className={styles.imagecard}>
+//             <DynamicImage src={data.image} objectFit="cover" />
+//             <div className={styles.imagecardtext}>
+//                 <div className="d-flex">
+//                     <div className="ms-auto">
+//                         <div className={styles.downloadbutton}>
+//                             <div className="position-relative m-auto">
+//                                 <Image src={"/resources_download_button.svg"} height={22} width={22} />
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//                 <div className="mt-auto">
+//                     <h4 className={styles.whitetext}>
+//                         {data.title}
+//                     </h4>
+//                     <p className={`small ${styles.whitetext}`}>
+//                         {data.description}
+//                     </p>
+//                     <div>
+//                         <div className={styles.yellowcircle}>
+//                             <div className="position-relative m-auto">
+//                                 <Image src={"/resources_arrow_right.svg"} height={15} width={15} />
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
 
 export default function Resources({ news, meta, allCategories, allResources }) {
     const [selectedCategories, setSelectedCategories] = useState([]);
@@ -115,7 +107,7 @@ export default function Resources({ news, meta, allCategories, allResources }) {
                     {filteredResources.map((each, index) => {
                         return (
                             <Col lg={4} md={6} key={index}>
-                                <ImageCard data={each} />
+                                <ResourcesImageCard data={each} />
                             </Col>
                         )
                     })}

@@ -31,7 +31,7 @@ export default function VendorDevelopmentMeets({ news, data, metaEvents, upcomin
             </YellowFancyContainer>
             <UpcomingEvents data={upcomingEvents} meta={metaEvents} />
             <RecentBlogsGrid blogs={data.recent_blogs} />
-            <Testimonials data={data.testimonials} />
+            <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
             <MiniResources data={data.resources} />
             <FaqComponent data={data.faq} />
             <Newsletterform data={news} />

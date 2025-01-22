@@ -1,0 +1,9 @@
+.btn {
+    color: var(--white);
+    border: 1px solid var(--white);
+    font-size: var(--small);
+    width: max-content;
+    padding: 0.5em 1em;
+    border-radius: var(--small-radius);
+    /* font-weight: 400; */
+}

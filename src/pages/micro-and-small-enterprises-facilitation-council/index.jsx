@@ -17,8 +17,7 @@ import Packers from "../../components/packers";
 import ExportBlock from "../../components/export_block";
 import InfraBlock from "../../components/infra_block";
 
-export default function MSEFC({ data, news, testimonials, resources }) {
-    console.log(data)
+export default function MSEFC({ data, news, testimonials, testimonial_title, testimonial_subtitle, resources }) {
     return (
         <RootLayout>
             <Breadcrumps items={data.bread_crumps} />
@@ -28,7 +27,7 @@ export default function MSEFC({ data, news, testimonials, resources }) {
             <ThreeChannel data={data.threechannel} />
             <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
             <RecentBlogsGrid blogs={data.blogs} />
-            <Testimonials data={testimonials} />
+            <Testimonials data={testimonials} title={testimonial_title} subtitle={testimonial_subtitle} />
             <MiniResources data={resources} />
             <FaqComponent data={data.faq} />
             <Newsletterform data={news} />
@@ -52,7 +51,10 @@ export async function getServerSideProps(context) {
             news: news,
             data: data.data.attributes,
             testimonials: testimonial_data.data.attributes.testimonials,
-            resources: testimonial_data.data.attributes.resources
+            resources: testimonial_data.data.attributes.resources,
+            testimonial_title: testimonial_data.data.attributes.testimonial_title,
+            testimonial_subtitle: testimonial_data.data.attributes.testimonial_subtitle
+
         }
     }
 };

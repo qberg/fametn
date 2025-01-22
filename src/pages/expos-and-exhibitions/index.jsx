@@ -26,7 +26,7 @@ export default function ExposAndExhibitions({ data, expo, news }) {
             <ExpoBlock title={data.expo_title} description={data.expo_description} message={data.expo_message} expos={expo} />
             <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
             <RecentBlogsGrid blogs={data.blogs} />
-            <Testimonials data={data.testimonials} />
+            <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
             <MiniResources data={data.resources} />
             <FaqComponent data={data.faq} />
             <Newsletterform data={news} />

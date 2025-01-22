@@ -26,7 +26,7 @@ export default function ExportPromotions({ data, news, promoters }) {
             <ExportBlock data={promoters} header={data.section_3} />
             <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
             <RecentBlogsGrid blogs={data.blogs} />
-            <Testimonials data={data.testimonials} />
+            <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
             <MiniResources data={data.resources} />
             <FaqComponent data={data.faq} />
             <Newsletterform data={news} />
