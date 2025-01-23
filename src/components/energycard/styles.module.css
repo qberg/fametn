@@ -1,0 +1,8 @@
+.img {
+    background-color: rebeccapurple;
+    width: 100%;
+    min-height: 240px;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+}

@@ -32,8 +32,8 @@ export default function YellowResourcesBlock({ data }) {
                     <YellowArrowButton text={strings.viewall[locale]} link="/resources" />
                 </div>
             </div>
-           <hr></hr>
-           <Row>
+           <hr className="my-4"></hr>
+           <Row className="mt-5">
             {threeResources.map((each, index) => {
                 return (<Col key={index} lg={4} md={6}>
                     <ResourcesImageCard data={each} />

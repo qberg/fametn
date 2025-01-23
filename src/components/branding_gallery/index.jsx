@@ -21,7 +21,7 @@ export default function BrandingGallery({ data, download, images }) {
                                 {download.text}
                             </div>
                             <div className="ms-2 my-auto">
-                                <Image src="/branding_download.svg" height={12} width={12} />
+                                <Image alt="" src="/branding_download.svg" height={12} width={12} />
                             </div>
                         </div>
                     </Link>

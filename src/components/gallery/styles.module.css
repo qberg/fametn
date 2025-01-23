@@ -1,0 +1,19 @@
+.semiyellow {
+    background: linear-gradient(to top, var(--yellow) 30%, transparent 30%);
+}
+
+.imgclass {
+    width: 100%;
+    max-width: 360px;
+    height: 360px;
+    padding-right: 1em;
+}
+
+.imgwrap {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    background-color: rebeccapurple;
+}

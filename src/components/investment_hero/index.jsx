@@ -64,7 +64,7 @@ export default function InvestmentHero({
                             ref={containerRef}
                         >
                             {cards.map((each, index) => {
-                                return (<div className={styles.tallcard}>
+                                return (<div key={index} className={styles.tallcard}>
                                     <DynamicImage src={each.image} objectFit="cover" />
                                     <div className={styles.gradbg}></div>
 

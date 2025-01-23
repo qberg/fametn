@@ -1,0 +1,38 @@
+.arrow {
+    display: inline-block;
+    transform: translateX(7px) translateY(-1px);
+    transition: var(--transition);
+}
+
+.bluearrow {
+    background-color: var(--navy);
+    border-radius: var(--small-radius);
+    padding: 0.7em 1.2em;
+    padding-right: 1.5em;
+    cursor: pointer;
+    width: max-content;
+    color: var(--white) !important;
+    font-weight: 500;
+    font-size: small;
+}
+
+.bluearrow[data-full="true"] {
+    width: 100%;
+}
+
+.bluearrow:hover .arrow {
+    transform: translateX(10px) translateY(-1px);
+}
+
+.noarrow:hover .arrow {
+    transform: translateX(10px) translateY(-1px);
+}
+
+.noarrow {
+    cursor: pointer;
+    font-size: small;
+}
+
+.arrow[data-light="true"] img {
+    filter: invert();
+}

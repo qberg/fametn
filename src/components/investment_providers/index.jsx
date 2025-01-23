@@ -25,7 +25,7 @@ const min = (a, b) => {
 }
 
 
-function CoreTable({ data, headings, title, supertitle }) {
+export function CoreTable({ data, headings, title, supertitle }) {
     const { locale } = useRouter();
     const [sortField, setSortField] = useState(headings[0].index);
     const [sortMode, setSortMode] = useState("asc");
@@ -33,10 +33,10 @@ function CoreTable({ data, headings, title, supertitle }) {
     const sortedItems = data.sort((a, b) => {
         const aValue = a[sortField] || "";
         const bValue = b[sortField] || "";
-        if (sortMode == "asc") {
-            return aValue > bValue ? 1 : -1;
+        if (sortMode === "asc") {
+            return aValue.localeCompare(bValue);
         } else {
-            return aValue < bValue ? 1 : -1;
+            return bValue.localeCompare(aValue);
         }
     })
 
@@ -54,7 +54,7 @@ function CoreTable({ data, headings, title, supertitle }) {
                 </h5>
                 {headings.slice(1).map((each, index) => {
                     return (
-                        <div className="small mb-1">
+                        <div key={index} className="small mb-1">
                             <b>{each[locale]}:</b> {data[each.index]}
                         </div>
                     )
@@ -105,12 +105,14 @@ function CoreTable({ data, headings, title, supertitle }) {
             </h3>)}
             <div className="d-none d-lg-block">
                 <table className={styles.table}>
-                    <tr>
-                        {headings.map((each, index) => <HeaderField index={index} key={index} />)}
-                    </tr>
-                    {paginatedItems.map((each, index) => {
-                        return (<BodyField key={index} data={each} />)
-                    })}
+                    <tbody>
+                        <tr>
+                            {headings.map((each, index) => <HeaderField index={index} key={index} />)}
+                        </tr>
+                        {paginatedItems.map((each, index) => {
+                            return (<BodyField key={index} data={each} />)
+                        })}
+                    </tbody>
                 </table>
                 <div className={`my-4 ${styles.pagecontainer}`}>
                     <div
@@ -120,7 +122,7 @@ function CoreTable({ data, headings, title, supertitle }) {
                         {strings.prev[locale]}
                     </div>
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((each, index) => {
-                        return (<div onClick={() => setPage(each)} className="mx-2 small">
+                        return (<div key={index} onClick={() => setPage(each)} className="mx-2 small">
                             {each}
                         </div>)
                     })}
@@ -172,6 +174,6 @@ export default function InvestmentProviders({ data, title, supertitle }) {
             ta: "மின்னஞ்சல்"
         }
     ]
-    return (<CoreTable data={data} headings={headings} title={title} supertitle={supertitle}/>)
+    return (<CoreTable data={data} headings={headings} title={title} supertitle={supertitle} />)
 
 }

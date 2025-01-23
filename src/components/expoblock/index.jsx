@@ -428,7 +428,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                     {strings.prev[locale]}
                 </div>
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((each, index) => {
-                    return (<div onClick={() => setPage(each)} className="mx-2 small">
+                    return (<div key={index} onClick={() => setPage(each)} className="mx-2 small">
                         {each}
                     </div>)
                 })}

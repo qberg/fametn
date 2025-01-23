@@ -21,7 +21,7 @@ export default function InfraBlock({ data, title, description }) {
         </p>
         <div className='d-flex flex-wrap small'>
             {headings.map((each, index) => {
-                return <div onClick={() => setSelected(index)} className={`${styles.heading} ${selected === index ? styles.selected : ''}`}>
+                return <div key={index} onClick={() => setSelected(index)} className={`${styles.heading} ${selected === index ? styles.selected : ''}`}>
                     {each}
                 </div>
             })}
