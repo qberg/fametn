@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import { Container, Row, Col } from 'react-bootstrap'
 import YellowFancyContainer from '../yellowfancycontainer'
-import BlueArrowButton from "../yellow_arrow_button"
+import BlueArrowButton from "../blue_arrow_button"
 import Image from "next/image"
 import DynamicImage from "../dynamicImage"
 
