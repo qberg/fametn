@@ -344,7 +344,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
         </th>)
     }
 
-    const MobileEventCard = ({data}) => {
+    const MobileEventCard = ({ data }) => {
         return (<div className={styles.mobcard}>
             <h6>
                 {data.name}
@@ -407,17 +407,18 @@ export default function ExpoBlock({ title, description, message, expos }) {
         </div>
         <div className="d-none d-lg-block mt-2">
             <table className={styles.table}>
-                <tr>
-                    <HeaderField name="name" />
-                    <HeaderField name="country" />
-                    <HeaderField name="city" />
-                    <HeaderField name="sector" />
-                    <HeaderField name="date" />
-
-                </tr>
-                {paginatedEvents.map((each, index) => {
-                    return (<BodyField key={index} item={each} />)
-                })}
+                <tbody>
+                    <tr>
+                        <HeaderField name="name" />
+                        <HeaderField name="country" />
+                        <HeaderField name="city" />
+                        <HeaderField name="sector" />
+                        <HeaderField name="date" />
+                    </tr>
+                    {paginatedEvents.map((each, index) => {
+                        return (<BodyField key={index} item={each} />)
+                    })}
+                </tbody>
             </table>
 
             <div className={`my-4 ${styles.pagecontainer}`}>
@@ -444,7 +445,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
             {sortedEvents.map((each, index) => {
                 return (<Col lg={6} key={index}>
                     <MobileEventCard data={each} />
-                </Col> )
+                </Col>)
             })}
         </Row>
 

@@ -69,7 +69,7 @@ const min = (a, b) => {
 }
 
 const MobileItemCard = ({ data }) => {
-    const {locale} = useRouter();
+    const { locale } = useRouter();
 
     return (<div className={styles.mobcard}>
         <h6>
@@ -275,15 +275,17 @@ export default function Packers({ data, title }) {
             </div>
             <div className="d-none d-lg-block mt-2">
                 <table className={styles.table}>
-                    <tr>
-                        <HeaderField name="name" />
-                        <HeaderField name="location" />
-                        <HeaderField name="contact" />
-                        <HeaderField name="rate" />
-                    </tr>
-                    {paginatedPackers.map((each, index) => {
-                        return (<BodyField key={index} item={each} />)
-                    })}
+                    <tbody>
+                        <tr>
+                            <HeaderField name="name" />
+                            <HeaderField name="location" />
+                            <HeaderField name="contact" />
+                            <HeaderField name="rate" />
+                        </tr>
+                        {paginatedPackers.map((each, index) => {
+                            return (<BodyField key={index} item={each} />)
+                        })}
+                    </tbody>
                 </table>
                 <div className={`my-4 ${styles.pagecontainer}`}>
                     <div

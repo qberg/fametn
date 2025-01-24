@@ -10,13 +10,13 @@ export default function BrandingGallery({ data, download, images }) {
         <Container className="my-5">
             <div className="d-flex">
                 <div className="my-auto">
-                    <h3>
+                    <h3 data-aos="fade-up">
                         {data.title}
                     </h3>
                 </div>
                 <div className="ms-auto my-auto">
                     <Link target='_blank' href={download.url}>
-                        <div className={styles.downloadbutton}>
+                        <div data-aos="fade-up" data-aos-delay={300} className={styles.downloadbutton}>
                             <div className="my-auto">
                                 {download.text}
                             </div>
@@ -27,39 +27,41 @@ export default function BrandingGallery({ data, download, images }) {
                     </Link>
                 </div>
             </div>
-            <div className="mt-3 mb-3">
+            <div data-aos="fade-up" className="mt-3 mb-3">
                 {data.description}
             </div>
-            <YellowArrowButton text={data.cta_text} link={data.cta_link} />
+            <div data-aos="fade-up">
+                <YellowArrowButton text={data.cta_text} link={data.cta_link} />
+            </div>
             <Row className="mt-4">
                 <Col className={styles.nomb} lg={5}>
                     <Row>
                         <Col lg={12}>
-                            <div className={styles.img1}>
+                            <div data-aos="fade-up" className={styles.img1}>
                                 <DynamicImage src={{ data: images.data[0] }} objectFit="cover" />
                             </div>
                         </Col>
                         <Col lg={12}>
-                            <div className={styles.img1}>
+                            <div data-aos="fade-up" className={styles.img1}>
                                 <DynamicImage src={{ data: images.data[1] }} objectFit="cover" />
                             </div>
                         </Col>
                     </Row>
                 </Col>
                 <Col lg={3}>
-                    <div className={styles.img3}>
+                    <div data-aos="fade-up" className={styles.img3}>
                         <DynamicImage src={{ data: images.data[2] }} objectFit="cover" />
                     </div>
-                    
+
                 </Col>
                 <Col lg={4}>
                     <Col lg={12}>
-                        <div className={styles.img4}>
+                        <div data-aos="fade-up" className={styles.img4}>
                             <DynamicImage src={{ data: images.data[3] }} objectFit="cover" />
                         </div>
                     </Col>
                     <Col lg={12}>
-                        <div className={styles.img5}>
+                        <div data-aos="fade-up" className={styles.img5}>
                             <DynamicImage src={{ data: images.data[4] }} objectFit="cover" />
                         </div>
                     </Col>

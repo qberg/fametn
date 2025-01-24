@@ -3,33 +3,24 @@
 
 import React from 'react';
 import styles from './breadcrumps.module.css';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Container } from 'react-bootstrap';
 
-
-
-const CONSTANTS = {
-	"home": {
-		"en": "Home",
-		"ta": "முகப்பு"
-	}
+const RightArrow = () => {
+	return (
+		<div className={styles.arrow}> &gt;</div>
+	)
 }
 
-
 const Breadcrumps = ({ items }) => {
-	// get current locale from nextjs and populate locale variable
-	const router = useRouter()
-
-
 	return (
 		<Container className='pt-4'>
 			<div className={styles.breadcrumpsContainer}>
 				{items.map((item, index) => {
 					return (
-						<div key={index} className={styles.breadcrump}>
+						<div data-aos="fade-up" data-aos-delay={index * 50} key={index} className={styles.breadcrump}>
 							{/* add right arrow if not first item */}
-							{index !== 0 && <div className={styles.arrow}> &gt;</div>}
+							{index !== 0 && <RightArrow />}
 
 							{/* add hyperlinked item */}
 							<Link href={item?.url || "/"}>
@@ -42,6 +33,5 @@ const Breadcrumps = ({ items }) => {
 		</Container>
 	)
 }
-
 
 export default Breadcrumps;

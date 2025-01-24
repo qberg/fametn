@@ -21,11 +21,11 @@ const strings = {
         "en": "Link copied to clipboard",
         "ta": "இணையத்தில் பகிரவும்"
     },
-    "recent" : {
+    "recent": {
         "en": "Recent Blogs",
         "ta": "சமீபத்திய வலைப்பதிவுகள்"
     },
-    "view" : {
+    "view": {
         "en": "View All",
         "ta": "அனைத்தும் பார்"
     }
@@ -37,9 +37,33 @@ const formatDate = (date) => {
     return dateObj.toLocaleDateString("en-US", { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
+const RecentBlogs = ({ recentBlogs }) => {
+    const { locale } = useRouter();
+    return (
+        <Container>
+            <div className="d-flex mt-5">
+                <div>
+                    <Bluepill text={strings.recent[locale]} />
+                </div>
+                <div data-aos="fade-up" className="ms-auto">
+                    <YellowArrowButton text={strings.view[locale]} link="/blogs" />
+                </div>
+            </div>
+            <Row className="pt-4 pb-5">
+                {recentBlogs.map((each, index) => {
+                    return (<Col md={4} key={index}>
+                        <BlogCard data={each} />
+                    </Col>)
+                })}
+            </Row>
+        </Container>
+    )
+}
+
 
 export default function Blog({ recentBlogs, news, title, length, date, author, content, image, tags }) {
     const { locale } = useRouter();
+
     const sharePageToTwitter = () => {
         const url = window.location.href;
         const text = title;
@@ -48,6 +72,7 @@ export default function Blog({ recentBlogs, news, title, length, date, author, c
 
     const [showModal, setShowModal] = useState(false);
     const modalTimeout = 3000;
+    
     const copyToClipboard = () => {
         const url = window.location.href;
         navigator.clipboard.writeText(url);
@@ -65,18 +90,18 @@ export default function Blog({ recentBlogs, news, title, length, date, author, c
     return (
         <RootLayout>
             <Container className="px-5">
-                <div className="pt-5 pb-4">
+                <div data-aos="fade-up" className="pt-5 pb-4">
                     <Link className={styles.movelefter} href={`/blogs`}>
                         <Image src="/blog_left_arrow.svg" height={28} width={28} />
                     </Link>
                 </div>
-                <div>
+                <div data-aos="fade-up">
                     <h1 className="text-uppercase">
                         {title}
                     </h1>
                 </div>
                 <hr></hr>
-                <div className="d-flex">
+                <div data-aos="fade-up" className="d-flex">
                     <div className={styles.minortext}>
                         {formatDate(date)} • {length}
                     </div>
@@ -93,34 +118,18 @@ export default function Blog({ recentBlogs, news, title, length, date, author, c
                     </div>
                 </div>
                 <hr></hr>
-                <div className="mt-5">
+                <div data-aos="fade-up" className="mt-5">
                     <div className={styles.blogimage}>
                         <DynamicImage src={image} />
                     </div>
                 </div>
-                <div className={`mt-4 smaller ${styles.blogcontent}`}>
+                <div data-aos="fade-up" className={`mt-4 smaller ${styles.blogcontent}`}>
                     <BlocksRenderer content={content} />
                 </div>
                 <Modal show={showModal} text={strings.copied[locale]} />
                 <hr></hr>
             </Container>
-            <Container>
-                <div className="d-flex mt-5">
-                    <div>
-                        <Bluepill text={strings.recent[locale]} />
-                    </div>
-                    <div className="ms-auto">
-                        <YellowArrowButton text={strings.view[locale]} link="/blogs" />
-                    </div>
-                </div>
-                <Row className="pt-4 pb-5">
-                    {recentBlogs.map((each, index) => {
-                        return (<Col md={4} key={index}>
-                            <BlogCard data={each} />
-                        </Col>)
-                    })}
-                </Row>
-            </Container>
+            <RecentBlogs recentBlogs={recentBlogs} />
             <Newsletterform data={news} />
         </RootLayout>
     );
@@ -134,6 +143,22 @@ export async function getServerSideProps(context) {
     const recentBlogs = await getTopNBlogs(3, language);
     const news = await getNewsletterData(language);
 
+    const replaceImagePath = (contentBlock) => {
+        const IMAGE = "image";
+        const SPLIT_TOOL = "/uploads/";
+
+        if (contentBlock.type === IMAGE) {
+            contentBlock.image.url = process.env.NEXT_PUBLIC_IMG_ENDPOINT + SPLIT_TOOL + contentBlock.image.url.split(SPLIT_TOOL)[1];
+        }
+
+        if (contentBlock.children) {
+            contentBlock.children = contentBlock.children.map(replaceImagePath);
+        }
+
+        return contentBlock
+    }
+
+    blogData.content = blogData.content.map(replaceImagePath);
     return {
         props: {
             ...blogData,

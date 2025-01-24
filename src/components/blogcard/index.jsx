@@ -29,7 +29,7 @@ export default function BlogCard({ data }) {
 
     return (
         <Link href={`/blogs/${data.url}`}>
-            <div className={styles.blogcard}>
+            <div data-aos="fade-up" className={styles.blogcard}>
                 <div className={styles.blogcardimg}>
                     <DynamicImage src={data.image} objectFit="cover" />
                 </div>
@@ -42,7 +42,7 @@ export default function BlogCard({ data }) {
                             {data.title}
                         </h6>
                     </div>
-                    <div className="ms-auto position-relative me-1">
+                    <div className={`${styles.blogarrow} ms-auto position-relative me-1`}>
                         <Image alt={`blog card image of ${data.title}`} src="/arrow_top_right.svg" height={12} width={12} />
                     </div>
                 </div>

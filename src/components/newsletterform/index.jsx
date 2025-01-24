@@ -42,13 +42,13 @@ export default function Newsletterform({data}){
         <Container className="py-5">
             <Row>
                 <Col md={7}>
-                    <h3>
+                    <h3 data-aos="fade-up">
                         {data.title}
                     </h3>
-                    <p>
+                    <p data-aos="fade-up">
                         {data.description}
                     </p>
-                    <div className="d-flex">
+                    <div data-aos="fade-up" className="d-flex">
                         <Socials icon="/soc_dark_fb.svg" url={data.fb_url} />
                         <Socials icon="/soc_dark_x.svg" url={data.x_url} />
                         <Socials icon="/soc_wa_dark.svg" url={data.whatsapp_url} />
@@ -59,22 +59,22 @@ export default function Newsletterform({data}){
                     </div>
                 </Col>
                 <Col md={5}>
-                    <div className={styles.label}>
+                    <div data-aos="fade-up" className={styles.label}>
                         {strings["ph"][locale]}
                     </div>
-                    <div className={styles.inputcontainer}>
+                    <div data-aos="fade-up" className={styles.inputcontainer}>
                         <div className="my-auto me-2">
                             +91
                         </div>
                         <input placeholder={strings["eph"][locale]} type="text" className={styles.input} />
                     </div>
-                    <div className={styles.label}>
+                    <div data-aos="fade-up" className={styles.label}>
                         {strings["mail"][locale]}
                     </div>
-                    <div className={styles.inputcontainer}>
+                    <div data-aos="fade-up" className={styles.inputcontainer}>
                         <input placeholder={strings["email"][locale]} type="text" className={styles.input} />
                     </div>
-                    <div className="d-flex">
+                    <div data-aos="fade-up" className="d-flex">
                         <div className="mb-auto me-2">
                             <input type="checkbox" className={styles.checkbox} />
                         </div>
@@ -82,7 +82,7 @@ export default function Newsletterform({data}){
                             {data.disclaimer}
                         </div>
                     </div>
-                    <div className="mt-3">
+                    <div data-aos="fade-up" className="mt-3">
                         <BlackArrowButton text={data.cta_text} link={null}  />
                     </div>
                 </Col>

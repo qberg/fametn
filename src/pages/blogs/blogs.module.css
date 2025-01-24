@@ -84,10 +84,10 @@
 }
 
 .sortbutton {
-    padding: 1em;
+    padding: 0.4em 1em;;
     height: 100%;
     cursor: pointer;
-    border-radius: var(--radius);
+    border-radius: var(--small-radius);
     display: flex;
     background-color: var(--light-gray);
 }
@@ -99,7 +99,7 @@
 .sortdropdown {
     position: absolute;
     background-color: var(--white);
-    border-radius: var(--radius);
+    border-radius: var(--small-radius);
     margin-top: 1em;
     width: max-content;
     right: 0;

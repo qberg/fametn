@@ -89,9 +89,9 @@ function BlogSort({ onChange, value }) {
     }, []);
 
     return (
-        <div className="position-relative">
+        <div className="position-relative h-100">
             <div onClick={() => setOpen(!open)} className={styles.sortbutton}>
-                <div className="my-auto me-3">
+                <div className="my-auto me-2">
                     <Image src="/blog_sort.svg" height={16} width={16} />
                 </div>
                 <div className="my-auto">
@@ -116,10 +116,8 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
     const { locale } = useRouter();
     const router = useRouter();
 
-
     const [searchText, setSearchText] = useState(search);
     const [currentBlogList, setCurrentBlogList] = useState(blogList);
-
 
     const top3carouselData = recentBlogs.map((each) => {
         return {
@@ -130,34 +128,33 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
             link: `/blogs/${each.url}`
         }
     })
-
-    const onSearch = (text) => {
-        setSearchText(text);
+    
+    const getQueryString = (searchText, sort) => {
+        var queryString = `?search=${searchText}`;
+        if (sort) {
+            queryString += `&sort=${sort}`;
+        }
+        return queryString;
     }
 
     const handleSearch = () => {
-        var queryString = `?search=${searchText}`;
-        if (router.query.sort) {
-            queryString += `&sort=${router.query.sort}`;
-        }
-        window.location.search = queryString;
+        window.location.search = getQueryString(searchText, router.query.sort);;
     }
 
     const handleSortChange = (value) => {
         if (value.key == sort.key) {
             return;
         }
-        var queryString = `?search=${searchText}&sort=${value.key}`;
-        window.location.search = queryString;
+        window.location.search = getQueryString(searchText, value.key);
     }
 
     return (
         <RootLayout>
             <Container>
                 <div className="mt-4">
-                    <Row>
+                    <Row data-aos="fade-up">
                         <Col lg={10}>
-                            <Gigasearch text={searchText} onSearch={onSearch} handleSearch={handleSearch} />
+                            <Gigasearch text={searchText} onSearch={(text) => setSearchText(text)} handleSearch={handleSearch} />
                         </Col>
                         <Col lg={2}>
                             <BlogSort value={sort} onChange={handleSortChange} />
@@ -169,8 +166,8 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
                     <div className="mt-4 mb-4">
                         <center>
                             <Bluepill text={meta?.supertitle} />
-                            <h2 className="mt-3 text-uppercase">{meta?.title}</h2>
-                            <p>
+                            <h2 data-aos="fade-up" className="mt-3 text-uppercase">{meta?.title}</h2>
+                            <p data-aos="fade-up">
                                 {meta?.description}
                             </p>
                         </center>
@@ -179,11 +176,11 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
                 </div>)}
 
 
-                <div className="mt-3 mb-4">
+                <div data-aos="fade-up" className="mt-3 mb-4">
                     {currentBlogList.length !=0 && (<h4>{(search == "") ? strings.blogs[locale] : strings.results[locale] + ` "${search}"`}</h4>)}
                     {currentBlogList.length == 0 && (<h4>No results found for &quot;{search}&quot;</h4>)}
                 </div>
-                <Row>
+                <Row className="gx-5 gy-5">
                     {currentBlogList.map((each, index) => {
                         return (<Col md={6} lg={4} key={index}>
                             <BlogCard data={each} />
@@ -198,6 +195,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
         </RootLayout>
     )
 }
+
 
 export async function getServerSideProps(context) {
 

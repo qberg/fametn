@@ -2,9 +2,10 @@
     width: 100%;
     background-color: var(--white);
     border: 1px solid var(--light-gray);
-    padding: 0.7em 1em;
+    padding: 0.4em 1em;
     display: flex;
-    border-radius: var(--radius);
+    border-radius: var(--small-radius);
+    padding-right: 0.4em;
 }
 
 .searchicon {

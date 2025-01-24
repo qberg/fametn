@@ -48,7 +48,7 @@ function EachStuff({ data }) {
                     <DynamicImage src={data.image} objectFit="cover" />
                 </div>
                 <div className={styles.textholder}>
-                    <h5 className={`text-nowrap ${styles.textbox}`}>
+                    <h5 className={`${styles.nowrapheader} ${styles.textbox}`}>
                         {data?.title}
                     </h5>
                     <div className={styles.smollfont}>
@@ -67,7 +67,7 @@ function EachStuff({ data }) {
 
 export default function Topthreecarousel({ data }) {
     return (
-        <div className={styles.topthreeshadow}>
+        <div data-aos="fade-up" className={styles.topthreeshadow}>
             <Carousel
                 renderArrowPrev={(onClickHandler, hasPrev, label) =>
                     (<PrevArrow onClickHandler={onClickHandler} hasPrev={hasPrev} />)}

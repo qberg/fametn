@@ -2,7 +2,7 @@ import styles from "./bluepill.module.css"
 
 export default function Bluepill({text}){
     return (
-        <div className={styles.bluepill}>
+        <div data-aos="fade-up" className={styles.bluepill}>
             {text}
         </div>
     )

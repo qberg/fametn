@@ -30,7 +30,6 @@ export default function Gigasearch({ text, onSearch, handleSearch }) {
             </div>
             <div onClick={searchHandler} className={styles.searchbutton}>
                 <YellowArrowButton text={strings.search[locale]} />
-                {/* {strings.search[locale]} */}
             </div>
         </div>
     )
