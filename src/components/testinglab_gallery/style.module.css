@@ -1,0 +1,37 @@
+.imgbox {
+    background-color: rebeccapurple;
+    height: 320px;
+    width: 100%;
+    border-radius: var(--small-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.lablebox {
+    background-color: var(--black);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 0.3em 0.5em;
+    font-size: small;
+    
+    height: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Limit the number of lines */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+
+    color: var(--white);
+}
+
+.yellowbgcon {
+    background: linear-gradient(to top, var(--yellow) 30%, transparent 30%);
+}
+
+@media (max-width: 768px) {
+    .yellowbgcon {
+        background-color: var(--yellow);
+    }
+}

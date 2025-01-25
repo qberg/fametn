@@ -31,16 +31,16 @@ export default function RecentBlogsGrid({ blogs }) {
     return (<Container className="my-4">
         <div className="d-flex">
             <div className="my-auto">
-                <h2>{strings.recent[locale]}</h2>
+                <h2 data-aos="fade-up">{strings.recent[locale]}</h2>
             </div>
-            <div className="ms-auto my-auto">
+            <div data-aos="fade-up" className="ms-auto my-auto">
                 <YellowArrowButton text={strings.view[locale]} link="/blogs" />
             </div>
         </div>
-        <hr></hr>
+        <hr data-aos="fade-up"></hr>
         <Row className="mt-5">
             <Col className={styles.twomb} lg={7}>
-                <div className={styles.newtealand}>
+                <div data-aos="fade-up" className={styles.newtealand}>
                     <div className={styles.logodisplay}>
                         <DynamicImage src={blogOne.logo} objectPosition="left" objectFit="contain" />
                     </div>
@@ -57,7 +57,7 @@ export default function RecentBlogsGrid({ blogs }) {
             </Col>
             <Col>
                 <div className="d-flex flex-column h-100">
-                    <div className={styles.newpeachland}>
+                    <div data-aos="fade-up" className={styles.newpeachland}>
                         <div className={styles.logodisplay}>
                             <DynamicImage src={blogTwo.logo} objectPosition="left" objectFit="contain" />
                         </div>
@@ -68,7 +68,7 @@ export default function RecentBlogsGrid({ blogs }) {
                             <JustArrowButton link={"/blogs/" + blogTwo.url} text={strings.case[locale]} />
                         </div>
                     </div>
-                    <div className={styles.newblooland}>
+                    <div data-aos="fade-up" className={styles.newblooland}>
                         <div className={styles.logodisplay}>
                             <DynamicImage src={blogThree.logo} objectPosition="left" objectFit="contain" />
                         </div>

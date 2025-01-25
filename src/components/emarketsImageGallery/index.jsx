@@ -82,10 +82,10 @@ export default function EmarketsImageGallery({ title, description, images }) {
 
     return (
         <Container className="my-5">
-            <h3 className="pt-4">
+            <h2 data-aos="fade-up" className="pt-4">
                 {title}
-            </h3>
-            <p className="mt-3">
+            </h2>
+            <p data-aos="fade-up" className="mt-3">
                 {description}
             </p>
             <Row className="my-4 pb-5">
@@ -98,11 +98,10 @@ export default function EmarketsImageGallery({ title, description, images }) {
                                 setSelected(index)
                                 setOpen(true)
                             }} key={index} md={4} className={`mt-4 g-0 ${styles.nomy} ${styles.imgbox}`}>
-                            <div className={styles.imageContainer}>
+                            <div data-aos="fade-up" data-aos-delay={(index % 3) * 100} className={styles.imageContainer}>
                                 <DynamicImage src={{ data: each }} objectFit="cover" />
                                 {isLast && (<div className={styles.more}>
                                     <div className="m-auto">
-
                                         +{remainingImageCount}
                                     </div>
                                 </div>)}

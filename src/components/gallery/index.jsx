@@ -7,7 +7,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DynamicImage from "../dynamicImage";
 
 export default function Gallery({ data }) {
-    console.log(data.images.data)
     const ImageBlock = ({ image }) => {
         return (<div className={styles.imgclass}>
             <div className={styles.imgwrap}>
@@ -19,26 +18,41 @@ export default function Gallery({ data }) {
         <Container className={`${styles.semiyellow} my-5 pt-4`} fluid>
             <Container className="pb-5">
                 <Bluepill text={data.supertitle} />
-                <h2 className="mt-3">
+                <h2 data-aos="fade-up" className="mt-3">
                     {data.title}
                 </h2>
-                <div className="d-flex">
-                    <div>
+                <div data-aos="fade-up" className="d-flex">
+                    <div className="m3-auto">
                         {data.description}
                     </div>
-                    <div>
+                    <div className="ms-2">
                         <YellowArrowButton text={data.cta_text} link={data.cta_link} />
                     </div>
                 </div>
-                <div className="d-none d-lg-block my-5">
+                <div data-aos="fade-up" className="d-none d-lg-block my-5">
                     <Carousel
                         centerMode={true}
                         centerSlidePercentage={35}
-                    // showArrows={false} 
-                    showStatus={false} 
-                    showThumbs={false} 
-                    infiniteLoop={true} 
-                    autoPlay={true}
+                        // showArrows={false} 
+                        showStatus={false}
+                        showThumbs={false}
+                        infiniteLoop={true}
+                        autoPlay={true}
+                    >
+                        {data.images.data.map((each, index) => {
+                            return (<ImageBlock key={index} image={each} />)
+                        })}
+                    </Carousel>
+                </div>
+                <div className="d-block d-lg-none my-5">
+                <Carousel
+                        // showArrows={false} 
+                        centerMode={true}
+                        centerSlidePercentage={100}
+                        showStatus={false}
+                        showThumbs={false}
+                        infiniteLoop={true}
+                        autoPlay={true}
                     >
                         {data.images.data.map((each, index) => {
                             return (<ImageBlock key={index} image={each} />)

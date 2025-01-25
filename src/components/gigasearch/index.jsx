@@ -16,7 +16,7 @@ export default function Gigasearch({ text, onSearch, handleSearch }) {
         handleSearch();
     }
     return (
-        <div className={styles.search}>
+        <div data-aos="fade-up" className={styles.search}>
             <div className='my-auto me-2'>
                 <Image className={styles.searchicon} src="/gigsearch.svg" alt="Gigasearch" width={22} height={22} />
             </div>

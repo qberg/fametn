@@ -33,8 +33,6 @@ export default function Auditors({data, title, supertitle}) {
             ta: "ஊழியர் கடந்து ஊழியர்படுத்திய பின்னணி"
         }
     ]
-    // return (<div>
-    //     hi fellas
-    // </div>)
+
     return (<CoreTable data={data} headings={headings} title={title} supertitle={supertitle}/>)
 }

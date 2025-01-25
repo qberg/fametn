@@ -21,18 +21,18 @@ export default function YellowResourcesBlock({ data }) {
         <Container className="py-4">
             <Bluepill text={data.supertitle} />
 
-            <h3 className="mt-3">
+            <h2 data-aos="fade-up" className="mt-3">
                 {data.title}
-            </h3>
-            <div className="d-flex mt-1 mb-1">
-                <div>
+            </h2>
+            <div data-aos="fade-up" className="d-flex mt-1 mb-1">
+                <div className="me-auto">
                 {data.description} 
                 </div>
-                <div className="ms-auto">
+                <div className="ms-2">
                     <YellowArrowButton text={strings.viewall[locale]} link="/resources" />
                 </div>
             </div>
-           <hr className="my-4"></hr>
+           <hr  data-aos="fade-up" className="my-4"></hr>
            <Row className="mt-5">
             {threeResources.map((each, index) => {
                 return (<Col key={index} lg={4} md={6}>

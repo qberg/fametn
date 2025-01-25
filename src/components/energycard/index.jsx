@@ -8,21 +8,21 @@ export default function EnergyCard({ data }) {
     return (
         <Container className="my-5">
             <Bluepill text={data.subtitle} />
-            <h3 className="mt-3">
+            <h2 data-aos="fade-up" className="mt-3">
                 {data.heading}
-            </h3>
-            <hr className="my-4"></hr>
+            </h2>
+            <hr data-aos="fade-up" className="my-4"></hr>
             <Row>
                 <Col lg={7}>
-                    <div className={styles.img}>
+                    <div data-aos="fade-up" className={styles.img}>
                         <DynamicImage src={data.image} objectFit="cover" />
                     </div>
                 </Col>
                 <Col lg={5}>
-                <div>
+                <div data-aos="fade-up">
                     {data.description}
                 </div>
-                <div className="mt-3">
+                <div data-aos="fade-up" className="mt-3">
                     <YellowArrowButton text={data.link_text} link={data.link} />
                 </div>
                 </Col>

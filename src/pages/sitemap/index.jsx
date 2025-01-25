@@ -1,27 +1,30 @@
 import Link from "next/link"
-
+import styles from "./styles.module.css"
 export default function SiteMap() {
     const lists = [
-        "https://fametn.soorkie.com/blogs",
-        "https://fametn.soorkie.com/branding-and-packaging",
-        "https://fametn.soorkie.com/emarkets",
-        "https://fametn.soorkie.com/events",
-        "https://fametn.soorkie.com/export-promotion-councils",
-        "https://fametn.soorkie.com/export-promotions",
-        "https://fametn.soorkie.com/expos-and-exhibitions",
-        "https://fametn.soorkie.com/finance/schemes **",
-        "https://fametn.soorkie.com/markets",
-        "https://fametn.soorkie.com/resources",
-        "https://fametn.soorkie.com/vendor-development-meets",
-        "https://fametn.soorkie.com/micro-and-small-enterprises-facilitation-council",
-        "https://fametn.soorkie.com/ondc"
+        "/blogs",
+        "/branding-and-packaging",
+        "/emarkets",
+        "/events",
+        "/export-promotion-councils",
+        "/export-promotions",
+        "/expos-and-exhibitions",
+        "/finance/schemes **",
+        "/markets",
+        "/resources",
+        "/vendor-development-meets",
+        "/micro-and-small-enterprises-facilitation-council",
+        "/ondc",
+        "/investment-promotion/",
+        "/energy-efficiency",
+        "/indusstry-4-0",
     ]
 
     return (
         <div>
             <h1>SiteMap</h1>
             {lists.map((list, index) => {
-                return (<Link key={index} href={list}>
+                return (<Link className={styles.blue} key={index} href={list}>
                     {list} <br></br>
                 </Link>)
 

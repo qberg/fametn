@@ -11,6 +11,10 @@ const strings = {
     "all": {
         "en": "View All",
         "ta": "அனைத்தும் பார்"
+    },
+    "register": {
+        "en": "Register",
+        "ta": "பதிவு செய்க"
     }
 }
 
@@ -21,31 +25,36 @@ const formatDate = (date) => {
 }
 
 export function EventCard({ data }) {
+    const { locale } = useRouter();
     const dateString = formatDate(data.start_date) + (data.end_date ? " - " + formatDate(data.end_date) : "");
     return (
-        <div className={styles.eventcard}>
-            <Row className="w-100">
-                <Col sm={4} className={styles.nomb}>
+        <div data-aos="fade-up" className={styles.eventcard}>
+            <Row className="h-100 w-100 g-x-4 g-y-2">
+                <Col className={styles.nomb} lg={5} >
                     <div className={styles.eventcardimg}>
                         <DynamicImage src={data.image} objectFit="cover" />
                     </div>
                 </Col>
-                <Col sm={8} className={styles.nomb}>
-                    <p className={styles.eventcardtitle}>
-                        {data.title}
-                    </p>
-                    <div className="small">
-                        <div>
-                            {dateString}
+                <Col className={styles.nomb} lg={7} >
+                    <div className="d-flex h-100 flex-column">
+                        <p className={`mt-2 mt-lg-0 mb-1 ${styles.eventcardtitle}`}>
+                            {data.title}
+                        </p>
+                        <div className="small">
+                            <div>
+                                {dateString}
+                            </div>
+                            <div>
+                                {data.location}
+                            </div>
                         </div>
-                        <div>
-                            {data.location}
+                        <div className="mt-auto pt-2">
+                            <YellowArrowButton text={strings.register[locale]} link={data.registration_link} />
                         </div>
                     </div>
 
                 </Col>
             </Row>
-
         </div>
     )
 }
@@ -62,10 +71,10 @@ export default function UpcomingEvents({ meta, data }) {
         <Container className="my-5">
             <div className="py-2">
                 {meta.supertitle_2 && (<Bluepill text={meta.supertitle_2} />)}
-                <h2 className="mt-3">
+                <h2 data-aos="fade-up" className="mt-3">
                     {meta.title_2}
                 </h2>
-                <Row>
+                <Row data-aos="fade-up">
                     <Col md={10} xs={12}>
                         {meta.description_2}
                     </Col>

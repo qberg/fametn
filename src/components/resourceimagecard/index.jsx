@@ -18,7 +18,7 @@ export default function ResourcesImageCard({ data }) {
     }
 
     return (
-        <div onClick={startDownload} className={styles.imagecard}>
+        <div data-aos="fade-up" onClick={startDownload} className={styles.imagecard}>
             <DynamicImage src={data.image} objectFit="cover" />
             <div className={styles.imagecardtext}>
                 <div className="d-flex">

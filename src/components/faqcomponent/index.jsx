@@ -10,21 +10,23 @@ export default function FaqComponent({ data }) {
         <Container className="my-5 py-5">
             <Row>
                 <Col lg={6}>
-                    <h3>
+                    <h2 data-aos="fade-up">
                         {data.title}
-                    </h3>
-                    <p className="mt-3">
+                    </h2>
+                    <p data-aos="fade-up" className="mt-3">
                         {data.description}
                     </p>
                     {hasImage && (
-                        <div className={`mt-5 ${styles.imgwrap}`}>
+                        <div data-aos="fade-up" className={`mt-5 ${styles.imgwrap}`}>
                             <DynamicImage src={data.image} objectFit="contain" />
                         </div>
                     )}
                 </Col>
                 <Col lg={6}>
                     {data.questions_and_answers.map((each, index) => {
-                        return (<FaqSection key={index} question={each.heading} answer={each.description} />)
+                        return (<div data-aos="fade-up">
+                            <FaqSection key={index} question={each.heading} answer={each.description} />
+                        </div>)
                     })}
                 </Col>
             </Row>

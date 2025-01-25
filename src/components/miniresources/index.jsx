@@ -19,7 +19,7 @@ const strings = {
 }
 
 
-function ResourceCard({ data }) {
+function ResourceCard({ data, index = 0 }) {
     const {locale} = useRouter();
 
     const firstTag = data.tags.length > 0 ? data.tags[0] : null;
@@ -37,7 +37,7 @@ function ResourceCard({ data }) {
     }
 
     return (
-        <div onClick={startDownload} className={styles.resourcecard}>
+        <div data-aos="fade-up" data-aos-delay={100 * index} onClick={startDownload} className={styles.resourcecard}>
             <div className="d-flex">
                 {firstTagRender}
                 {restTagsRender}
@@ -62,21 +62,20 @@ export default function MiniResources({ data }) {
 
     return (
         <Container className="my-5">
-            <div className="d-flex">
+            <div data-aos="fade-up" className="d-flex">
                 <div className="my-auto">
-                    <h3>
+                    <h3 >
                         {strings.head[locale]}
                     </h3>
                 </div>
                 <div className="my-auto ms-auto">
                     <YellowArrowButton text={strings.all[locale]} link="/resources" />
                 </div>
-
             </div>
             <Row className="mt-4">
                 {data.data.map(each => each.attributes).map((each, index) => {
                     return (<Col lg={4} md={6} key={index}>
-                        <ResourceCard data={each} />
+                        <ResourceCard data={each} index={index}/>
                     </Col>)
                 })}
             </Row>

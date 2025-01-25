@@ -71,7 +71,7 @@ const min = (a, b) => {
 const MobileItemCard = ({ data }) => {
     const { locale } = useRouter();
 
-    return (<div className={styles.mobcard}>
+    return (<div data-aos="fade-up" className={styles.mobcard}>
         <h6>
             {data.name}
         </h6>
@@ -94,7 +94,7 @@ export default function Packers({ data, title }) {
 
     const [sortField, setSortField] = useState("name");
     const [sortMode, setSortMode] = useState("asc");
-    const [filterOpen, setFilterOpen] = useState(true);
+    const [filterOpen, setFilterOpen] = useState(false);
     const [selfStateFilter, setSelfStateFilter] = useState([])
     const filteredItems = data.filter((each) => {
         if (selfStateFilter.length == 0) {
@@ -254,14 +254,15 @@ export default function Packers({ data, title }) {
 
     return (
         <Container className="my-5">
-            <div className="d-flex">
+            <div  className="d-flex">
                 <div className="my-auto">
-                    <h3>
+                    <h2 data-aos="fade-up">
                         {title}
-                    </h3>
+                    </h2>
                 </div>
                 <div className={`ms-auto ${styles.filterbutton} mb-3 position-relative`}>
                     <div
+                        data-aos="fade-up"
                         onClick={(e) => {
                             setFilterOpen(!filterOpen);
                             e.stopPropagation();
@@ -273,7 +274,7 @@ export default function Packers({ data, title }) {
                     {filterOpen && (<FilterBox />)}
                 </div>
             </div>
-            <div className="d-none d-lg-block mt-2">
+            <div data-aos="fade-up" className="d-none d-md-block mt-2">
                 <table className={styles.table}>
                     <tbody>
                         <tr>
@@ -307,7 +308,7 @@ export default function Packers({ data, title }) {
                     </div>
                 </div>
             </div>
-            <Row className="d-flex d-lg-none">
+            <Row className="d-flex d-md-none mt-4">
                 {sortedItems.map((each, index) => {
                     return (<Col lg={6} key={index}>
                         <MobileItemCard data={each} />

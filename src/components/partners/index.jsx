@@ -47,9 +47,9 @@ const PartnersSection = ({ heading, data }) => {
     return (
         <Container>
             <center>
-                <h3 data-aos="fade-up" className="pt-4">
+                <h2 data-aos="fade-up" className="pt-4">
                     {heading}
-                </h3>
+                </h2>
             </center>
             <PartnersDesktop data={data} />
             <PartnersMobile data={data} />

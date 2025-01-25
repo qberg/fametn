@@ -21,6 +21,7 @@ export default function YellowHero({ hero, hero_imgs }) {
             </>
         )
     }
+
     return (
         <YellowFancyContainer>
             <Container className="position-relative">
@@ -31,13 +32,13 @@ export default function YellowHero({ hero, hero_imgs }) {
                     <Col lg={5} className={styles.herocont}>
                         <div className="h-100 d-flex">
                             <div className="my-auto">
-                                <h1 className={styles.heading}>
+                                <h1 data-aos="fade-up" className={styles.heading}>
                                     {title}
                                 </h1>
-                                <p className={styles.desc}>
+                                <p data-aos="fade-up" className={styles.desc}>
                                     {description}
                                 </p>
-                                <div>
+                                <div data-aos="fade-up">
                                     <BlueArrowButton text={cta_name} link={cta_link} />
                                 </div>
                             </div>
@@ -52,19 +53,19 @@ export default function YellowHero({ hero, hero_imgs }) {
                     </Col>
                     <Col lg={5} className="d-none d-lg-flex" >
                         <div className="d-flex h-100">
-                            <div className="my-auto">
+                            <div data-aos="fade-up" className="my-auto">
                                 <div className={styles.bluecont}>
                                     <Row>
-                                        <Col xs={6}>
+                                        <Col  xs={6}>
                                             <ImageWithDesc index={0} />
                                         </Col>
                                         <Col xs={6}>
                                             <ImageWithDesc index={1} />
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col className={styles.nomb} xs={6}>
                                             <ImageWithDesc index={2} />
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col className={styles.nomb} xs={6}>
                                             <ImageWithDesc index={3} />
                                         </Col>
                                     </Row>

@@ -15,9 +15,7 @@ const strings = {
 }
 
 function Testimonial({ data }) {
-
     const isVideoTestimonial = data.video_testimonial?.data != null;
-
     const VideoTestimonial = ({videoData}) => {
         const videoUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + videoData.url;
         const videoType = videoData.mime;
@@ -30,9 +28,8 @@ function Testimonial({ data }) {
         )
     }
 
-
     return (
-        <div className={styles.testimonialbox} lg={12}>
+        <div data-aos="fade-up" className={styles.testimonialbox} lg={12}>
             <div className="d-flex">
                 <div className={styles.profilepic}>
                     <DynamicImage src={data.profile_pic} objectFit="cover" />
@@ -46,16 +43,14 @@ function Testimonial({ data }) {
                     </div>
                 </div>
             </div>
-
+            
             {!isVideoTestimonial && (<p className="mt-3 mb-0 small">
                 {data.description}
             </p>)}
 
             {isVideoTestimonial && (<div className="mt-3">
-                
                 <VideoTestimonial videoData={data.video_testimonial.data.attributes} />
             </div>)}
-            {/* {data.description} */}
         </div>
 
     )
@@ -98,20 +93,18 @@ export default function Testimonials({ data, title, subtitle }) {
 
     const splitedTestimonials = splitEqualScore(allTestimonialsWithScore, numColumns);
 
-
-
     return (
         <Container>
             <div className="my-5">
                 <center>
-                    <div className={styles.boxed}>
+                    <div data-aos="fade-up" className={styles.boxed}>
                         {title || strings.testimonials[locale]}
                     </div>
-                    <h2 className="mt-3">
+                    <h2 data-aos="fade-up" className="mt-3">
                         {subtitle || strings.words[locale]}
                     </h2>
                 </center>
-                <Row className="mt-4">
+                <Row className="mt-5">
                     {splitedTestimonials.map((each, index) => {
                         return (
                             <Col className={styles.nomb} lg={4} key={index}>

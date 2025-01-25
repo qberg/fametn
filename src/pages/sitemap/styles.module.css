@@ -1,0 +1,4 @@
+.blue {
+    color: var(--blue) !important;
+    text-decoration: underline !important;
+}

@@ -26,7 +26,7 @@ const FaqSection = ({ question, answer }: JSONData) => {
     };
 
     return (
-        <div className={`${styles["faq-section"]} ${opened ? styles["opened"] : ""}`}>
+        <div  className={`${styles["faq-section"]} ${opened ? styles["opened"] : ""}`}>
             <div
                 className={`${styles["toggle-button"]} ${hovered ? styles["hovered"] : ""} ${opened ? styles["clicked"] : ""}`}
                 onClick={toggleAnswer}

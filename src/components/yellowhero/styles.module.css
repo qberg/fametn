@@ -58,3 +58,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+
+.nomb {
+    margin-bottom: 0 !important;
+}

@@ -25,7 +25,7 @@ const min = (a, b) => {
 }
 
 
-export function CoreTable({ data, headings, title, supertitle }) {
+export function CoreTable({ data, headings, title, supertitle, maxPageSize = 3 }) {
     const { locale } = useRouter();
     const [sortField, setSortField] = useState(headings[0].index);
     const [sortMode, setSortMode] = useState("asc");
@@ -40,7 +40,6 @@ export function CoreTable({ data, headings, title, supertitle }) {
         }
     })
 
-    const maxPageSize = 3
     const [page, setPage] = useState(1);
     const totalPages = Math.ceil(sortedItems.length / maxPageSize);
     const paginatedItems = sortedItems.slice((page - 1) * maxPageSize, page * maxPageSize);
@@ -48,8 +47,8 @@ export function CoreTable({ data, headings, title, supertitle }) {
 
     const MobileItemCard = ({ data }) => {
         return (
-            <div>
-                <h5>
+            <div data-aos="fade-up">
+                <h5 >
                     {data[headings[0].index]}
                 </h5>
                 {headings.slice(1).map((each, index) => {
@@ -104,7 +103,7 @@ export function CoreTable({ data, headings, title, supertitle }) {
                 {title}
             </h3>)}
             <div className="d-none d-lg-block">
-                <table className={styles.table}>
+                <table data-aos="fade-up" className={styles.table}>
                     <tbody>
                         <tr>
                             {headings.map((each, index) => <HeaderField index={index} key={index} />)}
@@ -114,7 +113,7 @@ export function CoreTable({ data, headings, title, supertitle }) {
                         })}
                     </tbody>
                 </table>
-                <div className={`my-4 ${styles.pagecontainer}`}>
+                <div data-aos="fade-up" className={`my-4 ${styles.pagecontainer}`}>
                     <div
                         data-shono={page != 1}
                         onClick={() => setPage(max(1, page - 1))}

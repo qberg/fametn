@@ -22,7 +22,6 @@ import YellowResourcesBlock from "../../components/yellowresourcesblock";
 import Gallery from "../../components/gallery";
 
 export default function Industry4PointO({ data, news }) {
-    console.log(data)
     return (<RootLayout>
         <YellowHero hero={data.hero} hero_imgs={data.heroimages} />
         <YellowResourcesBlock data={data.resourceblock} />

@@ -20,8 +20,6 @@ const formatDate = (date) => {
 
 export default function Events({ news, search, meta, upcomingEvents }) {
 
-
-
     const [searchText, setSearchText] = useState(search);
     const onSearch = (text) => {
         setSearchText(text);
@@ -58,8 +56,8 @@ export default function Events({ news, search, meta, upcomingEvents }) {
                             <div className="mt-4 mb-4">
                                 <center>
                                     <YellowPill text={meta?.supertitle} />
-                                    <h2 className="mt-3 text-uppercase">{meta?.title}</h2>
-                                    <p>
+                                    <h2 data-aos="fade-up" className="mt-3 text-uppercase">{meta?.title}</h2>
+                                    <p data-aos="fade-up">
                                         {meta?.subtitle}
                                     </p>
                                 </center>

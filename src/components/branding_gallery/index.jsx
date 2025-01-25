@@ -10,9 +10,9 @@ export default function BrandingGallery({ data, download, images }) {
         <Container className="my-5">
             <div className="d-flex">
                 <div className="my-auto">
-                    <h3 data-aos="fade-up">
+                    <h2 data-aos="fade-up">
                         {data.title}
-                    </h3>
+                    </h2>
                 </div>
                 <div className="ms-auto my-auto">
                     <Link target='_blank' href={download.url}>
@@ -36,12 +36,12 @@ export default function BrandingGallery({ data, download, images }) {
             <Row className="mt-4">
                 <Col className={styles.nomb} lg={5}>
                     <Row>
-                        <Col lg={12}>
+                        <Col md={6} lg={12}>
                             <div data-aos="fade-up" className={styles.img1}>
                                 <DynamicImage src={{ data: images.data[0] }} objectFit="cover" />
                             </div>
                         </Col>
-                        <Col lg={12}>
+                        <Col md={6} lg={12}>
                             <div data-aos="fade-up" className={styles.img1}>
                                 <DynamicImage src={{ data: images.data[1] }} objectFit="cover" />
                             </div>

@@ -18,10 +18,10 @@ export default function YellowSchemes({ data, header, cta }) {
     const { locale } = useRouter();
     return (<YellowFancyContainer>
         <div className='py-5'>
-            <h3 className='py-4'>
+            <h2 data-aos="fade-up" className='py-4'>
                 {header.heading}
-            </h3>
-            <p>
+            </h2>
+            <p data-aos="fade-up">
                 {header.description}
             </p>
             <Row className='mt-5'>
@@ -44,7 +44,7 @@ export default function YellowSchemes({ data, header, cta }) {
             <div className='mt-4 pb-4'>
                 <center>
                     <Link href={cta.url}>
-                        <div className={styles.morebutton}>
+                        <div data-aos="fade-up" className={styles.morebutton}>
                             {cta.text}
                         </div>
                     </Link>
