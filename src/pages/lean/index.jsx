@@ -27,21 +27,24 @@ import TestingLabHero from "../../components/testinglabhero";
 import TestingLabGallery from "../../components/testinglab_gallery";
 import { getAllTestingLabs } from "../../utils/testinglabs";
 import TestinglabsTable from "../../components/testinglabstable";
+import LeanHero from "../../components/leanhero";
+import LeanBlock from "../../components/leanblock";
+import LeanSubHero from "../../components/leansubhero";
+import LeanDiet from "../../components/leandiet";
+import Gallery from "../../components/gallery";
 
 
-export default function TestingLabs({ data, testinglabs, news }) {
+export default function Lean({ data }) {
+    console.log(data)
     return (<RootLayout>
-        <TestingLabHero data={data.hero} />
-        <div className="my-5"></div>
-        <PartnersSection heading={data.partners_title} data={data.partners} />
-        <div className="my-5"></div>
-        <YellowResourcesBlock data={data.resourcesblock} />
-        <TestingLabGallery header={data.gallery_heading} images={data.gallery_images} />
-        <div className="my-5"></div>
+        <LeanHero hero={data.hero} hero_imgs={data.hero_images} />
+        <LeanSubHero data={data.section_2} />
+        <LeanBlock data={data.leanblock} />
+        <LeanDiet header={data.sectin_4_header} data={data.section_4_items} />
+        <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
+        <YellowResourcesBlock data={data.resourceblock} />
+        <Gallery data={data.gallery} />
         <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
-        <RecentBlogsGrid blogs={data.blogs} />
-        <TestinglabsTable data={testinglabs} header={data.testinglabs} />
-        <Newsletterform data={news} />
     </RootLayout>)
 }
 
@@ -50,16 +53,14 @@ export async function getServerSideProps(context) {
     // add cache headers
     context.res.setHeader('Cache-Control', CacheHeaders);
 
-    const path = "testinglabs?&populate=deep";
+    const path = "lean?&populate=deep";
     const language = context.locale;
     const data = await getDataFromPath(path, language);
-    const news = await getNewsletterData(language);
+    // const news = await getNewsletterData(language);
 
-    const testinglabs = await getAllTestingLabs(language);
     return {
         props: {
-            testinglabs: testinglabs,
-            news: news,
+            // news: news,
             data: data.data.attributes,
         }
     }

@@ -1,0 +1,7 @@
+.card {
+    min-height: 360px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    background-color: rebeccapurple;
+}

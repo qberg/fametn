@@ -40,7 +40,7 @@ export function CoreTable({ data, headings, title, supertitle, maxPageSize = 3 }
         }
     })
 
-    const [page, setPage] = useState(1);
+        const [page, setPage] = useState(1);
     const totalPages = Math.ceil(sortedItems.length / maxPageSize);
     const paginatedItems = sortedItems.slice((page - 1) * maxPageSize, page * maxPageSize);
 

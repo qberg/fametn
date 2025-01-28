@@ -1,0 +1,14 @@
+.lightbg {
+    background-color: var(--light-accent);
+}
+
+.yellowmidbg {
+    background: linear-gradient(to bottom, var(--light-accent) 50%, var(--yellow) 50%);
+}
+
+.imgbox {
+    min-height: 200px;
+    border-radius: var(--small-radius);
+    overflow: hidden;
+    position: relative;
+}

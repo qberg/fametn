@@ -349,11 +349,14 @@
     border: 2px solid var(--black);
     ;
 }
-
 .bulletList {
     list-style-image: url('/Vector.svg');
     /* margin-bottom: 2em; */
+    list-style-position: outside;
+}
 
+.bulletList li {
+    padding-left: 1em;
 }
 
 .bulletList li {

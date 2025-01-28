@@ -9,7 +9,7 @@ export default function SiteMap() {
         "/export-promotion-councils",
         "/export-promotions",
         "/expos-and-exhibitions",
-        "/finance/schemes **",
+        "/finance/schemes",
         "/markets",
         "/resources",
         "/vendor-development-meets",
@@ -17,7 +17,11 @@ export default function SiteMap() {
         "/ondc",
         "/investment-promotion/",
         "/energy-efficiency",
-        "/indusstry-4-0",
+        "/industry-4-0",
+        "/testinglabs",
+        "/lean",
+        "/ondc",
+        "http://localhost:3000/finance/schemes/unemployed-youth-employment-generation"
     ]
 
     return (

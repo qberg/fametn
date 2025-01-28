@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/emarkets/index.jsx", "src/pages/blogs/[blog].jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/emarkets/index.jsx", "src/pages/blogs/[blog].jsx", "src/pages/api/assets/[...path].js"],
   "exclude": ["node_modules"]
 }

@@ -59,7 +59,7 @@ const EventPopup = forwardRef((props, ref) => {
                                 <div className='small mb-3'>
                                     <div className='d-flex'>
                                         <div className='my-auto'>
-                                            <Image src="/event_cal.svg" height={14} width={14} />
+                                            <Image  alt="" src="/event_cal.svg" height={14} width={14} />
                                         </div>
                                         <div className="my-auto ms-2">
                                             {dateString}
@@ -67,7 +67,7 @@ const EventPopup = forwardRef((props, ref) => {
                                     </div>
                                     <div className='d-flex my-1'>
                                         <div className='my-auto'>
-                                            <Image src="/event_loc.svg" height={14} width={14} />
+                                            <Image alt="" src="/event_loc.svg" height={14} width={14} />
                                         </div>
                                         <div className="my-auto ms-2">
                                             {data.location}

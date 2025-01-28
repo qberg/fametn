@@ -24,7 +24,7 @@ export default function FaqComponent({ data }) {
                 </Col>
                 <Col lg={6}>
                     {data.questions_and_answers.map((each, index) => {
-                        return (<div data-aos="fade-up">
+                        return (<div key={index} data-aos="fade-up">
                             <FaqSection key={index} question={each.heading} answer={each.description} />
                         </div>)
                     })}

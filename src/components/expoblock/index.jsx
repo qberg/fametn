@@ -172,7 +172,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                         const isSelected = filter.includes(each);
                         return (<div onClick={() => toggleFilter(each)} data-selected={filter.includes(each)} key={index} className={`d-flex smaller mb-1 ${styles.filteritem}`}>
                             <div className="my-auto">
-                                <Image src={isSelected ? "/expo_selected.svg" : "/expo_unselected.svg"} width={14} height={14} />
+                                <Image alt="" src={isSelected ? "/expo_selected.svg" : "/expo_unselected.svg"} width={14} height={14} />
                             </div>
                             <div className="ms-1 me-2 my-auto">
                                 {each}
@@ -338,7 +338,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                     {strings[name][locale]}
                 </div>
                 <div onClick={handleSortClick} data-dsc={sortField == name && sortMode == "dsc"} className={`${styles.sortimg} ms-auto my-auto`}>
-                    <Image src="/expo_sort_icon.svg" width={14} height={14} />
+                    <Image alt="" src="/expo_sort_icon.svg" width={14} height={14} />
                 </div>
             </div>
         </th>)
@@ -384,7 +384,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
         <div className="d-block d-lg-flex mt-4">
             <div className={`d-flex ${styles.outlinebox} mb-3`}>
                 <div className="my-auto">
-                    <Image src="/expo_search.svg" width={20} height={20} />
+                    <Image  alt="" src="/expo_search.svg" width={20} height={20} />
                 </div>
                 <div className="my-auto ms-2">
                     <input className={styles.search} placeholder={strings.search[locale]} value={searchText} onChange={(e) => setSearchText(e.target.value)} />
@@ -397,7 +397,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                         e.stopPropagation();
                     }}
                     className={styles.outlinebox}>
-                    <Image className="my-auto me-2" src="/expo_filter_icon.svg" width={16} height={16} />
+                    <Image  alt="" className="my-auto me-2" src="/expo_filter_icon.svg" width={16} height={16} />
                     {strings.filters[locale]}
 
                 </div>

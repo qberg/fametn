@@ -32,7 +32,7 @@ const Promoter = ({ data }) => {
         </div>
         <div className='d-flex mt-auto'>
             <div className="my-auto">
-                <Image src="/promo_phone.svg" height={16} width={16} />
+                <Image alt="" src="/promo_phone.svg" height={16} width={16} />
             </div>
             <div className="my-auto ms-2">
                 <div className={styles.smalltext}>
@@ -42,7 +42,7 @@ const Promoter = ({ data }) => {
         </div>
         <div className='d-flex mt-0'>
             <div className="my-auto">
-                <Image src="/promo_email.svg" height={16} width={16} />
+                <Image alt="" src="/promo_email.svg" height={16} width={16} />
             </div>
             <div className="my-auto ms-2">
                 <div className={styles.smalltext}>

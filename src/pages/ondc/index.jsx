@@ -19,14 +19,22 @@ import InfraBlock from "../../components/infra_block";
 import FancyHero from "../../components/fancy_hero";
 import FatImage from "../../components/fatimage";
 import OndcBlock from "../../components/ondc_block";
+import OndcTriCard from "../../components/ondctricard";
+import OndcYellowBlock from "../../components/ondcyellowblock";
+import OndcThreeChannel from "../../components/ondcthreechannel";
 
 export default function Ondc({ data, news }) {
+    console.log(data)
     return (
         <RootLayout>
             <Breadcrumps items={data.breadcrumps} />
             <FancyHero hero={data.hero} />
             <FatImage src={data.big_img} />
-            <OndcBlock card={data.section_3} />
+            <OndcBlock card={data.section_3} images={data.section_3_images} />
+            <OndcTriCard header={data.section_4_heading} cards={data.section_4_cards} />
+            <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
+            <OndcYellowBlock header={data.section_5_header} items={data.section_5_cards} />
+            <OndcThreeChannel header={data.section_6_header} items={data.section_6_items} />
         </RootLayout>
     )
 }

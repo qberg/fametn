@@ -10,18 +10,20 @@ import DynamicImage from "../../components/dynamicImage";
 import Image from "next/image";
 import Newsletterform from "../../components/newsletterform";
 
-export default function ResourcesImageCard({ data }) {
+export default function ResourcesImageCard({ data, downloadEnabled = true }) {
     const attachementUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + data?.attachment?.data?.attributes?.url;
 
     const startDownload = () => {
-        window.open(attachementUrl, "_blank");
+        if (downloadEnabled) {
+            window.open(attachementUrl, "_blank");
+        }
     }
 
     return (
         <div data-aos="fade-up" onClick={startDownload} className={styles.imagecard}>
             <DynamicImage src={data.image} objectFit="cover" />
             <div className={styles.imagecardtext}>
-                <div className="d-flex">
+                {downloadEnabled && (<div className="d-flex">
                     <div className="ms-auto">
                         <div className={styles.downloadbutton}>
                             <div className="position-relative m-auto">
@@ -29,21 +31,21 @@ export default function ResourcesImageCard({ data }) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>)}
                 <div className="mt-auto">
                     <h4 className={styles.whitetext}>
-                        {data.title}
+                        {data.title || data.heading}
                     </h4>
                     <p className={`small ${styles.whitetext}`}>
                         {data.description}
                     </p>
-                    <div>
+                    {downloadEnabled && (<div>
                         <div className={styles.yellowcircle}>
                             <div className="position-relative m-auto">
                                 <Image src={"/resources_arrow_right.svg"} height={15} width={15} />
                             </div>
                         </div>
-                    </div>
+                    </div>)}
                 </div>
             </div>
         </div>

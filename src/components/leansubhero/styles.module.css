@@ -1,0 +1,8 @@
+.imgwrap {
+    min-height: 500px;
+    height: 100%;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background-color: rebeccapurple;
+}
