@@ -1,0 +1,52 @@
+.cont {
+    min-height: 700px;
+    position: relative;
+}
+
+.cont img {
+    z-index: 0;
+}
+
+.inner {
+    z-index: 1;
+    position: relative;
+}
+
+.card {
+    min-height: 500px;
+    background-color: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(30px);
+    padding: 1.7em;
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitle {
+    color: var(--navy);
+    margin-bottom: 0.1em;
+}
+
+.humancard {
+    flex-shrink: 0;
+    margin-bottom: 2em;
+    margin-right: 2em;
+}
+
+.humanimg {
+    background-color: rebeccapurple;
+    height: 88px;
+    width: 88px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.address {
+    max-height: 256px;
+    min-width: 256px;
+    width: 256px;
+    background-color: var(--yellow);
+    padding: 1.3em;
+}

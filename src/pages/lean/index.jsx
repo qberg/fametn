@@ -35,7 +35,6 @@ import Gallery from "../../components/gallery";
 
 
 export default function Lean({ data }) {
-    console.log(data)
     return (<RootLayout>
         <LeanHero hero={data.hero} hero_imgs={data.hero_images} />
         <LeanSubHero data={data.section_2} />

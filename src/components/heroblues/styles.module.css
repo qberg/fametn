@@ -1,0 +1,124 @@
+.heroblues {
+    min-height: 400px;
+    background-color: var(--navy);
+    background-image: url("/hero_blues.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.topitem {
+    color: var(--white);
+    margin-bottom: 1em;
+    margin-right: 1em;
+    padding: 0.3em 1em;
+    text-transform: uppercase;
+    border: 1px solid var(--white);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.topitem[data-shono="true"] {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.imgbox {
+    min-height: 512px;
+    position: relative;
+    /* border-radius: var(--small-radius); */
+    overflow: hidden;
+}
+
+.bigtext {
+    color: var(--yellow)
+}
+
+.lessbigtext {
+    color: var(--white);
+}
+
+.smalltext {
+    color: var(--white) !important;
+}
+
+.pill {
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 0.3em 1.3em;
+    width: max-content;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.card {
+    min-height: 300px;
+    margin-right: 1em;
+    margin-left: 1em;
+    position: relative;
+    /* border-radius: var(--small-radius); */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    z-index: 0;
+    filter: brightness(0.5);
+}
+
+.heading {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.passiveheading {
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.coverage {
+    background-color: var(--yellow);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--transition);
+    padding: 1.5em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.card:hover .coverage {
+    top: 0;
+}
+
+.coverage h5 {
+    text-transform: uppercase;
+}
+
+.cardcta {
+    color: var(--white);
+    background-color: var(--navy);
+    width: max-content;
+    padding: 0.3em 1em;
+    border-radius: var(--radius);
+}
+
+.arrowbox {
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+
+}

@@ -24,7 +24,6 @@ import OndcYellowBlock from "../../components/ondcyellowblock";
 import OndcThreeChannel from "../../components/ondcthreechannel";
 
 export default function Ondc({ data, news }) {
-    console.log(data)
     return (
         <RootLayout>
             <Breadcrumps items={data.breadcrumps} />

@@ -11,7 +11,6 @@ function OndcCard({ data }) {
 }
 
 export default function OndcThreeChannel({ header, items }) {
-    console.log(header)
     return (<Container className="my-5 py-4">
         <div className="mb-1">
             {header.subtitle}

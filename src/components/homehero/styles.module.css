@@ -1,0 +1,133 @@
+.herocontainer {
+    /* background-color: rebeccapurple; */
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.snakebg {
+    position: absolute;
+    top: 0;
+    width: 150vw;
+    height: 150vh;
+    /* background-color: red; */
+    left: 50%;
+    top: 50%;
+
+    transform: translateX(-50%) translateY(-50%);
+    background-image: url('/home_snake.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+
+@keyframes slowRotate {
+    0% {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50%) translateY(-50%) rotate(90deg) scale(2);
+        /* height: 200vw;
+        width: 200vh; */
+    }
+    50% {
+        transform: translateX(-50%) translateY(-50%) rotate(180deg);
+        /* height: 120vh;
+        width: 120vw; */
+    }
+    75% {
+        transform: translateX(-50%) translateY(-50%) rotate(270deg) scale(2);
+        /* height: 200vw;
+        width: 200vh; */
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+
+
+
+.slowrotate {
+    animation: slowRotate 5s linear infinite;
+}
+
+
+.innercontainer {
+    display: flex;
+    height:600px;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.herotitle {
+    color: var(--navy);
+    font-size: 400%;
+    max-width: 768px;
+}
+
+.middlewords {
+    font-weight: 400;
+}
+
+.optionbox {
+    /* height: 80px; */
+    min-width: 300px;
+    width: max-content;
+    background-color: var(--white);
+    display: flex;
+    border-radius: 2em;
+}
+
+.optioncta {
+    margin: 3px;
+    background-color: var(--navy);
+    height: 3.5em;
+    width: 3.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--white);
+}
+
+.dropdown {
+    position: absolute;
+    background-color: var(--white);
+    top: 4em;
+    width: 100%;
+    border-radius: 2em;
+    text-align: left;
+    padding: 0.5em 1em;
+    z-index: 1;
+}
+
+.option {
+    display: flex;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.option:last-child {
+    border-bottom: none;
+}
+.heropill {
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border: 1px solid var(--navy);
+    padding: 0.3em 1em;
+    border-radius: var(--radius);
+    min-width: 128px;
+    display: flex;
+}
+
+.heropill img {
+    transform: translateY(-2px);
+    transition: var(--transition);
+}
+
+.heropill:hover img {
+    transform: translateY(-2px) scale(1.2);
+
+}

@@ -1,0 +1,40 @@
+.caplink {
+    color: var(--yellow);
+    text-transform: uppercase;
+    margin-bottom: 0.1rem;
+}
+
+.subimg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.subdesc {
+    max-width: 600px;
+}
+
+.imgbox {
+    width: 128px;
+    min-height: 128px;
+    position: relative;
+}
+
+.sublink{
+    box-shadow: 0 0 0 1px var(--border-gray);
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    border-radius: var(--small-radius);
+}
+
+.sublink[data-shono="true"] {
+    background: linear-gradient(to right, var(--yellow), transparent);
+    color: var(--black);
+    box-shadow: none;
+}
