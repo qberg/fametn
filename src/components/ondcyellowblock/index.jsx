@@ -8,16 +8,16 @@ export default function OndcYellowBlock({ header, items }) {
         <YellowFancyContainer>
             <Container className="py-5">
                 <center>
-                    <h2>
+                    <h2 data-aos="fade-up">
                         {header.title}
                     </h2>
-                    <p>
+                    <p data-aos="fade-up">
                         {header.description}
                     </p>
                 </center>
                 <Row className="mt-4">
                     {items.map((each, index) => {
-                        return (<Col lg={4} key={index}>
+                        return (<Col data-aos="fade-up" data-aos-delay={100 * index} lg={4} key={index}>
                             <div className="d-flex mt-4">
                                 <div className={styles.icon}>
                                     <DynamicImage src={each.image} objectFit="contain" />

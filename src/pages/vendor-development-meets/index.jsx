@@ -8,8 +8,7 @@ import ThreeChannel from "@/components/threechannel";
 import YellowFancyContainer from "@/components/yellowfancycontainer";
 import RegistrationForm from "@/components/registrationform";
 
-import styles from "./vendor.module.css"
-import { getUpComingNEvents, parseMetaAndData } from "../../utils/events";
+import { parseMetaAndData } from "../../utils/events";
 import UpcomingEvents from "../../components/upcoming_events";
 import RecentBlogsGrid from "../../components/recentblogsgrid";
 import Testimonials from "../../components/testimonials";

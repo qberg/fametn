@@ -12,19 +12,19 @@ function OndcCard({ data }) {
 
 export default function OndcThreeChannel({ header, items }) {
     return (<Container className="my-5 py-4">
-        <div className="mb-1">
+        <div data-aos="fade-up" className="mb-1">
             {header.subtitle}
         </div>
         <div className="d-flex">
             <div className="me-auto">
-                <h2>
+                <h2 data-aos="fade-up">
                     {header.title}
                 </h2>
-                <p>
+                <p data-aos="fade-up">
                     {header.description}
                 </p>
             </div>
-            <div className="ms-2 mys-auto">
+            <div data-aos="fade-up" className="ms-2 mys-auto">
                 <YellowArrowButton text={header.cta_text} link={header.cta_link} />
             </div>
         </div>

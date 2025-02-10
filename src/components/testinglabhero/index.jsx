@@ -12,13 +12,13 @@ export default function TestingLabHero({ data }) {
                     <Col lg={7}>
                         <div className="d-flex h-100">
                             <div>
-                                <h1>
+                                <h1 data-aos="fade-up">
                                     {data.heading}
                                 </h1>
-                                <div className="mt-3">
+                                <div data-aos="fade-up" className="mt-3">
                                     {data.description}
                                 </div>
-                                <div className="mt-4">
+                                <div data-aos="fade-up" className="mt-4">
                                     <YellowArrowButton text={data.link_text} link={data.link} />
                                 </div>
                             </div>
@@ -26,7 +26,7 @@ export default function TestingLabHero({ data }) {
                     </Col>
                     <Col lg={1}></Col>
                     <Col lg={4}>
-                        <div className={styles.imgwrap}>
+                        <div data-aos="fade-up" data-aos-delay={100} className={styles.imgwrap}>
                             <div className={styles.imginner}>
                                 <DynamicImage src={data.image} objectFit="cover" />
                             </div>

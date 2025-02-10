@@ -17,18 +17,25 @@
     border-radius: var(--radius);
     cursor: pointer;
     transition: var(--transition);
+    text-wrap: nowrap;
 }
 
 .topitem[data-shono="true"] {
     background: var(--yellow);
+    border: 1px solid var(--yellow);
     color: var(--black);
 }
 
 .imgbox {
     min-height: 512px;
     position: relative;
-    /* border-radius: var(--small-radius); */
     overflow: hidden;
+}
+
+@media (max-width: 992px) {
+    .imgbox {
+        min-height: 360px;
+    }
 }
 
 .bigtext {

@@ -6,16 +6,16 @@ import { useRouter } from "next/router"
 import ResourcesImageCard from "../resourceimagecard"
 
 const strings = {
-    viewall : {
-        en : 'View All',
-        ta : 'மேலும் ஏற்றுக'
+    viewall: {
+        en: 'View All',
+        ta: 'மேலும் ஏற்றுக'
     }
 }
 
 export default function YellowResourcesBlock({ data }) {
-    const {locale} = useRouter()
+    const { locale } = useRouter()
 
-    const threeResources = data.resources.data.slice(0,3).map(each => each.attributes)
+    const threeResources = data.resources.data.slice(0, 3).map(each => each.attributes)
 
     return (<Container className={`py-5 ${styles.yellowbg}`} fluid>
         <Container className="py-4">
@@ -26,20 +26,20 @@ export default function YellowResourcesBlock({ data }) {
             </h2>
             <div data-aos="fade-up" className="d-flex mt-1 mb-1">
                 <div className="me-auto">
-                {data.description} 
+                    {data.description}
                 </div>
                 <div className="ms-2">
                     <YellowArrowButton text={strings.viewall[locale]} link="/resources" />
                 </div>
             </div>
-           <hr  data-aos="fade-up" className="my-4"></hr>
-           <Row className="mt-5">
-            {threeResources.map((each, index) => {
-                return (<Col key={index} lg={4} md={6}>
-                    <ResourcesImageCard data={each} />
-                </Col>)
-            })}
-           </Row>
+            <hr data-aos="fade-up" className="my-4"></hr>
+            <Row className="mt-5">
+                {threeResources.map((each, index) => {
+                    return (<Col data-aos="fade-up" data-aos-delay={100 * index} key={index} lg={4} md={6}>
+                        <ResourcesImageCard data={each} />
+                    </Col>)
+                })}
+            </Row>
         </Container>
     </Container>)
 }

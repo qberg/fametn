@@ -30,7 +30,7 @@ const LeftBlock = ({ hero }) => {
                 <p>{hero.description}</p>
             </div>
         </div>
-        <div className="mt-4">
+        <div data-aos="fade-up" className="mt-4">
             <YellowArrowButton text={hero.cta_name} link={hero.cta_link} />
         </div>
     </>

@@ -38,7 +38,7 @@ export default function YellowHero({ hero, hero_imgs }) {
                                 <p data-aos="fade-up" className={styles.desc}>
                                     {description}
                                 </p>
-                                <div data-aos="fade-up">
+                                <div data-aos-delay={200} data-aos="fade-up">
                                     <BlueArrowButton text={cta_name} link={cta_link} />
                                 </div>
                             </div>
@@ -56,16 +56,16 @@ export default function YellowHero({ hero, hero_imgs }) {
                             <div data-aos="fade-up" className="my-auto">
                                 <div className={styles.bluecont}>
                                     <Row>
-                                        <Col  xs={6}>
+                                        <Col data-aos="fade-up" xs={6}>
                                             <ImageWithDesc index={0} />
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col data-aos="fade-up" xs={6}>
                                             <ImageWithDesc index={1} />
                                         </Col>
-                                        <Col className={styles.nomb} xs={6}>
+                                        <Col data-aos-delay={200} data-aos="fade-up" className={styles.nomb} xs={6}>
                                             <ImageWithDesc index={2} />
                                         </Col>
-                                        <Col className={styles.nomb} xs={6}>
+                                        <Col data-aos-delay={200} data-aos="fade-up" className={styles.nomb} xs={6}>
                                             <ImageWithDesc index={3} />
                                         </Col>
                                     </Row>

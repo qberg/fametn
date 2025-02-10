@@ -41,17 +41,17 @@ export default function InvestmentHero({
                     <Col lg={5}>
                         <div className="h-100 d-flex">
                             <div className="my-auto">
-                                <h1 className={styles.heading}>
+                                <h1 data-aos="fade-up" className={styles.heading}>
                                     {title}
                                 </h1>
-                                <p className={styles.desc}>
+                                <p data-aos="fade-up" className={styles.desc}>
                                     {description}
                                 </p>
                                 <div className="d-flex">
-                                    <div>
+                                    <div data-aos="fade-up">
                                         <YellowArrowButton text={cta_text_prim} link={cta_link_prim} />
                                     </div>
-                                    <div className="ms-3 small">
+                                    <div data-aos="fade-up" data-aos-delay={100} className="ms-3 small">
                                         <WhiteBorderButton text={cta_text_sec} link={cta_link_sec} />
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@ export default function InvestmentHero({
                             ref={containerRef}
                         >
                             {cards.map((each, index) => {
-                                return (<div key={index} className={styles.tallcard}>
+                                return (<div  data-aos="fade-up" data-aos-delay={200 + index * 100}  key={index} className={styles.tallcard}>
                                     <DynamicImage src={each.image} objectFit="cover" />
                                     <div className={styles.gradbg}></div>
 
@@ -79,13 +79,13 @@ export default function InvestmentHero({
                                 </div>)
                             })}
                         </div>
-                        <div className={styles.leftscroll} onClick={() => scrollContainer(-percentageToScroll)}>
+                        <div  data-aos="fade-up" className={styles.leftscroll} onClick={() => scrollContainer(-percentageToScroll)}>
                             <div className="m-auto">
                                 &larr;
                             </div>
                         </div>
 
-                        <div className={styles.rightscroll} onClick={() => scrollContainer(percentageToScroll)}>
+                        <div  data-aos="fade-up" className={styles.rightscroll} onClick={() => scrollContainer(percentageToScroll)}>
                             <div className="m-auto">
                                 &rarr;
                             </div>

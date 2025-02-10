@@ -9,18 +9,18 @@ export default function LeanSubHero({ data }) {
         <Bluepill text={data.subtitle} />
         <Row className="mt-5 gx-5">
             <Col lg={6}>
-                <div className={styles.imgwrap}>
+                <div data-aos="fade-up" className={styles.imgwrap}>
                     <DynamicImage src={data.image} objectFit="cover" />
                 </div>
             </Col>
             <Col lg={6}>
-                <h2>
+                <h2 data-aos="fade-up">
                     {data.heading}
                 </h2>
-                <p>
+                <p data-aos="fade-up">
                     {data.description}
                 </p>
-                <div>
+                <div data-aos="fade-up">
                     <YellowArrowButton text={data.link_text} link={data.link} />
                 </div>
             </Col>

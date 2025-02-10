@@ -4,10 +4,10 @@
 }
 
 .filterbutton {
-    padding: 1em;
-    height: 100%;
+    padding: 0.8em 1em;
+    /* height: ; */
     cursor: pointer;
-    border-radius: var(--radius);
+    border-radius: var(--small-radius);
     display: flex;
     background-color: var(--light-gray);
 }

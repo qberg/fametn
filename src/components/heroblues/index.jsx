@@ -67,33 +67,33 @@ export default function HeroBlues({ datatop, databottom }) {
 
     return <Container className={`${styles.heroblues} py-5`} fluid>
         <Container className="py-5">
-            <div className="d-flex">
+            <div className="d-flex flex-wrap">
                 {topItems.map((each, index) => {
                     return (
-                        <div data-shono={index == selected} key={index} onClick={() => setSelected(index)} className={styles.topitem}>
+                        <div data-aos="fade-up" data-aos-delay={100 * index} data-shono={index == selected} key={index} onClick={() => setSelected(index)} className={styles.topitem}>
                             {each}
                         </div>)
                 })}
             </div>
             <Row className="mt-4 pb-5  gx-5">
                 <Col lg={5}>
-                    <div className={styles.imgbox}>
+                    <div data-aos="fade-up" className={styles.imgbox}>
                         <DynamicImage src={selectedTop.image} objectFit="cover" />
                     </div>
                 </Col>
                 <Col lg={7}>
                     <div className="h-100 d-flex flex-column justify-content-center">
                         <div>
-                            <h2 className={styles.bigtext}>
+                            <h2 data-aos="fade-up" className={styles.bigtext}>
                                 {selectedTop.heading}
                             </h2>
-                            <h3 className={styles.lessbigtext}>
+                            <h3 data-aos="fade-up" className={styles.lessbigtext}>
                                 {selectedTop.subtitle}
                             </h3>
-                            <p className={`small ${styles.smalltext}`}>
+                            <p data-aos="fade-up" className={`small ${styles.smalltext}`}>
                                 {selectedTop.description}
                             </p>
-                            <div className="mt-3 small">
+                            <div data-aos="fade-up" className="mt-3 small">
                                 <Link href={selectedTop.link || "#"}>
                                     <div className={styles.pill}>
                                         {selectedTop.link_text}
@@ -107,10 +107,10 @@ export default function HeroBlues({ datatop, databottom }) {
 
             <div className="d-none d-lg-flex">
 
-                <div onClick={botLeft} className={styles.arrowbox}>
+                <div data-aos="fade-up" onClick={botLeft} className={styles.arrowbox}>
                     <Image src={"/hero_blue_left_arrow.svg"} width={50} height={50} />
                 </div>
-                <div className="flex-grow-1 mx-3">
+                <div data-aos="fade-up" className="flex-grow-1 mx-3">
                     <Carousel
                         selectedItem={selectedBot}
                         centerMode={true}
@@ -126,7 +126,7 @@ export default function HeroBlues({ datatop, databottom }) {
                         })}
                     </Carousel>
                 </div>
-                <div onClick={botRight} className={styles.arrowbox}>
+                <div  data-aos="fade-up" onClick={botRight} className={styles.arrowbox}>
                     <Image src={"/hero_blue_right_arrow.svg"} width={50} height={50} />
                 </div>
             </div>

@@ -8,20 +8,21 @@ export default function Minihero({ data }) {
         <Container className="mt-5 py-5">
             <Row>
                 <Col md={5}>
-                    <h2 className={styles.title}>
+                    <h2 data-aos="fade-up" className={styles.title}>
                         {data.heading}
                     </h2>
-                    <h2 className={styles.subtitle}>
+                    <h2 data-aos="fade-up" className={styles.subtitle}>
                         {data.subtitle}
                     </h2>
-                    <p className="mt-3">
+                    <p data-aos="fade-up" className="mt-3">
                         {data.description}
                     </p>
-                    <YellowArrowButton text={data.link_text} link={data.link} />
-
+                    <div data-aos="fade-up">
+                        <YellowArrowButton text={data.link_text} link={data.link} />
+                    </div>
                 </Col>
                 <Col md={7}>
-                    <div className={styles.image}>
+                    <div data-aos="fade-up" data-aos-delay={200} className={styles.image}>
                         <DynamicImage objectFit="contain" src={data.image} />
                     </div>
                 </Col>

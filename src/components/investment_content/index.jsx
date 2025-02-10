@@ -11,28 +11,28 @@ export default function InvestmentContent({ data }) {
         <>
             <Container className="mt-5">
                 <Bluepill text={data.section_2.subtitle} />
-                <h3 className="mt-3">
+                <h2 data-aos="fade-up" className="mt-3">
                     {data.section_2.title}
-                </h3>
-                <p>
+                </h2>
+                <p  data-aos="fade-up">
                     {data.section_2.description}
                 </p>
-                <div className={`my-2 ${styles.videoblock}`}>
+                <div data-aos="fade-up" className={`my-2 ${styles.videoblock}`}>
                     <video className={styles.actualVideo} controls>
                         <source src={videourl} type={videoType} />
                     </video>
                 </div>
                 <Row className="mt-5">
                     <Col lg={7}>
-                        <div className={styles.imageblock}>
+                        <div data-aos="fade-up" className={styles.imageblock}>
                             <DynamicImage src={data.section_3.image} objectFit="cover" />
                         </div>
                     </Col>
                     <Col lg={5}>
-                    <div>
+                    <div data-aos="fade-up">
                         {data.section_3.description }
                     </div>
-                    <div className="mt-2">
+                    <div data-aos="fade-up" className="mt-2">
                         <YellowArrowButton text={data.section_3.link_text} link={data.section_3.link} />
                     </div>
                     </Col>
@@ -40,17 +40,17 @@ export default function InvestmentContent({ data }) {
             </Container>
             <Container className="my-5 pb-5">
                 <Bluepill text={data.section_4.subtitle} />
-                <h3 className="mt-3">
+                <h2 data-aos="fade-up" className="mt-3">
                     {data.section_4.title}
-                </h3>
-                <p>
+                </h2>
+                <p data-aos="fade-up">
                     {data.section_4.description}
                 </p>
                 <Row className="mt-4">
                     {data.section_4_cards.map((each, index) => {
                         return (
                             <Col md={6} lg={4} key={index}>
-                                <div className={styles.card}>
+                                <div data-aos="fade-up" className={styles.card}>
                                     <div className={styles.cardimg}>
                                         <DynamicImage src={each.image} objectFit="cover" />
                                     </div>

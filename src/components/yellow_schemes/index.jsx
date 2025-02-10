@@ -27,7 +27,7 @@ export default function YellowSchemes({ data, header, cta }) {
             <Row className='mt-5'>
                 {schemes.map((each, index) => {
                     return (
-                        <Col md={6} lg={3} key={index}>
+                        <Col data-aos="fade-up" data-aos-delay={100 * index} md={6} lg={3} key={index}>
                             <SchemeCard
                                 mini={true}
                                 link={"/finance/schemes/" + each.scheme_link}

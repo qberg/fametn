@@ -46,7 +46,7 @@ export default function HomeHero({ title, options, option_cta, option_cta_defaul
         <Container className={styles.innercontainer}>
             <div className="my-auto py-5">
                 <center>
-                    <h1 className={` ${styles.herotitle}`}>
+                    <h1 data-aos="fade-up" className={` ${styles.herotitle}`}>
                         <span>
                             {firstWord}
                         </span>
@@ -58,7 +58,7 @@ export default function HomeHero({ title, options, option_cta, option_cta_defaul
                         </span>
                     </h1>
                     <div className="mt-4">
-                        <div className={styles.optionbox}>
+                        <div data-aos="fade-up" data-aos-delay={200} className={styles.optionbox}>
                             <div className="my-auto ms-4 position-relative">
                                 <div className="small text-start">
                                     {option_header}
@@ -71,7 +71,7 @@ export default function HomeHero({ title, options, option_cta, option_cta_defaul
                                         <Image src="/hero_arrow_down.svg" width={20} height={20} alt="arrow" />
                                     </div>
                                 </div>
-                                {drop && (<div ref={dropDownRef} className={styles.dropdown}>
+                                {drop && (<div data-aos="fade-down" ref={dropDownRef} className={styles.dropdown}>
 
                                     {options.map((each, index) => {
                                         return (<Link className={styles.option} href={each.url} key={index}>
@@ -95,10 +95,10 @@ export default function HomeHero({ title, options, option_cta, option_cta_defaul
                         </div>
                     </div>
                     <center>
-                        <div className="my-5 d-flex justify-content-center">
+                        <div  className="d-none my-5 d-lg-flex justify-content-center">
                             {hero_pills.map((each, index) => {
                                 return (
-                                    <Link href={each.url} key={index} className={styles.heropill}>
+                                    <Link data-aos="fade-up" data-aos-delay={400 + index * 100} href={each.url} key={index} className={styles.heropill}>
                                         <div className="my-auto me-auto">
                                             {each.text}
                                         </div>

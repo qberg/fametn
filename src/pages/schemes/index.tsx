@@ -1,4 +1,4 @@
-import RootLayout from "../../../components/layout/layout";
+import RootLayout from "@/components/layout/layout";
 import { Col, Container, Row } from "react-bootstrap";
 import Link from "next/link";
 

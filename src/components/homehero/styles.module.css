@@ -1,6 +1,6 @@
 .herocontainer {
     /* background-color: rebeccapurple; */
-    min-height: 100vh;
+    min-height: 100svh;
     position: relative;
     overflow: hidden;
 }
@@ -16,7 +16,7 @@
 
     transform: translateX(-50%) translateY(-50%);
     background-image: url('/home_snake.svg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     z-index: -1;
@@ -52,11 +52,17 @@
     animation: slowRotate 5s linear infinite;
 }
 
+/* @media (max-width: 1024px) {
+    .slowrotate {
+        animation: none;
+    }
+} */
+
 
 .innercontainer {
     display: flex;
     height:600px;
-    min-height: 100vh;
+    min-height: 100svh;
     flex-direction: column;
 }
 
@@ -65,6 +71,12 @@
     font-size: 400%;
     max-width: 768px;
 }
+@media (max-width: 768px) {
+    .herotitle {
+        font-size: 300%;
+    }
+}
+
 
 .middlewords {
     font-weight: 400;
@@ -120,6 +132,7 @@
     border-radius: var(--radius);
     min-width: 128px;
     display: flex;
+    z-index: -1;
 }
 
 .heropill img {

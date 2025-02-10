@@ -11,46 +11,6 @@ import Image from "next/image";
 import Newsletterform from "../../components/newsletterform";
 import ResourcesImageCard from "../../components/resourceimagecard";
 
-// function ImageCard({ data }) {
-//     const attachementUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + data?.attachment?.data?.attributes?.url;
-
-//     const startDownload = () => {
-//         window.open(attachementUrl, "_blank");
-//     }
-
-//     return (
-//         <div onClick={startDownload} className={styles.imagecard}>
-//             <DynamicImage src={data.image} objectFit="cover" />
-//             <div className={styles.imagecardtext}>
-//                 <div className="d-flex">
-//                     <div className="ms-auto">
-//                         <div className={styles.downloadbutton}>
-//                             <div className="position-relative m-auto">
-//                                 <Image src={"/resources_download_button.svg"} height={22} width={22} />
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <div className="mt-auto">
-//                     <h4 className={styles.whitetext}>
-//                         {data.title}
-//                     </h4>
-//                     <p className={`small ${styles.whitetext}`}>
-//                         {data.description}
-//                     </p>
-//                     <div>
-//                         <div className={styles.yellowcircle}>
-//                             <div className="position-relative m-auto">
-//                                 <Image src={"/resources_arrow_right.svg"} height={15} width={15} />
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
 export default function Resources({ news, meta, allCategories, allResources }) {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -74,16 +34,16 @@ export default function Resources({ news, meta, allCategories, allResources }) {
                     <center>
                         <div className="py-5">
                             <YellowPill text={meta?.super_title} />
-                            <h2 className={`mt-3 ${styles.herotext}`}>
+                            <h2 data-aos="fade-up" className={`mt-3 ${styles.herotext}`}>
                                 {meta?.title}
                             </h2>
-                            <p className={styles.herotext}>
+                            <p data-aos="fade-up" className={styles.herotext}>
                                 {meta?.description}
                             </p>
                             <div className="mt-4 mb-3">
                                 {allCategories.map((each, index) => {
                                     return (
-                                        <div onClick={() => toggleCategory(each)} key={index} className={`me-3 mb-3 ${styles.category} ${selectedCategories.includes(each) ? styles.selected : ""}`} >
+                                        <div data-aos="fade-up" data-aos-delay={100 * index} onClick={() => toggleCategory(each)} key={index} className={`me-3 mb-3 ${styles.category} ${selectedCategories.includes(each) ? styles.selected : ""}`} >
                                             {each}
                                         </div>
                                     )
@@ -95,10 +55,10 @@ export default function Resources({ news, meta, allCategories, allResources }) {
             </Container>
             <Container>
                 <div className="mt-5 mb-4">
-                    <h3>
+                    <h2 data-aos="fade-up">
                         {meta.title_2}
-                    </h3>
-                    <p>
+                    </h2>
+                    <p data-aos="fade-up">
                         {meta.description_2}
                     </p>
                 </div>

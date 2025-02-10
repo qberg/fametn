@@ -32,7 +32,7 @@ export default function Gallery({ data }) {
                 <div data-aos="fade-up" className="d-none d-lg-block my-5">
                     <Carousel
                         centerMode={true}
-                        centerSlidePercentage={35}
+                        centerSlidePercentage={33.334}
                         // showArrows={false} 
                         showStatus={false}
                         showThumbs={false}

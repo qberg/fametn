@@ -56,19 +56,19 @@ export default function HeroGrids({ data }) {
     }
 
     return (<Container className="my-5 py-4">
-        <h4 className={`mb-0 ${styles.supertitle}`}>
+        <h4 data-aos="fade-up" className={`mb-0 ${styles.supertitle}`}>
             {data.heading.subtitle}
         </h4>
         <div className="d-flex">
             <div className="me-auto">
-                <h2>
+                <h2 data-aos="fade-up">
                     {data.heading.title}
                 </h2>
-                <p className="small mb-0">
+                <p data-aos="fade-up" className="small mb-0">
                     {data.heading.description}
                 </p>
             </div>
-            <div className="ms-2 mt-auto">
+            <div data-aos="fade-up" className="ms-2 mt-auto">
                 <Link href={data.heading.cta_link || "#"}>
                     <div className={styles.cta}>
                         {data.heading.cta_text}
@@ -79,12 +79,12 @@ export default function HeroGrids({ data }) {
 
         <Row className="mt-4 gx-2 gy-2 ">
             <Col className={styles.smallb} lg={6}>
-                <div className={styles.img1}>
+                <div data-aos="fade-up" className={styles.img1}>
                     <Card index={0} />
                 </div>
             </Col>
             <Col className={styles.smallb} lg={3}>
-                <div className={styles.img1}>
+                <div data-aos="fade-up" data-aos-delay={100} className={styles.img1}>
                     <Card index={1} />
 
                 </div>
@@ -92,15 +92,13 @@ export default function HeroGrids({ data }) {
             <Col lg={3}>
                 <Row className="gx-2 gy-2">
                     <Col className={styles.smallb} lg={12}>
-                        <div className={styles.img2}>
+                        <div data-aos="fade-up"  data-aos-delay={200} className={styles.img2}>
                             <Card index={2} />
-
                         </div>
                     </Col>
                     <Col className={styles.smallb} lg={12}>
-                        <div className={styles.img2}>
+                        <div data-aos="fade-up"  data-aos-delay={200} className={styles.img2}>
                             <Card index={3} />
-
                         </div>
                     </Col>
                 </Row>
@@ -108,7 +106,7 @@ export default function HeroGrids({ data }) {
         </Row>
         <Row className="mt-5">
             {data.blogs.data.map((each, index) => {
-                return (<Col lg={4} key={index}>
+                return (<Col data-aos="fade-up" data-aos-delay={100 * index} lg={4} key={index}>
                     <BlogCard each={each} />
                 </Col>)
             })}

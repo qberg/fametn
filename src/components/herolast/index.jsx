@@ -21,12 +21,10 @@ function HumansAndLinks({ data }) {
 }
 
 export default function HeroLast({ data }) {
-    console.log(data)
-
     const AddressCard = () => {
         return (
             <Link href={data.location_google || "#"}>
-                <div className={styles.address}>
+                <div data-aos="fade-up" data-aos-delay={200} className={styles.address}>
                     <Image src="/home_address.svg" width={40} height={40} />
                     <p className="mt-3 small">
                         {data.address}
@@ -41,7 +39,7 @@ export default function HeroLast({ data }) {
             <Container className={`py-5 ${styles.inner}`}>
                 <Row className="py-5">
                     <Col lg={6}>
-                        <div className={styles.card}>
+                        <div data-aos="fade-up" className={styles.card}>
                             <h4 className={styles.subtitle}>{data.heading.subtitle}</h4>
                             <h2>
                                 {data.heading.title}
@@ -65,12 +63,12 @@ export default function HeroLast({ data }) {
                             <div className="d-none d-lg-block ms-auto my-auto">
                                 <AddressCard />
                             </div>
-                            
+
                             <div className="d-block d-lg-none mx-auto mt-5">
                                 <AddressCard />
                             </div>
                         </div>
-                        
+
                     </Col>
                 </Row>
             </Container>

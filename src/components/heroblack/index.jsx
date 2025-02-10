@@ -42,17 +42,17 @@ export default function HeroBlack({ data }) {
 
             <div className="d-flex">
                 <div className="me-auto">
-                    <h4 className={`mt-4 ${styles.subtitle}`}>
+                    <h4 data-aos="fade-up" className={`mt-4 ${styles.subtitle}`}>
                         {data.heading.subtitle}
                     </h4>
-                    <h2>
+                    <h2 data-aos="fade-up">
                         {data.heading.title}
                     </h2>
-                    <p className="small">
+                    <p data-aos="fade-up" className="small">
                         {data.heading.description}
                     </p>
 
-                    <div className="mt-4 small">
+                    <div data-aos="fade-up" className="mt-4 small">
                         <Link href={data.heading.cta_link || "#"}>
                             <div className={styles.pillbtn}>
                                 {data.heading.cta_text}
@@ -60,12 +60,12 @@ export default function HeroBlack({ data }) {
                         </Link>
                     </div>
                 </div>
-                <div className="ms-1 d-none d-lg-block">
+                <div data-aos="fade-up" className="ms-1 d-none d-lg-block">
                     <Image src="/hero_fancy_circles.svg" width={196} height={196} />
                 </div>
             </div>
 
-            <div className={`mt-5 d-none d-lg-block ${styles.carwrap}`}>
+            <div data-aos="fade-up" className={`mt-5 d-none d-lg-block ${styles.carwrap}`}>
                 <Carousel
                     // selectedItem={selected}
                     centerMode={true}
@@ -95,7 +95,7 @@ export default function HeroBlack({ data }) {
                 </Carousel>
             </div>
 
-            <div className="mt-5 d-block d-lg-none">
+            <div data-aos="fade-up" className="mt-5 d-block d-lg-none">
                 {data.cards.map((each, index) => {
                     return (<Card key={index} data={each} />)
                 })}

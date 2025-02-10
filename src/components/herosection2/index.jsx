@@ -6,10 +6,10 @@ import DynamicImage from "../dynamicImage";
 import Link from "next/link";
 import Image from "next/image";
 
-function SubCard({ data }) {
+function SubCard({ data, key }) {
     return (
         <Link href={data.link}>
-            <div className="d-flex mb-4">
+            <div data-aos="fade-up" data-aos-delay={key * 100} className="d-flex mb-4">
                 <div className={styles.subimg}>
                     <DynamicImage src={data.image} objectFit="cover" />
                 </div>
@@ -40,16 +40,16 @@ export default function HeroSection2({ data }) {
         <Container className="my-5 py-4">
             <Row>
                 <Col lg={3}>
-                    <div className={styles.imgbox}>
+                    <div data-aos="fade-up" className={styles.imgbox}>
                         <DynamicImage src={selectedData.image} objectFit="contain" />
                     </div>
-                    <h4 className="my-3">
+                    <h4 data-aos="fade-up" className="my-3">
                         {selectedData.subtitle}
                     </h4>
                     <div>
                         {dataItems.map((each, index) => {
                             return (
-                                <div data-shono={index == selected} key={index} className={styles.sublink} onClick={() => setSelected(index)}>
+                                <div data-aos="fade-up" data-aos-delay={100 + index * 100}  data-shono={index == selected} key={index} className={styles.sublink} onClick={() => setSelected(index)}>
                                     <div className="me-auto my-auto">
                                         <h5 className="mb-0">
                                             {each}
@@ -65,13 +65,13 @@ export default function HeroSection2({ data }) {
                     </div>
                 </Col>
                 <Col lg={9}>
-                    <h5 className={styles.caplink}>
+                    <h5 data-aos="fade-up" className={styles.caplink}>
                         {selectedData.heading.subtitle}
                     </h5>
-                    <h2>
+                    <h2 data-aos="fade-up">
                         {selectedData.heading.title}
                     </h2>
-                    <p>
+                    <p data-aos="fade-up">
                         {selectedData.heading.description}
                     </p>
                     <BorderPill text={selectedData.heading.cta_text} link={selectedData.heading.cta_link} />

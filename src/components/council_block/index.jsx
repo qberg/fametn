@@ -78,7 +78,7 @@ export default function CouncilBlock({ data, header }) {
         <Container className="my-5">
             <div className="d-flex">
                 <div className="my-auto">
-                    <h3>
+                    <h3 data-aos="fade-up">
                         {header.heading}
                     </h3>
                 </div>
@@ -86,12 +86,12 @@ export default function CouncilBlock({ data, header }) {
                     {/* FILTER */}
                 </div>
             </div>
-            <div className='mt-2'>
+            <div data-aos="fade-up" className='mt-2'>
                 {header.description}
             </div>
             <Row className='mt-4 mb-2'>
                 {loadedData.map((each, index) => {
-                    return (<Col md={6} lg={4} xl={3} key={index}>
+                    return (<Col data-aos="fade-up"  md={6} lg={4} xl={3} key={index}>
                         <Promoter data={each} />
                     </Col>)
                 })}

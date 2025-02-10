@@ -6,13 +6,13 @@ const RegistrationForm = ({ data }) => {
     return (
         <div className="py-5">
             <center>
-                <h3>
+                <h2 data-aos="fade-up">
                     {data.title}
-                </h3>
-                <p>
+                </h2>
+                <p data-aos="fade-up">
                     {data.description}
                 </p>
-                <div>
+                <div data-aos="fade-up">
                     <WhiteButton text={data.cta_text} url={data.cta_link} />
                 </div>
             </center>

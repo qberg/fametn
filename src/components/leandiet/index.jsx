@@ -13,19 +13,19 @@ export default function LeanDiet({ header, data }) {
                     <div className="me-auto">
                         <Bluepill text={header.subtitle} />
                     </div>
-                    <div className="ms-2">
+                    <div data-aos="fade-up" className="ms-2">
                         <BlueArrowButton text={header.cta_text} link={header.cta_link} />
                     </div>
                 </div>
-                <h2 className="mt-3">
+                <h2 data-aos="fade-up" className="mt-3">
                     {header.title}
                 </h2>
-                <p>
+                <p data-aos="fade-up">
                     {header.description}
                 </p>
                 <Row className="mt-4">
                     {data.map((each, index) => {
-                        return (<Col lg={4} key={index}>
+                        return (<Col data-aos="fade-up" data-aos-delay={100 * index} lg={4} key={index}>
                             <div className="d-flex mt-4">
                                 <div className={styles.icon}>
                                     <DynamicImage src={each.image} objectFit="contain" />

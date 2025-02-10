@@ -33,7 +33,7 @@ const FancyHero = ({ hero }) => {
                 </Col>
                 <Col lg={5} className={styles.description}>
                     <div className="h-100 d-flex">
-                        <div className={styles.subtitle}>
+                        <div data-aos="fade-up" data-aos-delay={100}  className={styles.subtitle}>
                             {hero.description}
                             <div className="mt-3">
                                 <YellowArrowButton text={hero.cta_name} link={hero.cta_link} />

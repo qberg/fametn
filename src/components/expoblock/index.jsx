@@ -360,14 +360,14 @@ export default function ExpoBlock({ title, description, message, expos }) {
 
     return (<Container className="my-5">
         <div>
-            <h3>
+            <h2 data-aos="fade-up">
                 {title}
-            </h3>
-            <p className="mt-3">
+            </h2>
+            <p data-aos="fade-up" className="mt-3">
                 {description}
             </p>
         </div>
-        <div className={`mt-4 d-block d-lg-flex ${styles.messagebox}`}>
+        <div data-aos="fade-up" className={`mt-4 d-block d-lg-flex ${styles.messagebox}`}>
             <div className="my-auto">
                 <h6>
                     {message.title}
@@ -381,10 +381,10 @@ export default function ExpoBlock({ title, description, message, expos }) {
             </div>
 
         </div>
-        <div className="d-block d-lg-flex mt-4">
+        <div data-aos="fade-up" className="d-block d-lg-flex mt-4">
             <div className={`d-flex ${styles.outlinebox} mb-3`}>
                 <div className="my-auto">
-                    <Image  alt="" src="/expo_search.svg" width={20} height={20} />
+                    <Image alt="" src="/expo_search.svg" width={20} height={20} />
                 </div>
                 <div className="my-auto ms-2">
                     <input className={styles.search} placeholder={strings.search[locale]} value={searchText} onChange={(e) => setSearchText(e.target.value)} />
@@ -397,7 +397,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                         e.stopPropagation();
                     }}
                     className={styles.outlinebox}>
-                    <Image  alt="" className="my-auto me-2" src="/expo_filter_icon.svg" width={16} height={16} />
+                    <Image alt="" className="my-auto me-2" src="/expo_filter_icon.svg" width={16} height={16} />
                     {strings.filters[locale]}
 
                 </div>
@@ -405,7 +405,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                 {filterOpen && (<FilterBox />)}
             </div>
         </div>
-        <div className="d-none d-lg-block mt-2">
+        <div data-aos="fade-up" className="d-none d-lg-block mt-2">
             <table className={styles.table}>
                 <tbody>
                     <tr>
@@ -421,7 +421,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                 </tbody>
             </table>
 
-            <div className={`my-4 ${styles.pagecontainer}`}>
+            <div data-aos="fade-up" className={`my-4 ${styles.pagecontainer}`}>
                 <div
                     data-shono={page != 1}
                     onClick={() => setPage(max(1, page - 1))}
@@ -434,6 +434,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
                     </div>)
                 })}
                 <div
+
                     data-shono={page != totalPages}
                     onClick={() => setPage(min(totalPages, page + 1))}
                     className="ms-3 small">
@@ -443,7 +444,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
         </div>
         <Row className="d-flex d-lg-none">
             {sortedEvents.map((each, index) => {
-                return (<Col lg={6} key={index}>
+                return (<Col data-aos="fade-up" lg={6} key={index}>
                     <MobileEventCard data={each} />
                 </Col>)
             })}

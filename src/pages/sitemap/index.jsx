@@ -2,6 +2,7 @@ import Link from "next/link"
 import styles from "./styles.module.css"
 export default function SiteMap() {
     const lists = [
+        "/",
         "/blogs",
         "/branding-and-packaging",
         "/emarkets",
@@ -21,14 +22,14 @@ export default function SiteMap() {
         "/testinglabs",
         "/lean",
         "/ondc",
-        "http://localhost:3000/finance/schemes/unemployed-youth-employment-generation"
+        "/finance/schemes/unemployed-youth-employment-generation"
     ]
 
     return (
         <div>
             <h1>SiteMap</h1>
             {lists.map((list, index) => {
-                return (<Link className={styles.blue} key={index} href={list}>
+                return (<Link target="_blank" className={styles.blue} key={index} href={list}>
                     {list} <br></br>
                 </Link>)
 

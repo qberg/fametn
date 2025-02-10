@@ -10,7 +10,6 @@ import HeroLast from "../components/herolast";
 
 
 export default function Home({ data }) {
-	// console.log(data)
 	return (
 		<RootLayout>
 			<HomeHero

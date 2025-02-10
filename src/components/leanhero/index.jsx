@@ -16,13 +16,13 @@ export default function LeanHero({ hero, hero_imgs }) {
         <Container className="pt-5">
             <div className="py-5">
                 <center>
-                    <h1>
+                    <h1 data-aos="fade-up">
                         {hero.title}
                     </h1>
-                    <p>
+                    <p data-aos="fade-up">
                         {hero.description}
                     </p>
-                    <div>
+                    <div data-aos="fade-up">
                         <BlueArrowButton text={hero.cta_text} link={hero.cta_link} />
                     </div>
                 </center>
@@ -32,16 +32,16 @@ export default function LeanHero({ hero, hero_imgs }) {
         <Container fluid className={styles.yellowmidbg}>
             <Container className="pb-5">
                 <Row className="gx-1">
-                    <Col sm={6} md={4} lg={3}>
+                    <Col data-aos="fade-up" sm={6} md={4} lg={3}>
                         <ImageBlock index={0} />
                     </Col>
-                    <Col sm={6} md={4} lg={3}>
+                    <Col data-aos="fade-up" data-aos-delay={100} sm={6} md={4} lg={3}>
                         <ImageBlock index={1} />
                     </Col>
-                    <Col className="d-none d-md-block" md={4} lg={3}>
+                    <Col data-aos="fade-up" data-aos-delay={200} className="d-none d-md-block" md={4} lg={3}>
                         <ImageBlock index={2} />
                     </Col>
-                    <Col className="d-none d-lg-block" lg={3}>
+                    <Col data-aos="fade-up" data-aos-delay={300} className="d-none d-lg-block" lg={3}>
                         <ImageBlock index={3} />
                     </Col>
                 </Row>

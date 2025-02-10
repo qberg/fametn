@@ -84,32 +84,32 @@ export default function InvestmentForm({ title, supertitle, image }) {
                     <div className="py-5">
                         <Bluepill text={supertitle} />
                         <div className="mt-3">
-                            <h3>
+                            <h2 data-aos="fade-up">
                                 {title}
-                            </h3>
+                            </h2>
                         </div>
-                        <div className="small my-1">
+                        <div data-aos="fade-up" className="small my-1">
                             {strings.firstname[locale]}
                         </div>
-                        <input placeholder={strings.placeholderFirstName[locale]} className={styles.formfield} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                        <div className="small my-1">
+                        <input data-aos="fade-up" placeholder={strings.placeholderFirstName[locale]} className={styles.formfield} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                        <div data-aos="fade-up" className="small my-1">
                             {strings.lastname[locale]}
                         </div>
-                        <input placeholder={strings.placeholderLastName[locale]} className={styles.formfield} value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                        <input data-aos="fade-up" placeholder={strings.placeholderLastName[locale]} className={styles.formfield} value={lastName} onChange={(e) => setLastName(e.target.value)} />
 
-                        <div className="small my-1">
+                        <div data-aos="fade-up" className="small my-1">
                             {strings.email[locale]}
                         </div>
-                        <input placeholder={strings.placeholderEmail[locale]} className={styles.formfield} value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input data-aos="fade-up" placeholder={strings.placeholderEmail[locale]} className={styles.formfield} value={email} onChange={(e) => setEmail(e.target.value)} />
 
-                        <div className="small my-1">
+                        <div data-aos="fade-up" className="small my-1">
                             {strings.designation[locale]}
                         </div>
-                        <input placeholder={strings.placeholderDesignation[locale]} className={styles.formfield} value={designation} onChange={(e) => setDesignation(e.target.value)} />
+                        <input data-aos="fade-up" placeholder={strings.placeholderDesignation[locale]} className={styles.formfield} value={designation} onChange={(e) => setDesignation(e.target.value)} />
 
-                        {error && <div className={`${styles.error} my-2`}>{error}</div>}
+                        {error && <div data-aos="fade-up" className={`${styles.error} my-2`}>{error}</div>}
 
-                        <div className="my-4" onClick={handleSubmit}>
+                        <div data-aos="fade-up" className="my-4" onClick={handleSubmit}>
                             <YellowArrowButton text={strings.submit[locale]} />
                         </div>
                     </div>

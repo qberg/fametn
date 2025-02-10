@@ -151,7 +151,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
     return (
         <RootLayout>
             <Container>
-                <div className="mt-4">
+                <div className="mt-4 mb-4">
                     <Row data-aos="fade-up">
                         <Col lg={10}>
                             <Gigasearch text={searchText} onSearch={(text) => setSearchText(text)} handleSearch={handleSearch} />

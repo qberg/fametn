@@ -34,20 +34,20 @@ export default function OndcBlock({ card, images }) {
         </svg>
         <Row>
             <Col lg={5}>
-                <div className={styles.logo}>
+                <div data-aos="fade-up" className={styles.logo}>
                     <DynamicImage src={card.image} objectFit="contain" />
                 </div>
-                <h4 className="mt-3">
+                <h4 data-aos="fade-up" className="mt-3">
                     {card.heading}
                 </h4>
-                <p className="small">
+                <p data-aos="fade-up" className="small">
                     {card.description}
                 </p>
-                <div>
+                <div data-aos="fade-up">
                     <YellowArrowButton text={card.link_text} link={card.link} />
                 </div>
             </Col>
-            <Col lg={7}>
+            <Col data-aos="fade-up" data-aos-delay={100} lg={7}>
                 <Carousel
                     selectedItem={selectedItem}
                     showArrows={false}

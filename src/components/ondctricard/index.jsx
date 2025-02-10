@@ -21,20 +21,20 @@ export default function OndcTriCard({ header, cards }) {
     }
     return (
         <Container className="mt-5 py-5">
-            <h2>
+            <h2 data-aos="fade-up">
                 {header.heading}
             </h2>
-            <p>
+            <p data-aos="fade-up">
                 {header.description}
             </p>
             <div className="d-none d-lg-flex my-4 ">
-                <div className={styles.left}>
+                <div data-aos="fade-up" data-aos-delay={0} className={styles.left}>
                     <Card index={0} />
                 </div>
-                <div className={styles.mid}>
+                <div data-aos="fade-up" data-aos-delay={100} className={styles.mid}>
                     <Card index={1} />
                 </div>
-                <div className={styles.right}>
+                <div data-aos="fade-up" data-aos-delay={200} className={styles.right}>
                     <Card index={2} />
                 </div>
             </div>

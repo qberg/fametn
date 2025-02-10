@@ -90,27 +90,27 @@ export default function ExportBlock({ data, header }) {
         <Container className="my-5">
             <div className="d-flex">
                 <div className="my-auto">
-                    <h3>
+                    <h2 data-aos="fade-up">
                         {header.heading}
-                    </h3>
+                    </h2>
                 </div>
                 <div className="ms-auto my-auto">
                     {/* FILTER */}
                 </div>
             </div>
-            <div className='mt-2'>
+            <div data-aos="fade-up" className='mt-2'>
                 {header.description}
             </div>
             <Row className='mt-4 mb-2'>
                 {loadedData.map((each, index) => {
-                    return (<Col md={6} lg={4} xl={3} key={index}>
+                    return (<Col  data-aos="fade-up" md={6} lg={4} xl={3} key={index}>
                         <Promoter data={each} />
                     </Col>)
                 })}
             </Row>
 
             <center>
-                {hasMore && <div onClick={loadMore} className={styles.morebutton}>
+                {hasMore && <div  data-aos="fade-up" onClick={loadMore} className={styles.morebutton}>
                     {strings.more[locale]}
                 </div>}
             </center>
