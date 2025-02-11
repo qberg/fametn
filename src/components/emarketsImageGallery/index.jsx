@@ -97,7 +97,7 @@ export default function EmarketsImageGallery({ title, description, images }) {
                             onClick={() => {
                                 setSelected(index)
                                 setOpen(true)
-                            }} key={index} md={4} className={`mt-4 g-0 ${styles.nomy} ${styles.imgbox}`}>
+                            }} key={index} md={4} className={`mt-4 g-3 g-md-0 ${styles.nomy} ${styles.imgbox}`}>
                             <div data-aos="fade-up" data-aos-delay={(index % 3) * 100} className={styles.imageContainer}>
                                 <DynamicImage src={{ data: each }} objectFit="cover" />
                                 {isLast && (<div className={styles.more}>

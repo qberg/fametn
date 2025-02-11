@@ -63,7 +63,8 @@
 
 .filterbox {
     position: absolute;
-    min-width: 400px;
+    width: 400px;
+    max-width: calc(100vw - 1.5em);
     background-color: var(--white);
     right: 0;
     margin-top: 1.5em;

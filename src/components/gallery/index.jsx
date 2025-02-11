@@ -6,6 +6,16 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DynamicImage from "../dynamicImage";
 
+function UnselectedIndicator({ onClickHandler, isSelected }) {
+    return (<span data-shono="false" className={styles.indic} onClick={onClickHandler}>
+    </span>)
+}
+
+function SelectedIndicator({ onClickHandler, isSelected }) {
+    return (<span data-shono="true" className={styles.indic} onClick={onClickHandler}>
+    </span>)
+}
+
 export default function Gallery({ data }) {
     const ImageBlock = ({ image }) => {
         return (<div className={styles.imgclass}>
@@ -21,11 +31,11 @@ export default function Gallery({ data }) {
                 <h2 data-aos="fade-up" className="mt-3">
                     {data.title}
                 </h2>
-                <div data-aos="fade-up" className="d-flex">
+                <div data-aos="fade-up" className="d-block d-md-flex">
                     <div className="m3-auto">
                         {data.description}
                     </div>
-                    <div className="ms-2">
+                    <div className="mt-3 mt-md-0 ms-md-4">
                         <YellowArrowButton text={data.cta_text} link={data.cta_link} />
                     </div>
                 </div>
@@ -33,9 +43,20 @@ export default function Gallery({ data }) {
                     <Carousel
                         centerMode={true}
                         centerSlidePercentage={33.334}
-                        // showArrows={false} 
+                        renderIndicator={(onClickHandler, isSelected, index, label) => {
+                            if (isSelected) {
+                                return (
+                                    <SelectedIndicator onClickHandler={onClickHandler} isSelected={isSelected} />
+                                );
+                            }
+                            return (
+                                <UnselectedIndicator onClickHandler={onClickHandler} isSelected={isSelected} />
+
+                            );
+                        }}
                         showStatus={false}
                         showThumbs={false}
+                        showArrows={false}
                         infiniteLoop={true}
                         autoPlay={true}
                     >
@@ -45,8 +66,19 @@ export default function Gallery({ data }) {
                     </Carousel>
                 </div>
                 <div className="d-block d-lg-none my-5">
-                <Carousel
-                        // showArrows={false} 
+                    <Carousel
+                        renderIndicator={(onClickHandler, isSelected, index, label) => {
+                            if (isSelected) {
+                                return (
+                                    <SelectedIndicator onClickHandler={onClickHandler} isSelected={isSelected} />
+                                );
+                            }
+                            return (
+                                <UnselectedIndicator onClickHandler={onClickHandler} isSelected={isSelected} />
+
+                            );
+                        }}
+                        showArrows={false}
                         centerMode={true}
                         centerSlidePercentage={100}
                         showStatus={false}

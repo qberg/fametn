@@ -28,6 +28,12 @@
     position: relative;
 }
 
+@media (max-width: 768px) {
+    .canvas {
+        min-height: 400px;
+    }
+}
+
 .backimage {
     position: absolute;
     top: 0;
@@ -44,10 +50,11 @@
     position: absolute;
     bottom: 20px;
     left: 0;
-    width: 70%;
+    width: 80%;
     height: 80%;
     object-fit: cover;
     background-color: blue;
     overflow: hidden;
     border-radius: var(--radius);
 }
+

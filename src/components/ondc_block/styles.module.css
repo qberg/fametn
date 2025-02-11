@@ -17,6 +17,13 @@
     clip-path: polygon(0 0, 0 100%, 34% 100%, 38% 80%, 62% 80%, 66% 100%, 100% 100%, 100% 0%);
 }
 
+@media screen and (max-width: 768px) {
+    .carouselwrap {
+        clip-path: polygon(0 0, 0 100%, 30% 100%, 34% 80%, 66% 80%, 70% 100%, 100% 100%, 100% 0%);
+    }
+    
+}
+
 .indicator {
     background-color: var(--yellow);
     height: 40px;
@@ -39,6 +46,7 @@
     align-items: center;
     margin-right: auto;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .rightbutton {
@@ -51,6 +59,7 @@
     align-items: center;
     margin-left: auto;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .dot {
@@ -60,6 +69,19 @@
     border-radius: 50%;
     margin-right: 3px;
     margin-left: 3px;
+}
+
+@media (max-width: 768px) {
+    .indicator {
+        width: 28%;
+    }
+
+    .dot {
+        height: 4px;
+        width: 4px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
 }
 
 .dot[data-shono="true"] {

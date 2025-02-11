@@ -21,6 +21,23 @@
     border-radius: var(--radius);
     overflow: hidden;
     position: relative;
-    background-color: rebeccapurple;
 }
 
+.indic {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: var(--light-gray);
+    display: inline-block;
+    margin: 0em 0.3em;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.indic[data-shono="true"] {
+    background-color: var(--black);
+}
+
+.indic:hover {
+    transform: scale(1.1);
+}

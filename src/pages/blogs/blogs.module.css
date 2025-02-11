@@ -118,3 +118,8 @@
 .sortitem:hover {
     background-color: var(--light-gray);
 }
+
+.topper {
+    z-index: 0;
+    position: relative;
+}

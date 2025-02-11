@@ -42,9 +42,9 @@ export default function Newsletterform({data}){
         <Container className="py-5">
             <Row>
                 <Col md={7}>
-                    <h3 data-aos="fade-up">
+                    <h2 data-aos="fade-up">
                         {data.title}
-                    </h3>
+                    </h2>
                     <p data-aos="fade-up">
                         {data.description}
                     </p>

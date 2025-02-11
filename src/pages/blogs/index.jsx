@@ -98,7 +98,7 @@ function BlogSort({ onChange, value }) {
                     <span className="d-inline d-lg-none">{strings.sort[locale]}: </span> {value.display}
                 </div>
             </div>
-            {open && (<div className={styles.sortdropdown}>
+            {open && (<div data-aos="fade-down" className={styles.sortdropdown}>
                 {Object.keys(sortWays).map((each, index) => {
                     return (<div className={styles.sortitem} key={index} onClick={() => {
                         setOpen(false)
@@ -151,7 +151,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
     return (
         <RootLayout>
             <Container>
-                <div className="mt-4 mb-4">
+                <div className="z-2 position-relative mt-4 mb-4">
                     <Row data-aos="fade-up">
                         <Col lg={10}>
                             <Gigasearch text={searchText} onSearch={(text) => setSearchText(text)} handleSearch={handleSearch} />
@@ -162,7 +162,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
                     </Row>
                 </div>
 
-                {search == "" && (<div className="mb-5">
+                {search == "" && (<div className={`mb-5 ${styles.topper}`}>
                     <div className="mt-4 mb-4">
                         <center>
                             <Bluepill text={meta?.supertitle} />

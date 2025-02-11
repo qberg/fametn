@@ -24,11 +24,11 @@ export default function YellowResourcesBlock({ data }) {
             <h2 data-aos="fade-up" className="mt-3">
                 {data.title}
             </h2>
-            <div data-aos="fade-up" className="d-flex mt-1 mb-1">
+            <div data-aos="fade-up" className="d-block d-md-flex mt-1 mb-1">
                 <div className="me-auto">
                     {data.description}
                 </div>
-                <div className="ms-2">
+                <div className="mt-3 mt-md-0 ms-md-4">
                     <YellowArrowButton text={strings.viewall[locale]} link="/resources" />
                 </div>
             </div>

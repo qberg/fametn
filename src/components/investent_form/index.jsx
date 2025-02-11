@@ -114,7 +114,7 @@ export default function InvestmentForm({ title, supertitle, image }) {
                         </div>
                     </div>
                 </Col>
-                <Col className={styles.colwrap} md={6}>
+                <Col className={`d-none d-md-block ${styles.colwrap}`} md={6}>
                     <div className={styles.formimage}>
                         <DynamicImage src={image} objectFit="cover" />
                     </div>

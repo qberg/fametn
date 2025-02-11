@@ -78,9 +78,9 @@ export default function CouncilBlock({ data, header }) {
         <Container className="my-5">
             <div className="d-flex">
                 <div className="my-auto">
-                    <h3 data-aos="fade-up">
+                    <h2 data-aos="fade-up">
                         {header.heading}
-                    </h3>
+                    </h2>
                 </div>
                 <div className="ms-auto my-auto">
                     {/* FILTER */}

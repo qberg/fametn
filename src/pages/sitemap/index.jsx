@@ -19,7 +19,7 @@ export default function SiteMap() {
         "/investment-promotion/",
         "/energy-efficiency",
         "/industry-4-0",
-        "/testinglabs",
+        "/testing-labs",
         "/lean",
         "/ondc",
         "/finance/schemes/unemployed-youth-employment-generation"

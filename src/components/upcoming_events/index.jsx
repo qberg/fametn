@@ -29,7 +29,7 @@ export function EventCard({ data }) {
     const dateString = formatDate(data.start_date) + (data.end_date ? " - " + formatDate(data.end_date) : "");
     return (
         <div data-aos="fade-up" className={styles.eventcard}>
-            <Row className="h-100 w-100 g-x-4 g-y-2">
+            <Row className=" h-100 g-x-4 g-y-2">
                 <Col className={styles.nomb} lg={5} >
                     <div className={styles.eventcardimg}>
                         <DynamicImage src={data.image} objectFit="cover" />

@@ -89,7 +89,7 @@ export default function Blog({ recentBlogs, news, title, length, date, author, c
 
     return (
         <RootLayout>
-            <Container className="px-5">
+            <Container className="px-3 px-md-5">
                 <div data-aos="fade-up" className="pt-5 pb-4">
                     <Link className={styles.movelefter} href={`/blogs`}>
                         <Image src="/blog_left_arrow.svg" height={28} width={28} />

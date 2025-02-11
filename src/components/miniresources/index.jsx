@@ -64,9 +64,9 @@ export default function MiniResources({ data }) {
         <Container className="my-5">
             <div data-aos="fade-up" className="d-flex">
                 <div className="my-auto">
-                    <h3 >
+                    <h2 >
                         {strings.head[locale]}
-                    </h3>
+                    </h2>
                 </div>
                 <div className="my-auto ms-auto">
                     <YellowArrowButton text={strings.all[locale]} link="/resources" />

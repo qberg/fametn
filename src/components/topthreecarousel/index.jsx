@@ -69,6 +69,7 @@ export default function Topthreecarousel({ data }) {
     return (
         <div data-aos="fade-up" className={styles.topthreeshadow}>
             <Carousel
+                emulateTouch={true}
                 renderArrowPrev={(onClickHandler, hasPrev, label) =>
                     (<PrevArrow onClickHandler={onClickHandler} hasPrev={hasPrev} />)}
                 renderArrowNext={(onClickHandler, hasNext, label) =>

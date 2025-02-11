@@ -214,11 +214,8 @@ export default function ExpoBlock({ title, description, message, expos }) {
             };
         }, []);
 
-
-
-
         return (
-            (<div className={styles.filterbox}>
+            (<div data-aos=" z-2 position-relative" className={styles.filterbox}>
                 <div className="d-flex">
                     <div className="small">
                         {strings.filters[locale]}
@@ -381,7 +378,7 @@ export default function ExpoBlock({ title, description, message, expos }) {
             </div>
 
         </div>
-        <div data-aos="fade-up" className="d-block d-lg-flex mt-4">
+        <div data-aos="fade-up" className="z-2 position-relative d-block d-lg-flex mt-4">
             <div className={`d-flex ${styles.outlinebox} mb-3`}>
                 <div className="my-auto">
                     <Image alt="" src="/expo_search.svg" width={20} height={20} />

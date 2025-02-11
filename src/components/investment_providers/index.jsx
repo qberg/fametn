@@ -99,9 +99,9 @@ export function CoreTable({ data, headings, title, supertitle, maxPageSize = 3 }
     return (
         <Container className="my-5">
             {supertitle && (<div className="mb-3"><Bluepill text={supertitle} /></div>)}
-            {title && (<h3 className="mb-4">
+            {title && (<h2 className="mb-4">
                 {title}
-            </h3>)}
+            </h2>)}
             <div className="d-none d-lg-block">
                 <table data-aos="fade-up" className={styles.table}>
                     <tbody>

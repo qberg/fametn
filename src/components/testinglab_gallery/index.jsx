@@ -21,11 +21,11 @@ export default function TestingLabGallery({ header, images }) {
                 <h2 data-aos="fade-up" className="mt-3">
                     {header.title}
                 </h2>
-                <div data-aos="fade-up" className="d-flex">
+                <div data-aos="fade-up" className="d-block d-md-flex">
                     <div className="me-auto">
                         {header.description}
                     </div>
-                    <div className="ms-2">
+                    <div className="mt-3 mt-md-0 ms-md-4">
                         <YellowArrowButton text={header.cta_text} link={header.cta_link} />
                     </div>
                 </div>
