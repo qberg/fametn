@@ -15,7 +15,7 @@ import Gallery from "../../components/gallery";
 
 export default function EnergyEfficiency({ data, auditors, news, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <YellowHero hero={data.hero} hero_imgs={data.hero_imgs} />
             <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
             <EnergyCard data={data.section_2} />

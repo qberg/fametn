@@ -18,7 +18,7 @@ import CouncilBlock from "../../components/council_block";
 import YellowSchemes from "../../components/yellow_schemes";
 
 export default function ExportPromotionCouncils({ news, data, councils, headerFooter }) {
-    return (<RootLayout data={headerFooter}>
+    return (<RootLayout seo={data.seo} data={headerFooter}>
         <Breadcrumps items={data.breadcrumps} />
         <YellowBlobHero hero={data.hero} hero_imgs={data.heroimg} />
         <PartnersSection heading={data.partners_title} data={data.partners} />

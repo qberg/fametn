@@ -18,7 +18,7 @@ import Newsletterform from "../../components/newsletterform";
 
 export default function ExposAndExhibitions({ data, expo, news, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.heroimage} />
             <PartnersSection heading={data.partners_title} data={data.partners} />

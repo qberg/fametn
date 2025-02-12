@@ -140,8 +140,7 @@ export async function getServerSideProps(context) {
 		currentCategory = category
 	}
 
-	const schemeMetaPath = "schemes?&populate=deep"
-	const schemeMeta = await getDataFromPath(schemeMetaPath, language)
+
 	return {
 		props: {
 			schemeMeta: schemeMeta.data.attributes,
@@ -280,7 +279,7 @@ export default function Schemes({ currentCategory, categories, agencyList, heade
 
 
 	return (
-		<RootLayout data={headerFooter}>
+		<RootLayout seo={schemeMeta.seo} data={headerFooter}>
 			<Breadcrumps items={schemeMeta.breadcrumps} />
 			<Container>
 				<div className="d-block d-lg-none">

@@ -20,7 +20,7 @@ import Newsletterform from "../../components/newsletterform";
 
 export default function VendorDevelopmentMeets({ news, data, metaEvents, upcomingEvents, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.hero_images} />
             <PartnersSection heading={data.section_2_heading} data={data.partners} />

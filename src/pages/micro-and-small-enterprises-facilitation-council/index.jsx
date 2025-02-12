@@ -11,15 +11,11 @@ import Testimonials from "../../components/testimonials";
 import MiniResources from "../../components/miniresources";
 import FaqComponent from "../../components/faqcomponent";
 import Newsletterform from "../../components/newsletterform";
-import BrandingGallery from "../../components/branding_gallery";
-import { getAllPromoters } from "../../utils/export_promoters";
-import Packers from "../../components/packers";
-import ExportBlock from "../../components/export_block";
 import InfraBlock from "../../components/infra_block";
 
 export default function MSEFC({ data, news, testimonials, testimonial_title, testimonial_subtitle, resources, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <Breadcrumps items={data.bread_crumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.hero_img} />
             <PartnersSection heading={data.partners_title} data={data.partners} />

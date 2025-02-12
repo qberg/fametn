@@ -1,28 +1,17 @@
-import { Container } from "react-bootstrap";
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
 import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
-import Breadcrumps from "../../components/breadcrumps";
-import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
-import EmarketsImageGallery from "../../components/emarketsImageGallery";
-import ThreeChannel from "@/components/threechannel";
 import UpcomingEvents from "../../components/upcoming_events";
 import RecentBlogsGrid from "../../components/recentblogsgrid";
 import Testimonials from "../../components/testimonials";
-import MiniResources from "../../components/miniresources";
-import FaqComponent from "../../components/faqcomponent";
 import Newsletterform from "../../components/newsletterform";
 import YellowHero from "../../components/yellowhero";
-import EnergyCard from "../../components/energycard";
-import { getAllAuditors } from "../../utils/auditors";
-import Auditors from "../../components/auditors";
 import YellowSchemes from "../../components/yellow_schemes";
 import YellowResourcesBlock from "../../components/yellowresourcesblock";
-import Gallery from "../../components/gallery";
 
 export default function Industry4PointO({ data, news, headerFooter }) {
-    return (<RootLayout data={headerFooter}>
+    return (<RootLayout seo={data.seo} data={headerFooter}>
         <YellowHero hero={data.hero} hero_imgs={data.heroimages} />
         <YellowResourcesBlock data={data.resourceblock} />
         <div className="my-5"></div>

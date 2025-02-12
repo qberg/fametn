@@ -41,7 +41,7 @@ export default function Events({ news, search, meta, upcomingEvents, headerFoote
     })
 
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={meta.seo} data={headerFooter}>
             <Container className={styles.yellowcontainer} fluid>
                 <Container>
                     <div className="pt-4">
@@ -80,7 +80,7 @@ export async function getServerSideProps(context) {
     context.res.setHeader('Cache-Control', CacheHeaders);
     const language = context.locale;
     const search = context.query.search || "";
-    const meta = await getDataFromPath("events-meta", language)
+    const meta = await getDataFromPath("events-meta?populate=deep", language)
     const upcomingEvents = await getUpComingNEvents(language)
     const news = await getNewsletterData(language);
     return {

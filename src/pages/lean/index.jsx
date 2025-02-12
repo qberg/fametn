@@ -36,7 +36,7 @@ import Gallery from "../../components/gallery";
 
 export default function Lean({ data, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <LeanHero hero={data.hero} hero_imgs={data.hero_images} />
             <LeanSubHero data={data.section_2} />
             <LeanBlock data={data.leanblock} />

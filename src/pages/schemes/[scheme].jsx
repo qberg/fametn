@@ -108,7 +108,7 @@ export default function Scheme({ data, id, headerFooter, schemeMeta }) {
 		notFound()
 	}
 	return (
-		<RootLayout data={headerFooter}>
+		<RootLayout seo={schemeMeta.seo} data={headerFooter}>
 			<Container>
 				<Breadcrumps items={schemeMeta.breadcrumps} />
 				<div className="my-4"></div>

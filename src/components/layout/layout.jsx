@@ -4,16 +4,15 @@ import Footer from '@/components/footer';
 import styles from './layout.module.css';
 import { JSONData } from '@/utils/definitions';
 import Head from 'next/head';
+import Seo from '../seo';
 export default function RootLayout({
   children,
-  data
+  data,
+  seo
 }) {
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link rel="preconnect" href="https://www.clarity.ms" />
-      </Head>
+      <Seo data={seo} />
       <Navbar data={data} />
       <div className={styles.fillVertical}>{children}</div>
       <Footer data={data} />

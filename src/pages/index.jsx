@@ -11,7 +11,7 @@ import HeroLast from "../components/herolast";
 
 export default function Home({ data, headerFooter }) {
 	return (
-		<RootLayout data={headerFooter}>
+		<RootLayout seo={data.Header}  data={headerFooter}>
 			<HomeHero
 				title={data.title}
 				options={data.options}

@@ -14,7 +14,7 @@ import InvestmentForm from "../../components/investent_form";
 
 export default function InvestmentPromotion({ data, investmentProviders, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <InvestmentHero
                 title={data.hero_title}
                 description={data.hero_description}

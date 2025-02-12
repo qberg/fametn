@@ -14,7 +14,7 @@ import OndcThreeChannel from "../../components/ondcthreechannel";
 
 export default function Ondc({ data, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <FancyHero hero={data.hero} />
             <FatImage src={data.big_img} />

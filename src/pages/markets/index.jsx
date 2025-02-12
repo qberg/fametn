@@ -8,7 +8,7 @@ import Newsletterform from "../../components/newsletterform";
 
 export default function Markets({ data, news, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <Flathero hero={data.hero} heroimg={data.heroimg} heronumbers={data.heronumbers} />
             <Minihero data={data.minihero} />
             <Multiheading heading={data.section_3_heading} cards={data.section_3_cards} />

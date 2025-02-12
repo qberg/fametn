@@ -18,7 +18,7 @@ import ExportBlock from "../../components/export_block";
 
 export default function ExportPromotions({ data, news, promoters, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.heroimg} />
             <PartnersSection heading={data.partners_title} data={data.partners} />

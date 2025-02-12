@@ -17,7 +17,7 @@ import Packers from "../../components/packers";
 
 export default function BrandingAndPackaging({ news, data, packers, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.hero_imgs} />
             <PartnersSection heading={data.partners_title} data={data.partners} />

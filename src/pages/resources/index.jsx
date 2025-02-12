@@ -28,7 +28,7 @@ export default function Resources({ news, meta, allCategories, allResources, hea
     });
 
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={meta.seo} data={headerFooter}>
             <Container className={styles.bigblue} fluid>
                 <Container>
                     <center>
@@ -83,7 +83,7 @@ export async function getServerSideProps(context) {
 
     const language = context.locale;
 
-    const resourcesMetaPath = "resources-meta";
+    const resourcesMetaPath = "resources-meta?populate=deep";
     const meta = await getDataFromPath(resourcesMetaPath, language);
     const resources = await getAllResources(language);
     const allCategories = await getAllResourceCategories(language);

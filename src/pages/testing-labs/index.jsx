@@ -14,7 +14,7 @@ import TestinglabsTable from "../../components/testinglabstable";
 
 export default function TestingLabs({ data, testinglabs, news, headerFooter }) {
     return (
-        <RootLayout data={headerFooter}>
+        <RootLayout seo={data.seo} data={headerFooter}>
             <TestingLabHero data={data.hero} />
             <div className="my-5"></div>
             <PartnersSection heading={data.partners_title} data={data.partners} />
