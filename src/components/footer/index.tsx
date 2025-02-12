@@ -24,8 +24,6 @@ const strings = {
 
 
 const Footer = ({ data }: JSONData) => {
-	console.log(data)
-
 	function FooterLink({ each }: JSONData) {
 		return (
 			<div className="mb-2">

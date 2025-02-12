@@ -14,7 +14,8 @@ export default function SiteMap() {
         "/export-promotions",
         "/expos-and-exhibitions",
         "/schemes",
-
+        "/schemes/unemployed-youth-employment-generation",
+        
         "/markets",
         "/resources",
         "/vendor-development-meets",

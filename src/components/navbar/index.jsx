@@ -38,7 +38,9 @@ const Navbar = ({ data, pageProps }) => {
 		router.push({ pathname, query }, asPath, { locale: targetLanguage })
 	}
 
-	const allHeaderLinks = data.header_links;
+	const [headerLinks, setHeaderLinks] = useState(data.header_links);
+
+	const allHeaderLinks = headerLinks;
 	const lastHeaderLink = allHeaderLinks[allHeaderLinks.length - 1];
 	const otherHeaderLinks = allHeaderLinks.slice(0, allHeaderLinks.length - 1);
 
@@ -48,13 +50,15 @@ const Navbar = ({ data, pageProps }) => {
 		return (<div >
 			{otherHeaderLinks.map((each, index) => {
 				return (<Link className='me-4 ms-3' key={index} href={each.url || "#"}>
-					<div data-aos="fade-up" className='d-inline-block' data-aos-delay={100 + index * 50}>
+					<div data-aos-once="true" className='d-inline-block' data-aos-delay={100}>
 						{each.text}
 					</div>
 				</Link>)
 			})}
 		</div>)
 	}
+
+	const OtherHeaderLinksMemo = React.memo(OtherHeaderLinks);
 
 	const LanguageSelector = () => {
 		return (<>
@@ -67,21 +71,24 @@ const Navbar = ({ data, pageProps }) => {
 	}
 
 	const totalDelay = 100 + data.header_links.length * 50;
+
 	return (
 		<div className={styles.navbar_wrapper}>
 			<Container>
 				<nav className="navbar">
 					<div className={styles.logo}>
-						<img data-aos="fade-up" className="d-none d-lg-inline me-3" src="/tn_logo.png" alt="Logo" />
-						<img data-aos="fade-up" data-aos-delay={50} className="d-none d-lg-inline me-3" src="/Line 1.png" alt="Logo" />
-						<img data-aos="fade-up" data-aos-delay={100} src="/fame_tn_logo.png" alt="Logo" />
+						<Link href="/">
+							<img className="d-none d-lg-inline me-3" src="/tn_logo.png" alt="Logo" />
+							<img data-aos-delay={50} className="d-none d-lg-inline me-3" src="/Line 1.png" alt="Logo" />
+							<img data-aos-delay={100} src="/fame_tn_logo.png" alt="Logo" />
+						</Link>
 					</div>
 					<div className='d-none d-lg-flex align-items-center ms-2'>
-						<OtherHeaderLinks />
-						<div data-aos="fade-up" data-aos-delay={totalDelay + 200} className='me-2 ms-2'>
+						<OtherHeaderLinksMemo />
+						<div data-aos-once="true" data-aos-delay={totalDelay + 200} className='me-2 ms-2'>
 							<LanguageSelector />
 						</div>
-						<div data-aos="fade-up" data-aos-delay={totalDelay + 200 + 500} className='ms-3'>
+						<div data-aos-once="true" data-aos-delay={totalDelay + 200 + 500} className='ms-3'>
 							<YellowArrowButton text={lastHeaderLink.text} link={lastHeaderLink.url} />
 						</div>
 					</div>

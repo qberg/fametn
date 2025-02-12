@@ -7,11 +7,10 @@ import { getData } from "@/utils/api_calls";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./scheme.module.css"
 import Link from "next/link";
-import Separator from "@/components/separator";
 import Image from "next/image";
 import Breadcrumps from "@/components/breadcrumps";
 import { useRouter } from "next/router";
-import { getHeaderFooterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData } from "../../utils/api_calls";
 
 
 export const getServerSideProps = async (context) => {
@@ -34,11 +33,15 @@ export const getServerSideProps = async (context) => {
 		};
 	}
 
+	const schemeMetaPath = "schemes?&populate=deep"
+	const schemeMeta = await getDataFromPath(schemeMetaPath, language)
+
 	return {
 		props: {
 			data: fullData.data[0].attributes,
 			id: fullData.data[0].id,
-			headerFooter: await getHeaderFooterData(language)
+			headerFooter: await getHeaderFooterData(language),
+			schemeMeta: schemeMeta.data.attributes
 		}
 	};
 };
@@ -92,10 +95,14 @@ const strings = {
 	sa: {
 		en: "Successfully Applied",
 		ta: "வெற்றிகரமாக விண்ணப்பிக்கப்பட்டது"
+	},
+	applynow: {
+		en: "Apply Now",
+		ta: "விண்ணப்பிக்கவும்"
 	}
 }
 
-export default function Scheme({ data, id, headerFooter }) {
+export default function Scheme({ data, id, headerFooter, schemeMeta }) {
 	const locale = useRouter().locale
 	if (id == null) {
 		notFound()
@@ -103,12 +110,7 @@ export default function Scheme({ data, id, headerFooter }) {
 	return (
 		<RootLayout data={headerFooter}>
 			<Container>
-				<Breadcrumps items={[
-					{ url: "/", text: "Home" },
-					{ url: "/finance", text: "Finance" },
-					{ url: "/finance/schemes", text: "Schemes" },
-					{ url: `/finance/schemes/${data.scheme_link}`, text: data.scheme_name }
-				]} />
+				<Breadcrumps items={schemeMeta.breadcrumps} />
 				<div className="my-4"></div>
 				<YellowBannerItem data={data} />
 
@@ -212,20 +214,11 @@ export default function Scheme({ data, id, headerFooter }) {
 										/>
 									</div>
 									<div className="me-auto small my-auto">
-										Apply Now
+										{strings.applynow[locale]}
 									</div>
 								</div>
 
 							</div>
-							{/* <div className="d-flex mt-3 my-auto">
-								<div data-aos="fade-up">
-									<h5 className={styles.mildhead}>Other schemes</h5>
-								</div>
-								<div data-aos="fade-up" className="ms-auto small my-auto">
-									<Link href="/finance/schemes" ><u>See all</u>
-									</Link>
-								</div>
-							</div> */}
 						</Col>
 					</Row>
 
