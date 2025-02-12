@@ -1,6 +1,6 @@
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
@@ -16,9 +16,9 @@ import { getAllPromoters } from "../../utils/export_promoters";
 import Packers from "../../components/packers";
 import ExportBlock from "../../components/export_block";
 
-export default function ExportPromotions({ data, news, promoters }) {
+export default function ExportPromotions({ data, news, promoters, headerFooter }) {
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.heroimg} />
             <PartnersSection heading={data.partners_title} data={data.partners} />
@@ -45,7 +45,8 @@ export async function getServerSideProps(context) {
         props: {
             news: news,
             data: data.data.attributes,
-            promoters: promoters
+            promoters: promoters,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 }

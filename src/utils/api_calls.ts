@@ -3,6 +3,11 @@ import axios from "axios";
 import { JSONData } from "./definitions";
 
 
+export const getHeaderFooterData = async (language: string) => {
+	const path = "common-header-footer?&populate=deep";
+	const data = await getDataFromPath(path, language);
+	return data.data.attributes
+}
 
 
 export const getNewsletterData = async (language: string) => {
@@ -22,7 +27,7 @@ export const getDataFromPath = async (path: string, language: String) => {
 export const getData = async (url: string, language: String) => {
 	// get the auth token
 	var TOKEN = process.env.API_TOKEN
-	
+
 	// initialize response as null
 	var response = null
 	try {

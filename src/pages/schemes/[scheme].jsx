@@ -1,5 +1,6 @@
-import RootLayout from "../../../components/layout/layout";
-import { CacheHeaders, JSONData } from "../../../utils/definitions"
+import RootLayout from "../../components/layout/layout";
+// import { CacheHeaders, JSONData } from "../../../utils/definitions"
+import { CacheHeaders } from "../../utils/definitions";
 
 import { notFound } from "next/navigation";
 import { getData } from "@/utils/api_calls";
@@ -10,6 +11,7 @@ import Separator from "@/components/separator";
 import Image from "next/image";
 import Breadcrumps from "@/components/breadcrumps";
 import { useRouter } from "next/router";
+import { getHeaderFooterData } from "../../utils/api_calls";
 
 
 export const getServerSideProps = async (context) => {
@@ -35,7 +37,8 @@ export const getServerSideProps = async (context) => {
 	return {
 		props: {
 			data: fullData.data[0].attributes,
-			id: fullData.data[0].id
+			id: fullData.data[0].id,
+			headerFooter: await getHeaderFooterData(language)
 		}
 	};
 };
@@ -92,13 +95,13 @@ const strings = {
 	}
 }
 
-export default function Finance({ data, id }) {
+export default function Scheme({ data, id, headerFooter }) {
 	const locale = useRouter().locale
 	if (id == null) {
 		notFound()
 	}
 	return (
-		<RootLayout>
+		<RootLayout data={headerFooter}>
 			<Container>
 				<Breadcrumps items={[
 					{ url: "/", text: "Home" },

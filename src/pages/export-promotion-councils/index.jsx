@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
@@ -17,8 +17,8 @@ import { getAllExportCouncils } from "../../utils/export_councils";
 import CouncilBlock from "../../components/council_block";
 import YellowSchemes from "../../components/yellow_schemes";
 
-export default function ExportPromotionCouncils({ news, data, councils }) {
-    return (<RootLayout>
+export default function ExportPromotionCouncils({ news, data, councils, headerFooter }) {
+    return (<RootLayout data={headerFooter}>
         <Breadcrumps items={data.breadcrumps} />
         <YellowBlobHero hero={data.hero} hero_imgs={data.heroimg} />
         <PartnersSection heading={data.partners_title} data={data.partners} />
@@ -47,7 +47,8 @@ export async function getServerSideProps(context) {
         props: {
             news: news,
             data: data.data.attributes,
-            councils: councils
+            councils: councils,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 }

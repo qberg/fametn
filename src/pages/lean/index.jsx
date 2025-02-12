@@ -1,6 +1,6 @@
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
@@ -34,17 +34,18 @@ import LeanDiet from "../../components/leandiet";
 import Gallery from "../../components/gallery";
 
 
-export default function Lean({ data }) {
-    return (<RootLayout>
-        <LeanHero hero={data.hero} hero_imgs={data.hero_images} />
-        <LeanSubHero data={data.section_2} />
-        <LeanBlock data={data.leanblock} />
-        <LeanDiet header={data.sectin_4_header} data={data.section_4_items} />
-        <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
-        <YellowResourcesBlock data={data.resourceblock} />
-        <Gallery data={data.gallery} />
-        <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
-    </RootLayout>)
+export default function Lean({ data, headerFooter }) {
+    return (
+        <RootLayout data={headerFooter}>
+            <LeanHero hero={data.hero} hero_imgs={data.hero_images} />
+            <LeanSubHero data={data.section_2} />
+            <LeanBlock data={data.leanblock} />
+            <LeanDiet header={data.sectin_4_header} data={data.section_4_items} />
+            <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
+            <YellowResourcesBlock data={data.resourceblock} />
+            <Gallery data={data.gallery} />
+            <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
+        </RootLayout>)
 }
 
 export async function getServerSideProps(context) {
@@ -61,6 +62,7 @@ export async function getServerSideProps(context) {
         props: {
             // news: news,
             data: data.data.attributes,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 };

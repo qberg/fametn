@@ -1,6 +1,6 @@
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import PartnersSection from "@/components/partners";
 import RecentBlogsGrid from "../../components/recentblogsgrid";
 import Testimonials from "../../components/testimonials";
@@ -12,20 +12,21 @@ import { getAllTestingLabs } from "../../utils/testinglabs";
 import TestinglabsTable from "../../components/testinglabstable";
 
 
-export default function TestingLabs({ data, testinglabs, news }) {
-    return (<RootLayout>
-        <TestingLabHero data={data.hero} />
-        <div className="my-5"></div>
-        <PartnersSection heading={data.partners_title} data={data.partners} />
-        <div className="my-5"></div>
-        <YellowResourcesBlock data={data.resourcesblock} />
-        <TestingLabGallery header={data.gallery_heading} images={data.gallery_images} />
-        <div className="my-5"></div>
-        <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
-        <RecentBlogsGrid blogs={data.blogs} />
-        <TestinglabsTable data={testinglabs} header={data.testinglabs} />
-        <Newsletterform data={news} />
-    </RootLayout>)
+export default function TestingLabs({ data, testinglabs, news, headerFooter }) {
+    return (
+        <RootLayout data={headerFooter}>
+            <TestingLabHero data={data.hero} />
+            <div className="my-5"></div>
+            <PartnersSection heading={data.partners_title} data={data.partners} />
+            <div className="my-5"></div>
+            <YellowResourcesBlock data={data.resourcesblock} />
+            <TestingLabGallery header={data.gallery_heading} images={data.gallery_images} />
+            <div className="my-5"></div>
+            <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
+            <RecentBlogsGrid blogs={data.blogs} />
+            <TestinglabsTable data={testinglabs} header={data.testinglabs} />
+            <Newsletterform data={news} />
+        </RootLayout>)
 }
 
 export async function getServerSideProps(context) {
@@ -43,6 +44,7 @@ export async function getServerSideProps(context) {
         props: {
             testinglabs: testinglabs,
             news: news,
+            headerFooter: await getHeaderFooterData(language),
             data: data.data.attributes,
         }
     }

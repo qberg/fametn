@@ -4,13 +4,17 @@ export default function SiteMap() {
     const lists = [
         "/",
         "/blogs",
+
         "/branding-and-packaging",
         "/emarkets",
+
+        "/energy-efficiency",
         "/events",
         "/export-promotion-councils",
         "/export-promotions",
         "/expos-and-exhibitions",
-        "/finance/schemes",
+        "/schemes",
+
         "/markets",
         "/resources",
         "/vendor-development-meets",
@@ -20,9 +24,7 @@ export default function SiteMap() {
         "/energy-efficiency",
         "/industry-4-0",
         "/testing-labs",
-        "/lean",
-        "/ondc",
-        "/finance/schemes/unemployed-youth-employment-generation"
+        "/lean"
     ]
 
     return (

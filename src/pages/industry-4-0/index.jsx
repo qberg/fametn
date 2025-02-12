@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
@@ -21,8 +21,8 @@ import YellowSchemes from "../../components/yellow_schemes";
 import YellowResourcesBlock from "../../components/yellowresourcesblock";
 import Gallery from "../../components/gallery";
 
-export default function Industry4PointO({ data, news }) {
-    return (<RootLayout>
+export default function Industry4PointO({ data, news, headerFooter }) {
+    return (<RootLayout data={headerFooter}>
         <YellowHero hero={data.hero} hero_imgs={data.heroimages} />
         <YellowResourcesBlock data={data.resourceblock} />
         <div className="my-5"></div>
@@ -52,6 +52,7 @@ export async function getServerSideProps(context) {
             news: news,
             // investmentProviders: investmentProviders,
             data: data.data.attributes,
+            headerFooter: await getHeaderFooterData(language)
             // testimonials: testimonial_data.data.attributes.testimonials,
             // resources: testimonial_data.data.attributes.resources
         }

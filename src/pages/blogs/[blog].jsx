@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import DynamicImage from "../../components/dynamicImage";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-import { getNewsletterData } from "../../utils/api_calls";
+import { getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Newsletterform from "../../components/newsletterform";
 import Bluepill from "../../components/bluepill";
 import YellowArrowButton from "../../components/yellow_arrow_button";
@@ -61,7 +61,7 @@ const RecentBlogs = ({ recentBlogs }) => {
 }
 
 
-export default function Blog({ recentBlogs, news, title, length, date, author, content, image, tags }) {
+export default function Blog({ recentBlogs, news, title, length, date, author, content, image, tags, headerFooter }) {
     const { locale } = useRouter();
 
     const sharePageToTwitter = () => {
@@ -72,7 +72,7 @@ export default function Blog({ recentBlogs, news, title, length, date, author, c
 
     const [showModal, setShowModal] = useState(false);
     const modalTimeout = 3000;
-    
+
     const copyToClipboard = () => {
         const url = window.location.href;
         navigator.clipboard.writeText(url);
@@ -88,7 +88,7 @@ export default function Blog({ recentBlogs, news, title, length, date, author, c
     }
 
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Container className="px-3 px-md-5">
                 <div data-aos="fade-up" className="pt-5 pb-4">
                     <Link className={styles.movelefter} href={`/blogs`}>
@@ -161,6 +161,7 @@ export async function getServerSideProps(context) {
     blogData.content = blogData.content.map(replaceImagePath);
     return {
         props: {
+            headerFooter: await getHeaderFooterData(language),
             ...blogData,
             news: news,
             recentBlogs: recentBlogs

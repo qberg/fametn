@@ -82,3 +82,23 @@
   width: 100vw;
   z-index: 99;
 }
+
+.mobile_menu {
+  position: fixed;
+  left: 0;
+  top: 4em;
+  width: 100vw;
+  height: calc(100svh - 4em);
+  padding: 1em;
+  align-items: center;
+}
+
+.actual_mobile_menu  {
+  background-color: var(--white);
+  height: 100%;
+  width: calc(100% - 1em);
+  border-radius: var(--small-radius);
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}

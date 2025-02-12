@@ -1,7 +1,7 @@
 import HeroSection2 from "../components/herosection2";
 import HomeHero from "../components/homehero";
 import RootLayout from "../components/layout/layout";
-import { getDataFromPath } from "../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData } from "../utils/api_calls";
 import { CacheHeaders } from "../utils/definitions";
 import HeroBlues from "../components/heroblues";
 import HeroGrids from "../components/herogrids";
@@ -9,9 +9,9 @@ import HeroBlack from "../components/heroblack";
 import HeroLast from "../components/herolast";
 
 
-export default function Home({ data }) {
+export default function Home({ data, headerFooter }) {
 	return (
-		<RootLayout>
+		<RootLayout data={headerFooter}>
 			<HomeHero
 				title={data.title}
 				options={data.options}
@@ -41,6 +41,7 @@ export async function getServerSideProps(context) {
 	return {
 		props: {
 			data: data.data.attributes,
+			headerFooter: await getHeaderFooterData(language),
 		},
 	}
 }

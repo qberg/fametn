@@ -11,6 +11,7 @@ import styles from "./events.module.css";
 import Image from "next/image";
 import YellowArrowButton from "../../components/yellow_arrow_button";
 import EventPopup from "../../components/eventpopup";
+import { getHeaderFooterData } from "../../utils/api_calls";
 const strings = {
     "results": {
         "en": "Search results for",
@@ -195,7 +196,7 @@ function EventFilter({ onChange, startDate, endDate, locations, categories, allL
 }
 
 
-export default function SearchEvents({ locations, search, categories, events, filterCats, filterLocs, startDate, endDate }) {
+export default function SearchEvents({ locations, search, categories, events, filterCats, filterLocs, startDate, endDate, headerFooter }) {
     const { locale } = useRouter();
 
     const [searchText, setSearchText] = useState(search);
@@ -259,7 +260,7 @@ export default function SearchEvents({ locations, search, categories, events, fi
     }
 
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Container>
                 <EventPopup ref={popupRef} />
                 <div className="mt-4">
@@ -332,7 +333,8 @@ export async function getServerSideProps(context) {
             startDate: startDate,
             endDate: endDate,
             filterCats: filterCategories,
-            filterLocs: filterLocation
+            filterLocs: filterLocation,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 }

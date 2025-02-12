@@ -6,7 +6,7 @@ import styles from "./scheme.module.css"
 import Separator from "@/components/separator";
 import Image from 'next/image'
 import { CacheHeaders, JSONData } from "@/utils/definitions";
-import { getData } from "@/utils/api_calls";
+import { getData, getHeaderFooterData } from "@/utils/api_calls";
 
 
 import axios from "axios";
@@ -55,7 +55,8 @@ export async function getServerSideProps(context: JSONData) {
 		props: {
 			categories: categoryList,
 			currentCategory: currentCategory,
-			agencyList: agencyList
+			agencyList: agencyList,
+			headerFooter: await getHeaderFooterData(language)
 		}
 	}
 }
@@ -119,7 +120,7 @@ const MobileStickyTop = ({ max_top, children }: JSONData) => {
 }
 
 
-export default function Finance({ currentCategory, categories, agencyList }: JSONData) {
+export default function Schemes({ currentCategory, categories, agencyList, headerFooter }: JSONData) {
 	const [category, setCategory] = useState(currentCategory);
 
 	const [subsidyRate, setSubsidyRate] = useState([0, 100]);
@@ -176,7 +177,7 @@ export default function Finance({ currentCategory, categories, agencyList }: JSO
 	const pagedReqSchemes = requiredSchemes.slice((page - 1) * numItemsPerPage, page * numItemsPerPage)
 
 	return (
-		<RootLayout>
+		<RootLayout data={headerFooter}>
 			<Container>
 				<div className="mt-5">
 					<Link className={styles.bluelink} href="/">Home</Link>

@@ -6,25 +6,17 @@ import { JSONData } from '@/utils/definitions';
 import Head from 'next/head';
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    //search operation
-  };
-
+  data
+}) {
   return (
     <>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://www.clarity.ms" />
       </Head>
-      <Navbar onSearch={handleSearch} />
+      <Navbar data={data} />
       <div className={styles.fillVertical}>{children}</div>
-      <Footer />
+      <Footer data={data} />
     </>
   );
 }

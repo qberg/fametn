@@ -1,6 +1,6 @@
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
@@ -17,9 +17,9 @@ import Packers from "../../components/packers";
 import ExportBlock from "../../components/export_block";
 import InfraBlock from "../../components/infra_block";
 
-export default function MSEFC({ data, news, testimonials, testimonial_title, testimonial_subtitle, resources }) {
+export default function MSEFC({ data, news, testimonials, testimonial_title, testimonial_subtitle, resources, headerFooter }) {
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Breadcrumps items={data.bread_crumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.hero_img} />
             <PartnersSection heading={data.partners_title} data={data.partners} />
@@ -53,7 +53,8 @@ export async function getServerSideProps(context) {
             testimonials: testimonial_data.data.attributes.testimonials,
             resources: testimonial_data.data.attributes.resources,
             testimonial_title: testimonial_data.data.attributes.testimonial_title,
-            testimonial_subtitle: testimonial_data.data.attributes.testimonial_subtitle
+            testimonial_subtitle: testimonial_data.data.attributes.testimonial_subtitle,
+            headerFooter: await getHeaderFooterData(language)
 
         }
     }

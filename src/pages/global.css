@@ -215,37 +215,8 @@ a {
   /* Optional: sets border color to transparent */
 }
 
-.action {
-  margin-left: '100px';
-}
-
-.borderDiv {
-  border: none;
-  display: flex;
-  /* width: 90px;  */
-  /* Border style: 2px width, solid line, black color */
-  /* Optional: Add padding for content inside the div */
-}
-
-.bordersearch input::placeholder {
-  color: rgb(208, 203, 203);
-  /* Placeholder text color */
-}
-
-.line {
-  size: "100px";
-  color: aliceblue;
-  height: 2px;
-  width: "50%";
-  margin-top: 70px;
 
 
-}
-
-.bord {
-  border-color: white;
-  border: 2px;
-}
 
 .bottom-left {
 

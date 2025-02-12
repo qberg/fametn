@@ -1,6 +1,6 @@
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import RecentBlogsGrid from "../../components/recentblogsgrid";
 import Testimonials from "../../components/testimonials";
 import InvestmentHero from "../../components/investment_hero";
@@ -12,25 +12,26 @@ import InvestmentProviders from "../../components/investment_providers";
 import InvestmentForm from "../../components/investent_form";
 
 
-export default function InvestmentPromotion({ data, investmentProviders }) {
-    return (<RootLayout>
-        <InvestmentHero
-            title={data.hero_title}
-            description={data.hero_description}
-            cta_link_prim={data.cta_link_prim}
-            cta_text_prim={data.cta_text_prim}
-            cta_link_sec={data.cta_link_sec}
-            cta_text_sec={data.cta_text_sec}
-            cards={data.hero_cards}
-        />
-        <InvestmentContent data={data} />
-        <YellowResourcesBlock data={data.resourcesblock} />
-        <YellowSchemes data={data.finance_schemes} header={data.section_4_heading} cta={data.section_4_cta} />
-        <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
-        <RecentBlogsGrid blogs={data.blogs} />
-        <InvestmentProviders data={investmentProviders} title={data.table_title} supertitle={data.table_supertitle}/>
-        <InvestmentForm title={data.form_title} supertitle={data.form_supertitle} image={data.form_image} />
-    </RootLayout>)
+export default function InvestmentPromotion({ data, investmentProviders, headerFooter }) {
+    return (
+        <RootLayout data={headerFooter}>
+            <InvestmentHero
+                title={data.hero_title}
+                description={data.hero_description}
+                cta_link_prim={data.cta_link_prim}
+                cta_text_prim={data.cta_text_prim}
+                cta_link_sec={data.cta_link_sec}
+                cta_text_sec={data.cta_text_sec}
+                cards={data.hero_cards}
+            />
+            <InvestmentContent data={data} />
+            <YellowResourcesBlock data={data.resourcesblock} />
+            <YellowSchemes data={data.finance_schemes} header={data.section_4_heading} cta={data.section_4_cta} />
+            <Testimonials data={data.testimonials} title={data.testimonial_title} subtitle={data.testimonial_subtitle} />
+            <RecentBlogsGrid blogs={data.blogs} />
+            <InvestmentProviders data={investmentProviders} title={data.table_title} supertitle={data.table_supertitle} />
+            <InvestmentForm title={data.form_title} supertitle={data.form_supertitle} image={data.form_image} />
+        </RootLayout>)
 }
 
 export async function getServerSideProps(context) {
@@ -47,6 +48,7 @@ export async function getServerSideProps(context) {
         props: {
             investmentProviders: investmentProviders,
             data: data.data.attributes,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 };

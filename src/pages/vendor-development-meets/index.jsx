@@ -1,5 +1,5 @@
 import RootLayout from "../../components/layout/layout"
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import { CacheHeaders } from "../../utils/definitions";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
@@ -18,9 +18,9 @@ import Newsletterform from "../../components/newsletterform";
 
 
 
-export default function VendorDevelopmentMeets({ news, data, metaEvents, upcomingEvents }) {
+export default function VendorDevelopmentMeets({ news, data, metaEvents, upcomingEvents, headerFooter }) {
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.hero_images} />
             <PartnersSection heading={data.section_2_heading} data={data.partners} />
@@ -60,7 +60,8 @@ export async function getServerSideProps(context) {
             metaEvents: metaEvents,
             upcomingEvents: upcomingEvents,
             news: news,
-            data: data.data.attributes
+            data: data.data.attributes,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 };

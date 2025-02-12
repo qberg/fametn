@@ -4,7 +4,7 @@ import styles from "./events.module.css";
 import { useState } from "react";
 import Gigasearch from "../../components/gigasearch";
 import YellowPill from "../../components/yellowpill";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import { CacheHeaders } from "../../utils/definitions";
 import { getUpComingNEvents } from "../../utils/events";
 import Topthreecarousel from "../../components/topthreecarousel";
@@ -18,7 +18,7 @@ const formatDate = (date) => {
     return dateObj.toLocaleDateString("en-US", { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
-export default function Events({ news, search, meta, upcomingEvents }) {
+export default function Events({ news, search, meta, upcomingEvents, headerFooter }) {
 
     const [searchText, setSearchText] = useState(search);
     const onSearch = (text) => {
@@ -41,7 +41,7 @@ export default function Events({ news, search, meta, upcomingEvents }) {
     })
 
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Container className={styles.yellowcontainer} fluid>
                 <Container>
                     <div className="pt-4">
@@ -88,7 +88,8 @@ export async function getServerSideProps(context) {
             search: search,
             meta: meta?.data?.attributes,
             upcomingEvents: upcomingEvents,
-            news: news
+            news: news,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 }

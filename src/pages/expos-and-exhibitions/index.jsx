@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import styles from "./expos.module.css"
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
@@ -16,9 +16,9 @@ import MiniResources from "../../components/miniresources";
 import FaqComponent from "../../components/faqcomponent";
 import Newsletterform from "../../components/newsletterform";
 
-export default function ExposAndExhibitions({ data, expo, news }) {
+export default function ExposAndExhibitions({ data, expo, news, headerFooter }) {
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.heroimage} />
             <PartnersSection heading={data.partners_title} data={data.partners} />
@@ -57,7 +57,8 @@ export async function getServerSideProps(context) {
                 allExpoCountries: allExpoCountries,
                 allExpoCities: allExpoCities,
                 allExpoSectors: allExpoSectors
-            }
+            },
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 }

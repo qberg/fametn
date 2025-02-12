@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
@@ -14,9 +14,9 @@ import MiniResources from "../../components/miniresources";
 import FaqComponent from "../../components/faqcomponent";
 import Newsletterform from "../../components/newsletterform";
 
-export default function Emarkets({ news, data }) {
+export default function Emarkets({ news, data, headerFooter }) {
   return (
-    <RootLayout>
+    <RootLayout data={headerFooter}>
       <Breadcrumps items={data.breadcrumps} />
       <YellowBlobHero hero={data.hero} hero_imgs={data.heroimage} />
       <PartnersSection heading={data.partners_title} data={data.partners} />
@@ -44,7 +44,8 @@ export async function getServerSideProps(context) {
 
     props: {
       news: news,
-      data: data.data.attributes
+      data: data.data.attributes,
+      headerFooter: await getHeaderFooterData(language)
     }
   }
 }

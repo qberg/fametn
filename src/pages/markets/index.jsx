@@ -1,14 +1,14 @@
 import Flathero from "../../components/flathero";
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "../../utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Minihero from "../../components/minihero";
 import Multiheading from "../../components/multiheading";
 import Newsletterform from "../../components/newsletterform";
 
-export default function Markets({ data, news }) {
+export default function Markets({ data, news, headerFooter }) {
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Flathero hero={data.hero} heroimg={data.heroimg} heronumbers={data.heronumbers} />
             <Minihero data={data.minihero} />
             <Multiheading heading={data.section_3_heading} cards={data.section_3_cards} />
@@ -30,7 +30,8 @@ export async function getServerSideProps(context) {
 
         props: {
             news: news,
-            data: data.data.attributes
+            data: data.data.attributes,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 };

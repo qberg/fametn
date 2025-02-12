@@ -3,7 +3,7 @@ import styles from "./resources.module.css";
 import RootLayout from "../../components/layout/layout";
 import YellowPill from "../../components/yellowpill";
 import { CacheHeaders } from "../../utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import { getAllCategories, getAllResourceCategories, getAllResources } from "../../utils/resources";
 import { useState } from "react";
 import DynamicImage from "../../components/dynamicImage";
@@ -11,7 +11,7 @@ import Image from "next/image";
 import Newsletterform from "../../components/newsletterform";
 import ResourcesImageCard from "../../components/resourceimagecard";
 
-export default function Resources({ news, meta, allCategories, allResources }) {
+export default function Resources({ news, meta, allCategories, allResources, headerFooter }) {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     const toggleCategory = (category) => {
@@ -28,7 +28,7 @@ export default function Resources({ news, meta, allCategories, allResources }) {
     });
 
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Container className={styles.bigblue} fluid>
                 <Container>
                     <center>
@@ -94,7 +94,8 @@ export async function getServerSideProps(context) {
             meta: meta?.data?.attributes,
             allCategories: allCategories,
             allResources: resources,
-            news: news
+            news: news,
+            headerFooter: await getHeaderFooterData(language),
         }
     }
 }

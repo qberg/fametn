@@ -1,6 +1,6 @@
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import Breadcrumps from "../../components/breadcrumps";
 import YellowBlobHero from "@/components/yellowblobhero";
 import PartnersSection from "@/components/partners";
@@ -15,9 +15,9 @@ import BrandingGallery from "../../components/branding_gallery";
 import { getAllPackers } from "../../utils/packers";
 import Packers from "../../components/packers";
 
-export default function BrandingAndPackaging({ news, data, packers }) {
+export default function BrandingAndPackaging({ news, data, packers, headerFooter }) {
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Breadcrumps items={data.breadcrumps} />
             <YellowBlobHero hero={data.hero} hero_imgs={data.hero_imgs} />
             <PartnersSection heading={data.partners_title} data={data.partners} />
@@ -41,13 +41,14 @@ export async function getServerSideProps(context) {
     const language = context.locale;
     const data = await getDataFromPath(path, language);
     const news = await getNewsletterData(language);
-
     const packers = await getAllPackers(language);
+
     return {
         props: {
             news: news,
             packers: packers,
-            data: data.data.attributes
+            data: data.data.attributes,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 }

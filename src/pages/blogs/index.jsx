@@ -2,7 +2,7 @@ import RootLayout from "../../components/layout/layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Gigasearch from "../../components/gigasearch";
 import { CacheHeaders } from "../../utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import { getBlogList, getTopNBlogs } from "../../utils/blogs";
 import Bluepill from "../../components/bluepill";
 import Topthreecarousel from "../../components/topthreecarousel";
@@ -112,7 +112,7 @@ function BlogSort({ onChange, value }) {
     );
 }
 
-export default function Blogs({ news, page, totalPages, blogList, search, sort, meta, recentBlogs }) {
+export default function Blogs({ news, page, totalPages, blogList, search, sort, meta, recentBlogs, headerFooter }) {
     const { locale } = useRouter();
     const router = useRouter();
 
@@ -128,7 +128,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
             link: `/blogs/${each.url}`
         }
     })
-    
+
     const getQueryString = (searchText, sort) => {
         var queryString = `?search=${searchText}`;
         if (sort) {
@@ -149,7 +149,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
     }
 
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <Container>
                 <div className="z-2 position-relative mt-4 mb-4">
                     <Row data-aos="fade-up">
@@ -177,7 +177,7 @@ export default function Blogs({ news, page, totalPages, blogList, search, sort, 
 
 
                 <div data-aos="fade-up" className="mt-3 mb-4">
-                    {currentBlogList.length !=0 && (<h4>{(search == "") ? strings.blogs[locale] : strings.results[locale] + ` "${search}"`}</h4>)}
+                    {currentBlogList.length != 0 && (<h4>{(search == "") ? strings.blogs[locale] : strings.results[locale] + ` "${search}"`}</h4>)}
                     {currentBlogList.length == 0 && (<h4>No results found for &quot;{search}&quot;</h4>)}
                 </div>
                 <Row className="gx-5 gy-5">
@@ -216,6 +216,8 @@ export async function getServerSideProps(context) {
     const currentBlogList = await getBlogList(language, search, sort.column, sort.ascending, page);
     const news = await getNewsletterData(language);
 
+    const headerFooter = await getHeaderFooterData(language);
+
     return {
         props: {
             page: currentBlogList.currentPage,
@@ -225,7 +227,8 @@ export async function getServerSideProps(context) {
             sort: sort,
             meta: meta?.data?.attributes,
             recentBlogs: recentBlogs,
-            news: news
+            news: news,
+            headerFooter: headerFooter
         }
     }
 }

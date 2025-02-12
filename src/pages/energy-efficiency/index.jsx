@@ -1,17 +1,9 @@
-import { Container } from "react-bootstrap";
 import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
-import { getDataFromPath, getNewsletterData } from "../../utils/api_calls";
-import Breadcrumps from "../../components/breadcrumps";
-import YellowBlobHero from "@/components/yellowblobhero";
+import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../utils/api_calls";
 import PartnersSection from "@/components/partners";
-import EmarketsImageGallery from "../../components/emarketsImageGallery";
-import ThreeChannel from "@/components/threechannel";
 import UpcomingEvents from "../../components/upcoming_events";
 import RecentBlogsGrid from "../../components/recentblogsgrid";
-import Testimonials from "../../components/testimonials";
-import MiniResources from "../../components/miniresources";
-import FaqComponent from "../../components/faqcomponent";
 import Newsletterform from "../../components/newsletterform";
 import YellowHero from "../../components/yellowhero";
 import EnergyCard from "../../components/energycard";
@@ -21,9 +13,9 @@ import YellowSchemes from "../../components/yellow_schemes";
 import YellowResourcesBlock from "../../components/yellowresourcesblock";
 import Gallery from "../../components/gallery";
 
-export default function EnergyEfficiency({ data, auditors, news }) {
+export default function EnergyEfficiency({ data, auditors, news, headerFooter }) {
     return (
-        <RootLayout>
+        <RootLayout data={headerFooter}>
             <YellowHero hero={data.hero} hero_imgs={data.hero_imgs} />
             <UpcomingEvents data={data.events.events.data.map(each => each.attributes)} meta={data.events} />
             <EnergyCard data={data.section_2} />
@@ -53,7 +45,8 @@ export async function getServerSideProps(context) {
         props: {
             news: news,
             auditors: auditors,
-            data: data.data.attributes
+            data: data.data.attributes,
+            headerFooter: await getHeaderFooterData(language)
         }
     }
 }

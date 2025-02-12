@@ -1,3 +1,33 @@
-.bord > ul {
-    padding-left: 0 !important;
+.footer {
+    background-color: var(--black);
+    color: var(--almost-white);
+    overflow: hidden;
+}
+
+.logobox {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    min-height: 240px;
+}
+
+.yellowtom {
+    background-color: var(--yellow);
+    height: 100%;
+    padding: 2em;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+}
+
+.blackonly {
+    color: var(--black) !important;
+}
+
+.cottoncandy {
+    color: var(--almost-white) !important;
+}
+
+.whitesoc {
+    color: var(--almost-white) !important;
 }
