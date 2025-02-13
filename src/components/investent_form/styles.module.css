@@ -59,3 +59,7 @@
     padding-right: 0 !important;
     min-height: 300px;
 }
+
+.sub[data-error="true"] div {
+    cursor: not-allowed !important; 
+}

@@ -45,3 +45,11 @@
 .checktext {
     font-size: 80%;
 }
+
+.err {
+    color: var(--red);
+}
+
+.sub[data-error="true"] div {
+    cursor: not-allowed !important; 
+}

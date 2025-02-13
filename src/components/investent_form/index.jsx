@@ -1,10 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap"
 import styles from "./styles.module.css"
 import Bluepill from "../bluepill"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import YellowArrowButton from "../yellow_arrow_button"
 import DynamicImage from "../dynamicImage"
+import axios from "axios"
 
 const strings = {
     firstname: {
@@ -42,6 +43,14 @@ const strings = {
     submit: {
         en: "Submit",
         ta: "சமர்ப்பிக்கவும்"
+    },
+    "wait": {
+        "en": "Submitting...",
+        "ta": "சமர்ப்பிக்கப்படுகின்றது..."
+    },
+    "done": {
+        "en": "Submitted successfully",
+        "ta": "வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது"
     }
 }
 
@@ -50,10 +59,17 @@ export default function InvestmentForm({ title, supertitle, image }) {
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [designation, setDesignation] = useState("")
-    const [error, setError] = useState("")
+    const [error, setError] = useState(null)
     const { locale } = useRouter()
 
-    const handleSubmit = () => {
+    const [wait, setWait] = useState(false);
+    const [done, setDone] = useState(false);
+
+    useEffect(() => {
+        validateEverything()
+    }, [firstName, lastName, email, designation])
+
+    const validateEverything = () => {
         if (!firstName || !lastName || !email || !designation) {
             setError("All fields are required.")
         } else if (!/^[A-Za-z\s]+$/.test(firstName)) {
@@ -71,11 +87,42 @@ export default function InvestmentForm({ title, supertitle, image }) {
         } else if (designation.length < 3 || designation.length > 24) {
             setError("Designation must be between 3 and 24 characters.")
         } else {
-            setError("")
+            setError(null)
             // Proceed with form submission logic
         }
     }
 
+    const touche = firstName || lastName || email || designation
+
+    const handleSubmit = () => {
+        if (error) return;
+        if (wait) return;
+
+        setWait(true)
+
+        const formData = {
+            firstName,
+            lastName,
+            email,
+            designation
+        }
+
+        axios.post("/api/investmentform", formData).then(function (response) {
+            if (response.status >= 200 && response.status < 300) {
+                setDone(true)
+                setWait(false)
+                setTimeout(() => {
+                    setDone(false)
+                }, 5000)
+            } else {
+                setError("Server error. Please try again later.")
+                setWait(false)
+            }
+        }).catch(function (error) {
+            setError(error?.response?.data?.error || "Server error. Please try again later.")
+            setWait(false)
+        })
+    }
 
     return (<Container className={styles.yellowbg} fluid>
         <Container>
@@ -107,9 +154,15 @@ export default function InvestmentForm({ title, supertitle, image }) {
                         </div>
                         <input data-aos="fade-up" placeholder={strings.placeholderDesignation[locale]} className={styles.formfield} value={designation} onChange={(e) => setDesignation(e.target.value)} />
 
-                        {error && <div data-aos="fade-up" className={`${styles.error} my-2`}>{error}</div>}
+                        {error && touche && <div data-aos="fade-up" className={`${styles.error} my-2`}>{error}</div>}
 
-                        <div data-aos="fade-up" className="my-4" onClick={handleSubmit}>
+                        {wait && <div className="mt-2 small">
+                            {strings.wait[locale]}
+                        </div>}
+                        {done && <div className="mt-2 small">
+                            {strings.done[locale]}
+                        </div>}
+                        <div onClick={handleSubmit} data-error={error != null || wait == true} data-aos="fade-up" className={`my-4 ${styles.sub}`}>
                             <YellowArrowButton text={strings.submit[locale]} />
                         </div>
                     </div>
