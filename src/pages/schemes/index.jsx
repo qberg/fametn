@@ -140,7 +140,10 @@ export async function getServerSideProps(context) {
 		currentCategory = category
 	}
 
+	const schemeMetaPath = "schemes?&populate=deep"
+	const schemeMeta = await getDataFromPath(schemeMetaPath, language)
 
+	// const schemeMeta = await getDataFromPath("finance-scheme-meta", language)
 	return {
 		props: {
 			schemeMeta: schemeMeta.data.attributes,
@@ -356,7 +359,7 @@ export default function Schemes({ currentCategory, categories, agencyList, heade
 					<div className={styles.fscheme}>
 						<TopBanner schemeMeta={schemeMeta} agencyList={agencyList} onFilterChange={setFilters} />
 						{searchText == "" && (<><FeaturedSchemesBanner schemeMeta={schemeMeta} />
-						<FeaturedSchemes schemes={featuredSchemes} /></>)}
+							<FeaturedSchemes schemes={featuredSchemes} /></>)}
 						<AllSchemsBanner schemeMeta={schemeMeta} />
 						<AllSchemes allResults={pagedReqSchemes} />
 						<BottomPagination totalPages={totalPages} page={page} />

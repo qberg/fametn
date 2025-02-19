@@ -8,7 +8,7 @@ import Image from "next/image";
 
 function SubCard({ data, key }) {
     return (
-        <Link href={data.link}>
+        <Link href={data.link || "#"}>
             <div data-aos="fade-up" data-aos-delay={key * 100} className="d-flex mb-4">
                 <div className={styles.subimg}>
                     <DynamicImage src={data.image} objectFit="cover" />
