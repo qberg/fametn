@@ -1,128 +1,124 @@
 .container {
-    background-color: rgba(255, 255, 255, 0.6);
-    margin-top: auto;
-    margin-bottom: auto;
-    padding: 2em;
-    z-index: 2;
-    border-radius: var(--radius);
-    backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 2em;
+  z-index: 2;
+  border-radius: var(--radius);
+  backdrop-filter: blur(5px);
 }
 
 .prop {
-    /* background-color: cyan; */
-    /* min-height: 460px; */
-    width: 100%;
+  /* min-height: 460px; */
+  width: 100%;
 }
 
 .yellowbg {
-    background-color: var(--yellow);
-    text-transform: uppercase;
-    color: var(--white);
-    padding: 0.5em 1em 0.2em 1em;
-    width: fit-content;
-    margin-bottom: 0.2em;
-    position: relative;
+  background-color: var(--yellow);
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 0.5em 1em 0.2em 1em;
+  width: fit-content;
+  margin-bottom: 0.2em;
+  position: relative;
 }
 
 .title::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 0.4em;
-    background-color: var(--yellow);
-    top: 0px;
-    left: 0px;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0.4em;
+  background-color: var(--yellow);
+  top: 0px;
+  left: 0px;
 }
 
 .title {
-    text-transform: uppercase;
-    margin-top: 1em;
-    padding-left: 1.4em;
+  text-transform: uppercase;
+  margin-top: 1em;
+  padding-left: 1.4em;
 }
 
 .subtitle {
-    margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 .carousel_megaholder {
-    padding-bottom: 3em;
+  padding-bottom: 3em;
 }
 
 .carousel_holder {
-    min-height: 412px;
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
+  min-height: 412px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
 }
 
 .mastercontainer {
-    padding: 0em;
+  padding: 0em;
 }
 
 .blob {
-    position: relative;
-    z-index: -1;
-    height: 10px;
-    width: 100vw;
+  position: relative;
+  z-index: -1;
+  height: 10px;
+  width: 100vw;
 }
 
 .blob::after {
-    position: absolute;
-    content: "";
-    background-image: url("/yellow_blob_2.svg");
-    height: 100vh;
-    width: 100vw;
-    top: -6em;
-    background-position: top right;
-    background-size: contain;
-    background-repeat: no-repeat;
+  position: absolute;
+  content: "";
+  background-image: url("/yellow_blob_2.svg");
+  height: 100vh;
+  width: 100vw;
+  top: -6em;
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* mediaquery for less than lg screens */
 @media (max-width: 1024px) {
-    .blob::after {
-        background-image: url("/yellow_blob_2_mob.svg");
-        background-size: cover;
-        height: 70vh;
-    }
+  .blob::after {
+    background-image: url("/yellow_blob_2_mob.svg");
+    background-size: cover;
+    height: 70vh;
+  }
 }
-
 
 /* mediaquery for lg screens */
 @media (min-width: 1024px) {
-    .container {
-        margin-right: -100px;
-    }
+  .container {
+    margin-right: -100px;
+  }
 }
 
 /* mediaquery for less than lg screens */
 @media (max-width: 1024px) {
-    .carousel_holder {
-        min-height: 300px;
-    }
+  .carousel_holder {
+    min-height: 300px;
+  }
 }
 
-
 .indic {
-    cursor: pointer;
-    display: inline-block;
-    height: 4px;
-    margin: 0.2em;
-    border-radius: 4px;
-    transition: var(--transition);
+  cursor: pointer;
+  display: inline-block;
+  height: 4px;
+  margin: 0.2em;
+  border-radius: 4px;
+  transition: var(--transition);
 }
 
 .indic[data-shono="false"] {
-    background-color: var(--light-gray);
-    width: 1em;
-    transition: var(--transition);
-
+  background-color: var(--light-gray);
+  width: 1em;
+  transition: var(--transition);
 }
 
 .indic[data-shono="true"] {
-    background-color: var(--gray);
-    width: 1.66em;
-    transition: var(--transition);
+  background-color: var(--gray);
+  width: 1.66em;
+  transition: var(--transition);
 
-    /* transition: var(--transition); */
+  /* transition: var(--transition); */
 }

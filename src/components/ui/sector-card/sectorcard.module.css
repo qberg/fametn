@@ -1,0 +1,137 @@
+.sectorCard {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 2em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sectorImageContainer {
+  position: relative;
+  height: 220px;
+  background-color: white;
+  color: white;
+}
+
+.bgImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bgImageWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.sectorContent {
+  position: relative;
+  z-index: 1;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sectorTitle {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: white;
+}
+
+.sectorDescription {
+  margin-bottom: 1em;
+  width: 100%;
+  max-width: 100%;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ) !important; /* Changed to light gray ? TODO:Check with soorkie */
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.ctaButton {
+  background-color: var(--yellow);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ctaButton:hover {
+  background-color: #e59400;
+}
+
+.featuresContainer {
+  background-color: var(--yellow);
+  padding: 1em 0;
+}
+
+.featureCol {
+  padding: 0.5em 1em;
+  position: relative;
+}
+
+.featureCol:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.featureNumber {
+  font-weight: 700;
+  font-size: 1em;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featureText {
+  font-size: 1em;
+  color: #1a1a1a;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 1024px) {
+  .sectorDescription {
+    max-width: 30vw;
+  }
+}
