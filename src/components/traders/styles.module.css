@@ -1,0 +1,10 @@
+.assbox {
+    background-color: var(--white);
+    min-height: 100px;
+    height: 100%;
+    padding: 1em;
+    border-radius: var(--small-radius);
+    border: 1px solid var(--border-gray);
+    display: flex;
+    flex-direction: column;
+}

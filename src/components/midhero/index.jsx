@@ -3,7 +3,7 @@ import styles from "./styles.module.css"
 import DynamicImage from "../dynamicImage"
 
 export default function MidHero({ data }) {
-    return (<Container className="p-4">
+    return (<Container className="p-4 mt-4">
         <div data-aos="fade-up" className={styles.midherobg}>
             <Row className="h-100 z-2 position-relative gx-5">
                 <Col lg={6}>
