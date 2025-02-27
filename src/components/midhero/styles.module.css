@@ -1,0 +1,68 @@
+.midherobg {
+    background-color: var(--light-accent);
+    border-radius: var(--radius);
+    padding: 2em;
+    position: relative;
+}
+
+.midherobg::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    background-image: url("/midhero_dots.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: -75px;
+    top: -10px;
+}
+
+.midherobg::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    background-image: url("/midhero_dots.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 50%;
+    top: 50px;
+}
+
+.supertitle {
+    background-color: var(--yellow);
+    padding: 0.5em 1.2em;
+    text-transform: uppercase;
+    max-width: fit-content;
+}
+
+.imgholder {
+    min-height: 450px;
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+}
+
+.backimg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 70%;
+    background-color: red;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.frontimg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70%;
+    height: 70%;
+    background-color: blue;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
