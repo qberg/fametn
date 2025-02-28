@@ -25,7 +25,10 @@ export default function SiteMap() {
         "/energy-efficiency",
         "/industry-4-0",
         "/testing-labs",
-        "/lean"
+        "/lean",
+
+        "/tenders",
+        "/trade-associations-and-chambers",
     ]
 
     return (

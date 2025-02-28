@@ -1,0 +1,33 @@
+.newsitem {
+    background-color: var(--light-gray);
+    margin-bottom: 0.7em;
+    padding: 1em;
+    border-radius: var(--small-radius);
+    cursor: pointer;
+}
+
+.cate {
+    color: var(--yellow);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: var(--border-gray);
+    border-radius: 50%;
+}
+
+.headling {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.newsitem img {
+    transition: var(--transition);
+}
+
+.newsitem:hover img {
+    transform: scale(1.1);
+}

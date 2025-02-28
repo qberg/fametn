@@ -37,7 +37,7 @@ export default function RecentBlogsGrid({ blogs }) {
                 <YellowArrowButton text={strings.view[locale]} link="/blogs" />
             </div>
         </div>
-        <hr data-aos="fade-up"></hr>
+        <hr ></hr>
         <Row className="mt-5">
             <Col className={styles.twomb} lg={7}>
                 <div data-aos="fade-up" className={styles.newtealand}>

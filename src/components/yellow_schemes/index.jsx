@@ -30,7 +30,7 @@ export default function YellowSchemes({ data, header, cta }) {
                         <Col data-aos="fade-up" data-aos-delay={100 * index} md={6} lg={3} key={index}>
                             <SchemeCard
                                 mini={true}
-                                link={"/finance/schemes/" + each.scheme_link}
+                                link={"/schemes/" + each.scheme_link}
                                 title={each.scheme_name}
                                 icon={each.icon}
                                 description={each.scheme_description}

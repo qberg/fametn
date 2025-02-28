@@ -36,7 +36,7 @@ export async function getServerSideProps(context) {
     // add cache headers
     context.res.setHeader('Cache-Control', CacheHeaders);
 
-    const path = "micro-and-small-enterprises-facilitation-council?&populate=deep";
+    const path = "msefc?&populate=deep";
     const language = context.locale;
     const data = await getDataFromPath(path, language);
     const testimonial_data = await getDataFromPath("msefc-testimonial?&populate=deep", language);
