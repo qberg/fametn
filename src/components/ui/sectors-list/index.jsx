@@ -1,9 +1,10 @@
 import { Container } from "react-bootstrap";
 import SectorCard from "../sector-card";
+import styles from "./sectorslist.module.css";
 
 const SectorsList = ({ sectors }) => {
   return (
-    <div className="">
+    <div className={styles.sectorsListContainer}>
       <Container>
         {sectors &&
           sectors.map((sector) => (

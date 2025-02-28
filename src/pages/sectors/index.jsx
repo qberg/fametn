@@ -1,4 +1,3 @@
-import { Col, Container, Row } from "react-bootstrap";
 import { CacheHeaders } from "@/utils/definitions";
 import RootLayout from "../../components/layout/layout";
 
