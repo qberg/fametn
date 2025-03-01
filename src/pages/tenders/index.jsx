@@ -14,7 +14,6 @@ import Newsletterform from "../../components/newsletterform";
 
 
 export default function Tenders({ data, headerFooter, allTenders, news }) {
-    console.log(data)
     return (
         <RootLayout seo={data.seo} data={headerFooter}>
             <MidHero data={data.hero} />
