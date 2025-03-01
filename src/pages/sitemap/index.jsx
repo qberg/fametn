@@ -29,6 +29,8 @@ export default function SiteMap() {
 
         "/tenders",
         "/trade-associations-and-chambers",
+        "/awards",
+        "/sitemap",
     ]
 
     return (
