@@ -1,9 +1,10 @@
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "./styles.module.css"
 import DynamicImage from "../dynamicImage"
+import YellowArrowButton from "../yellow_arrow_button"
 
 export default function MidHero({ data }) {
-    return (<Container className="p-4 mt-4">
+    return (<Container className="py-4 mt-4">
         <div data-aos="fade-up" className={styles.midherobg}>
             <Row className="h-100 z-2 position-relative gx-5">
                 <Col lg={6}>
@@ -22,6 +23,9 @@ export default function MidHero({ data }) {
                             <div data-aos="fade-up" data-aos-delay={200} >
                                 {data.description}
                             </div>
+                            {data.cta_text && data.cta_text != "" && (<div className="mt-4" data-aos="fade-up" data-aos-delay={300}>
+                                <YellowArrowButton text={data.cta_text} url={data.cta_link} />
+                            </div>)}
                         </div>
                     </div>
                 </Col>

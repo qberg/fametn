@@ -1,5 +1,5 @@
 .arrow {
-    display: inline-block;
+    display: block;
     transform: translateX(7px) translateY(-1px);
     transition: var(--transition);
 }
@@ -14,6 +14,7 @@
     color: var(--white) !important;
     font-weight: 500;
     font-size: small;
+    display: flex;
 }
 
 .bluearrow[data-full="true"] {

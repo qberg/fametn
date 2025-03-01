@@ -1,0 +1,14 @@
+.icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+
+.card {
+    background-color: var(--white);
+    border-radius: var(--small-radius);
+    border: 1px solid var(--border-gray);
+    padding: 1.5em;
+    height: 100%;
+}

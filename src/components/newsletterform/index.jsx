@@ -119,7 +119,6 @@ export default function Newsletterform({ data }) {
                     setDone(false)
                 }, 5000)
             } else {
-                console.log("ERRPR CAME")
                 setError("Server error")
                 setWait(false)
             }

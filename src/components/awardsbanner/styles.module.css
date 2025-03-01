@@ -1,0 +1,30 @@
+.banner {
+    background-color: var(--navy);
+    border-radius: var(--radius);
+    padding: 1em 2em;
+    color: var(--white);
+}
+
+.bannerholder {
+    padding-top: 0.5em;
+}
+
+.heading {
+    margin-bottom: 0;
+    color: var(--white);
+}
+
+@media (min-width: 992px) {
+    .ourcol {
+        margin-bottom: 0 !important;
+    }
+
+    .rightline {
+        border-right: 1px solid var(--border-gray);
+    }
+}
+
+.number {
+    color: var(--yellow);
+    margin-bottom: 0;
+}

@@ -29,6 +29,11 @@ export default function SiteMap() {
 
         "/tenders",
         "/trade-associations-and-chambers",
+        "/awards",
+        "/gallery",
+        "/odop",
+        "/teams",
+        "/aboutus",
     ]
 
     return (

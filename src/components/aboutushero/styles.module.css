@@ -1,0 +1,38 @@
+.heading {
+    text-transform: uppercase;
+}
+
+.yellow {
+    color: var(--yellow);
+}
+
+.videoholder {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.videoholder::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+    background-color: var(--yellow);
+    filter: blur(200px);
+    z-index: -1;
+    /* background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: var(--radius); */
+}
+
+.video {
+    width: 100%;
+    border-radius: var(--radius);
+}
