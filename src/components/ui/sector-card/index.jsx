@@ -1,6 +1,6 @@
 import Link from "next/link";
 import DynamicImage from "../../dynamicImage";
-import styles from "./sectorcard.module.css";
+import styles from "./sectorcards.module.css";
 import { Col, Row } from "react-bootstrap";
 
 const FeatureItem = ({ feature }) => {
