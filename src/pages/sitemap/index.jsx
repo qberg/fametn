@@ -32,6 +32,8 @@ export default function SiteMap() {
         "/awards",
         "/gallery",
         "/odop",
+        "/teams",
+        "/aboutus",
     ]
 
     return (

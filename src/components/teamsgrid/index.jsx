@@ -19,7 +19,6 @@ export function TeamsCard({data}) {
 }
 
 export default function TeamsGrid({data}) {
-    console.log(data)
     return (<Container className="my-5 py-4">
         <Row>
             {data.map((item, index) => {

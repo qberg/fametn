@@ -91,8 +91,6 @@ export default function handler(req, res) {
       designation: designation,
     };
 
-    console.log("url is", url);
-
     axios
       .post(
         url,

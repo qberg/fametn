@@ -1,0 +1,6 @@
+.img {
+    background-color: rebeccapurple;
+    min-height: 256px;
+    width: 100%;
+    position: relative;
+}

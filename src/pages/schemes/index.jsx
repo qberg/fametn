@@ -277,10 +277,6 @@ export default function Schemes({ currentCategory, categories, agencyList, heade
 	const pagedReqSchemes = finalSchemes.slice((page - 1) * numItemsPerPage, page * numItemsPerPage)
 
 	const pathname = usePathname()
-	console.log(schemeMeta)
-
-
-
 	return (
 		<RootLayout seo={schemeMeta.seo} data={headerFooter}>
 			<Breadcrumps items={schemeMeta.breadcrumps} />

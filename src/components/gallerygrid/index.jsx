@@ -12,7 +12,6 @@ function groupByFive(arr) {
 }
 
 function RenderHugeImage({ image }) {
-    console.log(image)
     return (<Col className={styles.ourcol} lg={6}>
         <div data-aos="fade-up" className={styles.hugeimg}>
             <DynamicImage src={{ data: image }} objectFit="cover" />
@@ -56,7 +55,6 @@ export default function GalleryGrid({ items }) {
     // const [currentItems, setCurrentItems] = useState(items.filter((item) => item.title === currentCategory)[0].items)
 
     const rows = groupByFive(currentItems)
-    console.log("rows are", rows)
 
     return (<Container className="my-5 ">
         <div className="d-flex flex-wrap">

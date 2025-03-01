@@ -7,7 +7,6 @@ import { CacheHeaders } from "../../utils/definitions";
 import { getAllTeams } from "../../utils/teams";
 
 export default function Teams({ data, allTeams, headerFooter, news }) {
-    console.log(data)
     return (
         <RootLayout seo={data.seo} data={headerFooter}>
             <TeamsHero data={data} />
