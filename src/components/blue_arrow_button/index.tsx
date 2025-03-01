@@ -23,9 +23,12 @@ export const JustArrowButton = ({ text, target, link, lightArrow }: JSONData) =>
 
 const BlueArrowButton = ({ text, target, link, full }: JSONData) => {
     const child = (<div data-full={full} className={styles.bluearrow}>
-        {text}
-        <div data-light={true} className={styles.arrow}>
+        <div className="my-auto">
+            {text}
+        </div>
+        <div data-light={true} className={`my-auto d-flex ${styles.arrow}`}>
             <Image
+                className='my-auto'
                 src="/right_arrow.svg"
                 alt="->"
                 width={10}

@@ -6,12 +6,12 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DynamicImage from "../dynamicImage";
 
-function UnselectedIndicator({ onClickHandler, isSelected }) {
+export function UnselectedIndicator({ onClickHandler, isSelected }) {
     return (<span data-shono="false" className={styles.indic} onClick={onClickHandler}>
     </span>)
 }
 
-function SelectedIndicator({ onClickHandler, isSelected }) {
+export function SelectedIndicator({ onClickHandler, isSelected }) {
     return (<span data-shono="true" className={styles.indic} onClick={onClickHandler}>
     </span>)
 }

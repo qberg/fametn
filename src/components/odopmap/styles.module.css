@@ -1,0 +1,28 @@
+.card {
+    background-color: var(--white);
+    width: 100%;
+    border-radius: var(--small-radius);
+    border: 1px solid var(--border-gray);
+    padding: 1.5em;
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.heading {
+    background-color: var(--yellow);
+    width: max-content;
+    text-transform: uppercase;
+    padding: 0.3em 0.5em;
+}
+
+.subheading {
+    text-transform: uppercase;
+    margin-top: 0.7em;
+}
+
+.map {
+    width: 100%;
+    min-height: 512px;
+    position: relative;
+}

@@ -1,0 +1,7 @@
+.imgholder {
+    width: 100%;
+    min-height: 256px;
+    border-radius: var(--small-radius);
+    overflow: hidden;
+    position: relative;
+}

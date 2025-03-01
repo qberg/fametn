@@ -1,0 +1,11 @@
+.card {
+    padding: 1em;
+    background-color: var(--light-accent);
+    border: 1px solid var(--border-gray);
+    border-radius: var(--small-radius);
+    height: 100%;
+}
+
+.numbers {
+    font-weight: 400 !important;
+}

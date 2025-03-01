@@ -6,7 +6,6 @@ import { getDataFromPath, getHeaderFooterData, getNewsletterData } from "../../u
 import { CacheHeaders } from "../../utils/definitions";
 
 export default function Gallery({ data, headerFooter, news }) {
-    console.log(data)
     return (
         <RootLayout seo={data.seo} data={headerFooter}>
             <GalleryHero heading={data.heading} banner={data.banner} />
