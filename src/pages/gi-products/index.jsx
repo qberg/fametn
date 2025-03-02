@@ -2,11 +2,13 @@ import RootLayout from "../../components/layout/layout";
 import { getDataFromPath, getHeaderFooterData } from "../../utils/api_calls";
 import { CacheHeaders } from "../../utils/definitions";
 import HeroWithVideo from "@/components/ui/hero-with-video";
+import OverviewWithImages from "@/components/ui/overview-with-images";
 
 export default function GIProductsPage({ data, headerFooter }) {
   return (
     <RootLayout seo={data.seo} data={headerFooter}>
       {data.hero && <HeroWithVideo {...data.hero} />}
+      {data.overview && <OverviewWithImages {...data.overview} />}
     </RootLayout>
   );
 }

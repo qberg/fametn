@@ -2,7 +2,7 @@
 
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DynamicImage from "../../dynamicImage";
 import { PlayCircleFilled } from "@mui/icons-material";
 
