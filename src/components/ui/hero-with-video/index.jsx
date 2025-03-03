@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 import { useState } from "react";
 import DynamicImage from "../../dynamicImage";
 import { PlayCircleFilled } from "@mui/icons-material";
+import Marquee from "../marquee";
 
 const HeroWithVideo = ({ title, tag, description, video }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -74,18 +75,7 @@ const HeroWithVideo = ({ title, tag, description, video }) => {
           </Col>
         </Row>
       </Container>
-
-      <div className={styles.marqueeContainer}>
-        <div className={styles.marquee}>
-          {Array(20)
-            .fill(tag)
-            .map((text, index) => (
-              <span key={index} className={styles.marqueeItem}>
-                {text}
-              </span>
-            ))}
-        </div>
-      </div>
+      <Marquee text={tag} length={20} />
     </div>
   );
 };

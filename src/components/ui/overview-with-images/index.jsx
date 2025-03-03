@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "./styles.module.css";
 import YellowArrowButton from "../../yellow_arrow_button";
 import DynamicImage from "../../dynamicImage";
+import Marquee from "../marquee";
 
 const OverviewWithImages = ({
   super_title,
@@ -65,12 +66,20 @@ const OverviewWithImages = ({
               {featured_image?.data && (
                 <div className={styles.featureImageWrapper}>
                   <DynamicImage src={featured_image} objectFit="cover" />
+                  {featured_image_title && (
+                    <div className={styles.featureImageOverlay}>
+                      <h3 className={styles.featureImageTitle}>
+                        {featured_image_title}
+                      </h3>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           </Col>
         </Row>
       </Container>
+      <Marquee text="GI Tagged Products" length={20} />
     </section>
   );
 };
