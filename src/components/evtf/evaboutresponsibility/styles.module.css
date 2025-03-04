@@ -1,0 +1,40 @@
+.bg {
+    background-color: var(--evgray);
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.mail {
+    font-size: small;
+    color: var(--evpurple) !important;
+}
+
+.cover {
+    height: 512px;
+    max-width: 480px;
+    position: relative;
+}
+
+.back {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: var(--small-radius);
+}
+
+.front {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    border-radius: var(--small-radius);
+}

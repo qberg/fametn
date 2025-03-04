@@ -1,0 +1,30 @@
+.img {
+    width: 120px;
+    height: 80px;
+    position: relative;
+}
+
+.table {
+    background-color: var(--evlight);
+    border: 1px solid var(--evborder);
+    border-radius: var(--small-radius);
+}
+
+.table td {
+    padding: 0.5em;
+}
+
+.table th {
+    padding: 0.5em;
+}
+
+.table tr {
+    border-bottom: 1px solid var(--evborder);
+}
+
+.table thead {
+    background: linear-gradient(to bottom, var(--evpurple), var(--evblue));
+    color: var(--white);
+    font-weight: 400 !important;
+
+}

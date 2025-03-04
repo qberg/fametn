@@ -1,4 +1,9 @@
 import EvAbout from "../../components/evtf/evabout";
+import EvAboutHero from "../../components/evtf/evabouthero";
+import EvAboutMembers from "../../components/evtf/evaboutmembers";
+import EvAboutPurpose from "../../components/evtf/evaboutpurpose";
+import EvABoutResponsibility from "../../components/evtf/evaboutresponsibility";
+import EvAboutUs from "../../components/evtf/evaboutus";
 import EvBlogs from "../../components/evtf/evblogs";
 import EvCollabs from "../../components/evtf/evcollabs";
 import EvContact from "../../components/evtf/evcontact";
@@ -18,15 +23,29 @@ import { EvLayout } from "../../components/layout/layout";
 import { getDataFromPath, getEvHeaderFooterData } from "../../utils/api_calls";
 import { CacheHeaders } from "../../utils/definitions";
 
-export default function Evtf({data, headerFooter}) {
+export default function Evtf({ data, headerFooter }) {
+    console.log(data)
     return (
         <EvLayout seo={data.seo} data={headerFooter}>
-            <EvTeamHero 
+            <EvAboutHero
+                heading={data.hero}
+                img_1={data.hero_img_1}
+                img_2={data.hero_img_2} />
+            <EvAboutPurpose data={data.purpose} />
+            <EvABoutResponsibility
+                data={data.responsibility}
+                images={data.responsibility_images.data} />
+            <EvAboutMembers
+                heading={data.members_heading}
+                items={data.members} />
+            <EvAboutUs heading={data.aboutus} rows={data.about_items} />
+            {/* <EvTeamHero 
                 hero={data.hero} 
                 mainperson={data.main_person}
                 x={data.main_person_x}
                 linkedin={data.main_person_linkedin} />
-            <EvOthers items={data.others} />
+            <EvOthers items={data.others} /> */}
+
         </EvLayout>
     )
 }
@@ -37,7 +56,7 @@ export async function getServerSideProps(context) {
     // add cache headers
     context.res.setHeader('Cache-Control', CacheHeaders);
 
-    const path = "evtf-team?&populate=deep";
+    const path = "evtf-about?&populate=deep";
     const language = context.locale;
     const data = await getDataFromPath(path, language);
     return {
