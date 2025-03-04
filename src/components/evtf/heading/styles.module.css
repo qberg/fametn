@@ -1,0 +1,12 @@
+.line {
+    height: 1px;
+    width: 50px;
+    background-color: var(--black);
+    margin-right: 1em;
+}
+
+.text {
+    margin-bottom: 0;
+    font-weight: 200;
+    text-transform: uppercase;
+}

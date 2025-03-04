@@ -1,0 +1,79 @@
+.evbg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.evbg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 50%, black);
+    pointer-events: none;
+}
+
+.holder {
+    min-height: 600px;
+}
+
+.stuff {
+    height: 100%;
+    width: 100%;
+    min-height: 600px;
+    z-index: 2;
+    position: relative;
+    display: flex;
+}
+
+.wth, .gth {
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-size: 450%;
+}
+
+@media (max-width: 768px) {
+    .wth, .gth {
+        font-size: 300%;
+    }
+}
+
+@media (max-width: 576px) {
+    .wth, .gth {
+        font-size: 200%;
+    }
+}
+
+.wth {
+    color: var(--white);
+}
+
+.gth {
+    color: var(--evgreen);
+}
+
+.card {
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 2em;
+    backdrop-filter: blur(10px);
+    max-width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* .card::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: -1;
+} */

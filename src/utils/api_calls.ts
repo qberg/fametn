@@ -2,6 +2,12 @@ import { Language } from "@mui/icons-material";
 import axios from "axios";
 import { JSONData } from "./definitions";
 
+export const getEvHeaderFooterData = async (language: string) => {
+	const path = "common-ev-header-footer?&populate=deep";
+	const data = await getDataFromPath(path, language);
+	return data.data.attributes
+}
+
 
 export const getHeaderFooterData = async (language: string) => {
 	const path = "common-header-footer?&populate=deep";

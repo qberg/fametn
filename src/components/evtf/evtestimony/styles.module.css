@@ -1,0 +1,60 @@
+.card {
+    background-color: var(--evgray);
+    padding: 1.4em;
+    border-radius: var(--radius);
+    border: 1px solid var(--evborder);
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.stars {
+    max-width: 100px;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    border-radius: 50%;
+    background-color: rebeccapurple;
+    overflow: hidden;
+}
+
+.job {
+    opacity: 0.8;
+}
+
+.next {
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.prev {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.flipx {
+    transform: scaleX(-1);
+}
+
+.next[data-shono="false"] {
+    filter: saturate(0);
+    opacity: 0.2;
+}
+
+.prev[data-shono="false"] {
+    filter: saturate(0);
+    opacity: 0.2;
+}

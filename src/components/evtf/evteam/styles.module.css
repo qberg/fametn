@@ -1,0 +1,13 @@
+.cover {
+    background-color: var(--evgray);
+}
+
+.img {
+    height: 360px;
+    max-width: 360px;
+    position: relative;
+}
+
+.job {
+    font-weight: 400 !important;
+}

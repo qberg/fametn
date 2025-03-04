@@ -7,6 +7,8 @@ import BlueArrowButton from '../blue_arrow_button';
 import DynamicImage from '../dynamicImage';
 import { SelectedIndicator, UnselectedIndicator } from '../gallery';
 
+
+
 function RenderMap({ item }) {
     return (<div>
         <Row className='gx-5'>

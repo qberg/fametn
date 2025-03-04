@@ -25,7 +25,16 @@
   --smudge: 0 4px 16px #10182819;
   --transition: ease-in-out 0.3s;
 
-    --english-font: "Poppins", sans-serif;
+  --english-font: "Poppins", sans-serif;
+
+  --evblue: #1154BD;
+  --evpurple: #4F0A83;
+  --evmid: #3C118C;
+  --evgray: #F3F7F4;
+  --evborder: #e5e8e6;
+  --evgreen: #85E23B;
+
+  --evgrad: linear-gradient(to top, var(--evblue), var(--evmid), var(--evpurple))
 }
 
 html {
