@@ -1,0 +1,23 @@
+.cover {
+    background-color: var(--evgray);
+    min-height: 300px;
+    position: relative;
+}
+
+
+.bg {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    top: 0;
+}
+
+.arrow {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.arrow:hover {
+    transform: scale(1.1);
+}

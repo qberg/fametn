@@ -57,7 +57,6 @@ export default function handler(req, res) {
       date: dateString,
     };
 
-    console.log("url is", url);
 
     axios.post(
         url,

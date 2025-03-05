@@ -34,6 +34,10 @@ export default function SiteMap() {
         "/odop",
         "/teams",
         "/aboutus",
+
+        "/evtf",
+        "/evtf/teams",
+        "/evtf/about",
     ]
 
     return (

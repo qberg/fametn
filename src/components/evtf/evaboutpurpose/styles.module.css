@@ -1,0 +1,6 @@
+.img {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    border-radius: var(--small-radius);
+}

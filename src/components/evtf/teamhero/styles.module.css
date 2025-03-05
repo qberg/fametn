@@ -1,0 +1,18 @@
+.box {
+    background-color: var(--evgray);
+    border: 1px solid var(--evborder);
+    padding: 1.5em;
+    border-radius: var(--small-radius);
+}
+
+.img {
+    position: relative;
+    overflow: hidden;
+    height: 256px;
+    width: 256px;
+    border-radius: 50%;
+}
+
+.job {
+    font-weight: 400 !important;
+}

@@ -1,0 +1,56 @@
+.bg {
+    background-color: var(--evgray);
+}
+
+.mainimg {
+    position: relative;
+    min-height: 400px;
+}
+
+.pullup {
+    margin-top: 0;
+    z-index: 2;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .pullup {
+        margin-top: -5em;
+    }
+}
+
+.sub {
+    background-color: var(--white);
+    width: 100%;
+    padding: 1em;
+    border-radius: var(--small-radius);
+}
+
+.card {
+    text-align: left;
+    align-items: left;
+    border: 1px solid var(--evborder);
+    display: flex;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.img {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    flex-shrink: 0;
+}
+
+.cat {
+    color: var(--evpurple);
+    font-weight: 600;
+}
+
+.txt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

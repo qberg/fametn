@@ -1,0 +1,10 @@
+.collabs {
+    background-color: var(--evgray);
+    border-radius: var(--small-radius);
+}
+
+.img {
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
