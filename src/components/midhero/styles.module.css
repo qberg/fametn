@@ -56,6 +56,7 @@
     border-radius: var(--radius);
 }
 
+
 .frontimg {
     position: absolute;
     bottom: 0;
@@ -65,4 +66,18 @@
     background-color: blue;
     overflow: hidden;
     border-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+
+    .imgholder {
+        max-width: 450px;
+        width: 100%;
+        position: relative;
+    }
+
+    .backimg,
+    .frontimg {
+        width: 80%;
+    }
 }
