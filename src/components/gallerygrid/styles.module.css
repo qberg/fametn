@@ -49,3 +49,9 @@
 .ourcol {
     margin-bottom: 0px !important;
 }
+
+@media screen and (max-width: 768px) {
+    .hugeimg {
+        margin-bottom: 20px;
+    }
+}

@@ -10,7 +10,7 @@ import { SelectedIndicator, UnselectedIndicator } from '../gallery';
 
 
 function RenderMap({ item }) {
-    return (<div>
+    return (<div className='mb-5 mb-lg-0'>
         <Row className='gx-5'>
             <Col lg={6}>
                 <div data-aos="fade-up" className={styles.map}>

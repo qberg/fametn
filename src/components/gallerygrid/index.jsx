@@ -57,8 +57,8 @@ export default function GalleryGrid({ items }) {
     const rows = groupByFive(currentItems)
 
     return (<Container className="my-5 ">
-        <div className="d-flex flex-wrap">
-            {allCategories.map((category, index) => <div data-aos="fade-up" data-aos-delay={index * 100}  key={index} className={`p-2 px-4 ${currentCategory === category ? styles.activecategory : styles.category}`} onClick={() => {
+        <div data-aos="fade-up" className="d-flex flex-wrap">
+            {allCategories.map((category, index) => <div key={index} className={`p-2 px-4 ${currentCategory === category ? styles.activecategory : styles.category}`} onClick={() => {
                 setCurrentCategory(category)
             }}>
                 {category}

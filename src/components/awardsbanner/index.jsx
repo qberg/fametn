@@ -19,9 +19,13 @@ export default function AwardsBanner({ heading, items }) {
         <div data-aos="fade-up" className={styles.banner}>
             <Row>
                 <Col className={`d-flex ${styles.ourcol}`} lg={6}>
-                    <div className="my-auto">
+                    <div className="my-auto mx-auto mx-lg-0">
                         <h2 data-aos="fade-up" className={styles.heading}>{heading}</h2>
                     </div>
+                    
+                </Col>
+                <Col className="d-block d-lg-none" lg={6}>
+                <hr></hr>
                 </Col>
                 <Col data-aos-delay={100} data-aos="fade-up" className={`${styles.rightline} ${styles.ourcol}`} lg={3}>
                     <NumberedItem data={items[0]} />
