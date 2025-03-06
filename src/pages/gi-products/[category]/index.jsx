@@ -45,7 +45,6 @@ export async function getServerSideProps(context) {
   const categoryData = categoryResponse.data[0].attributes;
   const products = categoryData.gi_products?.data || [];
 
-  // header + footer
   const headerFooter = await getHeaderFooterData(language);
 
   return {
