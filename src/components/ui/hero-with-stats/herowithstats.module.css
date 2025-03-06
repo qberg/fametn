@@ -1,0 +1,151 @@
+.heroContainer {
+  height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bgImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 80px;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 0 20px;
+}
+
+.heroTitle {
+  font-size: 4.5em;
+  margin-bottom: 0.5em;
+  text-transform: none;
+  color: var(--white) !important;
+}
+
+.heroDescription {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 2em;
+  opacity: 0.9;
+  color: var(--white) !important;
+}
+
+.statsContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(75%);
+}
+
+.statsRow {
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2em 1em;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.statsRow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--yellow, #f8a100);
+}
+
+.statCol {
+  position: relative;
+  text-align: left;
+  padding: 0.5em 2em;
+}
+
+.statCol:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.statItem {
+  font-size: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--yellow, #f8a100);
+}
+
+.statDescription {
+  font-size: 1em;
+}
+
+@media (max-width: 1024px) {
+  .heroContainer {
+    height: 600px;
+  }
+  .heroContent {
+    margin: 0px;
+  }
+
+  .heroTitle {
+    font-size: 2.5em;
+  }
+
+  .statsRow {
+    margin-top: 4em;
+  }
+
+  .statCol {
+    padding: 1rem 1rem;
+  }
+
+  .statCol:not(:last-child)::after {
+    display: none;
+  }
+
+  .statsRow {
+    padding: 1.5em 0.5em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .statValue {
+    font-size: 1.25em;
+  }
+}

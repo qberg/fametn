@@ -1,0 +1,176 @@
+.scrollGrid {
+  margin: 0;
+  padding: 2em 4em;
+  position: relative;
+}
+
+.scrollGridContainer {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: auto !important;
+  will-change: scroll-position;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.cardsWrapper {
+  display: inline-flex;
+  padding: 0 2em;
+  gap: 2.5em;
+}
+
+.card {
+  width: 400px;
+  min-width: 400px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  margin-bottom: 1.5em;
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.cardImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.imageContainer:hover .cardImageWrapper {
+  transform: scale(1.1);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.25em;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.contentDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.contentRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.cardDescription {
+  width: 100%;
+  height: 175px;
+}
+
+.contentLabel {
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #a5a5a5;
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s ease;
+}
+
+.scrollButton:hover {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.scrollButtonLeft {
+  left: 40px;
+}
+
+.scrollButtonRight {
+  right: 40px;
+}
+
+.scrollGridContainer {
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Native smooth scrolling */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #ddd #f5f5f5; /* For Firefox */
+}
+
+.scrollGridContainer::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollGridContainer::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.scrollGridContainer::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .scrollGrid {
+    padding: 0;
+  }
+  .card {
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .imageContainer {
+    height: 300px;
+  }
+
+  .cardDescription {
+    height: auto;
+  }
+  .scrollButton {
+    display: none;
+  }
+}
+
+@media (min-width: 2160px) {
+  .card {
+    width: 500px;
+  }
+  .imageContainer {
+    height: 500px;
+  }
+}

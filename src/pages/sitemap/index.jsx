@@ -38,6 +38,10 @@ export default function SiteMap() {
         "/evtf",
         "/evtf/teams",
         "/evtf/about",
+
+        "/sectors",
+        "/sectors/ev",
+        "/sectors/food-processing",
     ]
 
     return (

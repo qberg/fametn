@@ -1,0 +1,87 @@
+.highlightsContainer {
+  position: relative;
+  margin-top: 6em;
+  border-top: 1px solid #e0e0e0;
+  padding: 2em 0;
+}
+
+.title {
+  margin-top: 1em;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.contentRow {
+  display: flex;
+  align-items: center;
+}
+
+.highlightsCol {
+  padding-right: 4em;
+}
+
+.highlightsList {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.highlightItem {
+  border-bottom: 2px solid var(--yellow);
+  padding: 1em 1em;
+  border-radius: var(--radius);
+  background-color: #fffaee;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.highlightHeading {
+  font-size: 1.25em;
+}
+
+.imagesContainer {
+  width: 100%;
+  max-width: 550px;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.backImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 70%;
+  background-color: white;
+  overflow: hidden;
+  border-radius: var(--radius);
+  z-index: 1;
+}
+
+.frontImage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  background-color: white;
+  overflow: hidden;
+  border-radius: var(--radius);
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 1.5em;
+  }
+  .highlightsContainer {
+    margin-top: 14em;
+  }
+  .imagesContainer {
+    display: none;
+  }
+  .highlightsCol {
+    padding-right: 1em;
+  }
+}

@@ -1,0 +1,30 @@
+.marqueeContainer {
+  position: relative;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  padding: 1em 0;
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marqueeItem {
+  color: white;
+  padding: 0 2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

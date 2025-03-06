@@ -1,0 +1,162 @@
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+}
+
+.heroContainer {
+  flex-grow: 1;
+  display: flex;
+  height: 100%;
+}
+
+.heroRow {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4em 4em;
+  margin: 0 !important;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 2em;
+}
+
+.bottomContent {
+  margin-top: auto;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid;
+  padding: 0.5em 1em;
+  border-radius: 50px;
+  font-size: 1.25em;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.description {
+  line-height: 1.6;
+  max-width: 60%;
+}
+
+.mediaCol {
+  padding: 0;
+  margin: 0 !important;
+}
+
+.mediaContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.thumbnailWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+  transition: transform 0.2s ease;
+  font-size: 4em; /*for material ui icon */
+}
+
+.playButton:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marqueeContainer {
+  position: relative;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  padding: 1em 0;
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marqueeItem {
+  color: white;
+  padding: 0 2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    height: auto;
+  }
+  .heroContainer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .contentCol {
+    padding: 2rem 1rem;
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .mediaContainer {
+    height: 50vh;
+  }
+}
