@@ -14,7 +14,7 @@ function MobileCard({ item }) {
         </div>
         <div className="mt-2">
             {item.categories.map((category, index) => {
-                return (<li className="small">
+                return (<li key={index} className="small">
                     {category.text}
                 </li>)
             })}
