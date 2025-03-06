@@ -33,7 +33,7 @@
   font-size: 1.25em;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.5em;
   width: fit-content;
   text-transform: uppercase;
   margin-bottom: 1em;
@@ -115,7 +115,7 @@
   }
 
   .contentCol {
-    padding: 2rem 1rem;
+    padding: 2em 1em;
     margin-bottom: 0;
     height: auto;
   }

@@ -1,10 +1,11 @@
+import GIProductsGrid from "../../../components/ui/gi-products-grid";
 import { getDataFromPath, getHeaderFooterData } from "../../../utils/api_calls";
 import { CacheHeaders } from "../../../utils/definitions";
 
 import RootLayout from "@/components/layout/layout";
 import GICategoryHero from "@/components/ui/gi-category-hero";
 
-export default function CategoryPage({ category, headerFooter }) {
+export default function CategoryPage({ category, products, headerFooter }) {
   // TODO: handle seo more elegantly
   const seoData = category?.seo || {
     seo_title: `${category.name || "Category"} - GI Products`,
@@ -12,16 +13,17 @@ export default function CategoryPage({ category, headerFooter }) {
     seo_thumbnail: category.category_image,
   };
 
-  const products = category.gi_products.data || [];
-
   return (
     <RootLayout seo={seoData} data={headerFooter}>
-      <GICategoryHero
-        name={category.name}
-        title={category.title}
-        description={category.description}
-        categoryImage={category.category_image}
-      />
+      {category && (
+        <GICategoryHero
+          name={category.name}
+          title={category.title}
+          description={category.description}
+          categoryImage={category.category_image}
+        />
+      )}
+      {products && <GIProductsGrid products={products} />}
     </RootLayout>
   );
 }
@@ -32,17 +34,29 @@ export async function getServerSideProps(context) {
   const categorySlug = context.params.category;
   const language = context.locale;
 
-  // Category data
-  const categoryPath = `gi-products-categories?filters[slug][$eq]=${categorySlug}&populate=*`;
+  // Products Category data
+  const categoryPath = `gi-products-categories?filters[slug][$eq]=${categorySlug}&populate[category_image]=*&populate[gi_products][populate][featured_image]=*`;
   const categoryResponse = await getDataFromPath(categoryPath, language);
-  const category = categoryResponse.data[0].attributes;
+
+  if (!categoryResponse.data || categoryResponse.data.length === 0) {
+    return { notFound: true };
+  }
+
+  const categoryData = categoryResponse.data[0].attributes;
+  const products = categoryData.gi_products?.data || [];
 
   // header + footer
   const headerFooter = await getHeaderFooterData(language);
 
   return {
     props: {
-      category: category,
+      category: {
+        name: categoryData.name,
+        title: categoryData.title,
+        description: categoryData.description,
+        category_image: categoryData.category_image,
+      },
+      products: products,
       headerFooter: headerFooter,
     },
   };

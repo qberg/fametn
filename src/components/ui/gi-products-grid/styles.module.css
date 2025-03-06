@@ -1,0 +1,43 @@
+.productsSection {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 0 4em;
+  font-size: 1.25em;
+  width: fit-content;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.header::before {
+  content: "";
+  height: 0.5em;
+  width: 0.5em;
+  background-color: black;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.productsRow {
+  padding: 2em 4em;
+  background-color: gray/50;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 1em 1em;
+  }
+  .productsRow {
+    padding: 1em 1em;
+  }
+}
+
+@media (min-width: 2160px) {
+  .colXXL {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
