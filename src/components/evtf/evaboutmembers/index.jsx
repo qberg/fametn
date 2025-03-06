@@ -4,6 +4,24 @@ import EvHeading from "../heading"
 import DynamicImage from "../../dynamicImage"
 import Image from "next/image"
 
+function MobileCard({ item }) {
+    return (<div className={styles.mobilecard}>
+        <div className={styles.img}>
+            <DynamicImage src={item.icon} objectFit="contain" />
+        </div>
+        <div className="mt-2 small">
+            {item.description}
+        </div>
+        <div className="mt-2">
+            {item.categories.map((category, index) => {
+                return (<li className="small">
+                    {category.text}
+                </li>)
+            })}
+        </div>
+    </div>)
+}
+
 export default function EvAboutMembers({ heading, items }) {
     const allCategories = [...new Set(items.flatMap(item => item.categories.map(category => category.text)))].sort()
 
@@ -45,8 +63,13 @@ export default function EvAboutMembers({ heading, items }) {
                 </p>
             </Col>
         </Row>
+        <div className="d-block d-lg-none mt-4">
+            {items.map((each, index) => {
+                return (<MobileCard item={each} key={index} />)
+            })}
+        </div>
 
-        <div className="mt-4">
+        <div className="d-none d-lg-block mt-4">
             <table data-aos="fade-up" className={styles.table}>
                 <thead>
                     <tr>

@@ -37,8 +37,8 @@ export default function Evtf({data, headerFooter}) {
             <EvServices heading={data.section_5_heading} items={data.section_5_items} />
             <EvEvents heading={data.events_heading} items={data.events_items} />
             <EvCollabs heading={data.partners_heading} items={data.partners_items} />
-            <EvContact heading={data.contact_heading} items={data.contact_items} />
-            <EvTestimony heading={data.testimonials_heading} items={data.testimonials_item} />
+            <EvContact heading={data.contact_heading} items={data.contact_items} /> 
+            <EvTestimony heading={data.testimonials_heading} items={data.testimonials_item} /> 
             <EvResources heading={data.resources_heading} items={data.resources_items} />
             <EvNews data={data.news} />
             <EvGallery heading={data.gallery_items} items={data.evgallery} />

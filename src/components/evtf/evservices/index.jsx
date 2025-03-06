@@ -32,7 +32,7 @@ export default function EvServices({ heading, items }) {
                 </p>
             </Col>
         </Row>
-        <Row className="gx-5 mt-4">
+        <Row className="gx-lg-5 mt-4">
             {items.map((item, index) => {
                 return (<Col lg={4} md={6} key={index} className="pb-4">
                     <ServiceCard item={item} />

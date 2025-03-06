@@ -26,7 +26,7 @@ export default function EvNavbar({ data, pageProps }) {
                 <div className='my-auto me-3'>
                     <Image src="/evlogo.webp" width={50} height={33} />
                 </div>
-                <div className="ms-auto my-auto d-flex">
+                <div className="ms-auto my-auto d-none d-lg-flex">
                     {data.links.map((each, index) => {
                         return (<NormalLink item={each} key={index} />)
                     })}

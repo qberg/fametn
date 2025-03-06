@@ -8,7 +8,7 @@ import YellowArrowButton from "../../yellow_arrow_button"
 export default function EvPartner({ data }) {
     return (<Container fluid className={`py-5 ${styles.cover} px-0`}>
 
-        <div data-aos="fade-up" className={styles.bg}>
+        <div data-aos="fade-up" className={`d-none d-lg-block ${styles.bg}`}>
             <DynamicImage src={data.image} objectFit="cover" />
         </div>
         <Container>

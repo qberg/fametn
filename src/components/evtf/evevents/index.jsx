@@ -16,8 +16,8 @@ function EventCard({ item }) {
                 <h5>
                     {item.heading}
                 </h5>
-                <div className="d-flex">
-                    <div className="me-4">
+                <div className="d-block d-lg-flex">
+                    <div className="d-none  d-lg-block mt-4 mt-lg-0 me-lg-4">
                         <p className={styles.para}>
                             {item.description}
                         </p>

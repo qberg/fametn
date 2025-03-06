@@ -25,7 +25,7 @@ export default function EvHero({ heading_1, heading_2, heading_3, subhero, img }
                             </h1>
                         </Col>
                         <Col lg={5}>
-                        <div className="d-flex h-100">
+                        <div className="d-none d-lg-flex h-100">
                             <div className=" ms-lg-auto mt-auto">
                                 <div data-aos="fade-up" className={styles.card}>
                                     <h5 data-aos="fade-up">

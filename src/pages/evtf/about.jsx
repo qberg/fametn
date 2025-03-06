@@ -39,12 +39,6 @@ export default function Evtf({ data, headerFooter }) {
                 heading={data.members_heading}
                 items={data.members} />
             <EvAboutUs heading={data.aboutus} rows={data.about_items} />
-            {/* <EvTeamHero 
-                hero={data.hero} 
-                mainperson={data.main_person}
-                x={data.main_person_x}
-                linkedin={data.main_person_linkedin} />
-            <EvOthers items={data.others} /> */}
 
         </EvLayout>
     )

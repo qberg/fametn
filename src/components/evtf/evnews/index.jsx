@@ -13,11 +13,11 @@ function NewsItem({ item }) {
             <DynamicImage src={item.image} objectFit="cover" />
         </div>
         <div className="p-3">
-            <div className="d-flex">
+            <div className="d-block d-lg-flex">
                 <div className={styles.cat}>
                     {item.heading}
                 </div>
-                <div className="ms-2">
+                <div className="d-none d-lg-block ms-lg-2">
                     {item.subtitle}
                 </div>
             </div>

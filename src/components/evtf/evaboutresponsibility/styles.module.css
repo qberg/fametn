@@ -38,3 +38,9 @@
     overflow: hidden;
     border-radius: var(--small-radius);
 }
+
+@media (max-width: 768px) {
+    .front, .back {
+        width: 84%;
+    }
+}

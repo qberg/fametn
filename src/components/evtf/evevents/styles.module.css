@@ -6,6 +6,13 @@
     display: flex;
 }
 
+@media (max-width: 768px) {
+    .card {
+        height: 400px;
+    }
+}
+
+
 .imgholder {
     z-index: 0;
     position: absolute;

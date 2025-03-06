@@ -28,3 +28,10 @@
     font-weight: 400 !important;
 
 }
+
+.mobilecard {
+    padding: 1em;
+    border: 1px solid var(--evborder);
+    margin-bottom: 1em;
+    border-radius: var(--small-radius);
+}
