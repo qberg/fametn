@@ -42,6 +42,11 @@ export default function SiteMap() {
         "/sectors",
         "/sectors/ev",
         "/sectors/food-processing",
+        "/exports",
+
+        "/gi-products",
+        "/gi-products/agricultural-products",
+        "/gi-products/table"
     ]
 
     return (
