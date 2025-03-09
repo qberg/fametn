@@ -8,7 +8,6 @@ import EvButton from "../button"
 
 function Card({ item }) {
     const topTag = item.tags[0]?.text || ""
-    console.log(topTag)
     const blogUrl = "/blogs/" + item.url
     return (
         <Link href={blogUrl || "#"}>

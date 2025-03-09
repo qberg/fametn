@@ -24,7 +24,6 @@ import { getDataFromPath, getEvHeaderFooterData } from "../../utils/api_calls";
 import { CacheHeaders } from "../../utils/definitions";
 
 export default function Evtf({ data, headerFooter }) {
-    console.log(data)
     return (
         <EvLayout seo={data.seo} data={headerFooter}>
             <EvAboutHero

@@ -30,8 +30,6 @@ function Card({ item }) {
 }
 
 export default function EvOthers({ items }) {
-    console.log(items)
-    console.log("ITEMS ^")
     return (<Container className="my-5 py-4">
         <Row>
             {items.map((each, index) => {

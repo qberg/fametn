@@ -102,3 +102,20 @@
   flex-direction: column;
   padding: 1em;
 }
+
+.megabox {
+  position: fixed;
+  left: 0;
+  top: 4em;
+  width: 100vw;
+  padding: 1em;
+  align-items: center;
+}
+
+.actualmegabox {
+  background-color: var(--white);
+  width: calc(100% - 1em);
+  border-radius: var(--small-radius);
+  display: flex;
+  flex-direction: column;
+}

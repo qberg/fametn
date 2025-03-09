@@ -4,7 +4,6 @@ import EvHeading from "../heading"
 import DynamicImage from "../../dynamicImage"
 
 function RenderCol({ item }) {
-    console.log(item)
     return (<Col lg={3}>
         <div data-aos="fade-up" className={styles.col}>
             <div className="mb-auto">

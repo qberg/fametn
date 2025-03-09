@@ -6,6 +6,7 @@ import Seo from '../seo';
 import GoogleAnalytics from '../googleanalytics';
 import MicrosoftClarity from '../microsoft_clarity';
 import EvNavbar from '@/components/evnavbar';
+import EvFooter from '@/components/evfooter';
 
 export default function RootLayout({
   children,
@@ -18,7 +19,6 @@ export default function RootLayout({
       <Navbar data={data} />
       <div className={styles.fillVertical}>{children}</div>
       <Footer data={data} />
-
       <GoogleAnalytics />
       <MicrosoftClarity />
     </>
@@ -36,7 +36,7 @@ export function EvLayout({
       <Seo data={seo} />
       <EvNavbar data={data} />
       <div className={styles.evfillVertical}>{children}</div>
-      {/* <Footer data={data} /> */}
+      <EvFooter data={data} />
 
       <GoogleAnalytics />
       <MicrosoftClarity />

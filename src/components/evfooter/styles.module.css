@@ -1,0 +1,54 @@
+.graybg {
+    background-color: var(--evgray);
+}
+
+.purplebg {
+    background: linear-gradient(to top, var(--evblue) 0%, var(--evmid) 50%,  var(--evpurple) 100%);
+    color: var(--white);
+    padding: 4em;
+    border-radius: var(--radius);
+}
+
+.input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+    padding: 0.7em 1em;
+    border-radius: var(--small-radius);
+}
+
+.err {
+    color: red;
+}
+
+.msg {
+    color: var(--white);
+}
+
+.sub {
+    background-color: var(--white);
+    padding: 0.7em 1em;
+    color: var(--black);
+    text-align: center;
+    border-radius: var(--small-radius);
+    font-weight: 600;
+}
+
+.blackbg {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.footerrow {
+    flex-direction: row-reverse;
+}
+
+.footerhead {
+    color: var(--white) !important;
+}
+
+.footerlink {
+    font-size: small;
+    color: var(--white) !important;
+}
