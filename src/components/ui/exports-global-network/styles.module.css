@@ -1,0 +1,27 @@
+.globalSection {
+  margin-top: 100px;
+}
+.title {
+  max-width: 60%;
+}
+
+.desc {
+  max-width: 80%;
+}
+.ctaWrapper {
+  display: flex;
+  align-items: start;
+  justify-content: end;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    max-width: 100%;
+  }
+  .desc {
+    max-width: 100%;
+  }
+  .ctaWrapper {
+    justify-content: start;
+  }
+}
