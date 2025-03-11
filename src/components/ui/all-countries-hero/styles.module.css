@@ -1,0 +1,66 @@
+.title::before {
+  content: "";
+  display: inline-block;
+  height: 1.5em;
+  width: 0.25em;
+  margin-right: 0.5em;
+  background-color: var(--yellow);
+  vertical-align: middle;
+}
+
+.tabCol {
+  position: sticky;
+  top: 0;
+}
+
+.regionTabs {
+  border-bottom: 0.4em solid var(--yellow);
+  display: flex;
+  gap: 2px;
+  width: 80%;
+}
+
+.tab {
+  background: var(--border-gray);
+  border: none;
+  padding: 0.7em 1.2em;
+  font-weight: 500;
+  color: var(--black);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background-color: var(--yellow);
+}
+
+.activeTab {
+  background-color: var(--yellow);
+}
+
+.regions {
+}
+
+.countriesRow {
+  padding: 2em 2em;
+}
+
+.regionTitle::before {
+  content: "";
+  display: inline-block;
+  height: 1.5em;
+  width: 0.25em;
+  margin-right: 0.5em;
+  background-color: var(--yellow);
+  vertical-align: middle;
+}
+
+@media (max-width: 1024px) {
+  .title::before {
+    display: none;
+  }
+  .regionTabs {
+    width: 100%;
+  }
+}

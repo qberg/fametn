@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  gap: 2em;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.bgImageWrapper {
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .bgImageWrapper {
+  transform: scale(1.25);
+}
+
+.flagImageWrapper {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 60px;
+  height: 40px;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.card:hover .flagImageWrapper {
+  transform: scale(2);
+}
+
+.contentContainer {
+  position: relative;
+}
+
+.overview {
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
