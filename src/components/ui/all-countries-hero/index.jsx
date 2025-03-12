@@ -47,15 +47,19 @@ const AllCountriesHero = ({ regions }) => {
         <Container className="mt-5">
           <Row className={styles.heroRow}>
             <Col md={12}>
-              <h1 className={styles.title}>Target Markets All Regions</h1>
+              <h1 className={styles.title} data-aos="fade-up">
+                Target Markets All Regions
+              </h1>
             </Col>
             <Col md={12} className={styles.tabCol}>
-              <div className={styles.regionTabs}>
-                {regions.map((region) => (
+              <div className={styles.regionTabs} data-aos="fade-up">
+                {regions.map((region, index) => (
                   <button
                     key={region.id}
                     className={`${styles.tab} ${activeTab === region.id ? styles.activeTab : ""}`}
                     onClick={() => handleTabClick(region.id)}
+                    data-aos="fade-up"
+                    data-aos-delay={100 * index}
                   >
                     {region.attributes.name}
                   </button>
@@ -63,13 +67,13 @@ const AllCountriesHero = ({ regions }) => {
               </div>
             </Col>
             <Col md={6} className={styles.contentCol}>
-              <p>
+              <p data-aos="fade-up">
                 Find the answers you need on your target export market,
                 including doing business, tax rates and import regulations.
                 Filter by sector to see the markets best suited to your product
                 or service.
               </p>
-              <p>
+              <p data-aos="fade-up" data-aos-delay={100}>
                 Which country would you like to read more about? Select your
                 target market and find current information and events, practical
                 support and the right contacts.
@@ -88,9 +92,11 @@ const AllCountriesHero = ({ regions }) => {
               id={`region-${region.id}`}
               className={styles.regionSection}
             >
-              <h2 className={styles.regionTitle}>{region.attributes.name}</h2>
+              <h2 className={styles.regionTitle} data-aos="fade-up">
+                {region.attributes.name}
+              </h2>
               <Row className={styles.countriesRow}>
-                {getCountriesForRegion(region).map((country) => (
+                {getCountriesForRegion(region).map((country, index) => (
                   <Col
                     key={country.id}
                     lg={4}
@@ -98,7 +104,7 @@ const AllCountriesHero = ({ regions }) => {
                     sm={6}
                     className={styles.countryCol}
                   >
-                    <CountryCard {...country.attributes} />
+                    <CountryCard {...country.attributes} index={index} />
                   </Col>
                 ))}
               </Row>
