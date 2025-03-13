@@ -5,17 +5,21 @@ import {
   getHeaderFooterData,
 } from "../../../../utils/api_calls";
 import CountryHero from "@/components/ui/country-hero";
+import InfoBentoGrid from "@/components/ui/info-bento-grid";
 
 export default function CountryPage({ country, headerFooter }) {
   const seoData = {
-    seo_title: `Japan`,
+    seo_title: `${country[0].attributes.name}`,
     seo_description: "Explore the country",
     seo_thumbnail: "/",
   };
 
+  const about = country[0].attributes.about || [];
+
   return (
     <RootLayout seo={seoData} data={headerFooter}>
       <CountryHero {...country[0].attributes} />
+      {about && <InfoBentoGrid {...about} />}
     </RootLayout>
   );
 }

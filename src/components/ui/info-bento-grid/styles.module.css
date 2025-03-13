@@ -1,0 +1,90 @@
+.bentoGridSection {
+  margin: 4em 0;
+}
+
+.bentoRow {
+  display: flex;
+  align-items: stretch;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  border-radius: var(--radius);
+  height: 100%;
+  transition: all 0.25s ease;
+  background-color: var(--white);
+  border: 1px solid #eaeaea;
+}
+
+.contentWrapper:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+}
+
+.bigGridCol {
+  height: 100%;
+  display: flex;
+}
+
+.overviewBox {
+  height: 100%;
+}
+
+.smallGridsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.exportBox,
+.locationBox {
+  flex: 1;
+}
+
+.title {
+  position: relative;
+  padding-left: 0.75em;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  height: 1.1em;
+  width: 0.25em;
+  background-color: var(--yellow);
+}
+
+.contentText {
+  padding-top: 1em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .bentoRow {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .smallGridsColumn {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contentWrapper {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .bentoGridSection {
+    margin: 2rem 0;
+  }
+}

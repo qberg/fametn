@@ -64,9 +64,15 @@
   left: 0;
   height: 250px;
   width: 250px;
-  border: solid 2px var(--white);
+  border: solid 1px var(--white);
   background: var(--light-yellow);
   border-radius: var(--radius);
+  transition: all 0.25s ease;
+}
+
+.mapImageWrapper:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
 }
 
 .nameRow {
