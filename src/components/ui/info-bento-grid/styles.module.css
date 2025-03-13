@@ -13,7 +13,7 @@
   padding: 2em;
   border-radius: var(--radius);
   height: 100%;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
   background-color: var(--white);
   border: 1px solid #eaeaea;
 }
