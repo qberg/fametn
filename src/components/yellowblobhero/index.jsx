@@ -38,6 +38,7 @@ const LeftBlock = ({ hero }) => {
 }
 
 const RightBlock = ({ hero_imgs }) => {
+    console.log(hero_imgs)
     return (
         <div data-aos="fade-up" data-aos-delay={100} className={styles.prop}>
             <Carousel
@@ -56,7 +57,7 @@ const RightBlock = ({ hero_imgs }) => {
                 }}
 
             >
-                {hero_imgs.image.data.map((each, key) => {
+                {hero_imgs.images.data?.map((each, key) => {
                     return (
                         <div className={styles.carousel_megaholder} key={key}>
                             <div className={styles.carousel_holder}>
