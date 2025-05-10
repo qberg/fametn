@@ -57,6 +57,15 @@
   text-decoration: underline;
 }
 
+.subNavItem {
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+}
+
+.subNavItem:hover {
+  color: var(--yellow);
+}
+
 .searchBox {
   /* Add your custom styles for the search button here */
   background-color: var(--light); /* Example background color */
@@ -142,4 +151,3 @@
   display: flex;
   flex-direction: column;
 }
-

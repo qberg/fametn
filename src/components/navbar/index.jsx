@@ -59,7 +59,12 @@ function SuperLink({ header, items }) {
           <div className={styles.navbarItem}>{header}</div>
         </div>
         <div className="my-auto">
-          <Image src="/navdownarrow.svg" width={10} height={10} />
+          <Image
+            src="/navdownarrow.svg"
+            alt="Nav Down Arrow"
+            width={10}
+            height={10}
+          />
         </div>
       </div>
       {open && (
@@ -77,7 +82,9 @@ function SuperLink({ header, items }) {
                         {item.items.map((subitem, subindex) => {
                           return (
                             <Link key={subindex} href={subitem.url || "#"}>
-                              <div className="mt-4">{subitem.text}</div>
+                              <div className={styles.subNavItem}>
+                                {subitem.text}
+                              </div>
                             </Link>
                           );
                         })}

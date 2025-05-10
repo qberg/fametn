@@ -1,67 +1,65 @@
-
-
 .channel {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 .lightbluebtn {
-    background-color: var(--lightblue);
-    max-width: fit-content;
-    padding: 0.5em 1em;
-    border-radius: calc(var(--radius) / 2);
-    font-weight: 500;
-    transition: var(--transition);
+  background-color: var(--lightblue);
+  max-width: fit-content;
+  padding: 0.5em 1em;
+  border-radius: calc(var(--radius) / 2);
+  font-weight: 500;
+  transition: var(--transition);
 }
 
 .channel[data-shono="false"] .lightbluebtn {
-    opacity: 0;
+  opacity: 0;
+}
+
+.channel[data-shono="false"] p {
+  opacity: 0;
 }
 
 .titletext {
-    font-weight: 400 !important;
+  font-weight: 400 !important;
 }
 
 .channelmobile .titletext {
-    color: var(--navy);
+  color: var(--navy);
 }
 
 .channel[data-shono="false"] > p {
-    opacity: 0;
+  opacity: 0;
 }
 
 .thinline {
-    border-top: 1px solid var(--lightblue);
-    padding-top: 2em;
-    position: relative;
+  border-top: 1px solid var(--lightblue);
+  padding-top: 2em;
+  position: relative;
 }
 
 .channel .thinline::before {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 0%;
-    background-color: var(--navy);
-    top: -1px;
-    transition: none;
-
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background-color: var(--navy);
+  top: -1px;
+  transition: none;
 }
-
 
 .channel[data-shono="true"] .thinline::before {
-    width: 100%;
-    transition: linear 4s;
-
+  width: 100%;
+  transition: linear 4s;
 }
 
-
-
 .channel[data-shono="true"] {
-    color: var(--navy);
+  color: var(--navy);
 }
 
 .channel[data-shono="true"] .lightbluebtn {
-    opacity: 1;
+  opacity: 1;
 }
+

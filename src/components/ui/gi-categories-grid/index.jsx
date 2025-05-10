@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import styles from "./styles.module.css";
 import HorizontalScrollGrid from "../horizontal-scroll-grid";
 
