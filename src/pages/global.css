@@ -136,6 +136,56 @@ p {
   padding: 0.2em 1em;
 }
 
+.bluebutton {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--navy);
+  padding: 0.5em;
+  display: flex;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bluebutton > div {
+  font-weight: 500;
+  color: var(--almost-white) !important;
+
+  transition: transform 0.3s ease;
+}
+
+.bluebutton:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bluebutton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transition: left 0.7s ease;
+}
+
+.bluebutton:hover::before {
+  left: 100%;
+}
+
+.bluebutton:hover > div {
+  transform: scale(1.03);
+}
+
 [class*="col-"] {
   margin-bottom: 20px !important;
 }
@@ -274,5 +324,11 @@ a {
 @media (min-width: 1900px) {
   .container {
     max-width: 1500px;
+  }
+}
+
+@media (max-width: 540px) {
+  .bluebutton {
+    width: 100%;
   }
 }

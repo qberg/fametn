@@ -1,0 +1,40 @@
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.1s ease,
+    transform 0.1s ease;
+}
+
+@media (min-width: 540px) {
+  .buttonWrapper {
+    display: none;
+    pointer-events: none;
+  }
+}
