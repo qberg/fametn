@@ -6,7 +6,11 @@ import { CacheHeaders } from "../../utils/definitions";
 export default function ContentRecoPage({ data, themes, headerFooter }) {
   return (
     <RootLayout seo={data.seo} data={headerFooter}>
-      <RecoBlocks title={data.leftBlock.Title} themes={themes} />
+      <RecoBlocks
+        title={data.leftBlock.Title}
+        themes={themes}
+        rightBlock={data.rightBlock}
+      />
     </RootLayout>
   );
 }
