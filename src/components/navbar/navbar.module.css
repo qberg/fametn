@@ -105,6 +105,10 @@
   font-size: 16px;
 }
 
+.desktopButton {
+  display: none;
+}
+
 .drop {
   padding-left: 45px;
 }
@@ -156,12 +160,22 @@
 
 @media (min-width: 1400px) {
   .navbar {
-    max-width: 1200px;
+    max-width: 1400px;
+  }
+  .desktopButton {
+    display: block;
+    margin-left: 8px;
   }
 }
 
 @media (min-width: 1600px) {
   .navbar {
     max-width: 1500px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .navbar {
+    max-width: 1600px;
   }
 }

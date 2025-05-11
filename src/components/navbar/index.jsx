@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import MenuIcon from "@mui/icons-material/Menu";
 import LanguageIcon from "@mui/icons-material/Language";
 import styles from "./navbar.module.css"; // Assuming you're using CSS modules
 import { Col, Container, Row } from "react-bootstrap";
@@ -192,7 +191,7 @@ const Navbar = ({ data, pageProps }) => {
           <div
             data-aos-once="true"
             data-aos-delay={totalDelay + 200 + 500}
-            className="ms-3"
+            className={styles.desktopButton}
           >
             <YellowArrowButton
               text={lastHeaderLink.text}
