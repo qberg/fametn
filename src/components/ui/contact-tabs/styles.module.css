@@ -40,6 +40,54 @@
   margin-bottom: 0 !important;
 }
 
+.tabsContentContainer {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.orgContactCard {
+  background-color: var(--light-gray);
+  min-height: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.orgCol {
+  padding: 1rem;
+  margin: 0 !important;
+}
+
+.orgCardItem {
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  max-width: 400px;
+}
+
+.orgCardItem p {
+  margin-left: 1rem;
+}
+
+.orgMail {
+  margin-top: 1rem;
+  width: fit-content;
+}
+
+.orgWeb {
+  margin-top: 1rem;
+  display: inline-flex;
+  color: var(--navy);
+}
+
+.orgWeb p {
+  margin-right: 0.5rem;
+  color: var(--navy) !important;
+}
+
+.orgMapCol {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 @media (max-width: 768px) {
   .tabsSection {
     padding-left: 0.5rem;
@@ -50,5 +98,10 @@
   }
   .tabsTriggerRow > .tabsTriggerCol:last-child {
     margin-bottom: 0 !important;
+  }
+
+  .tabsContentContainer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }

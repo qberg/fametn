@@ -1,0 +1,30 @@
+.arrow {
+  display: inline-block;
+  transform: translateX(7px) translateY(-1px);
+  transition: var(--transition);
+}
+
+.noarrow:hover .arrow {
+  transform: translateX(10px) translateY(-1px);
+}
+
+.noarrow {
+  width: fit-content;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.15rem solid var(--navy);
+  border-radius: 4px;
+  color: var(--navy);
+}
+
+.text {
+  color: var(--navy) !important;
+  margin-bottom: 0 !important;
+}
+
+.arrow[data-light="true"] img {
+  filter: invert();
+}
