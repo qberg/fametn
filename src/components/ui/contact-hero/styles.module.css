@@ -8,6 +8,10 @@
   margin-top: 1.5rem;
 }
 
+.heroCta {
+  display: inline-flex;
+}
+
 @media (max-width: 768px) {
   .heroSection {
     padding-left: 0.5rem;

@@ -17,7 +17,11 @@ const ContactHero = ({ breadcrumps, title, description, ctaText, ctaLink }) => {
               <p data-aos="fade-up" data-aos-delay={100}>
                 {description}
               </p>
-              <div data-aos="fade-up" data-aos-delay={150}>
+              <div
+                className={styles.heroCta}
+                data-aos="fade-up"
+                data-aos-delay={150}
+              >
                 <YellowArrowButton text={ctaText} link={ctaLink} />
               </div>
             </div>

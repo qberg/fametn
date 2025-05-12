@@ -110,77 +110,92 @@ const GMContactCard = ({ data }) => {
         >
           <div className={styles.accWrapper}>
             {/* Trigger */}
-            <div
-              className={styles.accTrigger}
-              role="button"
-              onClick={() => toggleItem(index)}
-            >
-              <div>{`${gmData.post}, ${gmData.district}`}</div>
 
-              <div>{activeIndex === index ? <Minus /> : <Plus />}</div>
-            </div>
+            {gmData.post && gmData.district && (
+              <div
+                className={styles.accTrigger}
+                role="button"
+                onClick={() => toggleItem(index)}
+              >
+                <div>{`${gmData.post}, ${gmData.district}`}</div>
+
+                <div>{activeIndex === index ? <Minus /> : <Plus />}</div>
+              </div>
+            )}
 
             {/* Content */}
             <div
               className={`${styles.accContentWrapper} ${activeIndex === index ? styles.accActive : ""} `}
             >
               <div className={styles.accContent}>
-                <div className={styles.accItem}>
-                  <div>
-                    <User />
-                  </div>
-                  <div>{gmData.name}</div>
-                </div>
-
-                <div className={styles.accItem}>
-                  <div>
-                    <MapPin />
-                  </div>
-                  <div>
-                    {gmData.address.split(",").map((part, idx) => (
-                      <div key={idx}>{part.trim()}</div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className={styles.accItem}>
-                  <div>
-                    <Mail />
-                  </div>
-                  <a href={`mailto:${gmData.mail}`}>
-                    <div className={styles.gmAnchor}>{gmData.mail}</div>
-                  </a>
-                </div>
-
-                <div className={styles.accItem}>
-                  <div>
-                    <Phone />
-                  </div>
-                  <div>{gmData.tel}</div>
-                </div>
-
-                <div className={styles.accItem}>
-                  <div>
-                    <Smartphone />
-                  </div>
-                  <div>{gmData.mobile}</div>
-                </div>
-
-                <div className={styles.accItem}>
-                  <div>
-                    <Globe />
-                  </div>
-                  <a
-                    href={gmData.website}
-                    target="_self"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit website: ${gmData.website}`}
-                  >
-                    <div className={styles.gmAnchor}>
-                      {gmData.website.replace(/(^\w+:|^)\/\/(www\.)?/, "")}
+                {gmData.name && (
+                  <div className={styles.accItem}>
+                    <div>
+                      <User />
                     </div>
-                  </a>
-                </div>
+                    <div>{gmData.name}</div>
+                  </div>
+                )}
+
+                {gmData.address && (
+                  <div className={styles.accItem}>
+                    <div>
+                      <MapPin />
+                    </div>
+                    <div>
+                      {gmData.address.split(",").map((part, idx) => (
+                        <div key={idx}>{part.trim()}</div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {gmData.mail && (
+                  <div className={styles.accItem}>
+                    <div>
+                      <Mail />
+                    </div>
+                    <a href={`mailto:${gmData.mail}`}>
+                      <div className={styles.gmAnchor}>{gmData.mail}</div>
+                    </a>
+                  </div>
+                )}
+
+                {gmData.tel && (
+                  <div className={styles.accItem}>
+                    <div>
+                      <Phone />
+                    </div>
+                    <div>{gmData.tel}</div>
+                  </div>
+                )}
+
+                {gmData.mobile && (
+                  <div className={styles.accItem}>
+                    <div>
+                      <Smartphone />
+                    </div>
+                    <div>{gmData.mobile}</div>
+                  </div>
+                )}
+
+                {gmData.website && (
+                  <div className={styles.accItem}>
+                    <div>
+                      <Globe />
+                    </div>
+                    <a
+                      href={gmData.website}
+                      target="_self"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit website: ${gmData.website}`}
+                    >
+                      <div className={styles.gmAnchor}>
+                        {gmData.website.replace(/(^\w+:|^)\/\/(www\.)?/, "")}
+                      </div>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
