@@ -103,7 +103,7 @@ const GMContactCard = ({ data }) => {
       {data.map((gmData, index) => (
         <Col
           data-aos="fade-up"
-          data-aos-delay={index * 100}
+          data-aos-delay={index * 40}
           key={index}
           xs={12}
           md={6}
