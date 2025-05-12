@@ -4,6 +4,12 @@ import styles from "./styles.module.css";
 import { useState } from "react";
 import { MapPin, Phone, SquareArrowOutUpRight } from "lucide-react";
 import { ContactArrowButton } from "@/components/ui/contact-arrow-button";
+import dynamic from "next/dynamic";
+
+const LazyMap = dynamic(() => import("@/components/ui/contact-map"), {
+  ssr: false,
+  loading: () => <div className={styles.mapLoading}>Loading map...</div>,
+});
 
 const triggerContent = [
   {
@@ -36,6 +42,7 @@ const ContactTabs = ({ fametn, icdic, officials }) => {
         return fametn;
     }
   };
+
   return (
     <section className={styles.tabsSection}>
       {/* Tabs Trigger */}
@@ -77,6 +84,7 @@ const ContactTabs = ({ fametn, icdic, officials }) => {
 };
 
 const OrgContactCard = ({ name, address, tel, mail, website }) => {
+  const location = [13.009730416701956, 80.21024319642622];
   return (
     <Row className={styles.orgContactCard}>
       <Col xs={12} md={6} className={styles.orgCol}>
@@ -116,7 +124,7 @@ const OrgContactCard = ({ name, address, tel, mail, website }) => {
       </Col>
 
       <Col xs={12} md={6} className={styles.orgMapCol}>
-        Map
+        <LazyMap location={location} popupText={name} />
       </Col>
     </Row>
   );
