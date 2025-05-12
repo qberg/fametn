@@ -1,5 +1,6 @@
 import RootLayout from "../../components/layout/layout";
 import ContactHero from "../../components/ui/contact-hero";
+import ContactTabs from "../../components/ui/contact-tabs";
 import { getDataFromPath, getHeaderFooterData } from "../../utils/api_calls";
 import { CacheHeaders } from "../../utils/definitions";
 
@@ -7,6 +8,7 @@ export default function Contact({ data, headerFooter }) {
   return (
     <RootLayout seo={data.seo} data={headerFooter}>
       <ContactHero {...data.hero} />
+      <ContactTabs {...data.tabs} />
     </RootLayout>
   );
 }

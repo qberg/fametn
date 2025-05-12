@@ -1,8 +1,16 @@
 .heroSection {
-  background-color: var(--palestyellow);
-  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--light-gray);
 }
 
 .heroContent {
   margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }

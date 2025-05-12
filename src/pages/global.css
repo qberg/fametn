@@ -319,13 +319,13 @@ a {
 
 @media (min-width: 1600px) {
   .container {
-    max-width: 1400px;
+    max-width: 1150px;
   }
 }
 
 @media (min-width: 1900px) {
   .container {
-    max-width: 1500px;
+    max-width: 1200px;
   }
 }
 
