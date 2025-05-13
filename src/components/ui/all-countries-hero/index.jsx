@@ -27,8 +27,7 @@ const AllCountriesHero = ({ regions }) => {
 
       const headerOffset = 5;
       const elementPosition = sectionElement.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,

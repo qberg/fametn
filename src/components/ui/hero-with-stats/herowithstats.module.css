@@ -15,6 +15,10 @@
   z-index: -1;
 }
 
+.bread {
+  background-color: var(--almost-white);
+}
+
 .overlay {
   position: absolute;
   top: 0;

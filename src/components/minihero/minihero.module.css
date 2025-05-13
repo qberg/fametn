@@ -1,13 +1,24 @@
+.container {
+  margin-top: 8rem;
+}
+
 .title {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .subtitle {
-    text-transform: uppercase;
-    color: var(--yellow);
+  text-transform: uppercase;
+  color: var(--yellow);
 }
 
 .image {
-    min-height: 300px;
-    position: relative;
+  min-height: 300px;
+  position: relative;
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 16rem;
+  }
+}
+
