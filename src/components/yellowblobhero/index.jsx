@@ -42,9 +42,11 @@ const LeftBlock = ({ hero }) => {
         <div data-aos="fade-up" className={styles.subtitle}>
           <p>{hero.description}</p>
         </div>
-        <div data-aos="fade-up" className="mt-4">
-          <YellowArrowButton text={hero.cta_name} link={hero.cta_link} />
-        </div>
+        {hero.cta_link && (
+          <div data-aos="fade-up" className="mt-4">
+            <YellowArrowButton text={hero.cta_name} link={hero.cta_link} />
+          </div>
+        )}
       </div>
     </>
   );
@@ -107,4 +109,3 @@ const YellowBlobHero = ({ hero, hero_imgs }) => {
 };
 
 module.exports = YellowBlobHero;
-

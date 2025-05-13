@@ -1,124 +1,126 @@
-import { Col, Container, Row } from "react-bootstrap"
-import styles from "./testimonials.module.css"
-import { useRouter } from "next/router"
-import DynamicImage from "../dynamicImage"
+import { Col, Container, Row } from "react-bootstrap";
+import styles from "./testimonials.module.css";
+import { useRouter } from "next/router";
+import DynamicImage from "../dynamicImage";
 
 const strings = {
-    "testimonials": {
-        "en": "Testimonials",
-        "ta": "மதிப்பீடுகள்"
-    },
-    "words": {
-        "en": "Some words from our founders",
-        "ta": "எங்கள் துணையர்களிடமிருந்து சில வார்த்தைகள்"
-    }
-}
+  testimonials: {
+    en: "Testimonials",
+    ta: "மதிப்பீடுகள்",
+  },
+  words: {
+    en: "Some words from our founders",
+    ta: "எங்கள் துணையர்களிடமிருந்து சில வார்த்தைகள்",
+  },
+};
 
 function Testimonial({ data }) {
-    const isVideoTestimonial = data.video_testimonial?.data != null;
-    const VideoTestimonial = ({videoData}) => {
-        const videoUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + videoData.url;
-        const videoType = videoData.mime;
-        return (
-            <div className={styles.videocontainer}>
-                <video className={styles.actualVideo} controls>
-                    <source src={videoUrl} type={videoType} />
-                </video>
-            </div>
-        )
-    }
-
+  const isVideoTestimonial = data.video_testimonial?.data != null;
+  const VideoTestimonial = ({ videoData }) => {
+    const videoUrl = process.env.NEXT_PUBLIC_IMG_ENDPOINT + videoData.url;
+    const videoType = videoData.mime;
     return (
-        <div data-aos="fade-up" className={styles.testimonialbox} lg={12}>
-            <div className="d-flex">
-                <div className={styles.profilepic}>
-                    <DynamicImage src={data.profile_pic} objectFit="cover" />
-                </div>
-                <div className="ms-3 my-auto">
-                    <div>
-                        {data.name}
-                    </div>
-                    <div className="small">
-                        {data.position}
-                    </div>
-                </div>
-            </div>
-            
-            {!isVideoTestimonial && (<p className="mt-3 mb-0 small">
-                {data.description}
-            </p>)}
+      <div className={styles.videocontainer}>
+        <video className={styles.actualVideo} controls>
+          <source src={videoUrl} type={videoType} />
+        </video>
+      </div>
+    );
+  };
 
-            {isVideoTestimonial && (<div className="mt-3">
-                <VideoTestimonial videoData={data.video_testimonial.data.attributes} />
-            </div>)}
+  return (
+    <div data-aos="fade-up" className={styles.testimonialbox} lg={12}>
+      <div className="d-flex">
+        <div className={styles.profilepic}>
+          <DynamicImage src={data.profile_pic} objectFit="cover" />
         </div>
+        <div className="ms-3 my-auto">
+          <div>{data.name}</div>
+          <div className="small">{data.position}</div>
+        </div>
+      </div>
 
-    )
+      {!isVideoTestimonial && (
+        <p className="mt-3 mb-0 small">{data.description}</p>
+      )}
+
+      {isVideoTestimonial && (
+        <div className="mt-3">
+          <VideoTestimonial
+            videoData={data.video_testimonial.data.attributes}
+          />
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function Testimonials({ data, title, subtitle }) {
+  const { locale } = useRouter();
 
-    const { locale } = useRouter()
-
-    const scoringFunction = (testimonial) => {
-        if (testimonial.video_testimonial?.data != null) {
-            return 2 + 8;
-        }
-        else {
-            return 2 + Math.ceil(0.023 * testimonial.description.length);
-        }
+  const scoringFunction = (testimonial) => {
+    if (testimonial.video_testimonial?.data != null) {
+      return 2 + 8;
+    } else {
+      return 2 + Math.ceil(0.023 * testimonial.description.length);
     }
+  };
 
-    const splitEqualScore = (testimonials, numSplits) => {
-        var currentScores = Array(numSplits).fill(0);
-        var results = Array.from({ length: numSplits }, () => []);
-        for (var i = 0; i < testimonials.length; i++) {
-            var testimonial = testimonials[i];
-            var minIndex = currentScores.indexOf(Math.min(...currentScores));
-            currentScores[minIndex] += testimonial.score;
+  const splitEqualScore = (testimonials, numSplits) => {
+    var currentScores = Array(numSplits).fill(0);
+    var results = Array.from({ length: numSplits }, () => []);
+    for (var i = 0; i < testimonials.length; i++) {
+      var testimonial = testimonials[i];
+      var minIndex = currentScores.indexOf(Math.min(...currentScores));
+      currentScores[minIndex] += testimonial.score;
 
-            results[minIndex].push(testimonial);
-        }
-        return results;
+      results[minIndex].push(testimonial);
     }
+    return results;
+  };
 
-    const allTestimonialsWithScore = data.data.map(each => {
-        return {
-            ...each.attributes,
-            score: scoringFunction(each.attributes)
-        }
-    })
+  const allTestimonialsWithScore = data.data.map((each) => {
+    return {
+      ...each.attributes,
+      score: scoringFunction(each.attributes),
+    };
+  });
 
-    const numColumns = 3;
+  const numColumns = 3;
 
-    const splitedTestimonials = splitEqualScore(allTestimonialsWithScore, numColumns);
+  const splitedTestimonials = splitEqualScore(
+    allTestimonialsWithScore,
+    numColumns,
+  );
 
-    return (
+  return (
+    <>
+      {data.data.length > 0 && (
         <Container>
-            <div className="my-5">
-                <center>
-                    <div data-aos="fade-up" className={styles.boxed}>
-                        {title || strings.testimonials[locale]}
-                    </div>
-                    <h2 data-aos="fade-up" className="mt-3">
-                        {subtitle || strings.words[locale]}
-                    </h2>
-                </center>
-                <Row className="mt-5">
-                    {splitedTestimonials.map((each, index) => {
-                        return (
-                            <Col className={styles.nomb} lg={4} key={index}>
-                                {each.map((testimonial, index) => {
-                                    return (
-                                        <Testimonial key={index} data={testimonial} />
-                                    )
-                                })}
-                            </Col>
-                        )
+          <div className="my-5">
+            <center>
+              <div data-aos="fade-up" className={styles.boxed}>
+                {title || strings.testimonials[locale]}
+              </div>
+              <h2 data-aos="fade-up" className="mt-3">
+                {subtitle || strings.words[locale]}
+              </h2>
+            </center>
+            <Row className="mt-5">
+              {splitedTestimonials.map((each, index) => {
+                return (
+                  <Col className={styles.nomb} lg={4} key={index}>
+                    {each.map((testimonial, index) => {
+                      return <Testimonial key={index} data={testimonial} />;
                     })}
-                </Row>
-            </div>
+                  </Col>
+                );
+              })}
+            </Row>
+          </div>
         </Container>
-    )
-
+      )}
+    </>
+  );
 }
+

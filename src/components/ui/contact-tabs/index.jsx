@@ -237,24 +237,24 @@ const OrgContactCard = ({ name, address, tel, mail, website }) => {
         </div>
 
         <div data-aos="fade-up" data-aos-delay={160} className={styles.orgMail}>
-          <ContactArrowButton text="Send Mail" link={`mailto:${mail}`} />
+          <ContactArrowButton text="Send Enquiry" link={`mailto:${mail}`} />
         </div>
 
-        <a
-          data-aos="fade-up"
-          data-aos-delay={200}
-          href={website}
-          target="_self"
-          rel="noopener noreferrer"
-          aria-label={`Visit website: ${website}`}
-        >
-          <div className={styles.orgWeb}>
-            <p>Visit Website</p>
-            <div>
-              <SquareArrowOutUpRight />
+        <div data-aos="fade-up" data-aos-delay={200}>
+          <a
+            href={website}
+            target="_self"
+            rel="noopener noreferrer"
+            aria-label={`Visit website: ${website}`}
+          >
+            <div className={styles.orgWeb}>
+              <p>Visit Website</p>
+              <div>
+                <SquareArrowOutUpRight />
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </Col>
 
       <Col xs={12} md={6} className={styles.orgMapCol}>
