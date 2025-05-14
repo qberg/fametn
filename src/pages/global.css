@@ -311,6 +311,16 @@ a {
   background-color: var(--light-gray);
 }
 
+.markedTitle::before {
+  content: "";
+  display: inline-block;
+  height: 1.5em;
+  width: 0.25em;
+  margin-right: 0.5em;
+  background-color: var(--yellow);
+  vertical-align: middle;
+}
+
 /* container max width for screens above 992px */
 @media (min-width: 1400px) {
   .container {
