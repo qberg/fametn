@@ -16,7 +16,11 @@ export default function Teams({ data, allTeams, headerFooter, news }) {
     <RootLayout seo={data.seo} data={headerFooter}>
       <Breadcrumps items={data.breadcrumps} />
       <TeamsHero data={data} />
-      <TeamMembersGrid heading={data.leadershipHeading} allTeams={allTeams} />
+      <TeamMembersGrid
+        heading={data.leadershipHeading}
+        otherHeading={data.otherTeamHeading}
+        allTeams={allTeams}
+      />
       <Newsletterform data={news} />
     </RootLayout>
   );

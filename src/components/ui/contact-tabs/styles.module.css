@@ -47,9 +47,9 @@
 }
 
 .orgContactCard {
-  background-color: var(--gray-bg);
+  background-color: var(--almost-white);
   min-height: 250px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--tiny-shadow);
 }
 
 .orgCol {
@@ -99,7 +99,8 @@
 }
 
 .accWrapper {
-  background-color: var(--gray-bg);
+  background-color: var(--almost-white);
+  box-shadow: var(--tiny-shadow);
   padding: 1rem;
 }
 

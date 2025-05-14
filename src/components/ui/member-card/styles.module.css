@@ -1,0 +1,61 @@
+.memberCard {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.cardImage {
+  height: 140px;
+  width: 125px;
+  position: relative;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cardContent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 85%;
+  height: 100%;
+  background-color: var(--almost-white);
+  box-shadow: var(--tiny-shadow);
+  z-index: -100;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.cta {
+  color: var(--navy) !important;
+  font-weight: 500;
+  display: inline-flex;
+  font-size: 1.25rem;
+}
+.mail {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .memberCard {
+    padding: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    gap: 1rem;
+  }
+
+  .cardImage {
+    height: 120px;
+    width: 100px;
+  }
+}
