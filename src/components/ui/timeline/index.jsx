@@ -49,19 +49,17 @@ const TimeLineItem = ({ title, description, ctaLink, ctaText, index }) => {
           role="button"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <div className={styles.timelineMarker} data-aos="fade-up">
+          <div className={styles.timelineMarker}>
             <div className={styles.timelineStep}>{index + 1}</div>
           </div>
           <div className={styles.timelineHeader}>
             <h5
-              data-aos="fade-up"
               className={`${styles.timelineTitle} ${isOpen ? styles.open : ""}`}
             >
               {title}
             </h5>
 
             <div
-              data-aos="fade-up"
               className={`${styles.timelineIcon} ${isOpen ? styles.open : ""}`}
             >
               <ChevronDown />
