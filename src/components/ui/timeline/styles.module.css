@@ -1,0 +1,80 @@
+.timelineRow {
+  position: relative;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.timeline > :first-child {
+  border-top: 1px solid var(--border-gray);
+}
+
+.timeline .timelineCol {
+  margin-bottom: 0 !important;
+}
+
+.timelineItem {
+  position: relative;
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.timelineTrigger {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.timelineTrigger:hover {
+  background-color: var(--light-gray);
+}
+
+.timelineStep {
+  height: 2rem;
+  width: 2rem;
+  background-color: var(--navy);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timelineHeader {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.timelineTitle {
+  margin-bottom: 0 !important;
+  color: var(--navy);
+  transition: color 0.3s ease;
+}
+
+.timelineTitle.open {
+  color: black;
+}
+
+.timelineIcon {
+  color: var(--navy);
+}
+
+.timelineContent {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.timelineContentInner {
+  padding-bottom: 1.5rem;
+  padding-left: 3rem;
+}
+
+@media (max-width: 768px) {
+  .timelineHeader {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}

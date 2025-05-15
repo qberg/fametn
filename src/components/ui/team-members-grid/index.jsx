@@ -1,8 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./styles.module.css";
 import LeaderCard from "../leader-card";
-import DynamicImage from "../../dynamicImage";
-import { Mail } from "lucide-react";
 import MemberCard from "../member-card";
 
 const TeamMembersGrid = ({ heading, otherHeading, allTeams }) => {
