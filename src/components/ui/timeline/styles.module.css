@@ -59,6 +59,11 @@
 
 .timelineIcon {
   color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.timelineIcon.open {
+  transform: rotate(180deg);
 }
 
 .timelineContent {
@@ -70,6 +75,59 @@
 .timelineContentInner {
   padding-bottom: 1.5rem;
   padding-left: 3rem;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: var(--navy) !important;
+}
+
+.ctaLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--navy);
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.ctaLink:hover::after,
+.ctaLink:focus::after {
+  transform: scaleX(1);
+}
+
+.ctaText {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.ctaIcon {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transform: translateX(0);
+  opacity: 0.7;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.ctaLink:hover .ctaText,
+.ctaLink:focus .ctaText {
+  transform: translateX(-3px);
+}
+
+.ctaLink:hover .ctaIcon,
+.ctaLink:focus .ctaIcon {
+  transform: translateX(3px);
+  opacity: 1;
 }
 
 @media (max-width: 768px) {

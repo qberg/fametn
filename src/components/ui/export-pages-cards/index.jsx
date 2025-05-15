@@ -2,7 +2,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "./exportpagescards.module.css";
 import YellowArrowButton from "../../yellow_arrow_button";
 import DynamicImage from "../../dynamicImage";
-import Bluepill from "../../bluepill";
 
 const PageCard = ({
   badge,

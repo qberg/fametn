@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./styles.module.css";
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import useMeasure from "react-use-measure";
 
 const TimeLine = ({ heading, description, items }) => {
@@ -55,8 +55,10 @@ const TimeLineItem = ({ title, description, ctaLink, ctaText, index }) => {
               {title}
             </h5>
 
-            <div className={styles.timelineIcon}>
-              {isOpen ? <ChevronUp /> : <ChevronDown />}
+            <div
+              className={`${styles.timelineIcon} ${isOpen ? styles.open : ""}`}
+            >
+              <ChevronDown />
             </div>
           </div>
         </div>
@@ -69,6 +71,14 @@ const TimeLineItem = ({ title, description, ctaLink, ctaText, index }) => {
         >
           <div ref={ref} className={styles.timelineContentInner}>
             <p className={styles.timelineDesc}>{description}</p>
+            {ctaLink && (
+              <a className={styles.ctaLink} href={ctaLink}>
+                <span className={styles.ctaText}>{ctaText}</span>
+                <span className={styles.ctaIcon}>
+                  <ArrowRight size={20} />{" "}
+                </span>
+              </a>
+            )}
           </div>
         </div>
       </div>

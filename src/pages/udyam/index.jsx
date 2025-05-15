@@ -2,20 +2,18 @@ import RootLayout from "../../components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
 import { getDataFromPath, getHeaderFooterData } from "../../utils/api_calls";
 
-import Breadcrumps from "../../components/breadcrumps";
-import YellowBlobHero from "@/components/yellowblobhero";
 import ThreeChannel from "@/components/threechannel";
 import TimeLine from "../../components/ui/timeline";
 import FaqComponent from "../../components/faqcomponent";
+import HeroWithStats from "../../components/ui/hero-with-stats";
 
 export default function BizBuddy({ data, headerFooter }) {
   return (
     <RootLayout seo={data.seo} data={headerFooter}>
-      <Breadcrumps items={data.breadcrumps} />
-      <YellowBlobHero hero={data.hero} hero_imgs={data.heroimage} />
-      <ThreeChannel data={data.threeChannel} ctaEnabled={false} />
+      <HeroWithStats {...data.hero} breadcrumps={data.breadcrumps} />
+      <ThreeChannel data={data.threeChannel} ctaEnabled={true} />
       <TimeLine
-        heading={data.howToApplyHeading}
+        heading={data.howToApply}
         description={data.howToApplyDescription}
         items={data.stepsToApply}
       />
@@ -27,7 +25,7 @@ export default function BizBuddy({ data, headerFooter }) {
 export async function getServerSideProps(context) {
   context.res.setHeader("Cache-Control", CacheHeaders);
 
-  const path = "biz-buddy?&populate=deep";
+  const path = "udyam?&populate=deep";
   const language = context.locale;
   const data = await getDataFromPath(path, language);
 
