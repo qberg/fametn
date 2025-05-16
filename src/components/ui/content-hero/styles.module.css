@@ -38,6 +38,13 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 270px;
+  transition: color 0.3s ease;
+  color: black;
+}
+
+.triggerBoxText.open {
+  color: var(--gray);
+  transition: color 0.3s ease;
 }
 
 .dropdownTrigger {
@@ -70,7 +77,7 @@
   visibility: hidden;
 
   transition:
-    opacity 0.3s ease,
+    opacity 0.2s ease,
     transform 0.4s ease,
     visibility 0s linear 0.3s;
 }
@@ -89,6 +96,10 @@
 .menuItem {
   border-bottom: 1px solid var(--border-gray);
   padding-bottom: 0.5rem;
+}
+
+.menuItem:hover {
+  color: var(--navy);
 }
 
 .dropdownMenu .menuItem:last-child {

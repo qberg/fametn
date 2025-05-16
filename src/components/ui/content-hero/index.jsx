@@ -66,7 +66,11 @@ const ContentHero = ({ title, description, bgImage, dropdown, ctaText }) => {
                   aria-expanded={isOpen}
                   aria-haspopup="true"
                 >
-                  <div className={styles.triggerBoxText}>{triggerBoxText}</div>
+                  <div
+                    className={`${styles.triggerBoxText} ${isOpen ? styles.open : ""} `}
+                  >
+                    {triggerBoxText}
+                  </div>
 
                   <div
                     className={`${styles.dropdownIcon} ${isOpen ? styles.open : ""}`}
