@@ -45,7 +45,7 @@ const TimeLineItem = ({ title, description, ctaLink, ctaText, index }) => {
         data-aos-delay={50 * index}
       >
         <div
-          className={styles.timelineTrigger}
+          className={`${styles.timelineTrigger} ${isOpen ? styles.open : ""}`}
           role="button"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -76,7 +76,12 @@ const TimeLineItem = ({ title, description, ctaLink, ctaText, index }) => {
           <div ref={ref} className={styles.timelineContentInner}>
             <p className={styles.timelineDesc}>{description}</p>
             {ctaLink && (
-              <a className={styles.ctaLink} href={ctaLink}>
+              <a
+                className={styles.ctaLink}
+                href={ctaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className={styles.ctaText}>{ctaText}</span>
                 <span className={styles.ctaIcon}>
                   <ArrowRight size={20} />{" "}

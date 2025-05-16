@@ -1,0 +1,135 @@
+.heroSection {
+  margin-top: 2rem;
+}
+
+.bgImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: auto 3/2;
+  z-index: -1;
+  border-radius: var(--small-radius);
+  overflow: hidden;
+}
+
+.contentRow {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+}
+
+.contentCol {
+  background-color: var(--palestyellow);
+  margin-top: -2rem;
+  padding: 1rem;
+  border-radius: var(--small-radius);
+}
+
+.dropdown {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+.triggerBoxText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 270px;
+}
+
+.dropdownTrigger {
+  background-color: var(--almost-white);
+  flex-grow: 1;
+  cursor: pointer;
+  border-radius: var(--small-radius);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  position: relative;
+}
+
+.dropdownMenu {
+  background-color: white;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  border-radius: var(--small-radius);
+  box-shadow: var(--tiny-shadow);
+  width: 100%;
+  padding: 1rem 1rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s ease,
+    visibility 0s linear 0.3s;
+}
+
+.dropdownMenu.open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+
+  transition:
+    opacity 0.1s ease,
+    transform 0.4s ease,
+    visibility 0s linear 0s;
+}
+
+.menuItem {
+  border-bottom: 1px solid var(--border-gray);
+  padding-bottom: 0.5rem;
+}
+
+.dropdownMenu .menuItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0rem;
+}
+
+.dropdownIcon {
+  transition: transform 0.3s ease;
+}
+
+.dropdownIcon.open {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+  .bgImage {
+    max-height: 360px;
+  }
+
+  .contentRow {
+    max-width: 100%;
+  }
+  .contentCol {
+    margin-top: -6rem;
+    padding: 2rem;
+  }
+  .dropdown {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .bgImage {
+    max-height: 440px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .bgImage {
+    min-height: 550px;
+  }
+}

@@ -37,3 +37,9 @@
   filter: invert();
 }
 
+.disabled {
+  opacity: 0.9;
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: grayscale(40%);
+}

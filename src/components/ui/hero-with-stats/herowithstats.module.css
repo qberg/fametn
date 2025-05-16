@@ -137,6 +137,7 @@
   .heroContainer::after {
     display: none;
   }
+
   .heroContent {
     margin: 0px;
   }
