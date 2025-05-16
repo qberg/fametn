@@ -1,0 +1,87 @@
+.card {
+  margin: 4rem 0rem;
+}
+
+.imageCol {
+  position: relative;
+  padding-left: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.8/1;
+  z-index: -1;
+  border-radius: var(--small-radius);
+  overflow: hidden;
+}
+
+.imageCol::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 100%;
+  background-color: var(--lightblue);
+  z-index: -100;
+  border-radius: var(--small-radius);
+}
+
+.bgImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: auto 3/2;
+  border-radius: var(--small-radius);
+  overflow: hidden;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.ctaDesktop {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.ctaMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: 2rem 0rem;
+  }
+  .imageCol {
+    padding-left: 1rem !important;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+  }
+  .imageWrapper {
+    width: 100%;
+  }
+
+  .imageCol::before {
+    border-radius: 0;
+    border-top-right-radius: var(--small-radius);
+    border-bottom-right-radius: var(--small-radius);
+
+    padding-left: 0;
+  }
+  .ctaDesktop {
+    display: none;
+  }
+
+  .ctaMobile {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+}

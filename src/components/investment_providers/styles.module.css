@@ -1,58 +1,58 @@
-
 .table {
-    width: 100%;
+  width: 100%;
 }
 
 .table th {
-    background-color: var(--yellow);
-    border: 1px solid var(--black);
-    font-weight: 400;
-    padding: 0.7em;
-    font-size: small;
+  background-color: var(--yellow);
+  border: 1px solid var(--black);
+  font-weight: 400;
+  padding: 0.7em;
+  font-size: small;
+  border-radius: var(--small-radius);
 }
 
 .table td {
-    font-size: small;
-    border: 1px solid var(--border-gray);
-    padding: 0.7em;
-    opacity: 0.8;
+  font-size: small;
+  border: 1px solid var(--border-gray);
+  border-radius: var(--small-radius);
+  padding: 0.7em;
+  opacity: 0.8;
 }
 
-
 .sortimg img {
-    cursor: pointer;
-    transition: var(--transition);
-    transform: rotate(0deg);
+  cursor: pointer;
+  transition: var(--transition);
+  transform: rotate(0deg);
 }
 
 .sortimg {
-    transition: var(--transition);
+  transition: var(--transition);
 }
 
 .sortimg:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .sortimg[data-dsc="true"] img {
-    transform: rotate(180deg);
-    transition: var(--transition);
+  transform: rotate(180deg);
+  transition: var(--transition);
 }
 
-
 .pagecontainer {
-    display: flex;
-    justify-content: center;
-    background-color: var(--white);
-    border: 1px solid var(--border-gray);
-    border-radius: var(--small-radius);
-    padding: 0.7em;
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--small-radius);
+  padding: 0.7em;
 }
 
 .pagecontainer > div {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .pagecontainer > div[data-shono="false"] {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
+

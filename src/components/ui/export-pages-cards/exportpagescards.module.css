@@ -1,5 +1,6 @@
 .cardContainer {
   padding: 1em 0;
+  z-index: 1;
 }
 
 .cardContainer:first-child {

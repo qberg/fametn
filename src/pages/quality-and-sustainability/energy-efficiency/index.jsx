@@ -1,21 +1,20 @@
-import RootLayout from "../../components/layout/layout";
+import RootLayout from "@/components/layout/layout";
 import { CacheHeaders } from "@/utils/definitions";
 import {
   getDataFromPath,
   getHeaderFooterData,
   getNewsletterData,
-} from "../../utils/api_calls";
+} from "../../../utils/api_calls";
 import PartnersSection from "@/components/partners";
-import UpcomingEvents from "../../components/upcoming_events";
-import RecentBlogsGrid from "../../components/recentblogsgrid";
-import Newsletterform from "../../components/newsletterform";
-import YellowHero from "../../components/yellowhero";
-import EnergyCard from "../../components/energycard";
-import { getAllAuditors } from "../../utils/auditors";
-import Auditors from "../../components/auditors";
-import YellowSchemes from "../../components/yellow_schemes";
-import YellowResourcesBlock from "../../components/yellowresourcesblock";
-import Gallery from "../../components/gallery";
+import UpcomingEvents from "@/components/upcoming_events";
+import RecentBlogsGrid from "@/components/recentblogsgrid";
+import Newsletterform from "@/components/newsletterform";
+import { getAllAuditors } from "../../../utils/auditors";
+import Auditors from "@/components/auditors";
+import YellowSchemes from "@/components/yellow_schemes";
+import YellowResourcesBlock from "@/components/yellowresourcesblock";
+import ContentHero from "@/components/ui/content-hero";
+import ColorBlockCard from "../../../components/ui/color-block-card";
 
 export default function EnergyEfficiency({
   data,
@@ -25,16 +24,13 @@ export default function EnergyEfficiency({
 }) {
   return (
     <RootLayout seo={data.seo} data={headerFooter}>
-      <YellowHero
-        hero={data.hero}
-        hero_imgs={data.hero_imgs}
-        breads={data.breadcrumps}
-      />
+      <ContentHero {...data.hero} breadcrumps={data.breadcrumps} />
+      <PartnersSection heading={data.partner_title} data={data.partners} />
       <UpcomingEvents
         data={data.events.events.data.map((each) => each.attributes)}
         meta={data.events}
       />
-      <EnergyCard data={data.section_2} />
+      <ColorBlockCard {...data.section_2} />
       <Auditors data={auditors} />
       <YellowSchemes
         data={data.finance_schemes}
@@ -42,9 +38,6 @@ export default function EnergyEfficiency({
         cta={data.schemes_cta}
       />
       <YellowResourcesBlock data={data.resourcesblock} />
-      <div className="my-5"></div>
-      <PartnersSection heading={data.partner_title} data={data.partners} />
-      {data.gallery && <Gallery data={data.gallery} />}
       <RecentBlogsGrid blogs={data.blogs} />
       <Newsletterform data={news} />
     </RootLayout>
@@ -69,4 +62,3 @@ export async function getServerSideProps(context) {
     },
   };
 }
-
