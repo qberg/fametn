@@ -7,3 +7,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [] Use react-use for height in regional officials tab.
 - [] Filter based on alphabets
 - [] Add FAQ Accordion
+
+- [] Improve Energy efficiency table (also in gen)
+- [] Improve templates for blogs,schemes and resources

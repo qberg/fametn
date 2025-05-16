@@ -9,6 +9,7 @@ export default function SiteMap() {
     "/emarkets",
 
     "/quality-and-sustainability/energy-efficiency",
+    "/quality-and-sustainability/testing-labs",
     "/events",
     "/export-promotion-councils",
     "/export-promotions",
@@ -24,7 +25,6 @@ export default function SiteMap() {
     "/investment-promotion/",
     "/energy-efficiency",
     "/industry-4-0",
-    "/testing-labs",
     "/lean",
 
     "/tenders",
@@ -62,4 +62,3 @@ export default function SiteMap() {
     </div>
   );
 }
-
