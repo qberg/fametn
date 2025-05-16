@@ -3,10 +3,17 @@ import styles from "./styles.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import YellowArrowButton from "@/components/yellow_arrow_button";
 import { ChevronDown } from "lucide-react";
+import Breadcrumps from "@/components/breadcrumps";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
-const ContentHero = ({ title, description, bgImage, dropdown, ctaText }) => {
+const ContentHero = ({
+  title,
+  description,
+  bgImage,
+  dropdown,
+  ctaText,
+  breadcrumps,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ctaLink, setCtaLink] = useState(null);
   const [triggerBoxText, setTriggerBoxText] = useState("I would like to...");
@@ -41,6 +48,11 @@ const ContentHero = ({ title, description, bgImage, dropdown, ctaText }) => {
 
   return (
     <section className={styles.heroSection}>
+      {breadcrumps && (
+        <div className={styles.bread}>
+          <Breadcrumps items={breadcrumps} />
+        </div>
+      )}
       <Container>
         <div className={styles.bgImage}>
           <DynamicImage src={bgImage} objectFit="cover" />

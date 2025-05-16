@@ -7,7 +7,7 @@ import { CacheHeaders } from "../../utils/definitions";
 export default function Exports({ data, headerFooter }) {
   return (
     <RootLayout seo={data.seo} data={headerFooter}>
-      <ContentHero {...data.hero} />
+      <ContentHero {...data.hero} breadcrumps={data.breadcrumps} />
 
       {data.pagesCards && <ExportPagesCards data={data.pagesCards} />}
     </RootLayout>
