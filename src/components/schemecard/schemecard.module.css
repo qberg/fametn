@@ -1,86 +1,85 @@
 .card {
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    /* background-color: cyan; */
-    border-radius: var(--radius);
-    border: var(--light-gray) 1px solid;
-    background-color: var(--almost-white);
-    padding: 1em;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* background-color: cyan; */
+  border-radius: var(--radius);
+  border: var(--light-gray) 1px solid;
+  background-color: var(--almost-white);
+  padding: 1em;
 }
 
 .card[data-mini="true"] {
-    height: 210px;
+  height: 210px;
 }
 
 .innerimg {
-    object-fit: "cover";
+  object-fit: "cover";
 }
 
 .img_wrap {
-    height: 50px;
-    min-width: 50px;
-    /* background-color: cyan; */
-    border-radius: var(--radius);
-    overflow: hidden;
+  height: 50px;
+  min-width: 50px;
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 .two_lines {
-    height: fit-content;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limit the number of lines */
-    -webkit-box-orient: vertical;
-    white-space: normal;
-    font-weight: 600;   
+  height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit the number of lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  font-weight: 600;
 }
 
 .description {
-    height: fit-content;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit the number of lines */
-    -webkit-box-orient: vertical;
-    white-space: normal;
-    color: var(--gray);
+  height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit the number of lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  color: var(--gray);
 }
 
 .red_square {
-    height: 8px;
-    min-width: 8px;
-    background-color: var(--red);
-    margin-top: 4px;
+  height: 8px;
+  min-width: 8px;
+  background-color: var(--red);
+  margin-top: 4px;
 }
 
 .red_text {
-    color: var(--red);
+  color: var(--red);
 
-    height: fit-content;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit the number of lines */
-    -webkit-box-orient: vertical;
-    white-space: normal;
+  height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit the number of lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
 .blue_square {
-    height: 8px;
-    min-width: 8px;
-    background-color: var(--blue);
-    margin-top: 4px;
+  height: 8px;
+  min-width: 8px;
+  background-color: var(--blue);
+  margin-top: 4px;
 }
 
 .blue_text {
-    color: var(--blue);
-    height: fit-content;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit the number of lines */
-    -webkit-box-orient: vertical;
-    white-space: normal;
+  color: var(--blue);
+  height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit the number of lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }

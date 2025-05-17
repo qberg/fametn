@@ -1,0 +1,190 @@
+.contentRow {
+}
+
+.ctaMobileFlex {
+  display: none;
+}
+
+.contentFlex {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eventCol {
+  position: relative;
+  padding-right: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.eventCol::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background-color: var(--yellow);
+  z-index: -1;
+  border-radius: var(--small-radius);
+}
+
+.eventsFlex {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background-color: var(--almost-white);
+  border-radius: var(--small-radius);
+  overflow: hidden;
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  transition: border 0.3s ease;
+}
+
+.bookmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--yellow);
+  min-width: 6rem;
+  font-weight: 400;
+}
+
+.bookmarkDay {
+  font-size: 1.5rem;
+  line-height: 1rem;
+  color: var(--text-black);
+}
+
+.bookmarkMonth {
+  font-size: 0.875rem;
+  color: var(--text-gray);
+}
+
+.eventContent {
+  flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.eventContent a {
+  display: inline-flex;
+  width: fit-content;
+}
+
+.eventTitle {
+  color: var(--navy);
+  position: relative;
+  overflow: visible;
+}
+
+.eventTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0%;
+  background-color: var(--navy);
+  transition: width 0.3s ease;
+  z-index: 100;
+}
+
+.eventTitle:hover::after {
+  width: 100%;
+}
+
+.externalLinkIcon {
+  margin-left: 0.25rem;
+  display: inline-block;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.eventTitle:hover .externalLinkIcon {
+  animation: externalPulse 2s ease infinite;
+}
+
+@keyframes externalPulse {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(3px, -3px);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.eventSchedule {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+}
+
+.eventSchedule > * {
+  margin-right: 0.75rem;
+  margin-bottom: 0;
+}
+
+.eventMeta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 0.3rem;
+  color: var(--lightblue);
+}
+
+@media (max-width: 768px) {
+  .ctaMobileFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ctaDeskFlex {
+    display: none;
+  }
+
+  .eventCol {
+    padding: 1rem;
+  }
+
+  .eventCol::before {
+    border-radius: 0;
+    border-top-left-radius: var(--small-radius);
+    border-bottom-left-radius: var(--small-radius);
+    width: 85%;
+  }
+
+  /* Card */
+  .card {
+    min-height: 200px;
+  }
+}
