@@ -31,6 +31,13 @@
   width: 16px;
 }
 
+.tranAnim {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .traAnim {
+  transform: translateX(1px);
+}
 .cardDesc {
   max-width: 50ch;
 }

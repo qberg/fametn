@@ -8,14 +8,13 @@ import {
 import PartnersSection from "@/components/partners";
 import UpcomingEvents from "@/components/upcoming_events";
 import RecentBlogsGrid from "@/components/recentblogsgrid";
-import Newsletterform from "@/components/newsletterform";
 import { getAllAuditors } from "../../../utils/auditors";
 import Auditors from "@/components/auditors";
 import YellowSchemes from "@/components/yellow_schemes";
-import YellowResourcesBlock from "@/components/yellowresourcesblock";
 import ContentHero from "@/components/ui/content-hero";
 import ColorBlockCard from "../../../components/ui/color-block-card";
 import MinimalResourcesBlock from "../../../components/ui/minimal-resources-block";
+import MinimalSchemesBlock from "../../../components/ui/minimal-schemes-block";
 
 export default function EnergyEfficiency({
   data,
@@ -33,10 +32,11 @@ export default function EnergyEfficiency({
       />
       <ColorBlockCard {...data.section_2} />
       <Auditors data={auditors} />
-      <YellowSchemes
-        data={data.finance_schemes}
+
+      <MinimalSchemesBlock
         header={data.schemes_header}
         cta={data.schemes_cta}
+        schemes={data.finance_schemes}
       />
       <MinimalResourcesBlock {...data.resourcesblock} />
       <RecentBlogsGrid blogs={data.blogs} />

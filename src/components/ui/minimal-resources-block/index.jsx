@@ -30,8 +30,13 @@ const MinimalResourcesBlock = ({ title, resources }) => {
                   data-aos="fade-up"
                   data-aos-delay={index * 50}
                 >
-                  <h4 data-aos="fade-up">{attributes.title}</h4>
-                  <p className={styles.cardDesc} data-aos="fade-up">
+                  <h4 data-aos="fade-up" className={styles.traAnim}>
+                    {attributes.title}
+                  </h4>
+                  <p
+                    className={`${styles.cardDesc} ${styles.traAnim}`}
+                    data-aos="fade-up"
+                  >
                     {attributes.description}
                   </p>
                   {attachmentUrl && (
