@@ -1,0 +1,65 @@
+.ctaWrapper {
+  display: inline-flex;
+  background-color: var(--lightblue);
+  border-radius: var(--small-radius);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ctaWrapper:hover {
+  background-color: var(--lightblue-hover, #d8e8f0);
+}
+
+.ctaIcon {
+  margin-left: 0.5rem;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.ctaWrapper:hover .ctaIcon {
+  animation: downloadPulse 2s ease infinite;
+}
+
+.ctaWrapper a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ctaText {
+  transition:
+    transform 0.4s ease,
+    color 0.3s ease;
+}
+
+.ctaWrapper:hover .ctaText {
+  color: var(--navy);
+  transform: translateX(2px);
+}
+
+@keyframes downloadPulse {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(3px);
+    opacity: 0.8;
+    color: var(--navy);
+  }
+  60% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    color: var(--navy);
+  }
+}

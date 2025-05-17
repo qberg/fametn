@@ -7,6 +7,7 @@
   --palestyellow: #f9f4d0;
   --blue: #4e5ba6;
   --lightblue: #d0d9e5;
+  --lightblue-hover: #bcc7da;
   --black: #171717;
   --gray: #475467;
   --border-gray: #d0d5dd;
@@ -24,6 +25,7 @@
   --radius: 20px;
   --small-radius: 7px;
   --english-font: "Poppins", sans-serif;
+  --small-shadow: 0 6px 12px #1018281a, 0 3px 6px #1018280d;
   --tiny-shadow: 0 4px 8px #10182819, 0 2px 4px #1018280f;
   --smudge: 0 4px 16px #10182819;
   --transition: ease-in-out 0.3s;
@@ -319,6 +321,36 @@ a {
   margin-right: 0.5em;
   background-color: var(--yellow);
   vertical-align: middle;
+}
+
+.margin {
+  margin: 4rem 0rem;
+}
+
+@keyframes downloadPulse {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(3px);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .margin {
+    margin: 2rem 0rem;
+  }
 }
 
 /* container max width for screens above 992px */

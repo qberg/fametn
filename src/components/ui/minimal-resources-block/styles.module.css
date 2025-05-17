@@ -1,0 +1,51 @@
+.resRow {
+  padding-top: 1.5rem;
+}
+
+.card {
+  background-color: var(--almost-white);
+  box-shadow: var(--tiny-shadow);
+  border-radius: var(--small-radius);
+  padding: 1.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--small-shadow);
+}
+
+.card::after {
+  content: "";
+  background-color: var(--yellow);
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: width 0.2s ease;
+}
+
+.card:hover::after {
+  width: 16px;
+}
+
+.cardDesc {
+  max-width: 50ch;
+}
+
+.resCta {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem 1.75rem;
+  }
+  .resRow {
+    padding-top: 1rem;
+  }
+}
