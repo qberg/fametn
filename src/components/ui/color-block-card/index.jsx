@@ -51,7 +51,7 @@ const ColorBlockCard = ({
             className={styles.imageCol}
             data-aos="fade-up"
           >
-            <div className={styles.imageWrapper}>
+            <div className={styles.imageWrapper} data-aos="fade-right">
               <DynamicImage src={image} objectFit="cover" />
             </div>
           </Col>

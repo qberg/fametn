@@ -4,6 +4,9 @@ import YellowArrowButton from "../../yellow_arrow_button";
 import { Calendar, ExternalLink, MapPin } from "lucide-react";
 
 const MinimalEvents = ({ events, title, description }) => {
+  if (!events || events.length === 0) {
+    return null;
+  }
   return (
     <section className="margin">
       <Container>
@@ -40,8 +43,8 @@ const MinimalEvents = ({ events, title, description }) => {
 
           <Col
             xs={{ span: 12, order: 3 }}
-            md={0}
             className={styles.ctaMobileFlex}
+            data-aos="fade-up"
           >
             <YellowArrowButton text="View More" link="/events" />
           </Col>
