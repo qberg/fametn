@@ -125,6 +125,10 @@
     transition: all 0.3s ease;
   }
 
+  .menuItem:hover {
+    border-left: 4px solid var(--yellow);
+  }
+
   .ctaFlex {
     width: fit-content;
   }
