@@ -25,7 +25,7 @@ const NavigableHero = ({
         </div>
 
         <Row className={styles.cardRow}>
-          <Col xs={12} md={{ span: 9, offset: 1 }} className={styles.cardCol}>
+          <Col xs={12} md={{ span: 10, offset: 1 }} className={styles.cardCol}>
             <div className={styles.cardFlex} data-aos="fade-up">
               {/* Top part flex */}
               <div className={styles.cardInfo} data-aos="fade-up">

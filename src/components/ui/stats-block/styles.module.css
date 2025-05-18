@@ -1,5 +1,5 @@
 .statCol {
-  min-height: 260px;
+  min-height: 220px;
 }
 
 .statCard {
@@ -32,16 +32,16 @@
 }
 
 .statDesc {
-  color: var(--text-muted);
+  color: var(--text-lightgray);
 }
 
 .restText {
-  color: var(--text-muted);
+  color: var(--text-lightgray);
 }
 
 @media (max-width: 768px) {
   .statCol {
-    min-height: 180px;
+    min-height: 120px;
     padding: 0 2rem;
   }
   .narrativeCol {

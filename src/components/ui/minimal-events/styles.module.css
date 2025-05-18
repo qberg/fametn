@@ -173,14 +173,14 @@
   }
 
   .eventCol {
-    padding: 1rem;
+    padding: 3rem 1rem;
   }
 
   .eventCol::before {
     border-radius: 0;
     border-top-left-radius: var(--small-radius);
     border-bottom-left-radius: var(--small-radius);
-    width: 85%;
+    width: 50%;
   }
 
   /* Card */
