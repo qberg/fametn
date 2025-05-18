@@ -122,6 +122,7 @@
   .menuItem {
     border-left: 1px solid var(--border-gray);
     padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
   }
 
   .ctaFlex {

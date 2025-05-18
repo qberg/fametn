@@ -42,11 +42,11 @@ const NavigableHero = ({
 
                 {/*scroll links */}
                 {navSections.length > 0 && (
-                  <div data-aos="fade-up" className={styles.cardMenu}>
+                  <div className={styles.cardMenu}>
                     {navSections.map((item, index) => (
                       <div
                         data-aos="fade-up"
-                        data-aos-delay={50 * index}
+                        data-aos-delay={100 * index}
                         key={index}
                         className={styles.menuItem}
                       >
