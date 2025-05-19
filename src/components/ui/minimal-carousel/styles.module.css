@@ -1,0 +1,127 @@
+.section {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 58%;
+  background-color: var(--palestyellow);
+  z-index: -1;
+}
+
+.carRow {
+  margin-top: 2rem;
+  background-color: var(--almost-white);
+}
+
+.contentFlex {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.contentWrapper {
+  padding: 4rem 2rem;
+}
+
+.seperator {
+  width: 4rem;
+  background-color: var(--yellow);
+  height: 3px;
+  margin: 1rem 0;
+}
+
+.slideDescription {
+  max-width: 40ch;
+}
+
+.slideCta {
+  margin-top: 3.5rem;
+  display: inline-flex;
+}
+
+.ctaText {
+  color: var(--text-black);
+}
+
+.ctaArrow {
+  color: var(--yellow);
+  margin-left: 4px;
+  transition:
+    transform 0.2s ease,
+    scale 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.slideCta:hover .ctaArrow {
+  animation: linkPulse 2s ease infinite;
+}
+
+.imageWrapper {
+  padding: 2rem 0;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.9/1;
+  overflow: hidden;
+}
+
+.controlsFlex {
+  height: 100%;
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.round {
+  background-color: var(--border-gray);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  transition: color 0.3s ease;
+}
+
+.round:hover {
+  background-color: var(--paleyellow);
+}
+
+@keyframes linkPulse {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    scale: 1;
+  }
+  20% {
+    transform: translateX(2px);
+    opacity: 0.8;
+    scale: 1.05;
+  }
+
+  60% {
+    transform: translateX(0);
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    scale: 1;
+  }
+}

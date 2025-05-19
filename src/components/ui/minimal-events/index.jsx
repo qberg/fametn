@@ -8,8 +8,8 @@ const MinimalEvents = ({ events, title, description }) => {
     return null;
   }
   return (
-    <section className="margin">
-      <Container>
+    <section id="events" className={`${styles.section} margin`} data-aos="fade-right">
+      <Container data-aos="fade-up" data-aos-delay={50}>
         <Row className={styles.contentRow}>
           <Col
             xs={{ span: 12, order: 1 }}

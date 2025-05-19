@@ -9,16 +9,27 @@ import MinimalResourcesBlock from "../../../components/ui/minimal-resources-bloc
 import MinimalSchemesBlock from "../../../components/ui/minimal-schemes-block";
 import NavigableHero from "../../../components/navigable-hero";
 import StatsBlock from "../../../components/ui/stats-block";
+import MinimalCarousel from "../../../components/ui/minimal-carousel";
 
 export default function FoodProcessing({ data, headerFooter }) {
   return (
     <RootLayout seo={data.seo} data={headerFooter}>
       <NavigableHero {...data.hero} breadcrumps={data.breadcrumps} />
       <StatsBlock {...data.statsBlock} />
+      <MinimalCarousel {...data.whyTamilNadu} />
 
-      <section id="why-tamilnadu" className="margin">
-        Tamilnadu is here
-      </section>
+      <MinimalEvents
+        events={data.events.events.data.map((each) => each.attributes)}
+        title={data.events.title_2}
+        description={data.events.description_2}
+      />
+
+      <MinimalSchemesBlock
+        header={data.schemesHeader}
+        cta={data.schemesCta}
+        schemes={data.finance_schemes}
+      />
+      <MinimalResourcesBlock {...data.resourcesBlock} />
     </RootLayout>
   );
 }

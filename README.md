@@ -25,6 +25,10 @@ https://www.interpharma.ch/ueber-uns/interaktive-karte/?lang=en
 
 [] Tenders, also has nice accordions: https://www.swissuniversities.ch/en/topics/studying/accredited-swiss-higher-education-institutions-1
 
+[] News page: https://houseofswitzerland.org/events
+
+[] Sectors page carousel add smooth transition
+
 # The mighty misc
 
 https://www.infrastructure-solutions.swiss/en/our-team/
@@ -35,3 +39,5 @@ https://www.info.gouv.fr/
 https://verwaltung.bund.de/portal/EN/
 
 https://www.swiss-farmers.ch/seasonal-calendar/
+
+https://antistatique.net/

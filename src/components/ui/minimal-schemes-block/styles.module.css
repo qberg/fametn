@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: var(--paleyellow);
+  background-color: var(--light-gray);
   border-radius: var(--small-radius);
   overflow: hidden;
   padding: 4rem 0rem;
@@ -149,5 +149,22 @@
     transform: translateX(0);
     opacity: 1;
     scale: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    position: relative;
+    padding-bottom: 4rem;
+  }
+  .section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    width: 100%;
+    background-color: var(--palestyellow);
   }
 }

@@ -5,8 +5,15 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const MinimalSchemesBlock = ({ header, cta, schemes }) => {
+  if (!schemes || schemes.length === 0) {
+    return null;
+  }
   return (
-    <section className="margin">
+    <section
+      id="schemes"
+      className={`${styles.section} margin}`}
+      data-aos="fade-up"
+    >
       <Container>
         <div className={styles.wrapper} data-aos="fade-up">
           {header && (
