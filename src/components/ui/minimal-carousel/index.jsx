@@ -70,7 +70,7 @@ const MinimalCarousel = ({ sectionId, heading, slides }) => {
             className={styles.imageCol}
           >
             <div className={styles.imageWrapper}>
-              <div className={styles.image} data-aos="fade-left">
+              <div className={styles.image} data-aos="fade-up">
                 <DynamicImage src={currentSlide.image} objectFit="cover" />
               </div>
             </div>
@@ -88,7 +88,7 @@ const MinimalCarousel = ({ sectionId, heading, slides }) => {
                   role="button"
                   onClick={handlePrev}
                   aria-label="Previous Slide"
-                  data-aos="fade-left"
+                  data-aos="fade-up"
                   data-aos-delay={50}
                 >
                   <MoveLeft />
@@ -99,7 +99,7 @@ const MinimalCarousel = ({ sectionId, heading, slides }) => {
                   role="button"
                   onClick={handleNext}
                   aria-label="Next Slide"
-                  data-aos="fade-left"
+                  data-aos="fade-up"
                   data-aos-delay={100}
                 >
                   <MoveRight />
