@@ -125,3 +125,20 @@
     scale: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .carRow {
+    margin: 1rem;
+  }
+  .contentWrapper {
+    padding: 0;
+  }
+  .slideCta {
+    margin-top: 0.5rem;
+  }
+  .controlsFlex {
+    padding: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 0.75rem;
+  }
+}

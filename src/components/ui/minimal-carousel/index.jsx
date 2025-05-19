@@ -29,7 +29,11 @@ const MinimalCarousel = ({ sectionId, heading, slides }) => {
     <section id={sectionId} className={`${styles.section}`} data-aos="fade-up">
       <Container>
         <Row className={styles.carRow}>
-          <Col md={5} className={styles.contentCol}>
+          <Col
+            xs={{ span: 12, order: 2 }}
+            md={{ span: 5, order: 1 }}
+            className={styles.contentCol}
+          >
             <div className={styles.contentFlex}>
               <div className={styles.contentWrapper}>
                 <h3 className={styles.slideTitle} data-aos="fade-up">
@@ -60,7 +64,11 @@ const MinimalCarousel = ({ sectionId, heading, slides }) => {
             </div>
           </Col>
 
-          <Col md={5} className={styles.imageCol}>
+          <Col
+            xs={{ span: 12, order: 1 }}
+            md={{ span: 5, order: 2 }}
+            className={styles.imageCol}
+          >
             <div className={styles.imageWrapper}>
               <div className={styles.image} data-aos="fade-left">
                 <DynamicImage src={currentSlide.image} objectFit="cover" />
@@ -68,7 +76,11 @@ const MinimalCarousel = ({ sectionId, heading, slides }) => {
             </div>
           </Col>
 
-          <Col md={{ span: 2 }} className={styles.controlsCol}>
+          <Col
+            xs={{ span: 12, order: 3 }}
+            md={{ span: 2, order: 3 }}
+            className={styles.controlsCol}
+          >
             <div className={styles.controlsFlex}>
               <div className={styles.controls}>
                 <div
