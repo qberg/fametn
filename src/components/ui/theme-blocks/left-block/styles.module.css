@@ -1,0 +1,134 @@
+.leftBlockHeader {
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.title {
+  color: var(--yellow);
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.subText {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 120%;
+  color: white;
+  margin-bottom: 2rem; /* Reduced from 4rem to give more space to recommendations */
+}
+
+.leftBlockRecos {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent this from scrolling */
+  padding-right: 0.5rem;
+}
+
+.recoHeader {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 120%;
+  flex-shrink: 0;
+}
+
+.recoDesc {
+  margin-top: 1.5rem;
+  flex-shrink: 0;
+}
+
+.recosSection {
+  margin-top: 2rem; /* Reduced from 3rem */
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.recoText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 120%;
+  flex-shrink: 0; /* Prevent text from shrinking */
+  margin-bottom: 0.5rem;
+}
+
+.pagesRow {
+  margin-top: 1rem;
+  margin-right: 0; /* Remove right margin */
+  overflow-y: auto; /* This is what scrolls */
+  flex: 1; /* Take remaining space */
+  padding-right: 0.5rem; /* Space for scrollbar */
+}
+
+.pagesFlex {
+  border: 2px solid var(--border-gray);
+  border-radius: var(--small-radius);
+  padding: 1.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem; /* Add space between cards */
+}
+
+.pageThumbnail {
+  position: relative;
+  width: 6rem;
+  aspect-ratio: 1/1;
+}
+
+.pageTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 120%;
+  color: var(--yellow);
+}
+.pagesRow::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pagesRow::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--small-radius);
+}
+
+.pagesRow::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--small-radius);
+}
+
+.pagesRow::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.pageLink {
+  width: fit-content;
+}
+
+.pageLinkText {
+  color: white;
+}
+
+.pageLinkIcon {
+  margin-left: 0.25rem;
+  color: var(--yellow);
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 2.25rem;
+    line-height: 90%;
+    margin-bottom: 0.75rem;
+  }
+  .subText {
+    margin-bottom: 1.5rem;
+  }
+  .recoHeader {
+    font-size: 1.75rem;
+  }
+  .pagesRow {
+    height: auto;
+  }
+  .pagesCol {
+    padding-left: 1.5rem;
+  }
+}
