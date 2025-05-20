@@ -2,8 +2,10 @@ import { Col, Row } from "react-bootstrap";
 import styles from "./styles.module.css";
 import ThemesLeftBlock from "./left-block";
 import { useState, useEffect } from "react";
-import { Minus, MoveUpRight, Plus } from "lucide-react";
+import { Minus, MoveLeft, MoveUpRight, Plus } from "lucide-react";
 import useMeasure from "react-use-measure";
+import LanguageSelector from "../language-selector";
+import Link from "next/link";
 
 const AccordionItem = ({
   accordion,
@@ -119,12 +121,29 @@ const ThemeBlocks = ({ name, leftBlock, accordions }) => {
         {/* Left block */}
         <Col xs={12} md={5} className={styles.leftBlock}>
           <ThemesLeftBlock name={name} {...leftBlock} />
+
+          <div className={styles.leftBlockFooter}>
+            <Link href="/">
+              <div className={styles.footerBack}>
+                <span>
+                  <MoveLeft />
+                </span>
+                <span>Go Back</span>
+              </div>
+            </Link>
+
+            <Link href="/content-recommendations">
+              <div className={styles.footerAll}>All Themes</div>
+            </Link>
+          </div>
         </Col>
 
         {/* Right Block */}
         <Col xs={12} md={7} className={styles.rightBlock}>
           <div className={styles.headerFlex}>
-            <div>Language</div>
+            <div>
+              <LanguageSelector />
+            </div>
           </div>
 
           {accordions && accordions.length > 0 && (

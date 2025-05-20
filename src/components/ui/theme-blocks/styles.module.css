@@ -2,6 +2,7 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .themeRow {
@@ -11,12 +12,39 @@
 
 .leftBlock,
 .rightBlock {
+  position: relative;
   height: 100%;
   padding: 3.5rem;
   margin: 0 !important;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.leftBlockFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerBack,
+.footerAll {
+  display: inline-flex;
+  gap: 0.5rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footerBack:hover,
+.footerAll:hover {
+  background-color: var(--yellow);
+  color: black;
+  cursor: pointer;
 }
 
 .leftBlock {
@@ -28,25 +56,58 @@
   background-color: var(--almostWhite);
 }
 
-.accordionsFlex {
+/* Fixed accordion flex with styled scrollbar */
+.accordionFlex {
   position: relative;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* WebKit scrollbar styling (Chrome, Safari, newer Edge) */
+.accordionFlex::-webkit-scrollbar {
+  width: 6px;
+}
+
+.accordionFlex::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--small-radius);
+}
+
+.accordionFlex::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--small-radius);
+}
+
+.accordionFlex::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox scrollbar styling */
+.accordionFlex {
 }
 
 .headerFlex {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 4rem;
+  flex-shrink: 0;
 }
 
 .accordionsToggle {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 2rem;
+  flex-shrink: 0;
 }
 
 .accordionsToggleTrigger {
   display: inline-flex;
   position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .accordionsToggleTrigger::after {
@@ -57,6 +118,7 @@
   width: 100%;
   height: 2px;
   background-color: var(--yellow);
+  transition: width 0.2s ease;
 }
 
 .accordionsToggleTrigger:hover {
@@ -75,6 +137,12 @@
 .accTrigger {
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.accTrigger:hover {
+  opacity: 0.8;
 }
 
 .accContentWrapper {
@@ -91,6 +159,12 @@
 
 .accContent {
   padding-top: 2rem;
+}
+
+.accIcon {
+  display: flex;
+  align-items: center;
+  color: var(--navy);
 }
 
 .accListHeading {
@@ -137,12 +211,19 @@
   display: inline-flex;
   color: var(--navy);
   text-decoration: underline 4px var(--yellow);
+  transition: background-color 0.2s ease;
 }
 
 .accLinkText:hover {
   background-color: var(--yellow);
 }
 
+.accLinkIcon {
+  display: inline-flex;
+  margin-left: 0.25rem;
+}
+
+/* Responsive styles */
 @media (max-width: 767px) {
   .section,
   .themeRow {
@@ -162,7 +243,13 @@
   .accQuestion {
     max-width: 25ch;
   }
+
   .accordionFlex {
     margin-top: 1rem;
+    padding-right: 0rem;
+  }
+
+  .leftBlockFooter {
+    display: none;
   }
 }

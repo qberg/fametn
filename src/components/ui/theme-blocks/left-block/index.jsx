@@ -4,12 +4,26 @@ import { MoveRight } from "lucide-react";
 import { Col, Row } from "react-bootstrap";
 
 import styles from "./styles.module.css";
+import LanguageSelector from "../../language-selector";
+
+const MobileHeader = () => {
+  return (
+    <div className={styles.mobHeader}>
+      <Link href="/">
+        <div className={styles.title}>FaMe TN</div>
+      </Link>
+
+      <LanguageSelector variant="secondary" />
+    </div>
+  );
+};
 
 const ThemesLeftBlock = ({ name, description, recs }) => {
   return (
     <>
       <div className={styles.leftBlockHeader}>
-        <Link href="/">
+        <MobileHeader />
+        <Link href="/" className={styles.deskTitle}>
           <div className={styles.title}>FaMe TN</div>
         </Link>
 
@@ -28,7 +42,7 @@ const ThemesLeftBlock = ({ name, description, recs }) => {
             {recs &&
               recs.length > 0 &&
               recs.map((rec, index) => (
-                <Col key={index} xs={12} md={9} className={styles.pagesCol}>
+                <Col key={index} xs={12} md={10} className={styles.pagesCol}>
                   <PageCard {...rec} index={index} />
                 </Col>
               ))}

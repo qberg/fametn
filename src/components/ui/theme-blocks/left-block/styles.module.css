@@ -1,4 +1,5 @@
 .leftBlockHeader {
+  position: relative;
   flex-shrink: 0; /* Prevent header from shrinking */
 }
 
@@ -114,11 +115,17 @@
   color: var(--yellow);
 }
 
+.mobHeader {
+  display: none;
+}
+
 @media (max-width: 767px) {
+  .deskTitle {
+    display: none;
+  }
   .title {
     font-size: 2.25rem;
     line-height: 90%;
-    margin-bottom: 0.75rem;
   }
   .subText {
     margin-bottom: 1.5rem;
@@ -131,5 +138,19 @@
   }
   .pagesCol {
     padding-left: 1.5rem;
+  }
+
+  .mobHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0rem;
+    background-color: var(--navy);
+    width: 100%;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin-bottom: 1rem;
   }
 }
