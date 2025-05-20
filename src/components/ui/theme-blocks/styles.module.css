@@ -1,171 +1,168 @@
 .section {
-  height: 100vh; /* Using vh instead of svh for better compatibility */
+  height: 100vh;
   width: 100%;
-  overflow: hidden; /* Prevent overall page scrolling */
+  overflow: hidden;
 }
 
 .themeRow {
   height: 100%;
-  margin: 0; /* Remove any default margins */
+  margin: 0;
 }
 
-.leftBlock {
+.leftBlock,
+.rightBlock {
   height: 100%;
-  background-color: var(--navy);
-  color: white;
   padding: 3.5rem;
   margin: 0 !important;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevent this container from scrolling */
-}
-
-.leftBlockHeader {
-  flex-shrink: 0; /* Prevent header from shrinking */
-}
-
-.title {
-  color: var(--yellow);
-  font-weight: 600;
-  font-size: 2.5rem;
-}
-
-.subText {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 120%;
-  color: white;
-  margin-bottom: 2rem; /* Reduced from 4rem to give more space to recommendations */
-}
-
-.leftBlockRecos {
-  flex: 1; /* Take remaining space */
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; /* Prevent this from scrolling */
-  padding-right: 0.5rem;
-}
-
-.recoHeader {
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 120%;
-  flex-shrink: 0;
-}
-
-.recoDesc {
-  margin-top: 1.5rem;
-  flex-shrink: 0;
-}
-
-.recosSection {
-  margin-top: 2rem; /* Reduced from 3rem */
-  flex: 1; /* Take remaining space */
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
 }
 
-.recoText {
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 120%;
-  flex-shrink: 0; /* Prevent text from shrinking */
-  margin-bottom: 0.5rem;
-}
-
-.pagesRow {
-  margin-top: 1rem;
-  margin-right: 0; /* Remove right margin */
-  overflow-y: auto; /* This is what scrolls */
-  flex: 1; /* Take remaining space */
-  padding-right: 0.5rem; /* Space for scrollbar */
-}
-
-.pagesFlex {
-  border: 2px solid var(--border-gray);
-  border-radius: var(--small-radius);
-  padding: 1.75rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem; /* Add space between cards */
-}
-
-.pageThumbnail {
-  position: relative;
-  width: 6rem;
-  aspect-ratio: 1/1;
-}
-
-.pageTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  line-height: 120%;
-  color: var(--yellow);
-}
-.pagesRow::-webkit-scrollbar {
-  width: 6px;
-}
-
-.pagesRow::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: var(--small-radius);
-}
-
-.pagesRow::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: var(--small-radius);
-}
-
-.pagesRow::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.pageLink {
-  width: fit-content;
-}
-
-.pageLinkText {
+.leftBlock {
+  background-color: var(--navy);
   color: white;
-}
-
-.pageLinkIcon {
-  margin-left: 0.25rem;
-  color: var(--yellow);
-}
-
-@media (max-width: 767px) {
-  .section {
-    height: auto;
-  }
-  .themeRow {
-    height: auto;
-  }
-  .leftBlock {
-    height: auto;
-    padding: 1rem 2rem;
-  }
-  .title {
-    font-size: 2.25rem;
-    line-height: 90%;
-    margin-bottom: 0.75rem;
-  }
-  .subText {
-    margin-bottom: 1.5rem;
-  }
-  .recoHeader {
-    font-size: 1.75rem;
-  }
-  .pagesRow {
-    height: auto;
-  }
-  .pagesCol {
-    padding-left: 1.5rem;
-  }
 }
 
 .rightBlock {
-  height: 100%;
+  background-color: var(--almostWhite);
+}
+
+.accordionsFlex {
+  position: relative;
+}
+
+.headerFlex {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4rem;
+}
+
+.accordionsToggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.accordionsToggleTrigger {
+  display: inline-flex;
+  position: relative;
+}
+
+.accordionsToggleTrigger::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--yellow);
+}
+
+.accordionsToggleTrigger:hover {
+  background-color: var(--yellow);
+}
+
+.accordionsToggleTrigger:hover::after {
+  width: 0%;
+}
+
+.accWrapper {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-gray);
+}
+
+.accTrigger {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accContentWrapper {
+  height: 0;
   overflow: hidden;
+}
+
+.accQuestion {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 120%;
+  color: var(--text-black);
+}
+
+.accContent {
+  padding-top: 2rem;
+}
+
+.accListHeading {
+  margin: 2rem 0rem;
+  display: inline-flex;
+  position: relative;
+}
+
+.accListHeading::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--yellow);
+}
+
+.accListicles {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accListItem {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+.accListItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  height: 2px;
+  width: 20px;
+  background-color: var(--navy);
+}
+
+.accLinkText {
+  display: inline-flex;
+  color: var(--navy);
+  text-decoration: underline 4px var(--yellow);
+}
+
+.accLinkText:hover {
+  background-color: var(--yellow);
+}
+
+@media (max-width: 767px) {
+  .section,
+  .themeRow {
+    height: auto;
+  }
+
+  .leftBlock,
+  .rightBlock {
+    height: auto;
+    padding: 1rem 2rem;
+  }
+
+  .headerFlex {
+    display: none;
+  }
+
+  .accQuestion {
+    max-width: 25ch;
+  }
+  .accordionFlex {
+    margin-top: 1rem;
+  }
 }

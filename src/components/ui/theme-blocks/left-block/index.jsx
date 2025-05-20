@@ -25,11 +25,13 @@ const ThemesLeftBlock = ({ name, description, recs }) => {
           <div className={styles.recoText}>Recomennded for you</div>
 
           <Row className={styles.pagesRow}>
-            {recs.map((rec, index) => (
-              <Col key={index} xs={12} md={9} className={styles.pagesCol}>
-                <PageCard {...rec} index={index} />
-              </Col>
-            ))}
+            {recs &&
+              recs.length > 0 &&
+              recs.map((rec, index) => (
+                <Col key={index} xs={12} md={9} className={styles.pagesCol}>
+                  <PageCard {...rec} index={index} />
+                </Col>
+              ))}
           </Row>
         </div>
       </div>
