@@ -41,3 +41,6 @@ https://verwaltung.bund.de/portal/EN/
 https://www.swiss-farmers.ch/seasonal-calendar/
 
 https://antistatique.net/
+
+https://www.s-ge.com/en/invest/ecosystems/food#1a7f3ef1-c0a3-4c11-93d5-a9beedfc05a1
+https://www.make-it-in-germany.com/en/looking-for-foreign-professionals

@@ -1,19 +1,18 @@
-import RootLayout from "@/components/layout/layout";
-import { getDataFromPath, getHeaderFooterData } from "../../../utils/api_calls";
+import { getDataFromPath } from "../../../utils/api_calls";
 import { CacheHeaders } from "../../../utils/definitions";
+import { MinLayout } from "../../../components/layout/layout";
+import ThemeBlocks from "../../../components/ui/theme-blocks";
 
-export default function ThemePage({ theme, headerFooter }) {
+export default function ThemePage({ theme }) {
   const seoData = {
     seo_title: `${theme.name} - Content Recommendations`,
     seo_description: "Explore all relevant content",
   };
 
   return (
-    <RootLayout seo={seoData} data={headerFooter}>
-      <pre>{JSON.stringify(theme, null, 2)}</pre>
-      <pre>{JSON.stringify(theme, null, 2)}</pre>
-      <h1>{theme.name}</h1>
-    </RootLayout>
+    <MinLayout seo={seoData}>
+      <ThemeBlocks {...theme} />
+    </MinLayout>
   );
 }
 
@@ -28,12 +27,9 @@ export async function getServerSideProps(context) {
 
   const themeData = themeResponse?.data[0].attributes || {};
 
-  const headerFooter = await getHeaderFooterData(language);
-
   return {
     props: {
       theme: themeData,
-      headerFooter: headerFooter,
     },
   };
 }

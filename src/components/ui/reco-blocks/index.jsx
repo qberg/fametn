@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Logo from "../logo";
 
 const RecoBlocks = ({ title, themes, rightBlock }) => {
   return (
@@ -11,9 +12,17 @@ const RecoBlocks = ({ title, themes, rightBlock }) => {
           {/* Left Block */}
           <Col xs={12} md={6} className={styles.leftBlock}>
             <div className={styles.leftBlockHeader}>
-              <h2>{title}</h2>
+              <Link href="/">
+                <div className={styles.logo}>
+                  <Logo />
+                </div>
+              </Link>
 
-              <p>One stop answers to all your business queries</p>
+              <Link href="/">
+                <h1 className={styles.title}>{title}</h1>
+              </Link>
+
+              <p>Facilitating MSMEs Tamil Nadu</p>
             </div>
 
             <nav role="navigation" className={styles.leftBlockThemes}>
@@ -41,10 +50,6 @@ const RecoBlocks = ({ title, themes, rightBlock }) => {
           {/* Right Block */}
           <Col xs={12} md={6} className={styles.rightBlock}>
             <div className={styles.higlightsContainer}>
-              <Link href="/">
-                <h3 className={styles.hightlightsTitle}>{rightBlock.title}</h3>
-              </Link>
-
               <div className={styles.higlights}>
                 {rightBlock.highlights.map((highlight, index) => (
                   <h5 key={index} className={styles.highlightText}>

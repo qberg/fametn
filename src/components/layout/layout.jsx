@@ -1,18 +1,14 @@
-import { useState } from 'react';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
-import styles from './layout.module.css';
-import Seo from '../seo';
-import GoogleAnalytics from '../googleanalytics';
-import MicrosoftClarity from '../microsoft_clarity';
-import EvNavbar from '@/components/evnavbar';
-import EvFooter from '@/components/evfooter';
+import { useState } from "react";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import styles from "./layout.module.css";
+import Seo from "../seo";
+import GoogleAnalytics from "../googleanalytics";
+import MicrosoftClarity from "../microsoft_clarity";
+import EvNavbar from "@/components/evnavbar";
+import EvFooter from "@/components/evfooter";
 
-export default function RootLayout({
-  children,
-  data,
-  seo
-}) {
+export default function RootLayout({ children, data, seo }) {
   return (
     <>
       <Seo data={seo} />
@@ -25,12 +21,7 @@ export default function RootLayout({
   );
 }
 
-
-export function EvLayout({
-  children,
-  data,
-  seo
-}) {
+export function EvLayout({ children, data, seo }) {
   return (
     <>
       <Seo data={seo} />
@@ -43,3 +34,15 @@ export function EvLayout({
     </>
   );
 }
+
+export function MinLayout({ children, data, seo }) {
+  return (
+    <>
+      <Seo data={seo} />
+      <div className={styles.minfillVertical}>{children}</div>
+      <GoogleAnalytics />
+      <MicrosoftClarity />
+    </>
+  );
+}
+

@@ -65,11 +65,7 @@ export default function HomeHero({
               <span>{lastWord}</span>
             </h1>
             <div className="mt-4">
-              <div
-                data-aos="fade-up"
-                data-aos-delay={200}
-                className={styles.optionbox}
-              >
+              <div className={styles.optionbox}>
                 <div className="my-auto ms-4 position-relative">
                   <div className="small text-start">{option_header}</div>
                   <div
@@ -154,4 +150,3 @@ export default function HomeHero({
     </Container>
   );
 }
-

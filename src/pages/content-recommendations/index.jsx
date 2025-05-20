@@ -1,17 +1,17 @@
-import RootLayout from "../../components/layout/layout";
+import RootLayout, { MinLayout } from "../../components/layout/layout";
 import RecoBlocks from "../../components/ui/reco-blocks";
 import { getDataFromPath, getHeaderFooterData } from "../../utils/api_calls";
 import { CacheHeaders } from "../../utils/definitions";
 
-export default function ContentRecoPage({ data, themes, headerFooter }) {
+export default function ContentRecoPage({ data, themes }) {
   return (
-    <RootLayout seo={data.seo} data={headerFooter}>
+    <MinLayout seo={data.seo}>
       <RecoBlocks
         title={data.leftBlock.Title}
         themes={themes}
         rightBlock={data.rightBlock}
       />
-    </RootLayout>
+    </MinLayout>
   );
 }
 
